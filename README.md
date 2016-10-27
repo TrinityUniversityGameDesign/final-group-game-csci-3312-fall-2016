@@ -1,9 +1,7 @@
-# final-group-game-csci-3312-fall-2016
-final-group-game-csci-3312-fall-2016 created by GitHub Classroom
+# Final Group Game for CSCI 3312 - Fall 2016
 
-Gameplay Philosophy
-* The game will be a series of three randomly selected stages (from a pool of many possible stages) where up to 4 players compete with each other to win the stage. This is followed by a special 4th stage where the winner of the introductory stages competes against the other players to win a final stage (and all the glory). 
-* Each initial stage should be a single-screen experience and should enable up to 4 simultaneous players. These stages should allow as few as 2 players.
-..* If there are fewer than 4 players, should there should be AI players to bring the total up to 4, or should the game still work with 2 or 3 players?
-* Score information (or at least "win/loss" information should be retained between stages.
+This is the GitHub repository for our collective group game. We are creating a multiplayer local competitive game inspired by game shows such as Legends of the Hidden Temple.
 
+Please use our [slack channel](https://tugamedevfall2016.slack.com) for inter- and intra- team communication.
+
+Please use this GitHub project's [wiki pages](https://github.com/TrinityUniversityGameDesign/final-group-game-csci-3312-fall-2016/wiki/Game-Dev-Wiki) to store all game documentation, including descriptions of scripts/components, prefabs, and scenes.
