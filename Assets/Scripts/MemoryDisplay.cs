@@ -37,4 +37,20 @@ public class MemoryDisplay : MonoBehaviour {
 		}
 	}
 
+    List<int> compareInputs(List<Buttons> playerInput, List<Buttons> correctInput)
+    {
+        int counter = 0;
+        List<int> wrongInput = new List<int>(4);
+        IEnumerator<Buttons> correctEnum = correctInput.GetEnumerator();
+        IEnumerator<Buttons> playerEnum = playerInput.GetEnumerator();
+        
+        while (correctEnum.MoveNext())
+        {
+            playerEnum.MoveNext();
+            if (correctEnum.Current != playerEnum.Current) { wrongInput.Add(counter); }
+            ++counter;
+        }
+        return wrongInput;
+    }
+
 }
