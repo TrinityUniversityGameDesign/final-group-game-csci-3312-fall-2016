@@ -27,6 +27,4 @@ public class MemoryDisplay : MonoBehaviour {
         x += 1;
     }
 
-	List<Buttons> generateInputs(
-
 }
