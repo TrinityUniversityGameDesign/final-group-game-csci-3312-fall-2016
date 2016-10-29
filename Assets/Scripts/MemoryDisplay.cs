@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class MemoryDisplay : MonoBehaviour {
 
+	public enum playerStates {A,B,X,Y};
+
     public Text RandomInputText;
     int x = 0;
 	// Use this for initialization
