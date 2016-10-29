@@ -104,12 +104,12 @@ public class PlayerScript : MonoBehaviour {
 
 
 
-	public List<MemoryDisplay.Buttons> InputList;
+	public List<Buttons> InputList;
 	// Use this for initialization
 
 	void Awake(){
 		iC = new PlayerInput ();
-		InputList = new List<MemoryDisplay.Buttons> ();
+		InputList = new List<Buttons> ();
 	}
 
 	void Start () {
@@ -139,16 +139,16 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
 		
 		if (Input.GetButtonDown (iC.ABut)) {
-			InputList.Add (MemoryDisplay.Buttons.A);
+			InputList.Add (Buttons.A);
 		}
 		if (Input.GetButtonDown (iC.BBut)) {
-			InputList.Add (MemoryDisplay.Buttons.B);
+			InputList.Add (Buttons.B);
 		}
 		if (Input.GetButtonDown (iC.YBut)) {
-			InputList.Add (MemoryDisplay.Buttons.Y);
+			InputList.Add (Buttons.Y);
 		}
 		if (Input.GetButtonDown (iC.XBut)) {
-			InputList.Add (MemoryDisplay.Buttons.X);
+			InputList.Add (Buttons.X);
 		}
 
 
