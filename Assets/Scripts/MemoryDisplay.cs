@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MemoryDisplay : MonoBehaviour {
 
 	public enum Buttons {A,B,X,Y}; // buttons that can be recognized
-	List<Buttons> InputList; // list of inputs that will be memorized by player
+	List<Buttons> InputList; // list of inputs that will be memorized by player *remember to clear after every round
 	private int Round = 0; // records how many 'rounds' have occured during the game
 
     public Text RandomInputText;
@@ -28,7 +28,9 @@ public class MemoryDisplay : MonoBehaviour {
     }
 
 	void generateRandomInputs(int roundNumber) {
-
+		for (int i = 0; i < roundNumber; i++) {
+			InputList.push_back((Buttons)Random.Range (0, 3));
+		}
 	}
 
 }
