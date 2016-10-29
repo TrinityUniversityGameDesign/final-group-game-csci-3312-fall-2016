@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class MemoryDisplay : MonoBehaviour {
@@ -26,5 +26,9 @@ public class MemoryDisplay : MonoBehaviour {
     {
         x += 1;
     }
+
+	void generateRandomInputs(int roundNumber) {
+
+	}
 
 }
