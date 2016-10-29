@@ -17,19 +17,23 @@ public class MemoryDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        RandomInputText.text = x.ToString();
-        timeToDisplay();
-	}
 
-    void timeToDisplay()
+        //StartCoroutine(timeToDisplay(x.ToString(), 2f));
+    }
+
+    //call timeToDisplay upon round start
+    IEnumerator<WaitForSeconds> timeToDisplay(string message, float delay)
     {
+        RandomInputText.text = message;
+        RandomInputText.enabled = true;
+        yield return new WaitForSeconds(delay);
+        RandomInputText.enabled = false;
         x += 1;
     }
 
-	void generateRandomInputs(int roundNumber) {
+    void generateRandomInputs(int roundNumber) {
 		for (int i = 0; i < roundNumber; i++) {
-			InputList.push_back((Buttons)Random.Range (0, 3));
+			InputList.Add((Buttons)Random.Range (0, 3));
 		}
 	}
 
