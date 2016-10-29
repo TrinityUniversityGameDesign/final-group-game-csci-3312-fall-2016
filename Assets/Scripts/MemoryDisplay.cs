@@ -7,7 +7,7 @@ public enum Buttons { A, B, X, Y }; // buttons that can be recognized
 public class MemoryDisplay : MonoBehaviour {
 
 	
-	List<Buttons> InputList; // list of inputs that will be memorized by player *remember to clear after every round
+	List<Buttons> InputList = new List<Buttons>(); // list of inputs that will be memorized by player *remember to clear after every round
 	public int Round = 0; // records how many 'rounds' have occured during the game
     float displayTime = 2f;
 
@@ -20,7 +20,7 @@ public class MemoryDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        RandomInputText = GetComponent<Text>();
         //StartCoroutine(timeToDisplay(x.ToString(), 2f));
     }
 
