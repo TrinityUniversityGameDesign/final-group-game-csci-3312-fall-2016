@@ -6,8 +6,10 @@ public class PlayerMovement : MonoBehaviour {
     public float speedCap = 0.89f;
     public string horizontalCtrl = "Horizontal_P1";
     public string verticalCtrl = "Vertical_P1";
+    private bool dead = false;
 
     //private Vector3 startPos;
+    //guys we need to add 2 more players
 
     private Rigidbody2D theRigidBody;
     
@@ -17,16 +19,30 @@ public class PlayerMovement : MonoBehaviour {
         //startPos = transform.position;
 	}
 	
+    void OnTriggerExit2D(Collider2D other)
+    {
+        dead = true;
+    }
+
 	// Update is called once per frame
 	void Update () {
         float inputX = Input.GetAxis(horizontalCtrl);
         float inputY = Input.GetAxis(verticalCtrl);
 
-        theRigidBody.AddForce(new Vector2(inputX * moveSpeed, inputY * moveSpeed));
-        if(theRigidBody.velocity.magnitude > speedCap)
+        if (dead)
         {
-            theRigidBody.velocity.Normalize();
-            theRigidBody.velocity = theRigidBody.velocity * speedCap; 
+            //blah blah make player shrink and fall off, reset game, that shit.
+            theRigidBody.velocity = new Vector2(0, 0);
+            //dead = false;
+        }
+        else
+        {
+            theRigidBody.AddForce(new Vector2(inputX * moveSpeed, inputY * moveSpeed));
+            if (theRigidBody.velocity.magnitude > speedCap)
+            {
+                theRigidBody.velocity.Normalize();
+                theRigidBody.velocity = theRigidBody.velocity * speedCap;
+            }
         }
     }
 }
