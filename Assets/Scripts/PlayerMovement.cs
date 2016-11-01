@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
     public float moveSpeed = 15f;
     public float speedCap = 0.89f;
-    public string horizontalCtrl = "Horizontal_P1";
-    public string verticalCtrl = "Vertical_P1";
+    public string playerNo = "";
+    private string horizontalCtrl = "Horizontal_P";
+    private string verticalCtrl = "Vertical_P";
     private bool dead = false;
 
     //private Vector3 startPos;
@@ -16,6 +18,9 @@ public class PlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         theRigidBody = GetComponent<Rigidbody2D>();
+        horizontalCtrl += playerNo;
+        verticalCtrl += playerNo;
+        Debug.Log(horizontalCtrl + " " + verticalCtrl);
         //startPos = transform.position;
 	}
 	
@@ -28,6 +33,9 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
         float inputX = Input.GetAxis(horizontalCtrl);
         float inputY = Input.GetAxis(verticalCtrl);
+
+        if (Input.GetKeyDown("r"))
+            SceneManager.LoadScene("Balls");
 
         if (dead)
         {
