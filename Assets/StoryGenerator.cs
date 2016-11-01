@@ -29,6 +29,19 @@ public class StoryGenerator : MonoBehaviour {
         }
     } 
 
+    class Relic
+    {
+        public string adjective;
+        public string item;
+        public string owner;
+        public Relic(string adj, string it, string own)
+        {
+            adjective = adj;
+            item = it;
+            owner = own;
+        }
+    }
+
     /* The branching story:
      * Advanture can lead to being: (generate_opening)
      *     cursed, which leads to: (generate_cursed).
@@ -44,16 +57,16 @@ public class StoryGenerator : MonoBehaviour {
     // Eventually need to move out of here into a file as a template (do I?).
     // The things in {} can be swapped out for similar words. 
     // When making it, have it so corresponding words still appear, etc.
-    string generate_opening(MainCharacter mc)
+    string generate_opening(MainCharacter mc, Relic rel)
     {
 
         string s = "The great " + mc.adjective + " " + mc.occupation + " " +  mc.name +  " was noted for discovering the " + mc.history;
-        s += " However, " + mc.his + " forgotten discovery was the discovery of the {pubescent} {medalion} of {Amadusos}, which " + mc.he + " found after {winning} at the {Great} {Games} {at Osismosos}.";
+        s += " However, " + mc.his + " forgotten discovery was the discovery of the {pubescent} {medalion} of {Amadusos}. ";
         s += "This is not the tale of that discovery, but of what befell " + mc.him + " after... ";
         return s;
     }
 
-    string generate_cursed(MainCharacter mc)
+    string generate_cursed(MainCharacter mc, Relic rel)
     {
         string s = "However, there were {terrible} tales told of that {pubescent} {medalion}. Tales of a {horrible} {curse}, which befalls any who are near that {pubescent} item.";
         s += "The stories told of being {burned alive} and being {gutted like a pig}, and {several} spoke of being {eternally ostricized by everyone who had pretended to love} you. ";
@@ -63,7 +76,7 @@ public class StoryGenerator : MonoBehaviour {
     }
 
 
-    string generate_old(MainCharacter mc) {
+    string generate_old(MainCharacter mc, Relic rel) {
     
         string s = "Realizing the gravity of " + mc.his + " {doom}, the " + mc.adjective + " " + mc.occupation + " abandoned the {medalion}.";
         s += mc.name + " {prayed} that whatever {demonic} {gods} which {cursed} {Amadusos}'s {pubescent}";
@@ -72,7 +85,7 @@ public class StoryGenerator : MonoBehaviour {
         return s;
     }
 
-    string generate_horrible(MainCharacter mc)
+    string generate_horrible(MainCharacter mc, Relic rel)
     {
         string s = "Tragically, like it was too late for the crew, it was too late for that " + mc.adjective + " " +  mc.name + " , even after " + mc.he + " had abandoned the {medalion}.";
         s += "The famous " + mc.occupation + " was {cursed} by a fate more horrible than any of the fates spoken of in the tales.";
@@ -80,14 +93,14 @@ public class StoryGenerator : MonoBehaviour {
         return s;
     }
 
-    string generate_abandoned()
+    string generate_abandoned(Relic rel)
     {
         string s = "The {pubescent} {medalion} was left in {the title of the game}, in a truly desperate attempt to prevent the {curse}. It remains there to this day. ";
         return s;
     }
 
 
-    string generate_scorned(MainCharacter mc)
+    string generate_scorned(MainCharacter mc, Relic rel)
     {
         string s = "The {medalion} was valued at many {millions} of dollars, enough for each of the crew of {15} to live rich, for the rest of their lives." +  mc.name + " ";
         s += "was a cruel leader, causing the crew to dislike " + mc.him + " greatly. The crew felt scorned by the " + mc.adjective + " " + mc.occupation;
@@ -96,7 +109,7 @@ public class StoryGenerator : MonoBehaviour {
         return s;
     }
 
-    string generate_killed(MainCharacter mc)
+    string generate_killed(MainCharacter mc, Relic rel)
     {
         string s = "Of all of the crew, only " + mc.his + " trusty " + mc.servant + " defended" +  mc.him + ", citing " + mc.his + " {generosiy} despite how " + mc.he + "{beat them} {visciously}.";
         s += "Each of the crew came up with a terrible fate for the {explorer}. One suggested " + mc.he + " be {fed to wild dogs}. Another that " + mc.he + " be {decapitated}.";
@@ -105,7 +118,7 @@ public class StoryGenerator : MonoBehaviour {
         return s;
     }
 
-    string generate_stranded(MainCharacter mc)
+    string generate_stranded(MainCharacter mc, Relic rel)
     {
         string s = "The crew pondered " +  mc.his + " fate. " + mc.name + "'s long trusted " +  mc.name + " argued passionately that " + mc.he + " be killed, citing years of abuse. The others ";
         s += "had only seen the kind side of the " + mc.occupation + ", and noted that, though {harsh}, was always {fair}. They decided that although " + mc.name + " did not deserve the treasure which ";
@@ -115,7 +128,7 @@ public class StoryGenerator : MonoBehaviour {
         return s;
     }
     // Below here the character stuff isn't done.
-    string generate_lost(MainCharacter mc)
+    string generate_lost(MainCharacter mc, Relic rel)
     {
         string s = "Much like how the crew turned on " +  mc.name  + ", they turned on each other. " +  mc.name + "'s trusted " + mc.servant + " was the first of the crew to be killed by";
         s += " the others. Each crew died one by one, as they each betrayed eachother. The final crew member {starved} to death. The {medalion} was lost in the {sands of the desert Calypso} near ";
@@ -138,6 +151,12 @@ public class StoryGenerator : MonoBehaviour {
         // The history needs to be autogenerated too.
         return new MainCharacter("absurdist", "explorer", "Schwifty Von Amrack", build_history(), "his",
                                  "he", "him", build_servant(), "chess session");
+
+    }
+
+    Relic build_relic()
+    {
+        return new Relic("pubescent", "medalion", "Amaduso");
 
     }
 
