@@ -5,10 +5,10 @@ public class flash : MonoBehaviour {
 
     // Use this for initialization
     public GameObject enemy;
-    public Light lightSource;
+    private Light lightSource;
 	void Start () {
         lightSource = enemy.GetComponent<Light>();
-        
+        lightSource.intensity = 0;
 
     }
 	
@@ -25,7 +25,7 @@ public class flash : MonoBehaviour {
 
     private void FlashMap()
     {
-       
+        lightSource.intensity = 8;
         StartCoroutine(ExecuteAfterTime(0.2f));  
 
     }
@@ -33,7 +33,8 @@ public class flash : MonoBehaviour {
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
+        lightSource.intensity = 0;
 
-       
+
     }
 }
