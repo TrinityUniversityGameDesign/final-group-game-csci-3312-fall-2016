@@ -26,6 +26,8 @@ public class JacketOutlineScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//find player object
+
+		//-----------------
 		circleObject = Resources.Load ("Prefabs/Circle") as GameObject;
 		circleList = new List<GameObject>();
 		DrawCircle ();
@@ -57,7 +59,7 @@ public class JacketOutlineScript : MonoBehaviour {
 		{
 			posX = Mathf.Sin(Mathf.Deg2Rad*angle)*radius;
 			posY = Mathf.Cos(Mathf.Deg2Rad*angle)*radius;
-			circleList [i].transform.position = new Vector3(posX + playerPosX, posY + playerPosY, posZ + playerPosZ);
+			circleList [i].transform.position = new Vector3(posX + transform.position.x, posY + transform.position.y, posZ + transform.position.z);
 
 			angle += anglePerPiece;
 		}
@@ -65,16 +67,15 @@ public class JacketOutlineScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//get Radius from Player
 		ChangeDotPositions();
 		DrawCircle ();
 	}
 
+	//get Radius and position from Player
 	void ChangeDotPositions(){
-		//get player location
-		//playerX, playerY, playerZ = player position
 
 		//get air level
 		//radius = air level
+		//-----------------
 	}
 }
