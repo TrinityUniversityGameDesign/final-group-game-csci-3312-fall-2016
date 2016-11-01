@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour {
         {
             //blah blah make player shrink and fall off, reset game, that shit.
             theRigidBody.velocity = new Vector2(0, 0);
+            if (transform.localScale.x >= 0)
+                transform.localScale -= new Vector3(0.02f,0.02f,0f);
             //dead = false;
         }
         else
