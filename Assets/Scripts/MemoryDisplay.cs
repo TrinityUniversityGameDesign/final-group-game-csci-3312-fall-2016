@@ -14,25 +14,41 @@ public class MemoryDisplay : MonoBehaviour {
     float displayTime = 2f;
 	public GameObject player1 = null;
 
+	public Object aButton;
+	public Object bButton;
+	public Object yButton;
+	public Object xButton;
+
+	public Vector3 curButtonPos;
+
     public Text RandomInputText;
 	public Text OutputText;
 
     int x = 0; // temp display number
 	// Use this for initialization
 	void Start () {
+		curButtonPos = new Vector3 (-7, 0, 0);
+		aButton =  Resources.Load("Prefabs/aButton");
+		bButton =  Resources.Load("Prefabs/bButton");
+		xButton =  Resources.Load("Prefabs/xButton");
+		yButton =  Resources.Load("Prefabs/yButton");
         getRandomInputs();
 		player1 = GameObject.FindGameObjectWithTag ("Player1");
+
     }
 	
 	// Update is called once per frame
 	void Update () {
         RandomInputText = GetComponent<Text>();
 		OutputText = GameObject.Find ("PlayerText").GetComponent<Text>();
-		PlayerList = player1.GetComponent<PlayerScript> ().InputList;
-		if (PlayerList.Count >= Round) {
-			ReturnList = compareInputs (PlayerList, InputList);
+		if (player1) {
+			PlayerList = player1.GetComponent<PlayerScript> ().InputList;
+			if (PlayerList.Count >= Round) {
+				ReturnList = compareInputs (PlayerList, InputList);
+			}
+			printOutputs (ReturnList);
 		}
-		printOutputs (ReturnList);
+
         //StartCoroutine(timeToDisplay(x.ToString(), 2f));
     }
 
@@ -59,7 +75,7 @@ public class MemoryDisplay : MonoBehaviour {
 
     //gets inputs from generateRandomInputs
     //compares inputs to create message and call timeToDisplay
-    void getRandomInputs()
+	void getRandomInputs()
     {
         string message = "";
 
@@ -68,22 +84,34 @@ public class MemoryDisplay : MonoBehaviour {
         for (int i = 0; i < InputList.Count; i++)
         {
             Buttons tmp = InputList[i];
+			GameObject instance = null; 
+
 
             switch (tmp)
             {
-                case Buttons.A:
+			case Buttons.A:
+					instance = (GameObject)Instantiate (aButton);
                     message += "A ";
                     break;
-                case Buttons.B:
+            case Buttons.B:
+					instance =	(GameObject)Instantiate (bButton);
                     message += "B ";
                     break;
-                case Buttons.X:
+            case Buttons.X:
+					instance =	(GameObject)Instantiate (xButton);
                     message += "X ";
                     break;
-                case Buttons.Y:
+            case Buttons.Y:
+					instance =	(GameObject)Instantiate (yButton);
                     message += "Y ";
                     break;
             }
+			if (instance) {
+				instance.transform.position = curButtonPos;
+				curButtonPos = new Vector3 (curButtonPos.x + 1, curButtonPos.y, curButtonPos.z); 
+			}
+
+
         }
 
         //for(int i = 0; i < InputList.Count; i++)
