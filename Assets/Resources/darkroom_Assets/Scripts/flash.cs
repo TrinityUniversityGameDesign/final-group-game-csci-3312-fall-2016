@@ -4,12 +4,12 @@ using System.Collections;
 public class flash : MonoBehaviour {
 
     // Use this for initialization
-    public GameObject[] rooms;
+    public GameObject enemy;
+    public Light lightSource;
 	void Start () {
-        foreach (GameObject room in rooms)
-        {
-            room.SetActive(false);
-        }
+        lightSource = enemy.GetComponent<Light>();
+        
+
     }
 	
 	// Update is called once per frame
@@ -25,10 +25,7 @@ public class flash : MonoBehaviour {
 
     private void FlashMap()
     {
-        foreach (GameObject room in rooms)
-        {
-            room.SetActive(true);
-        }
+       
         StartCoroutine(ExecuteAfterTime(0.2f));  
 
     }
@@ -37,9 +34,6 @@ public class flash : MonoBehaviour {
     {
         yield return new WaitForSeconds(time);
 
-       foreach(GameObject room in rooms)
-        {
-            room.SetActive(false);
-        }
+       
     }
 }
