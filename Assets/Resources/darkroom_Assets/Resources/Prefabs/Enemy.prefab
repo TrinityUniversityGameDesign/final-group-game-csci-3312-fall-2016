@@ -23,6 +23,8 @@ GameObject:
   - 95: {fileID: 95000013363429628}
   - 108: {fileID: 108000013779666372}
   - 114: {fileID: 114000011710895740}
+  - 50: {fileID: 50000010671307408}
+  - 114: {fileID: 114000010402009362}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -43,6 +45,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000010671307408
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012313625682}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!95 &95000013363429628
 Animator:
   serializedVersion: 3
@@ -94,6 +113,19 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114000010402009362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012313625682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46c2620301eb418aa133e7d9182804e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.05
+  player: {fileID: 0}
 --- !u!114 &114000011710895740
 MonoBehaviour:
   m_ObjectHideFlags: 1

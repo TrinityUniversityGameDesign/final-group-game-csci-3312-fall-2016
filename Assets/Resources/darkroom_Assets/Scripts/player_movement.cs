@@ -4,16 +4,15 @@ using System.Collections;
 public class player_movement : MonoBehaviour {
 	public float speed = .05f;
 	private Rigidbody2D rigid_body;
-	GameObject player;
+	public GameObject player;
 	Vector3 player_pos;
 
 
 
 	// Use this for initialization
 	void Start () {
-		rigid_body = GetComponent<Rigidbody2D>();
-		player = GameObject.Find ("green_square");
-		Vector3 player_pos = player.transform.position;
+		rigid_body = GetComponent<Rigidbody2D>();		
+		Vector3 player_pos = player.transform.position; 
 
 	}
 
