@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerPanelScript : MonoBehaviour {
 	public string playerName;
+	GameObject player;
 
 	int idolPieces;
 	bool isDead;
@@ -14,6 +15,8 @@ public class PlayerPanelScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		player = GameObject.Find (playerName) as GameObject;
+
 		dumpPosition = new Vector3(1000,1000,1000);
 		idolPieces = 0;
 		isDead = false;
@@ -22,7 +25,6 @@ public class PlayerPanelScript : MonoBehaviour {
 		skull = transform.Find ("Skull").gameObject;
 		skullStartPos = skull.transform.position;
 		skull.transform.position = dumpPosition;
-
 	}
 	
 	// Update is called once per frame

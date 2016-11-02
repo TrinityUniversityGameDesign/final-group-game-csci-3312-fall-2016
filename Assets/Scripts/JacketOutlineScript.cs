@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class JacketOutlineScript : MonoBehaviour {
+	int direction = 1;
+
+	public Color dotsColor;
+
+	public string playerName;
 	GameObject playerObject;
 
 	GameObject circleObject;
@@ -18,8 +23,6 @@ public class JacketOutlineScript : MonoBehaviour {
 	//radius for the circle
 	public float radius;
 
-	public string playerName;
-
 	//dots per radius
 	public int dotsPerRadius;
 
@@ -29,6 +32,8 @@ public class JacketOutlineScript : MonoBehaviour {
 
 		//-----------------
 		circleObject = Resources.Load ("Prefabs/Circle") as GameObject;
+
+		circleObject.GetComponent<SpriteRenderer> ().color = dotsColor;
 		circleList = new List<GameObject>();
 		DrawCircle ();
 	}
@@ -37,9 +42,13 @@ public class JacketOutlineScript : MonoBehaviour {
 	{
 		pieces = (int)(radius*dotsPerRadius);
 
+		//find player
+		playerObject = GameObject.Find(playerName) as GameObject;
+
 		//remove excess circles if pieces goes down
 		while (circleList.Count > pieces) {
 			Destroy(circleList[0]);
+			circleList.RemoveAt (0);
 		}
 
 		//add new circles if pieces goes up
@@ -52,7 +61,7 @@ public class JacketOutlineScript : MonoBehaviour {
 		float posY = 0f;
 		float posZ = 0f;
 
-		float angle = 50.0f;
+		float angle = 0f;
 		float anglePerPiece = (360.0f / pieces);
 
 		for (int i = 0; i < pieces; i++)
@@ -69,6 +78,14 @@ public class JacketOutlineScript : MonoBehaviour {
 	void Update () {
 		ChangeDotPositions();
 		DrawCircle ();
+
+		if (radius > 5) {
+			direction = -1;
+		}if (radius < 1) {
+			direction = 1;
+		}
+
+		radius += .01f * direction;
 	}
 
 	//get Radius and position from Player
