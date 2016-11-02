@@ -10,9 +10,10 @@ public class player_movement : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Start () {        
 		rigid_body = GetComponent<Rigidbody2D>();		
-		Vector3 player_pos = player.transform.position; 
+		player_pos = player.transform.position;  
+        
 
 	}
 
@@ -20,7 +21,7 @@ public class player_movement : MonoBehaviour {
 	void Update () {
 		float translation_X = Input.GetAxis ("Horizontal") * speed;
 		float translation_Y = Input.GetAxis ("Vertical") * speed;
-		rigid_body.transform.position = new Vector2 (player_pos.x + translation_X, player_pos.y + translation_Y);
+		rigid_body.transform.position = new Vector3 (player_pos.x + translation_X, player_pos.y + translation_Y, player_pos.z);
 		player_pos = player.transform.position;
 
 	}
