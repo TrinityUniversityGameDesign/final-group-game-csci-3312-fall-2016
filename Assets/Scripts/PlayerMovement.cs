@@ -10,18 +10,12 @@ public class PlayerMovement : MonoBehaviour {
     private string verticalCtrl = "Vertical_P";
     private bool dead = false;
 
-    //private Vector3 startPos;
-    //guys we need to add 2 more players
-
     private Rigidbody2D theRigidBody;
     
-	// Use this for initialization
 	void Start () {
         theRigidBody = GetComponent<Rigidbody2D>();
         horizontalCtrl += playerNo;
         verticalCtrl += playerNo;
-        Debug.Log(horizontalCtrl + " " + verticalCtrl);
-        //startPos = transform.position;
 	}
 	
     void OnTriggerExit2D(Collider2D other)
@@ -39,11 +33,14 @@ public class PlayerMovement : MonoBehaviour {
 
         if (dead)
         {
-            //blah blah make player shrink and fall off, reset game, that shit.
             theRigidBody.velocity = new Vector2(0, 0);
+            //shrinks player until it is almost invisible then removes the player
             if (transform.localScale.x >= 0)
-                transform.localScale -= new Vector3(0.02f,0.02f,0f);
-            //dead = false;
+                transform.localScale -= new Vector3(0.02f, 0.02f, 0f);
+            else {
+                gameObject.SetActive(false);
+                UIManager.alivePlayers -= 1;
+            }
         }
         else
         {
