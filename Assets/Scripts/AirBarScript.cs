@@ -10,6 +10,7 @@ public class AirBarScript : MonoBehaviour {
 	GameObject playerObject;
 
 	GameObject jacketObject;
+	JacketScript jacketScript;
 	public string jacketName;
 
 
@@ -27,6 +28,7 @@ public class AirBarScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		jacketObject = GameObject.Find (jacketName) as GameObject;
+		jacketScript = jacketObject.GetComponent<JacketScript> ();
 
 
 		currentBarWidth = 0;
@@ -61,7 +63,7 @@ public class AirBarScript : MonoBehaviour {
 		currentBarWidth = maxBarWidth;
 		//make sure current air is float!
 		//currentBarWidth = (playerCurrentAir / maxBarWidth) * maxBarWidth
-		//currentBarWidth = 
+		currentBarWidth = ((jacketScript.jacketScale+0f)/(jacketScript.maxJacketSize+0f))*maxBarWidth;
 	}
 
 	void OnGUI(){

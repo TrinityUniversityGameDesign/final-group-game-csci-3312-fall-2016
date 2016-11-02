@@ -374,6 +374,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012896782494, guid: 024dba819dd2141fab0af9b4665e7663,
+        type: 2}
+      propertyPath: startJacketScale
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 024dba819dd2141fab0af9b4665e7663, type: 2}
   m_IsPrefabParent: 0
@@ -498,6 +503,24 @@ Prefab:
         type: 2}
       propertyPath: playerName
       value: PlayerThree
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010182671108, guid: c4fcf2594198a4006bdd79ccce54d647,
+        type: 2}
+      propertyPath: jacketName
+      value: JacketOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011072989888, guid: c4fcf2594198a4006bdd79ccce54d647,
+        type: 2}
+      propertyPath: jacketName
+      value: JacketTwo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014227796964, guid: c4fcf2594198a4006bdd79ccce54d647, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011587284362, guid: c4fcf2594198a4006bdd79ccce54d647, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4fcf2594198a4006bdd79ccce54d647, type: 2}
