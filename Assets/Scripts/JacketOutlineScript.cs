@@ -7,8 +7,14 @@ public class JacketOutlineScript : MonoBehaviour {
 
 	public Color dotsColor;
 
-	public string playerName;
+	public string jacketName;
+	GameObject jacketObject;
+	JacketScript jacketScript;
+
+	public string playerString;
 	GameObject playerObject;
+
+
 
 	GameObject circleObject;
 	List<GameObject> circleList;
@@ -28,8 +34,13 @@ public class JacketOutlineScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//find player object
+		playerObject = GameObject.Find (playerString) as GameObject;
 
+
+		//find jacket object
+		//find player
+		jacketObject = GameObject.Find(jacketName) as GameObject;
+		jacketScript = jacketObject.GetComponent<JacketScript> ();
 		//-----------------
 		circleObject = Resources.Load ("Prefabs/Circle") as GameObject;
 
@@ -42,8 +53,7 @@ public class JacketOutlineScript : MonoBehaviour {
 	{
 		pieces = (int)(radius*dotsPerRadius);
 
-		//find player
-		playerObject = GameObject.Find(playerName) as GameObject;
+
 
 		//remove excess circles if pieces goes down
 		while (circleList.Count > pieces) {
@@ -85,7 +95,7 @@ public class JacketOutlineScript : MonoBehaviour {
 			direction = 1;
 		}
 
-		radius += .01f * direction;
+		//radius += .01f * direction;
 	}
 
 	//get Radius and position from Player
@@ -93,6 +103,7 @@ public class JacketOutlineScript : MonoBehaviour {
 
 		//get air level
 		//radius = air level
+		radius = ((jacketScript.jacketScale)/2f)*(playerObject.transform.localScale.y);
 		//-----------------
 	}
 }

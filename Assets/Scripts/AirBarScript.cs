@@ -9,6 +9,10 @@ public class AirBarScript : MonoBehaviour {
 
 	GameObject playerObject;
 
+	GameObject jacketObject;
+	public string jacketName;
+
+
 	int heightAdjust;
 	int maxBarWidth;
 
@@ -22,7 +26,9 @@ public class AirBarScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		jacketObject = GameObject.Find (jacketName) as GameObject;
+
+
 		currentBarWidth = 0;
 		playerPanel = GameObject.Find (panelName) as GameObject;
 		maxBarWidth = (int)playerPanel.GetComponent<RectTransform> ().rect.width;
@@ -55,6 +61,7 @@ public class AirBarScript : MonoBehaviour {
 		currentBarWidth = maxBarWidth;
 		//make sure current air is float!
 		//currentBarWidth = (playerCurrentAir / maxBarWidth) * maxBarWidth
+		//currentBarWidth = 
 	}
 
 	void OnGUI(){

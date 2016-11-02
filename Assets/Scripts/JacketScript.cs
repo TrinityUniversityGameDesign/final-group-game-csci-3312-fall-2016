@@ -6,9 +6,12 @@ public class JacketScript : MonoBehaviour
     public string inflateBtn;
     public string explodeBtn;
 
-    public float jacketScale = 1.5f;
-    public const float startJacketScale = 1.5f;
-    public float maxJacketSize = 6.0f;
+	//1.5f default
+    public float jacketScale;
+    public float startJacketScale;
+
+	//6.0f default
+    public float maxJacketSize;
 
     private Transform theTransform;
     private Rigidbody2D theRigibody;
@@ -51,7 +54,7 @@ public class JacketScript : MonoBehaviour
     void Explode()
     {
         theRigibody.mass = 10000f;
-        theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
+		theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
         StartCoroutine(Deflate(0.5f));
         Debug.Log("exploded");
     }
@@ -60,7 +63,7 @@ public class JacketScript : MonoBehaviour
     {
         yield return new WaitForSeconds(secs);
         jacketScale = startJacketScale;
-        theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
+		theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
         theRigibody.mass = 1f;
         Debug.Log("deflated");
     }

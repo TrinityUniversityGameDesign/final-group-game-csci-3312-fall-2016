@@ -70,7 +70,8 @@ MonoBehaviour:
   inflateBtn: Jump
   explodeBtn: Explode
   jacketScale: 1.5
-  maxJacketSize: 6
+  startJacketScale: 0
+  maxJacketSize: 10
 --- !u!212 &212000011223957738
 SpriteRenderer:
   m_ObjectHideFlags: 1
