@@ -5,8 +5,10 @@ public class flash : MonoBehaviour {
 
     // Use this for initialization
     public GameObject enemy;
+    public int lightIntensity;
     private Light lightSource;
     private SpriteRenderer spriteRenderer;
+
 	void Start () {
         lightSource = enemy.GetComponent<Light>();
         spriteRenderer = enemy.GetComponent<SpriteRenderer>();
@@ -29,7 +31,7 @@ public class flash : MonoBehaviour {
     private void FlashMap()
     {
         spriteRenderer.color = new Color(255, 255, 255);    
-        lightSource.intensity = 8;
+        lightSource.intensity = lightIntensity;
         StartCoroutine(ExecuteAfterTime(0.2f));  
 
     }
