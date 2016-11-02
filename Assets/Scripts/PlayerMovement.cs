@@ -5,9 +5,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	public int playerNum;
 	public float walkSpeed;
+	public float dashSpeed;
+	public float dashRegeneration;
 
 	private Rigidbody2D rigid;
-	private bool canDash;
+	private bool canDash = true;
 
 
 	private string vertAxis;
@@ -29,5 +31,16 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		rigid.velocity = new Vector2 (Input.GetAxis (horAxis) * walkSpeed, Input.GetAxis (vertAxis) * walkSpeed);
 		//TODO : Add dashing in
+		float dash = Input.GetAxis(actionButton);
+		if (canDash && dash > 0) {
+			rigid.AddForce (new Vector2 (rigid.velocity.x * dash * dashSpeed, rigid.velocity.y * dash * dashSpeed));
+			canDash = false;
+			StartCoroutine (ResetDash ());
+		}
+	}
+
+	IEnumerator ResetDash() {
+		yield return new WaitForSeconds (dashRegeneration);
+		canDash = true;
 	}
 }
