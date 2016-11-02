@@ -46,4 +46,8 @@ public class PlayerPanelScript : MonoBehaviour {
 			idolPieces++;
 		}
 	}
+	public GameObject GetPlayerObject(){
+		return player;
+	}
+
 }
