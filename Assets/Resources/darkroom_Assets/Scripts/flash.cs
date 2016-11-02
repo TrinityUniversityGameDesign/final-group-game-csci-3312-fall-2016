@@ -19,6 +19,7 @@ public class flash : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        lightSource.transform.position = new Vector3(enemy.transform.position.x + 2, enemy.transform.position.y, enemy.transform.position.z);
         float flash = Input.GetAxisRaw("Flash");
         if(flash > 0)
         {

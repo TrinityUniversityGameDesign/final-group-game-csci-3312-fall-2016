@@ -23,8 +23,15 @@ public class player_movement : MonoBehaviour {
 
 		float translation_X = Input.GetAxis ("Horizontal" + controller) * speed;
 		float translation_Y = Input.GetAxis ("Vertical" + controller) * speed;
-		rigid_body.transform.position = new Vector3 (player_pos.x + translation_X, player_pos.y + translation_Y, player_pos.z);
+        rigid_body.velocity = new Vector2(translation_X, translation_Y);
+		//rigid_body.transform.position = new Vector3 (player_pos.x + translation_X, player_pos.y + translation_Y, player_pos.z);
 		player_pos = player.transform.position;
 
 	}
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("!!!!!");
+    }
+
 }

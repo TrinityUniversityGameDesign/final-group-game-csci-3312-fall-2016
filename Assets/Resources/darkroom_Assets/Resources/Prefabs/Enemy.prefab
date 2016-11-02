@@ -25,6 +25,7 @@ GameObject:
   - 114: {fileID: 114000011710895740}
   - 50: {fileID: 50000011072276494}
   - 114: {fileID: 114000011749196852}
+  - 61: {fileID: 61000010569932904}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012313625682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6371245, y: 29.807909, z: -0.01}
+  m_LocalPosition: {x: 6.5, y: 29.807909, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -61,7 +62,21 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!61 &61000010569932904
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012313625682}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.32, y: -0.52}
+  serializedVersion: 2
+  m_Size: {x: 0.64, y: 1.04}
 --- !u!95 &95000013363429628
 Animator:
   serializedVersion: 3
