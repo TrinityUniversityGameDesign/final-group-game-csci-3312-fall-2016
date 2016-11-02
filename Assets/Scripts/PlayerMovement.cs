@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour {
 	private string jumpButton;
 	private string actionButton;
 
-
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponent<Rigidbody2D> ();
@@ -25,11 +24,14 @@ public class PlayerMovement : MonoBehaviour {
 		horAxis = "HorizontalP" + playerNum.ToString();
 		jumpButton = "JumpP" + playerNum.ToString();
 		actionButton = "ActionP" + playerNum.ToString();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		rigid.velocity = new Vector2 (Input.GetAxis (horAxis) * walkSpeed, Input.GetAxis (vertAxis) * walkSpeed);
+
 		//TODO : Add dashing in
 		float dash = Input.GetAxis(actionButton);
 		if (canDash && dash > 0) {
