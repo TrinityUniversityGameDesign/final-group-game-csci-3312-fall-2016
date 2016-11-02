@@ -43,4 +43,11 @@ public class PlayerMovement : MonoBehaviour {
 		yield return new WaitForSeconds (dashRegeneration);
 		canDash = true;
 	}
+		
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.CompareTag ("Water")) {
+			Destroy (gameObject);
+		}
+	}
 }
