@@ -34,11 +34,28 @@ public class StoryGenerator : MonoBehaviour {
         public string adjective;
         public string item;
         public string owner;
-        public Relic(string adj, string it, string own)
+        public string curse;
+        public string cursed;
+        public string c1;
+        public string c2;
+        public string c3;
+        public string cf;
+        public string minions;
+        public string val;
+        public Relic(string adj, string it, string own, string curse_t, string cursed_t, string c1_t, string c2_t, string c3_t, 
+                     string c4_t, string minions_t, string val_t)
         {
             adjective = adj;
             item = it;
             owner = own;
+            curse = curse_t;
+            cursed = cursed_t;
+            c1 = c1_t;
+            c2 = c2_t;
+            c3 = c3_t;
+            cf = cf_t;
+            minions = minions_t;
+            val = val_t;
         }
     }
 
@@ -61,48 +78,49 @@ public class StoryGenerator : MonoBehaviour {
     {
 
         string s = "The great " + mc.adjective + " " + mc.occupation + " " +  mc.name +  " was noted for discovering the " + mc.history;
-        s += " However, " + mc.his + " forgotten discovery was the discovery of the {pubescent} {medalion} of {Amadusos}. ";
+        s += " However, " + mc.his + " forgotten discovery was the discovery of the" +  rel.adjective + " " + rel.item +  " of " + rel.owner + ". ";
         s += "This is not the tale of that discovery, but of what befell " + mc.him + " after... ";
         return s;
     }
 
     string generate_cursed(MainCharacter mc, Relic rel)
     {
-        string s = "However, there were {terrible} tales told of that {pubescent} {medalion}. Tales of a {horrible} {curse}, which befalls any who are near that {pubescent} item.";
-        s += "The stories told of being {burned alive} and being {gutted like a pig}, and {several} spoke of being {eternally ostricized by everyone who had pretended to love} you. ";
-        s += "It did not initially inflict " + mc.name + " , it instead hit " + mc.his + " trusty " + mc.servant + ", who was tragically {eternally ostricized by everyone who had pretended to love} ";
-        s += mc.him + "." + " Leaving " + mc.name + " devastated. The curse ravaged the crew, until only the " + mc.adjective + " " + mc.occupation + " " + mc.name + " was left alone. ";
+        string s = "However, there were {terrible} tales told of that " + rel.adjective + " " +  rel.item + ". Tales of a {horrible}" + rel.curse + ", which befalls any who are near that `";
+        s +=  rel.adjective + " item.";
+        s += "The stories told of being " + rel.c1 + " and being " +  rel.c2 + ", and several spoke of being " + rel.c3 + " you. ";
+        s += "It did not initially inflict " + mc.name + " , it instead hit " + mc.his + " trusty " + mc.servant + ", who was tragically " + rel.c3 + ". ";
+        s += mc.him + "." + " Leaving " + mc.name + " devastated. The " + rel.curse + " ravaged the crew, until only the " + mc.adjective + " " + mc.occupation + " " + mc.name + " was left alone. ";
         return s;
     }
 
 
     string generate_old(MainCharacter mc, Relic rel) {
     
-        string s = "Realizing the gravity of " + mc.his + " {doom}, the " + mc.adjective + " " + mc.occupation + " abandoned the {medalion}.";
-        s += mc.name + " {prayed} that whatever {demonic} {gods} which {cursed} {Amadusos}'s {pubescent}";
-        s += "{medalion}. The " + mc.occupation + " abandoned the {medalion}, and returned home.";
+        string s = "Realizing the gravity of " + mc.his + " doom, the " + mc.adjective + " " + mc.occupation + " abandoned the " + rel.item + ".";
+        s += mc.name + " {prayed} that whatever {demonic} {gods} which " + rel.cursed + " "  + rel.owner + "'s " rel.item;
+        s += rel.item + ". The " + mc.occupation + " abandoned the " + rel.item + ", and returned home. " + "Where " +  mc.he + " died of old age, many years later.";
 
         return s;
     }
 
     string generate_horrible(MainCharacter mc, Relic rel)
     {
-        string s = "Tragically, like it was too late for the crew, it was too late for that " + mc.adjective + " " +  mc.name + " , even after " + mc.he + " had abandoned the {medalion}.";
-        s += "The famous " + mc.occupation + " was {cursed} by a fate more horrible than any of the fates spoken of in the tales.";
-        s += mc.name + " was {brutally} {drowned alive and resurrected before being eaten alive} by {minions} of {Amadusos} {him}self. ";
+        string s = "Tragically, like it was too late for the crew, it was too late for that " + mc.adjective + " " +  mc.name + " , even after " + mc.he + " had abandoned the" + rel.item + ". ";
+        s += "The famous " + mc.occupation + " was " + rel.cursed + " by a fate more horrible than any of the fates spoken of in the tales.";
+        s += mc.name + " was " + rel.cf + " by " + rel.minions + " of " + rel.owner + " " +  rel.him + "self. ";
         return s;
     }
 
     string generate_abandoned(Relic rel)
     {
-        string s = "The {pubescent} {medalion} was left in {the title of the game}, in a truly desperate attempt to prevent the {curse}. It remains there to this day. ";
+        string s = "The " + rel.adjective + " " + rel.item + " was left in {the title of the game}, in a truly desperate attempt to prevent the " +  rel.curse + ". It remains there to this day. ";
         return s;
     }
 
 
     string generate_scorned(MainCharacter mc, Relic rel)
     {
-        string s = "The {medalion} was valued at many {millions} of dollars, enough for each of the crew of {15} to live rich, for the rest of their lives." +  mc.name + " ";
+        string s = "The " + rel.item + "  was valued at many " +  rel.val + " of dollars, enough for each of the large crew to live rich, for the rest of their lives." +  mc.name + " ";
         s += "was a cruel leader, causing the crew to dislike " + mc.him + " greatly. The crew felt scorned by the " + mc.adjective + " " + mc.occupation;
         s += ", who had always {beat them} {visciously}. They turned on " + mc.him + ".";
         s += "During " + mc.name + "'s daily " + mc.hobby + ", they surprised " + mc.him + ", {putting him in a hole in the ground}. They left to debate " +  mc.his + " fate. ";
@@ -111,7 +129,7 @@ public class StoryGenerator : MonoBehaviour {
 
     string generate_killed(MainCharacter mc, Relic rel)
     {
-        string s = "Of all of the crew, only " + mc.his + " trusty " + mc.servant + " defended" +  mc.him + ", citing " + mc.his + " {generosiy} despite how " + mc.he + "{beat them} {visciously}.";
+        string s = "Of all of the crew, only " + mc.his + " trusty " + mc.servant + " defended" +  mc.him + ", citing " + mc.his + " {generosity} despite how " + mc.he + "{beat them} {visciously}.";
         s += "Each of the crew came up with a terrible fate for the {explorer}. One suggested " + mc.he + " be {fed to wild dogs}. Another that " + mc.he + " be {decapitated}.";
         s += "Ultimately they settled that " + mc.he + " should be {buried alive beneath the sand}. Each crew member one by one spat on " + mc.him + " , as " + mc.he + " was ";
         s += "{ buried alive beneath the sand}. ";
@@ -127,11 +145,11 @@ public class StoryGenerator : MonoBehaviour {
         s += mc.servant +  " {spat} on " +  mc.him + ". " + mc.name + " was never seen again.";
         return s;
     }
-    // Below here the character stuff isn't done.
     string generate_lost(MainCharacter mc, Relic rel)
     {
         string s = "Much like how the crew turned on " +  mc.name  + ", they turned on each other. " +  mc.name + "'s trusted " + mc.servant + " was the first of the crew to be killed by";
-        s += " the others. Each crew died one by one, as they each betrayed eachother. The final crew member {starved} to death. The {medalion} was lost in the {sands of the desert Calypso} near ";
+        s += " the others. Each crew died one by one, as they each betrayed eachother. The final crew member {starved} to death. The " +  mc.item + " was lost in the ";
+        s += rel.location + " near";
         s += " the {Title of the Game}. It was eventually taken to the {title of the game}.";
         return s;
     }
@@ -156,7 +174,7 @@ public class StoryGenerator : MonoBehaviour {
 
     Relic build_relic()
     {
-        return new Relic("pubescent", "medalion", "Amaduso");
+        return new Relic("pubescent", "medalion", "Amaduso", "hex");
 
     }
 
