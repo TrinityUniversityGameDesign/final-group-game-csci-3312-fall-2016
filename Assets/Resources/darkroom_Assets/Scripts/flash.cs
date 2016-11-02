@@ -5,10 +5,13 @@ public class flash : MonoBehaviour {
 
     // Use this for initialization
     public GameObject enemy;
-    public Light lightSource;
+    private Light lightSource;
+    private SpriteRenderer spriteRenderer;
 	void Start () {
         lightSource = enemy.GetComponent<Light>();
-        
+        spriteRenderer = enemy.GetComponent<SpriteRenderer>();
+        lightSource.intensity = 0;
+        spriteRenderer.color = new Color(0, 0, 0);
 
     }
 	
@@ -25,7 +28,8 @@ public class flash : MonoBehaviour {
 
     private void FlashMap()
     {
-       
+        spriteRenderer.color = new Color(255, 255, 255);    
+        lightSource.intensity = 8;
         StartCoroutine(ExecuteAfterTime(0.2f));  
 
     }
@@ -33,7 +37,9 @@ public class flash : MonoBehaviour {
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
+        lightSource.intensity = 0;
+        spriteRenderer.color = new Color(0,0,0);
 
-       
+
     }
 }
