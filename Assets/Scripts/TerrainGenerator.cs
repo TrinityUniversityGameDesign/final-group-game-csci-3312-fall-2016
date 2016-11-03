@@ -114,7 +114,7 @@ public class TerrainGenerator : MonoBehaviour {
         {
             for(int j=0; j<height; j++)
             {
-                createSprite(i, j);
+                if(board[i,j]!=0) createSprite(i, j);
             }
         }
     }
@@ -157,7 +157,7 @@ public class TerrainGenerator : MonoBehaviour {
         float y = Math.Abs((height / 2) - j) * 0.74f;
         if (j < (height / 2)) y *= (-1);
 
-        GameObject tmpTerrain = Instantiate(image, new Vector2(x,y), Quaternion.identity) as GameObject;
+        GameObject tmpTerrain = Instantiate(image, new Vector3(x,y,this.transform.localPosition.z), Quaternion.identity) as GameObject;
         tmpTerrain.transform.parent = gameObject.transform;
     }
 }
