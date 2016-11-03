@@ -2,32 +2,49 @@
 using System.Collections;
 
 public class door_script : MonoBehaviour {
-    public GameObject player;
-    public int numPlayers;
-    public GameObject enemy1;
-    public GameObject enemy2;
-    public GameObject enemy3;
+    private GameObject player;
+    private int numPlayers;
+    private GameObject enemy1;
+    private GameObject enemy2;
+    private GameObject enemy3;
+
+    public LayerMask PlayerLayer;
+    public LayerMask EnemyLayer;
 
     void Start()
     {
-        player = this.transform.parent.GetComponent<door>().player;
-        enemy1 = this.transform.parent.GetComponent<door>().enemy1;
-        enemy2 = this.transform.parent.GetComponent<door>().enemy2;
-        enemy3 = this.transform.parent.GetComponent<door>().enemy3;
+        player = this.transform.parent.gameObject.GetComponent<doorComboScript>().player;
+        enemy1 = this.transform.parent.gameObject.GetComponent<doorComboScript>().enemy1;
+        enemy2 = this.transform.parent.gameObject.GetComponent<doorComboScript>().enemy2;
+        enemy3 = this.transform.parent.gameObject.GetComponent<doorComboScript>().enemy3;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == player || other.gameObject == enemy1 || other.gameObject == enemy2 || other.gameObject == enemy3)
+        
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            if (this.transform.parent.GetComponent<door>().locked == false)
+            Debug.Log("in!");
+            if (this.transform.parent.GetComponent<doorComboScript>().locked == false)
             {
-                this.transform.parent.GetComponent<door>().opening = true;
+                
+                this.transform.parent.GetComponent<doorComboScript>().opening = true;
             }
         }
         else
         {
-            this.transform.parent.GetComponent<door>().closing = true;
+            this.transform.parent.GetComponent<doorComboScript>().closing = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("out!");
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Debug.Log("out!");
+            this.transform.parent.GetComponent<doorComboScript>().closing = true;
+
         }
     }
 }

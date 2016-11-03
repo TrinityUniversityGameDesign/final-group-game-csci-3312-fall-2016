@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011436093254}
   - 108: {fileID: 108000012910430158}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: playerLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - 50: {fileID: 50000010557499186}
   - 114: {fileID: 114000012257063246}
   - 61: {fileID: 61000012036932624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class door : MonoBehaviour {
+public class doorComboScript : MonoBehaviour {
     public bool opening;
     public bool closing;
     public bool locked;
@@ -14,14 +14,18 @@ public class door : MonoBehaviour {
     public float slideDistance;
     public float slideSpeed;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         this.locked = false;
         this.opening = false;
         this.closing = true;
+
+        
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (opening)
         {
             if (dr.transform.localPosition.x < slideDistance)

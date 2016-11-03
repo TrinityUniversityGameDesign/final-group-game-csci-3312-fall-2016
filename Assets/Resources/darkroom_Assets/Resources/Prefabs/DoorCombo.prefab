@@ -38,6 +38,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014058068636}
+  - 114: {fileID: 114000014242351958}
   m_Layer: 0
   m_Name: DoorCombo
   m_TagString: Untagged
@@ -77,6 +78,7 @@ GameObject:
   - 58: {fileID: 58000014014035434}
   - 50: {fileID: 50000010597268268}
   - 61: {fileID: 61000013179383588}
+  - 114: {fileID: 114000013801295318}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -354,3 +356,42 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &114000013801295318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014133717810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: facc9ca2a23e12a448f40100c3b443ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &114000014242351958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011936843222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b039d04c5664f4c4690bae20179c78aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opening: 0
+  closing: 0
+  locked: 0
+  dr: {fileID: 1000014133717810}
+  player: {fileID: 1000014184994994, guid: 004b21fbe3f47dd4e9591bfb3856f291, type: 2}
+  numPlayers: 1
+  enemy1: {fileID: 1000012313625682, guid: 50238fc7a6fd32d47abb29dda499d934, type: 2}
+  enemy2: {fileID: 1000012313625682, guid: 50238fc7a6fd32d47abb29dda499d934, type: 2}
+  enemy3: {fileID: 1000012313625682, guid: 50238fc7a6fd32d47abb29dda499d934, type: 2}
+  slideDistance: 1.92
+  slideSpeed: 1
