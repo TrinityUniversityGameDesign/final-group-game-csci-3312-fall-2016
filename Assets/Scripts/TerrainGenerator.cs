@@ -126,6 +126,7 @@ public class TerrainGenerator : MonoBehaviour {
         {
             if (board[i, j] == 2)
             {
+                /*
                 if (board[i, j - 1] == 0 && board[i - 1, j] != 0 && board[i, j + 1] != 0 && board[i + 1, j] != 0) image = W;
                 else if (board[i, j - 1] != 0 && board[i - 1, j] == 0 && board[i, j + 1] != 0 && board[i + 1, j] != 0) image = N;
                 else if (board[i, j - 1] != 0 && board[i - 1, j] != 0 && board[i, j + 1] == 0 && board[i + 1, j] != 0) image = E;
@@ -141,6 +142,22 @@ public class TerrainGenerator : MonoBehaviour {
                 else if (board[i, j - 1] == 0 && board[i - 1, j] != 0 && board[i, j + 1] == 0 && board[i + 1, j] == 0) image = WES;
                 else if (board[i, j - 1] != 0 && board[i - 1, j] == 0 && board[i, j + 1] == 0 && board[i + 1, j] == 0) image = NES;
                 else if (board[i, j - 1] == 0 && board[i - 1, j] == 0 && board[i, j + 1] == 0 && board[i + 1, j] == 0) image = WNES;
+                */
+                if (board[i - 1, j] == 0 && board[i, j - 1] != 0 && board[i + 1, j] != 0 && board[i, j + 1] != 0) image = W;
+                else if (board[i - 1, j] != 0 && board[i, j - 1] == 0 && board[i + 1, j] != 0 && board[i, j + 1] != 0) image = N;
+                else if (board[i - 1, j] != 0 && board[i, j - 1] != 0 && board[i + 1, j] == 0 && board[i, j + 1] != 0) image = E;
+                else if (board[i - 1, j] != 0 && board[i, j - 1] != 0 && board[i + 1, j] != 0 && board[i, j + 1] == 0) image = S;
+                else if (board[i - 1, j] == 0 && board[i, j - 1] == 0 && board[i + 1, j] != 0 && board[i, j + 1] != 0) image = WN;
+                else if (board[i - 1, j] == 0 && board[i, j - 1] != 0 && board[i + 1, j] == 0 && board[i, j + 1] != 0) image = WE;
+                else if (board[i - 1, j] == 0 && board[i, j - 1] != 0 && board[i + 1, j] != 0 && board[i, j + 1] == 0) image = WS;
+                else if (board[i - 1, j] != 0 && board[i, j - 1] == 0 && board[i + 1, j] == 0 && board[i, j + 1] != 0) image = NE;
+                else if (board[i - 1, j] != 0 && board[i, j - 1] == 0 && board[i + 1, j] != 0 && board[i, j + 1] == 0) image = NS;
+                else if (board[i - 1, j] != 0 && board[i, j - 1] != 0 && board[i + 1, j] == 0 && board[i, j + 1] == 0) image = ES;
+                else if (board[i - 1, j] == 0 && board[i, j - 1] == 0 && board[i + 1, j] == 0 && board[i, j + 1] != 0) image = WNE;
+                else if (board[i - 1, j] == 0 && board[i, j - 1] == 0 && board[i + 1, j] != 0 && board[i, j + 1] == 0) image = WNS;
+                else if (board[i - 1, j] == 0 && board[i, j - 1] != 0 && board[i + 1, j] == 0 && board[i, j + 1] == 0) image = WES;
+                else if (board[i - 1, j] != 0 && board[i, j - 1] == 0 && board[i + 1, j] == 0 && board[i, j + 1] == 0) image = NES;
+                else if (board[i - 1, j] == 0 && board[i, j - 1] == 0 && board[i + 1, j] == 0 && board[i, j + 1] == 0) image = WNES;
             }
             else
             {

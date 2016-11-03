@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010098247000}
   - 114: {fileID: 114000013865540038}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TerrainGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012555036466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.29, y: 0, z: 0}
+  m_LocalPosition: {x: 1.29, y: 0, z: 95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -51,13 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4475c616bd1b716409328445f0e92267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 16
-  height: 8
-  depth: 2
-  randomnessThreshold: 1
+  width: 18
+  height: 10
+  depth: 9
+  randomnessThreshold: 0.4
   zero: {fileID: 1000011115509940, guid: 20447bc54169d8f4cba35800abd755e5, type: 2}
-  one: {fileID: 1000011027128492, guid: ba21924a9ae418e4eacef67f6e7d1277, type: 2}
-  two: {fileID: 1000013813094534, guid: 2ab61bfcbc735e34e9e94d507b809ddb, type: 2}
+  one: {fileID: 1000011115509940, guid: 20447bc54169d8f4cba35800abd755e5, type: 2}
+  two: {fileID: 1000011115509940, guid: 20447bc54169d8f4cba35800abd755e5, type: 2}
   three: {fileID: 1000010522628252, guid: 21e7bb924869a0a458fafd6402acd248, type: 2}
   W: {fileID: 1000013734252470, guid: 169ea4e5fabc55743a40105a0c8da019, type: 2}
   N: {fileID: 1000012895552112, guid: 8376e6b8285452146a35eee4cedf71ff, type: 2}
