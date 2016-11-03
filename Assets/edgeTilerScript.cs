@@ -14,8 +14,8 @@ public class edgeTilerScript : MonoBehaviour {
         Debug.Log(numXWidth);
         for(float i = -numXWidth/2; i <= numXWidth/2; i++)
         {
-            Instantiate(tile, new Vector2(i, (Camera.main.ScreenToWorldPoint(new Vector2(0, 0))).y + 0.5f*x), Quaternion.identity);
-            Instantiate(tile, new Vector2(i, (Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height))).y - 0.5f * x), Quaternion.identity);
+            Instantiate(tile, new Vector2(i/2, (Camera.main.ScreenToWorldPoint(new Vector2(0, 0))).y + 0.5f*x), Quaternion.identity);
+            Instantiate(tile, new Vector2(i/2, (Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height))).y - 0.5f * x), Quaternion.identity);
         }
 
         float pixHeight = Screen.height * 2 - (200 * y);
@@ -23,8 +23,8 @@ public class edgeTilerScript : MonoBehaviour {
         int numYHeight = (int)(pixHeight / (100 * y));
         for (float i = -numYHeight / 2; i <= numYHeight / 2; i++)
         {
-            Instantiate(tile, new Vector2((Camera.main.ScreenToWorldPoint(new Vector2(0, 0))).x + 0.5f * y, i), Quaternion.identity);
-            Instantiate(tile, new Vector2((Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0))).x - 0.5f * y, i), Quaternion.identity);
+            Instantiate(tile, new Vector2((Camera.main.ScreenToWorldPoint(new Vector2(0, 0))).x + 0.5f * y, i/2), Quaternion.identity);
+            Instantiate(tile, new Vector2((Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0))).x - 0.5f * y, i/2), Quaternion.identity);
         }
         Debug.Log(x);
 	}
