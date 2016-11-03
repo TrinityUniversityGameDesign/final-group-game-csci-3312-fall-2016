@@ -6,11 +6,12 @@ public class flash : MonoBehaviour {
     // Use this for initialization
     public GameObject enemy;
     public int lightIntensity;
+    public GameObject lightObject;
     private Light lightSource;
     private SpriteRenderer spriteRenderer;
 
 	void Start () {
-        lightSource = enemy.GetComponent<Light>();
+        lightSource = lightObject.GetComponent<Light>();
         spriteRenderer = enemy.GetComponent<SpriteRenderer>();
         lightSource.intensity = 0;
         spriteRenderer.color = new Color(0, 0, 0);
@@ -19,7 +20,7 @@ public class flash : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        lightSource.transform.position = new Vector3(enemy.transform.position.x + 2, enemy.transform.position.y, enemy.transform.position.z);
+        
         float flash = Input.GetAxisRaw("Flash");
         if(flash > 0)
         {

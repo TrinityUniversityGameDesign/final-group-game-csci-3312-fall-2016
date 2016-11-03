@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1000012313625682}
   m_IsPrefabParent: 1
+--- !u!1 &1000010225243776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000014019808284}
+  - 108: {fileID: 108000012850855058}
+  m_Layer: 0
+  m_Name: enemyLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000012313625682
 GameObject:
   m_ObjectHideFlags: 0
@@ -21,7 +37,6 @@ GameObject:
   - 4: {fileID: 4000013558216102}
   - 212: {fileID: 212000010258706672}
   - 95: {fileID: 95000013363429628}
-  - 108: {fileID: 108000013779666372}
   - 114: {fileID: 114000011710895740}
   - 50: {fileID: 50000011072276494}
   - 114: {fileID: 114000011749196852}
@@ -43,8 +58,22 @@ Transform:
   m_LocalPosition: {x: 6.5, y: 29.807909, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000014019808284}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &4000014019808284
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010225243776}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.322, y: -0.505, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000013558216102}
   m_RootOrder: 0
 --- !u!50 &50000011072276494
 Rigidbody2D:
@@ -94,18 +123,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!108 &108000013779666372
+--- !u!108 &108000012850855058
 Light:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012313625682}
+  m_GameObject: {fileID: 1000010225243776}
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 0
-  m_Range: 4
+  m_Range: 5
   m_SpotAngle: 77
   m_CookieSize: 10
   m_Shadows:
@@ -141,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1000012313625682}
   lightIntensity: 5
+  lightObject: {fileID: 1000010225243776}
 --- !u!114 &114000011749196852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46c2620301eb418aa133e7d9182804e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.05
+  speed: 2
   controller: 2
   player: {fileID: 1000012313625682}
 --- !u!212 &212000010258706672
