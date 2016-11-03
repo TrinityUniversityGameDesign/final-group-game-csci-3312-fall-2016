@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
 		rigid.velocity = new Vector2 (Input.GetAxis (horAxis) * walkSpeed, Input.GetAxis (vertAxis) * walkSpeed);
 
 		//TODO : Add dashing in
-		float dash = Input.GetAxis(actionButton);
+		float dash = Input.GetAxis(jumpButton);
 		if (canDash && dash > 0) {
 			rigid.AddForce (new Vector2 (rigid.velocity.x * dash * dashSpeed, rigid.velocity.y * dash * dashSpeed));
 			canDash = false;

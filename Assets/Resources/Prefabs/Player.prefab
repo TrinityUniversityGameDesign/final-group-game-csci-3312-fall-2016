@@ -87,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 1
   walkSpeed: 5
-  dashSpeed: 200
+  dashSpeed: 500
   dashRegeneration: 3
 --- !u!212 &212000013525668890
 SpriteRenderer:
