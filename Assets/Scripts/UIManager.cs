@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour {
 
     public float time = 60f;
 
-    public static int alivePlayers = 2;
+    public static int alivePlayers = 4;
 
 	// Use this for initialization
 	void Start () {
