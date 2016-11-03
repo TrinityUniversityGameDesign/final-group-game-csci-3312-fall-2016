@@ -11,7 +11,7 @@ public class TrivaController : MonoBehaviour {
 	public GameObject controller;
 	public Image scoreBar;
 	private int readTime = 150;
-
+	private int answers;
 	// Use this for initialization
 	void Start () {
 	
@@ -19,16 +19,18 @@ public class TrivaController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		txtScore.text = score.ToString();
-
-		if (readTime == 0 && score > 1)
-			score -= 2;
-		else if (readTime > 0)
-			readTime--;
-		scoreBar.fillAmount = (score / 1000f);
-		txtScore.color = Color.Lerp (Lowest, Highest, scoreBar.fillAmount);
+		if (!questionIsDone ()) {
+			txtScore.text = score.ToString ();
+			if (readTime == 0 && score > 1)
+				score -= 2;
+			else if (readTime > 0)
+				readTime--;
+			scoreBar.fillAmount = (score / 1000f);
+			txtScore.color = Color.Lerp (Lowest, Highest, scoreBar.fillAmount);
+		}
 	}
 	public int amIRight(char answer){
+		answers += 1;
 		if (question == 1) {
 			if (answer == 'a')
 				return score;
@@ -42,5 +44,12 @@ public class TrivaController : MonoBehaviour {
 			return true;
 		else
 			return false;
+	}
+	public bool questionIsDone(){
+		if (answers == 4 || score == 0)
+			return true;
+		else
+			return false;
+
 	}
 }

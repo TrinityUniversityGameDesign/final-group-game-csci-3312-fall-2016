@@ -4,8 +4,16 @@ using UnityEngine.UI;
 
 public class TriviaPlayer : MonoBehaviour
 {
+	private Image Button;
+	public Image A;
+	public Image X;
+	public Image B;
+	public Image Y;
+	public Image none;
+	public Image check;
 	public Text txtScore;
-	public int score = 0;
+	public int preScore = 0;
+	public int scoreFromQuestion = 0;
 	public int playerNumber;
 	bool answered;
 	public GameObject controllerGameObject;
@@ -14,31 +22,40 @@ public class TriviaPlayer : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		Button = none;
 		answered = false;
 		controller = controllerGameObject.GetComponent<TrivaController> ();
-
+		check.fillAmount = 0;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		txtScore.text = "Score : " + score;
-		if (!answered && controller.canIAnswer()) {
-			
+		if (answered)
+			check.fillAmount = 1;
+		if (controller.questionIsDone ()) {
+			check.sprite = Button.sprite;
+			preScore += scoreFromQuestion;
+			scoreFromQuestion = 0;
+		}
+		txtScore.text = "Score : " + preScore;
+		if (!answered && controller.canIAnswer ()) {
 			if (Input.GetAxis ("A_P" + playerNumber) > 0) {
+				Button = A;
 				answered = true;
-				score += controller.amIRight ('a');
+				scoreFromQuestion = controller.amIRight ('a');
 			} else if (Input.GetAxis ("X_P" + playerNumber) > 0) {
+				Button = X;
 				answered = true;
-				score += controller.amIRight ('x');
-			}
-			else if (Input.GetAxis ("B_P" + playerNumber) > 0) {
+				scoreFromQuestion = controller.amIRight ('x');
+			} else if (Input.GetAxis ("B_P" + playerNumber) > 0) {
+				Button = B;
 				answered = true;
-				score += controller.amIRight ('b');
-			}
-			else if (Input.GetAxis ("Y_P" + playerNumber) > 0) {
+				scoreFromQuestion = controller.amIRight ('b');
+			} else if (Input.GetAxis ("Y_P" + playerNumber) > 0) {
+				Button = Y;
 				answered = true;
-				score += controller.amIRight ('y');
+				scoreFromQuestion = controller.amIRight ('y');
 			}
 		}
 	}
