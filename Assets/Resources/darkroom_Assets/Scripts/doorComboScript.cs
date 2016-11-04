@@ -31,6 +31,7 @@ public class doorComboScript : MonoBehaviour {
             if (dr.transform.localPosition.x < slideDistance)
             {
                 dr.transform.localPosition = new Vector3(dr.transform.localPosition.x + Time.deltaTime * slideSpeed, dr.transform.localPosition.y, dr.transform.localPosition.z);
+                Debug.Log("x: " + dr.transform.localPosition.x);
             }
             else
             {
@@ -42,6 +43,7 @@ public class doorComboScript : MonoBehaviour {
             if (dr.transform.localPosition.x > 0)
             {
                 dr.transform.localPosition = new Vector3(dr.transform.localPosition.x - Time.deltaTime * slideSpeed, dr.transform.localPosition.y, dr.transform.localPosition.z);
+                Debug.Log("x: " + dr.transform.localPosition.x);
             }
             else
             {
@@ -53,5 +55,33 @@ public class doorComboScript : MonoBehaviour {
     public void LockDoor()
     {
         locked = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Debug.Log("in!");
+            if (locked == false)
+            {
+
+                opening = true;
+            }
+        }
+        else
+        {
+            closing = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Debug.Log("out!"); 
+            closing = true;
+
+        }
     }
 }
