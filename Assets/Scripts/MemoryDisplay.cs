@@ -128,6 +128,7 @@ public class MemoryDisplay : MonoBehaviour {
 		}
 	}
 
+
     List<int> compareInputs(List<Buttons> playerInput, List<Buttons> correctInput)
     {
         int counter = 0;
@@ -135,7 +136,7 @@ public class MemoryDisplay : MonoBehaviour {
         IEnumerator<Buttons> correctEnum = correctInput.GetEnumerator();
         IEnumerator<Buttons> playerEnum = playerInput.GetEnumerator();
         
-        while (correctEnum.MoveNext())
+        while (correctEnum.MoveNext())          //MoveNext returns true as long as the enumerator's on a valid element
         {
             playerEnum.MoveNext();
             if (correctEnum.Current != playerEnum.Current) { wrongInput.Add(counter); }
