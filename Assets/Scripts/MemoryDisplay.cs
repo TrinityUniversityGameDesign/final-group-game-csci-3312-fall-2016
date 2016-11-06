@@ -18,6 +18,7 @@ public class MemoryDisplay : MonoBehaviour {
 	public Object bButton;
 	public Object yButton;
 	public Object xButton;
+    public Object qButton;
 
 	public Vector3 curButtonPos;
 
@@ -32,6 +33,7 @@ public class MemoryDisplay : MonoBehaviour {
 		bButton =  Resources.Load("Prefabs/bButton");
 		xButton =  Resources.Load("Prefabs/xButton");
 		yButton =  Resources.Load("Prefabs/yButton");
+        qButton = Resources.Load("Prefabs/qButton");
         getRandomInputs();
 		player1 = GameObject.FindGameObjectWithTag ("Player1");
 

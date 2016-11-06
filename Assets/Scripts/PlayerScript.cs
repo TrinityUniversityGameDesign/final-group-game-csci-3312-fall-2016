@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerInput {
 	private string p_playerNum;
-	private string p_hor ;
+	private string p_hor;
 	private string p_vert;
 	private string p_ABut;
 	private string p_BBut;
@@ -103,7 +103,7 @@ public class PlayerInput {
 }
 
 public class PlayerScript : MonoBehaviour {
-	public string playerNum = "P1";
+	public static string playerNum = "P1";
 
 	public PlayerInput iC; 
 	public GameObject memDisp; 
@@ -114,11 +114,12 @@ public class PlayerScript : MonoBehaviour {
 	// Use this for initialization
 
 	void Awake(){
-		InputList = new List<Buttons> ();
+        iC = new PlayerInput(playerNum);
+        InputList = new List<Buttons> ();
 	}
 
 	void Start () {
-	 	iC = new PlayerInput(playerNum);
+	 	
 		memDisp = GameObject.Find ("MemoryDisplay");
 
 	}

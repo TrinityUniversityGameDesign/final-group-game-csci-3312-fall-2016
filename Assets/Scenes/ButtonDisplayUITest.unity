@@ -278,8 +278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb28d7a8909ffc942bdf7fcd71294a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 
+  playerNum: P1
   memDisp: {fileID: 0}
+  health: 50
   InputList: 
 --- !u!224 &785389075
 RectTransform:
@@ -408,7 +409,7 @@ MonoBehaviour:
   InputList: 
   PlayerList: 
   ReturnList: 
-  Round: 0
+  numButtons: 5
   player1: {fileID: 0}
   aButton: {fileID: 0}
   bButton: {fileID: 0}
