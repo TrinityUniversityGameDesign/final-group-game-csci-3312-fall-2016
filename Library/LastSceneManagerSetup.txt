@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Resources/darkroom_Assets/Scene/test_player_scene.unity
+- path: Assets/Resources/darkroom_Assets/Scene/scene1.unity
   isLoaded: 1
   isActive: 1
