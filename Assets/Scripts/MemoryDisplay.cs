@@ -34,15 +34,15 @@ public class MemoryDisplay : MonoBehaviour {
 		xButton =  Resources.Load("Prefabs/xButton");
 		yButton =  Resources.Load("Prefabs/yButton");
         qButton =  Resources.Load("Prefabs/qButton");
-        getRandomInputs();
+        
 		player1 = GameObject.FindGameObjectWithTag ("Player1");
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        RandomInputText = GetComponent<Text>();
-		OutputText = GameObject.Find ("PlayerText").GetComponent<Text>();
+        RandomInputText = GameObject.Find("InputText").GetComponent<Text>();
+        OutputText = GameObject.Find ("PlayerText").GetComponent<Text>();
 		if (player1) {
 			PlayerList = player1.GetComponent<PlayerScript> ().InputList;
 			if (PlayerList.Count >= numButtons) {
@@ -50,7 +50,7 @@ public class MemoryDisplay : MonoBehaviour {
 			}
 			printOutputs (ReturnList);
 		}
-        if (GameObject.Find("Camera").GetComponent<ControllerScript>().timerActive == false)
+        if (GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerActive == false)
         {
             newRound();
         }
@@ -85,7 +85,7 @@ public class MemoryDisplay : MonoBehaviour {
     {
         string message = "";
 
-        generateRandomInputs(5);
+        generateRandomInputs(numButtons);
 
         for (int i = 0; i < InputList.Count; i++)
         {
@@ -130,7 +130,7 @@ public class MemoryDisplay : MonoBehaviour {
 
     void generateRandomInputs(int roundNumber) {
 		for (int i = 0; i < roundNumber; i++) {
-			InputList.Add((Buttons)Random.Range (0, 3));
+			InputList.Add((Buttons)Random.Range (0, 4));
 		}
 	}
 
@@ -155,16 +155,17 @@ public class MemoryDisplay : MonoBehaviour {
 
     void newRound()
     {
-        PlayerList = new List<Buttons>();
-        var list = GameObject.FindGameObjectsWithTag("Buttons");
+        PlayerList.Clear();
+        InputList.Clear();
+        var list = GameObject.FindGameObjectsWithTag("Button");
+        curButtonPos = new Vector3(-7, 0, 0);
         foreach (var a in list)
         {
             Destroy(a);
         }
-        generateRandomInputs(numButtons);
         getRandomInputs();
-        GameObject.Find("Camera").GetComponent<ControllerScript>().timerActive = true;
-        GameObject.Find("Camera").GetComponent<ControllerScript>().timerGenerator();
+        GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerActive = true;
+        GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerGenerator();
     }
 
 }

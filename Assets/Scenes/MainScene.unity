@@ -291,7 +291,7 @@ GameObject:
   - 222: {fileID: 771407208}
   - 114: {fileID: 771407207}
   m_Layer: 5
-  m_Name: Text
+  m_Name: InputText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,6 +469,7 @@ MonoBehaviour:
   bButton: {fileID: 0}
   yButton: {fileID: 0}
   xButton: {fileID: 0}
+  qButton: {fileID: 0}
   curButtonPos: {x: 0, y: 0, z: 0}
   RandomInputText: {fileID: 771407207}
   OutputText: {fileID: 1865086763}
@@ -808,7 +809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb28d7a8909ffc942bdf7fcd71294a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: P1
   memDisp: {fileID: 0}
   health: 50
   InputList: 

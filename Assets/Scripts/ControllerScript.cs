@@ -6,12 +6,14 @@ public class ControllerScript : MonoBehaviour {
     private float baseTime = 2.5f;
     private float moreButtonsTime = .5f;
 	private float targetTime = 5.0f;
-    public int round = 0;
-	public bool timerActive = false; // bool that indicates to player objects when they can take in inputs
+    public int round = 5;
+	public bool timerActive; // bool that indicates to player objects when they can take in inputs
 	public GameObject canvas; // canvas game object, used to pull the MemoryDisplay script
 
 	// Use this for initialization
 	void Start () {
+        timerActive = false;
+        round = 5;
 		canvas.GetComponent<MemoryDisplay> ().numButtons = round; // when the game begins, round is set to 0
 		timerGenerator();
 	}

@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000014245553444}
   m_Layer: 0
   m_Name: aButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
