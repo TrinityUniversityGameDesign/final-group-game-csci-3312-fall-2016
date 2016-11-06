@@ -10,11 +10,13 @@ public class ControllerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		canvas.GetComponent<MemoryDisplay> ().numButtons = round; // when the game begins, round is set to 0
 		timerGenerator(round);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		canvas.GetComponent<MemoryDisplay> ().numButtons = round;
 
 		if(timerActive)
 		{
