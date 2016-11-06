@@ -129,6 +129,7 @@ public class MemoryDisplay : MonoBehaviour {
 	}
 
 
+    //Returns a list of the indices where the player had the wrong button
     List<int> compareInputs(List<Buttons> playerInput, List<Buttons> correctInput)
     {
         int counter = 0;
