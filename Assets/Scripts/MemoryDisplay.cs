@@ -33,7 +33,7 @@ public class MemoryDisplay : MonoBehaviour {
 		bButton =  Resources.Load("Prefabs/bButton");
 		xButton =  Resources.Load("Prefabs/xButton");
 		yButton =  Resources.Load("Prefabs/yButton");
-        qButton = Resources.Load("Prefabs/qButton");
+        qButton =  Resources.Load("Prefabs/qButton");
         getRandomInputs();
 		player1 = GameObject.FindGameObjectWithTag ("Player1");
 
@@ -50,6 +50,10 @@ public class MemoryDisplay : MonoBehaviour {
 			}
 			printOutputs (ReturnList);
 		}
+        if (GameObject.Find("Camera").GetComponent<ControllerScript>().timerActive == false)
+        {
+            newRound();
+        }
 
         //StartCoroutine(timeToDisplay(x.ToString(), 2f));
     }
@@ -146,6 +150,21 @@ public class MemoryDisplay : MonoBehaviour {
             ++counter;
         }
         return wrongInput;
+    }
+
+
+    void newRound()
+    {
+        PlayerList = new List<Buttons>();
+        var list = GameObject.FindGameObjectsWithTag("Buttons");
+        foreach (var a in list)
+        {
+            Destroy(a);
+        }
+        generateRandomInputs(numButtons);
+        getRandomInputs();
+        GameObject.Find("Camera").GetComponent<ControllerScript>().timerActive = true;
+        GameObject.Find("Camera").GetComponent<ControllerScript>().timerGenerator();
     }
 
 }
