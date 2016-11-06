@@ -19,6 +19,11 @@ public class TriviaPlayer : MonoBehaviour
 	public GameObject controllerGameObject;
 	TrivaController controller;
 
+    //Animation test stuff
+    public AnimationCurve cur;
+    float sTime = -1;
+    Vector3 startScale;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -26,13 +31,20 @@ public class TriviaPlayer : MonoBehaviour
 		answered = false;
 		controller = controllerGameObject.GetComponent<TrivaController> ();
 		check.fillAmount = 0;
+        startScale = transform.localScale;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		if (answered)
-			check.fillAmount = 1;
+        {
+            check.fillAmount = 1;
+            if (sTime == -1)
+                sTime = 0;
+            sTime += Time.deltaTime;
+            transform.localScale = startScale * cur.Evaluate(sTime);
+        }
 		if (controller.questionIsDone ()) {
 			check.sprite = Button.sprite;
 			preScore += scoreFromQuestion;

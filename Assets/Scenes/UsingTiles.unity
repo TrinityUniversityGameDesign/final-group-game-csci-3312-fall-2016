@@ -143,12 +143,34 @@ MonoBehaviour:
   X: {fileID: 26662057}
   B: {fileID: 296484593}
   Y: {fileID: 103287947}
+  none: {fileID: 0}
   check: {fileID: 2082612532}
   txtScore: {fileID: 1356817118}
   preScore: 0
   scoreFromQuestion: 0
   playerNumber: 3
   controllerGameObject: {fileID: 849423146}
+  cur:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0.10466442
+      value: 2.0059586
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &9696276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,6 +1389,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 789481942}
+--- !u!114 &794960685 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011967000110, guid: b7f024d1312201740a56a4d190af5814,
+    type: 2}
+  m_PrefabInternal: {fileID: 1571229483}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &849423146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,12 +1649,34 @@ MonoBehaviour:
   X: {fileID: 26662057}
   B: {fileID: 296484593}
   Y: {fileID: 103287947}
+  none: {fileID: 0}
   check: {fileID: 789481944}
   txtScore: {fileID: 650327761}
   preScore: 0
   scoreFromQuestion: 0
   playerNumber: 4
   controllerGameObject: {fileID: 849423146}
+  cur:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0.10466442
+      value: 2.0059586
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &1105698568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1757,6 +1807,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1832608731}
     m_Modifications:
+    - target: {fileID: 114000012793437612, guid: b7f024d1312201740a56a4d190af5814,
+        type: 2}
+      propertyPath: cur.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224000013927019402, guid: b7f024d1312201740a56a4d190af5814,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1896,6 +1951,41 @@ Prefab:
       propertyPath: Y
       value: 
       objectReference: {fileID: 103287947}
+    - target: {fileID: 114000012793437612, guid: b7f024d1312201740a56a4d190af5814,
+        type: 2}
+      propertyPath: txtScore
+      value: 
+      objectReference: {fileID: 794960685}
+    - target: {fileID: 114000012793437612, guid: b7f024d1312201740a56a4d190af5814,
+        type: 2}
+      propertyPath: cur.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012793437612, guid: b7f024d1312201740a56a4d190af5814,
+        type: 2}
+      propertyPath: cur.m_Curve.Array.data[1].time
+      value: 0.10466442
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012793437612, guid: b7f024d1312201740a56a4d190af5814,
+        type: 2}
+      propertyPath: cur.m_Curve.Array.data[1].value
+      value: 2.0059586
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012793437612, guid: b7f024d1312201740a56a4d190af5814,
+        type: 2}
+      propertyPath: cur.m_Curve.Array.data[2].time
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012793437612, guid: b7f024d1312201740a56a4d190af5814,
+        type: 2}
+      propertyPath: cur.m_Curve.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012793437612, guid: b7f024d1312201740a56a4d190af5814,
+        type: 2}
+      propertyPath: cur.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7f024d1312201740a56a4d190af5814, type: 2}
   m_IsPrefabParent: 0
@@ -2115,12 +2205,34 @@ MonoBehaviour:
   X: {fileID: 26662057}
   B: {fileID: 296484593}
   Y: {fileID: 103287947}
+  none: {fileID: 0}
   check: {fileID: 82751325}
   txtScore: {fileID: 234599892}
   preScore: 0
   scoreFromQuestion: 0
   playerNumber: 1
   controllerGameObject: {fileID: 849423146}
+  cur:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0.10466442
+      value: 2.0059586
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1832608727
 GameObject:
   m_ObjectHideFlags: 0
