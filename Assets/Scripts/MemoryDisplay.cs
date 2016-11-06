@@ -39,7 +39,7 @@ public class MemoryDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        RandomInputText = GetComponent<Text>();
+		RandomInputText = GameObject.Find ("InputText").GetComponent<Text>();
 		OutputText = GameObject.Find ("PlayerText").GetComponent<Text>();
 		if (player1) {
 			PlayerList = player1.GetComponent<PlayerScript> ().InputList;
