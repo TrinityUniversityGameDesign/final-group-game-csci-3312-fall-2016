@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Resources\darkroom_Assets\Scripts\dim_light.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\doorComboScript.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\door_script.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\flash.cs" />
