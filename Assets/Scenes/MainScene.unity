@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f3d4e8cd21447418eb9a5b5ca2a03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  round: 0
   timerActive: 0
   canvas: {fileID: 1113320120}
 --- !u!1 &771407205
@@ -396,7 +397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 410, y: 230.5}
@@ -511,7 +512,7 @@ MonoBehaviour:
   InputList: 
   PlayerList: 
   ReturnList: 
-  Round: 0
+  numButtons: 5
   player1: {fileID: 0}
   aButton: {fileID: 0}
   bButton: {fileID: 0}
@@ -519,7 +520,7 @@ MonoBehaviour:
   xButton: {fileID: 0}
   curButtonPos: {x: 0, y: 0, z: 0}
   RandomInputText: {fileID: 771407207}
-  OutputText: {fileID: 0}
+  OutputText: {fileID: 1865086763}
 --- !u!1001 &1142426919
 Prefab:
   m_ObjectHideFlags: 0
@@ -557,7 +558,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012965940952, guid: 3250915dc58924bf3965e86a686cbeb3, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1000012663459900, guid: 3250915dc58924bf3965e86a686cbeb3, type: 2}
       propertyPath: m_Name
@@ -627,7 +628,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1865086761
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +740,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012965940952, guid: 3250915dc58924bf3965e86a686cbeb3, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1000012663459900, guid: 3250915dc58924bf3965e86a686cbeb3, type: 2}
       propertyPath: m_Name
@@ -827,4 +828,4 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
