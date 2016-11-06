@@ -52,10 +52,12 @@
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\player_movement.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\rb_movement.cs" />
      <None Include="Assets\Scenes\DELETE_ME.txt" />
+     <None Include="Assets\Resources\darkroom_Assets\Resources\Sprites\nervous\anke-art-README-deutsch.txt" />
      <None Include="Assets\Resources\Animations\DELETE_ME.txt" />
      <None Include="Assets\Resources\Prefabs\DELETE_ME.txt" />
      <None Include="Assets\Resources\Materials\DELETE_ME.txt" />
      <None Include="Assets\Resources\Sounds\DELETE_ME.txt" />
+     <None Include="Assets\Resources\darkroom_Assets\Resources\Sprites\nervous\anke-art-README-english.txt" />
      <None Include="Assets\Resources\Sprites\DELETE_ME.txt" />
      <None Include="Assets\Scripts\DELETE_ME.txt" />
  <Reference Include="UnityEngine.Networking">
