@@ -10,7 +10,7 @@ public class MemoryDisplay : MonoBehaviour {
 	public List<Buttons> InputList = new List<Buttons>(); // list of inputs that will be memorized by player *remember to clear after every round
 	public List<Buttons> PlayerList = new List<Buttons>();
 	public List<int> ReturnList = new List<int>();
-	public int Round = 5; // records how many 'rounds' have occured during the game
+	public int numButtons = 5; // records how many 'rounds' have occured during the game
     float displayTime = 2f;
 	public GameObject player1 = null;
 
@@ -39,11 +39,11 @@ public class MemoryDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		RandomInputText = GameObject.Find ("InputText").GetComponent<Text>();
+        RandomInputText = GetComponent<Text>();
 		OutputText = GameObject.Find ("PlayerText").GetComponent<Text>();
 		if (player1) {
 			PlayerList = player1.GetComponent<PlayerScript> ().InputList;
-			if (PlayerList.Count >= Round) {
+			if (PlayerList.Count >= numButtons) {
 				ReturnList = compareInputs (PlayerList, InputList);
 			}
 			printOutputs (ReturnList);
