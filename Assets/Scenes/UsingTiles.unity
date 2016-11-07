@@ -171,7 +171,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  fillSpeed: 1
+  fillSpeed: 4
 --- !u!114 &9696276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,7 +1678,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  fillSpeed: 1
+  fillSpeed: 4
 --- !u!114 &1105698568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,7 +1991,7 @@ Prefab:
     - target: {fileID: 114000012793437612, guid: b7f024d1312201740a56a4d190af5814,
         type: 2}
       propertyPath: fillSpeed
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7f024d1312201740a56a4d190af5814, type: 2}
@@ -2240,7 +2240,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  fillSpeed: 1
+  fillSpeed: 4
 --- !u!1 &1832608727
 GameObject:
   m_ObjectHideFlags: 0
