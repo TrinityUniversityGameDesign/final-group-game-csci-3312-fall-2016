@@ -14,6 +14,9 @@ public class player_movement : MonoBehaviour {
 	void Start () {        
 		rigid_body = GetComponent<Rigidbody2D>();		
 		player_pos = player.transform.position;  
+		if (this.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
+			this.gameObject.transform.position = new Vector3 (1, 38, 0);
+		}
         
 
 	}
@@ -26,6 +29,10 @@ public class player_movement : MonoBehaviour {
         rigid_body.velocity = new Vector2(translation_X, translation_Y);
 		//rigid_body.transform.position = new Vector3 (player_pos.x + translation_X, player_pos.y + translation_Y, player_pos.z);
 		player_pos = player.transform.position;
+
+		if (this.gameObject.GetComponentInChildren<Light> ().range < 3) {
+			Application.LoadLevel (1);
+		}
 
 	}
 

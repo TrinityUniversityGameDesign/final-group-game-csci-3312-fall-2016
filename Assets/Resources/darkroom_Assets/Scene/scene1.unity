@@ -666,26 +666,42 @@ Transform:
   m_PrefabParentObject: {fileID: 4000013608262702, guid: c76e87a5fac295f4ebffedabf62d326c,
     type: 2}
   m_PrefabInternal: {fileID: 106448626}
+<<<<<<< HEAD
 --- !u!1 &114326846
+=======
+--- !u!1 &117401321
+>>>>>>> origin/orange_iguanas
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD
   - 4: {fileID: 114326847}
   m_Layer: 0
   m_Name: GameObject
+=======
+  - 4: {fileID: 117401322}
+  - 114: {fileID: 117401323}
+  m_Layer: 0
+  m_Name: KeyGenerator
+>>>>>>> origin/orange_iguanas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &114326847
+=======
+--- !u!4 &117401322
+>>>>>>> origin/orange_iguanas
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 114326846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -695,6 +711,30 @@ Transform:
   m_Father: {fileID: 429817485}
   m_RootOrder: 0
 --- !u!1001 &121681285
+=======
+  m_GameObject: {fileID: 117401321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.011877, y: 29.050188, z: -2.8359375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 399708310}
+  - {fileID: 1034793765}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+--- !u!114 &117401323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117401321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3077d5fada99844e9d9fceab64efbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &188226651
+>>>>>>> origin/orange_iguanas
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1149,6 +1189,7 @@ Transform:
   m_PrefabParentObject: {fileID: 4000014058068636, guid: e385836a9bc039f40875df8e2f008592,
     type: 2}
   m_PrefabInternal: {fileID: 299175843}
+<<<<<<< HEAD
 --- !u!1 &310411050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,8 +1246,17 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &318962915
+=======
+--- !u!4 &399708310 stripped
+>>>>>>> origin/orange_iguanas
 Transform:
+  m_PrefabParentObject: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00,
+    type: 2}
+  m_PrefabInternal: {fileID: 1436094889}
+--- !u!1001 &415935531
+Prefab:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 318962914}
@@ -1287,6 +1337,52 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 1477436317}
 --- !u!1001 &341524107
+=======
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 117401322}
+    m_Modifications:
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -12.571877
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.52981186
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.8359375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013440216840, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_Name
+      value: key (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &479631694
+>>>>>>> origin/orange_iguanas
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5421,8 +5517,50 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 4000013608262702, guid: c76e87a5fac295f4ebffedabf62d326c,
     type: 2}
+<<<<<<< HEAD
   m_PrefabInternal: {fileID: 1389843166}
 --- !u!1001 &1394494825
+=======
+  m_PrefabInternal: {fileID: 997236440}
+--- !u!4 &1034793765 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00,
+    type: 2}
+  m_PrefabInternal: {fileID: 415935531}
+--- !u!1 &1045742112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1045742113}
+  m_Layer: 0
+  m_Name: Boundaries
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1045742113
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1045742112}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.46, y: 30.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 7.238366}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 227674755}
+  - {fileID: 1955997569}
+  - {fileID: 479631695}
+  - {fileID: 193534351}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+--- !u!1001 &1082685502
+>>>>>>> origin/orange_iguanas
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5538,6 +5676,7 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 4000014058068636, guid: e385836a9bc039f40875df8e2f008592,
     type: 2}
+<<<<<<< HEAD
   m_PrefabInternal: {fileID: 1427425066}
 --- !u!4 &1433296377 stripped
 Transform:
@@ -5545,6 +5684,52 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 1719550384}
 --- !u!1001 &1434364968
+=======
+  m_PrefabInternal: {fileID: 1138637252}
+--- !u!1001 &1153584612
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000013325779806, guid: 4a347a63acb7b6c409e0f54290108c98, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 18.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013325779806, guid: 4a347a63acb7b6c409e0f54290108c98, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 35.742344
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013325779806, guid: 4a347a63acb7b6c409e0f54290108c98, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013325779806, guid: 4a347a63acb7b6c409e0f54290108c98, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013325779806, guid: 4a347a63acb7b6c409e0f54290108c98, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013325779806, guid: 4a347a63acb7b6c409e0f54290108c98, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013325779806, guid: 4a347a63acb7b6c409e0f54290108c98, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013325779806, guid: 4a347a63acb7b6c409e0f54290108c98, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4a347a63acb7b6c409e0f54290108c98, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1159732792
+>>>>>>> origin/orange_iguanas
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -6561,6 +6746,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &1567001085
 Transform:
+<<<<<<< HEAD
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -6573,6 +6759,54 @@ Transform:
   m_Father: {fileID: 2142455658}
   m_RootOrder: 3
 --- !u!1001 &1572129359
+=======
+  m_PrefabParentObject: {fileID: 4000014058068636, guid: e385836a9bc039f40875df8e2f008592,
+    type: 2}
+  m_PrefabInternal: {fileID: 1434364968}
+--- !u!1001 &1436094889
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 117401322}
+    m_Modifications:
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.078123
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.3601875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.8359375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014152619064, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fe3393b92aff2f54eab9afb985f20b00, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1472826624
+>>>>>>> origin/orange_iguanas
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -6975,11 +7209,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000014058068636, guid: e385836a9bc039f40875df8e2f008592, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 17.1
+      value: 16.67
       objectReference: {fileID: 0}
     - target: {fileID: 4000014058068636, guid: e385836a9bc039f40875df8e2f008592, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 24.89
+      value: 25.46
       objectReference: {fileID: 0}
     - target: {fileID: 4000014058068636, guid: e385836a9bc039f40875df8e2f008592, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7019,7 +7253,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012556766630, guid: e385836a9bc039f40875df8e2f008592, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.08
+      value: -2.36
       objectReference: {fileID: 0}
     - target: {fileID: 4000012556766630, guid: e385836a9bc039f40875df8e2f008592, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7027,7 +7261,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012107263124, guid: e385836a9bc039f40875df8e2f008592, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.71
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012107263124, guid: e385836a9bc039f40875df8e2f008592, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7209,6 +7443,7 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 7.068928
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 4000014198801202, guid: 09a03cfa99a29f3438be6899328495a2, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
@@ -7216,6 +7451,15 @@ Prefab:
     - target: {fileID: 1000012800370352, guid: 09a03cfa99a29f3438be6899328495a2, type: 2}
       propertyPath: m_Name
       value: Wall (1)
+=======
+    - target: {fileID: 4000014209633722, guid: e385836a9bc039f40875df8e2f008592, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014209633722, guid: e385836a9bc039f40875df8e2f008592, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0
+>>>>>>> origin/orange_iguanas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09a03cfa99a29f3438be6899328495a2, type: 2}
