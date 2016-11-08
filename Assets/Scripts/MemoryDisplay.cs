@@ -45,8 +45,12 @@ public class MemoryDisplay : MonoBehaviour {
         OutputText = GameObject.Find ("PlayerText").GetComponent<Text>();
 		if (player1) {
 			PlayerList = player1.GetComponent<PlayerScript> ().InputList;
+			Debug.Log ("PENIS");
 			if (PlayerList.Count >= numButtons) {
 				ReturnList = compareInputs (PlayerList, InputList);
+				float loss = ReturnList.Count * 10f;
+				Debug.Log (loss);
+				player1.GetComponent<PlayerScript> ().health -= loss;
 			}
 			printOutputs (ReturnList);
 		}
