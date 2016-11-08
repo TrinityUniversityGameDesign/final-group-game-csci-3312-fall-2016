@@ -13,7 +13,6 @@ public class keyGeneration : MonoBehaviour {
     {
         keyLocs = new[] { new Vector3(-.67f, 5.39f, 0f),
                           new Vector3(-8f, 2.5f, 0f),
-                          new Vector3(0.7f, 2.45f, 0f),
                           new Vector3(0.5f, 2.45f, 0f),
                           new Vector3(12.6f, 6f, 0f),
                           new Vector3(17f, 6f, 0f),

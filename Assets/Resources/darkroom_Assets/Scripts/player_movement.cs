@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class player_movement : MonoBehaviour {
@@ -7,7 +8,7 @@ public class player_movement : MonoBehaviour {
 	private Rigidbody2D rigid_body;
 	public GameObject player;
 	Vector3 player_pos;
-
+    private int keyOwn = 0;
 
 
 	// Use this for initialization
@@ -31,14 +32,21 @@ public class player_movement : MonoBehaviour {
 		player_pos = player.transform.position;
 
 		if (this.gameObject.GetComponentInChildren<Light> ().range < 3) {
-			Application.LoadLevel (1);
+			//Application.LoadLevel (1);
+            SceneManager.LoadScene(1);
 		}
 
 	}
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("!!!!!");
+        if (other.gameObject.layer == LayerMask.NameToLayer("Key"))
+        {
+            other.gameObject.SetActive(false);
+            keyOwn += 1;
+        }
+
     }
+
 
 }
