@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011390744456}
   - 212: {fileID: 212000011764851702}
+  - 60: {fileID: 60000013641419362}
   m_Layer: 0
   m_Name: Grass_16
   m_TagString: Untagged
@@ -40,6 +41,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!60 &60000013641419362
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011184192188}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.19529311, y: 0.06314301}
+      - {x: 0.19681971, y: -0.17258269}
+      - {x: -0.19127506, y: -0.17397587}
+      - {x: -0.18975505, y: 0.075402215}
+      - {x: -0.2521773, y: 0.080054834}
+      - {x: -0.25442457, y: -0.22681396}
+      - {x: 0.24924755, y: -0.22681397}
+      - {x: 0.24527465, y: 0.06709288}
 --- !u!212 &212000011764851702
 SpriteRenderer:
   m_ObjectHideFlags: 1

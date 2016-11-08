@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013701827772}
   - 212: {fileID: 212000012760229020}
+  - 61: {fileID: 61000012676751702}
+  - 61: {fileID: 61000012243406542}
   m_Layer: 0
   m_Name: Grass_12
   m_TagString: Untagged
@@ -40,6 +42,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &61000012243406542
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010947705854}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.2}
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.04720124}
+--- !u!61 &61000012676751702
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010947705854}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0.2}
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.047201276}
 --- !u!212 &212000012760229020
 SpriteRenderer:
   m_ObjectHideFlags: 1

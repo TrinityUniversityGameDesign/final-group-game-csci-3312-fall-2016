@@ -51,10 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4475c616bd1b716409328445f0e92267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 18
+  width: 30
   height: 10
-  depth: 9
-  randomnessThreshold: 0.4
+  depth: 10
+  randomnessThreshold: 0.3
   zero: {fileID: 1000011115509940, guid: 20447bc54169d8f4cba35800abd755e5, type: 2}
   one: {fileID: 1000011115509940, guid: 20447bc54169d8f4cba35800abd755e5, type: 2}
   two: {fileID: 1000011115509940, guid: 20447bc54169d8f4cba35800abd755e5, type: 2}
