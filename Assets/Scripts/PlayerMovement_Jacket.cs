@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement_Jacket : MonoBehaviour {
 
 	public int playerNum;
 	public float walkSpeed;
