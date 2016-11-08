@@ -73,7 +73,7 @@ public class MemoryDisplay : MonoBehaviour {
 		if (third) {
 			if (PlayerList.Count >= numButtons) {
 				ReturnList = compareInputs (PlayerList, InputList);
-				float loss = ReturnList.Count * 10f;
+				float loss = ReturnList.Count;
 				Debug.Log (loss);
 				player1.GetComponent<PlayerScript> ().health -= loss;
 			}

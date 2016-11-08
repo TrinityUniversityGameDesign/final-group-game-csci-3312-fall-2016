@@ -126,7 +126,7 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		//if (GameObject.Find("Main Camera").GetComponent<MemoryDisplay>().InputList.Count())
 		if (Input.GetButtonDown (iC.ABut)) {
 			InputList.Add (Buttons.A);
 		}

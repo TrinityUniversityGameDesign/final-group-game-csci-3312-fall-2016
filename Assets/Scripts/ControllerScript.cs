@@ -13,7 +13,7 @@ public class ControllerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         timerActive = false;
-        round = 5;
+        round = 1;
 		canvas.GetComponent<MemoryDisplay> ().numButtons = round; // when the game begins, round is set to round
 		timerGenerator();
 	}
@@ -37,10 +37,18 @@ public class ControllerScript : MonoBehaviour {
     {
         targetTime = baseTime + moreButtonsTime * round;
     }
+
     public void updateRounds()
     {
         timerActive = true;
         timerGenerator();
         round += 1;
     }
+		
+	IEnumerator waitBetween(float waitTime) {
+		yield return new WaitForSeconds(waitTime);
+		print(Time.time);
+	}
+
+
 }
