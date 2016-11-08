@@ -28,7 +28,7 @@ public class ControllerScript : MonoBehaviour {
 			if (targetTime < 0)
 			{
 				timerActive = false;
-				round += 1;
+				
 			}
 		}
 	}
@@ -36,5 +36,11 @@ public class ControllerScript : MonoBehaviour {
     public void timerGenerator()
     {
         targetTime = baseTime + moreButtonsTime * round;
+    }
+    public void updateRounds()
+    {
+        timerActive = true;
+        timerGenerator();
+        round += 1;
     }
 }

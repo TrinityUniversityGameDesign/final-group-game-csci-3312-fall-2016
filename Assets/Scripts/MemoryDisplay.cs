@@ -164,9 +164,7 @@ public class MemoryDisplay : MonoBehaviour {
             Destroy(a);
         }
         getRandomInputs();
-        GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerActive = true;
-        GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerGenerator();
-        GameObject.Find("Main Camera").GetComponent<ControllerScript>().round += 1;
+        GameObject.Find("Main Camera").GetComponent<ControllerScript>().updateRounds();
     }
 
 }
