@@ -25,6 +25,11 @@ public class MemoryDisplay : MonoBehaviour {
     public Text RandomInputText;
 	public Text OutputText;
 
+	// bools used to determine what stage of the round it is
+	public bool first = false; // 1st stage - display memory list, no input
+	public bool second = false; // 2nd stage - hide memory list, player input
+	public bool third = false; // 3rd stage - show both lists, comparison
+
     int x = 0; // temp display number
 	// Use this for initialization
 	void Start () {
@@ -37,27 +42,48 @@ public class MemoryDisplay : MonoBehaviour {
         
 		player1 = GameObject.FindGameObjectWithTag ("Player1");
 
+		first = true;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-        RandomInputText = GameObject.Find("InputText").GetComponent<Text>();
-        OutputText = GameObject.Find ("PlayerText").GetComponent<Text>();
-		if (player1) {
-			PlayerList = player1.GetComponent<PlayerScript> ().InputList;
-			Debug.Log ("PENIS");
+		if (first) {
+			newRound ();
+			first = false;
+			second = true;
+		}
+		if (second) {
+			RandomInputText = GameObject.Find ("InputText").GetComponent<Text> ();
+			OutputText = GameObject.Find ("PlayerText").GetComponent<Text> ();
+			if (player1) {
+				PlayerList = player1.GetComponent<PlayerScript> ().InputList;
+				/*Debug.Log ("PENIS");
+				if (PlayerList.Count >= numButtons) {
+					ReturnList = compareInputs (PlayerList, InputList);
+					float loss = ReturnList.Count * 10f;
+					Debug.Log (loss);
+					player1.GetComponent<PlayerScript> ().health -= loss;
+				} */
+				printOutputs (ReturnList);
+			}
+			second = false;
+			third = true;
+		}
+		if (third) {
 			if (PlayerList.Count >= numButtons) {
 				ReturnList = compareInputs (PlayerList, InputList);
 				float loss = ReturnList.Count * 10f;
 				Debug.Log (loss);
 				player1.GetComponent<PlayerScript> ().health -= loss;
 			}
-			printOutputs (ReturnList);
+			if (GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerActive == false)
+			{
+				//StartCoroutine
+				first = true;
+				third = false;
+			}
 		}
-        if (GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerActive == false)
-        {
-            newRound();
-        }
 
         //StartCoroutine(timeToDisplay(x.ToString(), 2f));
     }
