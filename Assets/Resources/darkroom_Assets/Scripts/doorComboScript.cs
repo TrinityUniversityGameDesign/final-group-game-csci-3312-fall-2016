@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class doorComboScript : MonoBehaviour {
-    public bool opening;
-    public bool closing;
-    public bool locked;
+    private bool opening;
+    private bool closing;
+    private bool locked;
     public GameObject dr;
     public GameObject player;
     public int numPlayers;
@@ -52,31 +52,45 @@ public class doorComboScript : MonoBehaviour {
 
     public void LockDoor()
     {
-        locked = true;
+        if (locked)
+        {
+            locked = false;
+            opening = true;
+        }
+        else
+        {
+            locked = true;
+            closing = true;
+        }
+    }
+
+    public void OpenDoor()
+    {
+        if (!locked)
+        {
+            opening = true;
+        }
+    }
+
+    public void CloseDoor()
+    {
+        closing = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if ( other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            if (locked == false)
-            {
-
-                opening = true;
-            }
-        }
-        else
-        {
-            closing = true;
+            OpenDoor();
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            closing = true;
+            CloseDoor();
 
         }
     }
