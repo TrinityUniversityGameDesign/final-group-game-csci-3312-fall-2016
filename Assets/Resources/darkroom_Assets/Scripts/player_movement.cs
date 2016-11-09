@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 public class player_movement : MonoBehaviour {
 	public float speed = .05f;
@@ -8,6 +9,7 @@ public class player_movement : MonoBehaviour {
 	private Rigidbody2D rigid_body;
 	public GameObject player;
 	Vector3 player_pos;
+	Text keyScore;
     public int keyOwn = 0;
     private ArrayList toBeLockedDoors;
 
@@ -20,7 +22,7 @@ public class player_movement : MonoBehaviour {
 			this.gameObject.transform.position = new Vector3 (1, 38, 0);
 		}
         toBeLockedDoors = new ArrayList();
-        
+		keyScore = GameObject.Find ("KeyScore").GetComponent<Text> ();
 
 	}
 
@@ -51,6 +53,7 @@ public class player_movement : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             keyOwn += 1;
+			keyScore.text = keyOwn.ToString () + "/3";
         } else if(other.gameObject.layer == LayerMask.NameToLayer("DoorCombo"))
         {
             other.gameObject.GetComponent<doorComboScript>().OpenDoor();
