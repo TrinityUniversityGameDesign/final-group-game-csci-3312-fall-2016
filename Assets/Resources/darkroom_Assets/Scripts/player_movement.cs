@@ -19,7 +19,7 @@ public class player_movement : MonoBehaviour {
 		rigid_body = GetComponent<Rigidbody2D>();		
 		player_pos = player.transform.position;  
 		if (this.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
-			this.gameObject.transform.position = new Vector3 (1, 38, 0);
+			//this.gameObject.transform.position = new Vector3 (1, 38, 0);
 		}
         toBeLockedDoors = new ArrayList();
 		keyScore = GameObject.Find ("KeyScore").GetComponent<Text> ();
