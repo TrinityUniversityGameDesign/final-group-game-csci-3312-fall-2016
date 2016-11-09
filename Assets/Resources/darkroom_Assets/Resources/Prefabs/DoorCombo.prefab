@@ -40,7 +40,7 @@ GameObject:
   - 4: {fileID: 4000014058068636}
   - 114: {fileID: 114000014242351958}
   - 58: {fileID: 58000012748676122}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DoorCombo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,9 +366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b039d04c5664f4c4690bae20179c78aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opening: 0
-  closing: 0
-  locked: 0
   dr: {fileID: 1000014133717810}
   player: {fileID: 1000014184994994, guid: 004b21fbe3f47dd4e9591bfb3856f291, type: 2}
   numPlayers: 1

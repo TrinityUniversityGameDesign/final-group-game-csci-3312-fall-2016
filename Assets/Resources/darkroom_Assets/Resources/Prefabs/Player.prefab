@@ -27,6 +27,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000013848722704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012909234604}
+  - 61: {fileID: 61000011407837774}
+  m_Layer: 13
+  m_Name: rando
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000014184994994
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,7 +55,6 @@ GameObject:
   - 50: {fileID: 50000010557499186}
   - 114: {fileID: 114000012257063246}
   - 61: {fileID: 61000012036932624}
-  - 61: {fileID: 61000010991780884}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -59,6 +74,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011436093254}
+  - {fileID: 4000012909234604}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000011436093254
@@ -74,6 +90,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000011205038654}
   m_RootOrder: 0
+--- !u!4 &4000012909234604
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013848722704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000011205038654}
+  m_RootOrder: 1
 --- !u!50 &50000010557499186
 Rigidbody2D:
   serializedVersion: 2
@@ -91,20 +120,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61000010991780884
+--- !u!61 &61000011407837774
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014184994994}
+  m_GameObject: {fileID: 1000013848722704}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.18178654, y: -0.49477386}
+  m_Offset: {x: 0.23061654, y: 0.03183365}
   serializedVersion: 2
-  m_Size: {x: 2.132721, y: 1.9985247}
+  m_Size: {x: 3.6879632, y: 1.6048241}
 --- !u!61 &61000012036932624
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -167,6 +196,7 @@ MonoBehaviour:
   speed: 2
   controller: 1
   player: {fileID: 1000014184994994}
+  keyOwn: 0
 --- !u!212 &212000011313393226
 SpriteRenderer:
   m_ObjectHideFlags: 1

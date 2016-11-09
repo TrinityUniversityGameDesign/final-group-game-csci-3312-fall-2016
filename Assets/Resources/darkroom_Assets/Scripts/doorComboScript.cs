@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class doorComboScript : MonoBehaviour {
-    public bool opening;
-    public bool closing;
-    public bool locked;
+    private bool opening;
+    private bool closing;
+    private bool locked;
     public GameObject dr;
     public GameObject player;
     public int numPlayers;
@@ -31,7 +31,6 @@ public class doorComboScript : MonoBehaviour {
             if (dr.transform.localPosition.x < slideDistance)
             {
                 dr.transform.localPosition = new Vector3(dr.transform.localPosition.x + Time.deltaTime * slideSpeed, dr.transform.localPosition.y, dr.transform.localPosition.z);
-                Debug.Log("x: " + dr.transform.localPosition.x);
             }
             else
             {
@@ -43,7 +42,6 @@ public class doorComboScript : MonoBehaviour {
             if (dr.transform.localPosition.x > 0)
             {
                 dr.transform.localPosition = new Vector3(dr.transform.localPosition.x - Time.deltaTime * slideSpeed, dr.transform.localPosition.y, dr.transform.localPosition.z);
-                Debug.Log("x: " + dr.transform.localPosition.x);
             }
             else
             {
@@ -54,33 +52,45 @@ public class doorComboScript : MonoBehaviour {
 
     public void LockDoor()
     {
-        locked = true;
+        if (locked)
+        {
+            locked = false;
+            opening = true;
+        }
+        else
+        {
+            locked = true;
+            closing = true;
+        }
+    }
+
+    public void OpenDoor()
+    {
+        if (!locked)
+        {
+            opening = true;
+        }
+    }
+
+    public void CloseDoor()
+    {
+        closing = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if ( other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Debug.Log("in!");
-            if (locked == false)
-            {
-
-                opening = true;
-            }
-        }
-        else
-        {
-            closing = true;
+            OpenDoor();
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Debug.Log("out!"); 
-            closing = true;
+            CloseDoor();
 
         }
     }
