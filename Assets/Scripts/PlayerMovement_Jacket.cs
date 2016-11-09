@@ -49,7 +49,12 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag ("Water")) {
-			Destroy (gameObject);
+			OnDeath ();
 		}
+	}
+
+
+	void OnDeath() {
+		Destroy (gameObject);
 	}
 }
