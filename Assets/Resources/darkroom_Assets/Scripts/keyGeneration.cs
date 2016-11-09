@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 public class keyGeneration : MonoBehaviour {
     private Vector3[] keyLocs;
+	private Vector3[] portalLocs;
     private GameObject key;
+	private GameObject portal;
     private ArrayList keys;
     public int keyNum = 6;
 
@@ -20,6 +22,8 @@ public class keyGeneration : MonoBehaviour {
                           new Vector3(7.4f, -6.9f, 0f),
                           new Vector3(2f, -2.3f, 0f)
        };
+		portalLocs = new [] { new Vector3 (16, 6, 1) };
+		portal = Resources.Load<GameObject>("darkroom_Assets/Resources/Prefabs/Portal");
         key = Resources.Load<GameObject>("darkroom_Assets/Resources/Prefabs/key");
         HashSet<int> keypool = new HashSet<int>();
         keys = new ArrayList();
@@ -42,10 +46,13 @@ public class keyGeneration : MonoBehaviour {
             newkey.transform.localPosition = keyLocs[i];
             keys.Add(newkey);
         }
+		GameObject portalInit = (GameObject)Instantiate(portal, portalLocs[0], Quaternion.identity);
+		portalInit.transform.parent = gameObject.transform;
+		portalInit.transform.localPosition = portalLocs[0];
 
     }
 
-
+	 
     // Update is called once per frame
     void Update()
     {

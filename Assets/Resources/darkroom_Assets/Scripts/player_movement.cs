@@ -8,7 +8,7 @@ public class player_movement : MonoBehaviour {
 	private Rigidbody2D rigid_body;
 	public GameObject player;
 	Vector3 player_pos;
-    private int keyOwn = 0;
+    public int keyOwn = 0;
     private ArrayList toBeLockedDoors;
 
 
@@ -55,7 +55,12 @@ public class player_movement : MonoBehaviour {
         {
             other.gameObject.GetComponent<doorComboScript>().OpenDoor();
             toBeLockedDoors.Add(other.gameObject);
-        }
+		} else if (other.gameObject.layer == LayerMask.NameToLayer("Portal"))
+		{
+			if (keyOwn >= 3) {
+				Application.LoadLevel ("Player_wins");
+			}
+		}
 
     }
 
