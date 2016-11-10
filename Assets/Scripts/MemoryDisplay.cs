@@ -114,7 +114,7 @@ public class MemoryDisplay : MonoBehaviour {
 			}
 			if (PlayerList2.Count == (numButtons - 1)) {
 				ReturnList2 = compareInputs (PlayerList2, InputList);
-				float loss = ReturnList1.Count;
+				float loss = ReturnList2.Count;
 				Debug.Log (loss);
 				player2.GetComponent<PlayerScript> ().health -= loss;
                 GameObject.Find("Column2").transform.position = new Vector3(ColumnPos2.x, ColumnPos2.y - .5f * loss, ColumnPos2.z);

@@ -21,6 +21,8 @@ GameObject:
   - 4: {fileID: 4000012379057142}
   - 212: {fileID: 212000011505014320}
   - 114: {fileID: 114000012262319596}
+  - 50: {fileID: 50000010673258350}
+  - 61: {fileID: 61000010060728976}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -41,6 +43,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000010673258350
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010804415270}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0.8
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61000010060728976
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010804415270}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 4, y: 4}
 --- !u!114 &114000012262319596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,9 +85,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb28d7a8909ffc942bdf7fcd71294a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNum: 
   memDisp: {fileID: 0}
   curRound: 0
-  health: 50
+  health: 5
+  alive: 0
+  curButtonPos: {x: 0, y: 0, z: 0}
+  firstbuttonPos: {x: 0, y: 0, z: 0}
   InputList: 
 --- !u!212 &212000011505014320
 SpriteRenderer:
