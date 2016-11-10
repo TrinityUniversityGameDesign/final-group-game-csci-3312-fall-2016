@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour {
     private string horizontalCtrl = "Horizontal_P";
     private string verticalCtrl = "Vertical_P";
     private bool dead = false;
+	private Animator animationController;
+	private float animSpeedMult = 1.5f; //Meant to increase the speed of the animation of the player
+
+	private Quaternion originalRotation;
 
     private Rigidbody2D theRigidBody;
     
@@ -17,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
         theRigidBody = GetComponent<Rigidbody2D>();
         horizontalCtrl += playerNo;
         verticalCtrl += playerNo;
+		animationController = GetComponent<Animator> ();
 	}
 	
     void OnTriggerExit2D(Collider2D other)
@@ -55,7 +60,13 @@ public class PlayerMovement : MonoBehaviour {
 				} else {
 					theRigidBody.velocity = theRigidBody.velocity - (temp * customFriction); //Otherwise just steadily reduce speed
 				}
-            }
+			}
+			Vector3 tempVel = theRigidBody.velocity;
+			animationController.speed = animSpeedMult*Mathf.Abs(theRigidBody.velocity.magnitude);
+			if(theRigidBody.velocity.magnitude > 0){
+				transform.rotation = Quaternion.LookRotation (Vector3.forward, tempVel); //Currently turns towards current velocity, will probably change to turn towards player input. Maybe smooth using lerp.
+			}
+
         }
     }
 }
