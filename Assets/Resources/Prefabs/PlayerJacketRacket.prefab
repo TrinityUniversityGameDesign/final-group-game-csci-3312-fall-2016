@@ -24,7 +24,7 @@ GameObject:
   - 114: {fileID: 114000011877851090}
   - 61: {fileID: 61000012080733996}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerJacketRacket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

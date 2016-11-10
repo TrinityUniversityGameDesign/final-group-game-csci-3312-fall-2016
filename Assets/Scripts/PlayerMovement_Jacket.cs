@@ -2,6 +2,11 @@
 using System.Collections;
 
 public class PlayerMovement_Jacket : MonoBehaviour {
+	//Samuel's stuff
+	private bool isDead = false;
+	private int points = 0;
+	private Vector3 dumpPosition = new Vector3(10000,10000,10000);
+	private Vector3 spawnPosition;
 
 	public int playerNum;
 	public float walkSpeed;
@@ -19,6 +24,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		spawnPosition = transform.position;
 		rigid = GetComponent<Rigidbody2D> ();
 		vertAxis = "VerticalP" + playerNum.ToString();
 		horAxis = "HorizontalP" + playerNum.ToString();
@@ -55,6 +61,27 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
 
 	void OnDeath() {
-		Destroy (gameObject);
+		//Destroy (gameObject);
+		isDead = true;
+		Debug.Log("I died!");
+		transform.position = dumpPosition;
+	}
+	public void Respawn(){
+		//teleport player back to start
+		isDead = false;
+		transform.position = spawnPosition;
+	}
+
+	public void AddPoint(){
+		points++;
+	}
+	public int GetPoints(){
+		return points;
+	}
+	public void SetDead(bool d){
+		isDead = d;
+	}
+	public bool IsDead(){
+		return isDead;
 	}
 }

@@ -29,7 +29,12 @@ public class PlayerPanelScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (player.GetComponent<PlayerMovement_Jacket> ().IsDead () && !isDead) {
+			SetIsDead (true);
+		}
+		if (!player.GetComponent<PlayerMovement_Jacket> ().IsDead () && isDead) {
+			SetIsDead (false);
+		}
 	}
 
 	public void SetIsDead(bool b){
