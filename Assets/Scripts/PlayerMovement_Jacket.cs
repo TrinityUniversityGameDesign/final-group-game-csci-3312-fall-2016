@@ -26,10 +26,10 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	void Start () {
 		spawnPosition = transform.position;
 		rigid = GetComponent<Rigidbody2D> ();
-		vertAxis = "VerticalP" + playerNum.ToString();
-		horAxis = "HorizontalP" + playerNum.ToString();
-		jumpButton = "JumpP" + playerNum.ToString();
-		actionButton = "ActionP" + playerNum.ToString();
+		vertAxis = "Vertical_P" + playerNum.ToString();
+		horAxis = "Horizontal_P" + playerNum.ToString();
+		jumpButton = "A_P" + playerNum.ToString();
+		actionButton = "X_P" + playerNum.ToString();
 
 	}
 	
