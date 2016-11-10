@@ -30,11 +30,20 @@ public class ControllerScript : MonoBehaviour {
 	void Update () {
 		//grabbing the player1 from the scene (shouldn't be in the final script since we should be instantiating them)
 
-		player1 = GameObject.Find ("Player1");
+		player1 = GameObject.FindGameObjectWithTag("Player1");
+		player2 = GameObject.FindGameObjectWithTag("Player2");
+		player3 = GameObject.FindGameObjectWithTag("Player3");
+		player4 = GameObject.FindGameObjectWithTag("Player4");
 
 		//setting player's round
-		var x = player1.GetComponent<PlayerScript> ();
-		x.setRound (round);
+		var p1 = player1.GetComponent<PlayerScript> ();
+		var p2 = player2.GetComponent<PlayerScript> ();
+		var p3 = player3.GetComponent<PlayerScript> ();
+		var p4 = player4.GetComponent<PlayerScript> ();
+		p1.setRound (round);
+		p2.setRound (round);
+		p3.setRound (round);
+		p4.setRound (round);
 
 		canvas.GetComponent<MemoryDisplay> ().numButtons = round;
 
