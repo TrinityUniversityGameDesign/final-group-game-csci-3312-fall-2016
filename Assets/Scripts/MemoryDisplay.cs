@@ -58,6 +58,7 @@ public class MemoryDisplay : MonoBehaviour {
 			OutputText = GameObject.Find ("PlayerText").GetComponent<Text> ();
 			if (player1) {
 				PlayerList = player1.GetComponent<PlayerScript> ().InputList;
+				//GameObject.Find ("Main Camera").GetComponent<ControllerScript> ().updateRounds ();
 				/*Debug.Log ("PENIS");
 				if (PlayerList.Count >= numButtons) {
 					ReturnList = compareInputs (PlayerList, InputList);
@@ -71,18 +72,21 @@ public class MemoryDisplay : MonoBehaviour {
 			third = true;
 		}
 		if (third) {
-			if (PlayerList.Count >= numButtons) {
+			
+			if (PlayerList.Count == (numButtons - 1)) {
 				ReturnList = compareInputs (PlayerList, InputList);
 				float loss = ReturnList.Count;
 				Debug.Log (loss);
 				player1.GetComponent<PlayerScript> ().health -= loss;
-			}
-			if (GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerActive == false)
-			{
-				//StartCoroutine
 				first = true;
 				third = false;
 			}
+			//if (GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerActive == false)
+			//{
+				//StartCoroutine
+				//first = true;
+				//third = false;
+			//}
 		}
 
         //StartCoroutine(timeToDisplay(x.ToString(), 2f));

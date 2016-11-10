@@ -126,20 +126,17 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//if (GameObject.Find("Main Camera").GetComponent<MemoryDisplay>().InputList.Count())
-		if (Input.GetButtonDown (iC.ABut)) {
-			InputList.Add (Buttons.A);
-		}
-		if (Input.GetButtonDown (iC.BBut)) {
-			InputList.Add (Buttons.B);
-		}
-		if (Input.GetButtonDown (iC.YBut)) {
-			InputList.Add (Buttons.Y);
-		}
-		if (Input.GetButtonDown (iC.XBut)) {
-			InputList.Add (Buttons.X);
-		}
-
-
+			if (Input.GetButtonDown (iC.ABut)) {
+				InputList.Add (Buttons.A);
+			}
+			if (Input.GetButtonDown (iC.BBut)) {
+				InputList.Add (Buttons.B);
+			}
+			if (Input.GetButtonDown (iC.YBut)) {
+				InputList.Add (Buttons.Y);
+			}
+			if (Input.GetButtonDown (iC.XBut)) {
+				InputList.Add (Buttons.X);
+			}
 	}
 }
