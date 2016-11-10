@@ -27,7 +27,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		rigid = GetComponent<Rigidbody2D> ();
 		vertAxis = "Vertical_P" + playerNum.ToString();
 		horAxis = "Horizontal_P" + playerNum.ToString();
-		dashButton = "A_P" + playerNum.ToString();
+		dashButton = "B_P" + playerNum.ToString();
 
 	}
 	
