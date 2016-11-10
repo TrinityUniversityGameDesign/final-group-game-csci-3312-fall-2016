@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using System.IO;
+using System.Linq;
+using System.Text;
 
 public class ScoreRoundManagerScript : MonoBehaviour {
+	private Text roundText;
 	private int maxRoundNumber;
 	private int maxPlayers = 4;
 	private int currentRoundNumber;
@@ -10,6 +15,8 @@ public class ScoreRoundManagerScript : MonoBehaviour {
 	List<GameObject> playersInPlay = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
+		roundText = GameObject.Find ("RoundText").GetComponent<Text>();
+		roundText.text = "Round 1";
 		maxRoundNumber = 5;
 		currentRoundNumber = 1;
 		foreach(GameObject playerObj in GameObject.FindGameObjectsWithTag("Player")) {
@@ -32,6 +39,7 @@ public class ScoreRoundManagerScript : MonoBehaviour {
 
 	private void StartNewRound(){
 		currentRoundNumber++;
+		roundText.text = "Round " + currentRoundNumber;
 		playersInPlay = new List<GameObject> ();
 		foreach(GameObject playerObj in GameObject.FindGameObjectsWithTag("Player")) {
 			playerObj.GetComponent<PlayerMovement_Jacket> ().Respawn ();

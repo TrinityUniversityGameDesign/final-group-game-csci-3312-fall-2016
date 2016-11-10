@@ -514,7 +514,8 @@ Transform:
   m_LocalPosition: {x: -117.045, y: -74.04749, z: -9671.4}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 1271193359}
   m_Father: {fileID: 1265582029}
   m_RootOrder: 0
 --- !u!224 &1265582029 stripped
@@ -531,9 +532,10 @@ GameObject:
   m_Component:
   - 224: {fileID: 1271193359}
   - 222: {fileID: 1271193361}
-  - 114: {fileID: 1271193360}
+  - 114: {fileID: 1271193362}
+  - 132: {fileID: 1271193360}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RoundText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -545,19 +547,48 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1271193358}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 89.55}
+  m_LocalScale: {x: 0.009259259, y: 0.009259259, z: 0.009259259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1265582029}
-  m_RootOrder: 2
+  m_Father: {fileID: 1242219618}
+  m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 488}
+  m_AnchoredPosition: {x: 1.0930092, y: 5.204132}
   m_SizeDelta: {x: 387, y: 104}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1271193360
+--- !u!132 &1271193360
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271193358}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: 
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!222 &1271193361
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271193358}
+--- !u!114 &1271193362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -590,12 +621,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Round X
---- !u!222 &1271193361
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1271193358}
 --- !u!1001 &1797878410
 Prefab:
   m_ObjectHideFlags: 0
@@ -846,7 +871,7 @@ Prefab:
     - target: {fileID: 224000010182437934, guid: c4fcf2594198a4006bdd79ccce54d647,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4fcf2594198a4006bdd79ccce54d647, type: 2}
