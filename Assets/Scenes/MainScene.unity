@@ -342,6 +342,10 @@ MonoBehaviour:
   round: 0
   timerActive: 0
   canvas: {fileID: 1113320120}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  player3: {fileID: 0}
+  player4: {fileID: 0}
 --- !u!1 &771407205
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +985,7 @@ GameObject:
   - 212: {fileID: 2124558486}
   - 114: {fileID: 2124558485}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player1
   m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -999,6 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   memDisp: {fileID: 0}
+  curRound: 0
   health: 50
   InputList: 
 --- !u!212 &2124558486

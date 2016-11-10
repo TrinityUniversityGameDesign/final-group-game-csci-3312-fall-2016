@@ -10,7 +10,7 @@ public class MemoryDisplay : MonoBehaviour {
 	public List<Buttons> InputList = new List<Buttons>(); // list of inputs that will be memorized by player *remember to clear after every round
 	public List<Buttons> PlayerList = new List<Buttons>();
 	public List<int> ReturnList = new List<int>();
-	public int numButtons = 5; // records how many 'rounds' have occured during the game
+	public int numButtons; // records how many 'rounds' have occured during the game
     float displayTime = 2f;
 	public GameObject player1 = null;
 
