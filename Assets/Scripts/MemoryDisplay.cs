@@ -8,11 +8,26 @@ public class MemoryDisplay : MonoBehaviour {
 
 	
 	public List<Buttons> InputList = new List<Buttons>(); // list of inputs that will be memorized by player *remember to clear after every round
+<<<<<<< Updated upstream
 	public List<Buttons> PlayerList = new List<Buttons>();
 	public List<int> ReturnList = new List<int>();
 	public int numButtons; // records how many 'rounds' have occured during the game
+=======
+	public List<Buttons> PlayerList1 = new List<Buttons>();
+	public List<Buttons> PlayerList2 = new List<Buttons>();
+	public List<Buttons> PlayerList3 = new List<Buttons>();
+	public List<Buttons> PlayerList4 = new List<Buttons>();
+	public List<int> ReturnList1 = new List<int>();
+	public List<int> ReturnList2 = new List<int>();
+	public List<int> ReturnList3 = new List<int>();
+	public List<int> ReturnList4 = new List<int>();
+	public int numButtons = 5; // records how many 'rounds' have occured during the game
+>>>>>>> Stashed changes
     float displayTime = 2f;
 	public GameObject player1 = null;
+	public GameObject player2 = null;
+	public GameObject player3 = null;
+	public GameObject player4 = null;
 
 	public Object aButton;
 	public Object bButton;
@@ -41,6 +56,9 @@ public class MemoryDisplay : MonoBehaviour {
         qButton =  Resources.Load("Prefabs/qButton");
         
 		player1 = GameObject.FindGameObjectWithTag ("Player1");
+		player2 = GameObject.FindGameObjectWithTag ("Player2");
+		player3 = GameObject.FindGameObjectWithTag ("Player3");
+		player4 = GameObject.FindGameObjectWithTag ("Player4");
 
 		first = true;
 
@@ -57,7 +75,10 @@ public class MemoryDisplay : MonoBehaviour {
 			RandomInputText = GameObject.Find ("InputText").GetComponent<Text> ();
 			OutputText = GameObject.Find ("PlayerText").GetComponent<Text> ();
 			if (player1) {
-				PlayerList = player1.GetComponent<PlayerScript> ().InputList;
+				PlayerList1 = player1.GetComponent<PlayerScript> ().InputList;
+				PlayerList2 = player2.GetComponent<PlayerScript> ().InputList;
+				PlayerList3 = player3.GetComponent<PlayerScript> ().InputList;
+				PlayerList4 = player4.GetComponent<PlayerScript> ().InputList;
 				//GameObject.Find ("Main Camera").GetComponent<ControllerScript> ().updateRounds ();
 				/*Debug.Log ("PENIS");
 				if (PlayerList.Count >= numButtons) {
@@ -66,18 +87,42 @@ public class MemoryDisplay : MonoBehaviour {
 					Debug.Log (loss);
 					player1.GetComponent<PlayerScript> ().health -= loss;
 				} */
-				printOutputs (ReturnList);
+				printOutputs (ReturnList1);
 			}
 			second = false;
 			third = true;
 		}
 		if (third) {
 			
-			if (PlayerList.Count == (numButtons - 1)) {
-				ReturnList = compareInputs (PlayerList, InputList);
-				float loss = ReturnList.Count;
+			if (PlayerList1.Count == (numButtons - 1)) {
+				ReturnList1 = compareInputs (PlayerList1, InputList);
+				float loss = ReturnList1.Count;
 				Debug.Log (loss);
 				player1.GetComponent<PlayerScript> ().health -= loss;
+				first = true;
+				third = false;
+			}
+			if (PlayerList2.Count == (numButtons - 1)) {
+				ReturnList2 = compareInputs (PlayerList2, InputList);
+				float loss = ReturnList1.Count;
+				Debug.Log (loss);
+				player2.GetComponent<PlayerScript> ().health -= loss;
+				first = true;
+				third = false;
+			}
+			if (PlayerList3.Count == (numButtons - 1)) {
+				ReturnList3 = compareInputs (PlayerList3, InputList);
+				float loss = ReturnList3.Count;
+				Debug.Log (loss);
+				player3.GetComponent<PlayerScript> ().health -= loss;
+				first = true;
+				third = false;
+			}
+			if (PlayerList4.Count == (numButtons - 1)) {
+				ReturnList4 = compareInputs (PlayerList4, InputList);
+				float loss = ReturnList4.Count;
+				Debug.Log (loss);
+				player4.GetComponent<PlayerScript> ().health -= loss;
 				first = true;
 				third = false;
 			}
@@ -189,7 +234,10 @@ public class MemoryDisplay : MonoBehaviour {
 
     void newRound()
     {
-        PlayerList.Clear();
+        PlayerList1.Clear();
+		PlayerList2.Clear ();
+		PlayerList3.Clear ();
+		PlayerList4.Clear ();
         InputList.Clear();
         var list = GameObject.FindGameObjectsWithTag("Button");
         curButtonPos = new Vector3(-7, 0, 0);
