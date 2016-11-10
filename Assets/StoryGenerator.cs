@@ -1,6 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public class Question
+{
+    public string question;
+    public string answer;
+    public string[] choices;
+}
+
+public class StorySet
+{
+    public string[] title;
+    public string story_1;
+    public string story_2;
+    public string story_3;
+    public string story_4;
+
+    public Question question_1;
+    public Question question_2;
+    public Question question_3;
+    public Question question_4;
+}
+
 public class StoryGenerator : MonoBehaviour {
 
     class MainCharacter
@@ -122,9 +143,11 @@ public class StoryGenerator : MonoBehaviour {
         return s;
     }
 
-    string generate_abandoned(MainCharacter mc, Relic rel)
+    string generate_abandoned(MainCharacter mc, Relic rel, string minions, string god, string title)
     {
-        string s = "The " + rel.adjective + " " + rel.item + " was left in {the title of the game}, in a truly desperate attempt to prevent the " +  rel.curse + ". It remains there to this day. ";
+        string s = "The " + rel.adjective + " " + rel.item + " was left in " + title + ", in a truly desperate attempt to prevent the " + rel.curse + ". ";
+        s += "It is watched over by the " + minions + " of " + god;
+        s += ". It remains there to this day. ";
         return s;
     }
 
@@ -157,12 +180,12 @@ public class StoryGenerator : MonoBehaviour {
         s += mc.servant +  " spat on " +  mc.him + ". " + mc.name + " was never seen again.";
         return s;
     }
-    string generate_lost(MainCharacter mc, Relic rel)
+    string generate_lost(MainCharacter mc, Relic rel, string title)
     {
         string s = "Much like how the crew turned on " +  mc.name  + ", they turned on each other. " +  mc.name + "'s trusted " + mc.servant + " was the first of the crew to be killed by";
         s += " the others. Each crew died one by one, as they each betrayed each other. The final crew member starved to death, alone. The " +  rel.item + " was lost in the ";
         s += rel.location + " near";
-        s += " the {Title of the Game}. It was eventually taken to the {title of the game}.";
+        s += " the " + title + ". It was eventually taken to the " +  title + ".";
         return s;
     }
 
@@ -241,7 +264,7 @@ public class StoryGenerator : MonoBehaviour {
         return answers;
     }
 
-    string[] build_question_and_answers(string question, string required, string[] options)
+    Question build_question_and_answers(string question, string required, string[] options)
     {
         string[] ans = { required, "", "", "" };
         int i = 0;
@@ -254,25 +277,55 @@ public class StoryGenerator : MonoBehaviour {
             if (i > 1000) break;
         }
         ans = shuffle(ans);
-        string[] ret = { question, ans[0], ans[1], ans[2], ans[3] };
+        Question ret = new Question();
+        ret.question = question;
+        ret.answer = required;
+        ret.choices = ans;
         return ret;
     } 
 
-    string[][] make_story()
+    string[] make_title()
     {
+        string[] hiddens_op = { "Hidden", "Mysterious", "Obscure", "Magnificent", "Unseen", "Invisible", "Forgotten"};
 
+        string[] legends_op = { "Legends" , "Myths", "Tales", "Sagas", "Fables"};
+        string[] temple_op = {"Shrine", "Mosque", "Church", "Castle", "Palace", "House", "Backyard", "Coal mine", "Temple"};
+        string legends = get_random(legends_op) as string;
+        string hidden = get_random(hiddens_op) as string;
+        string temple = get_random(temple_op) as string;
+        while (legends == "legends" && hidden == "hidden" && temple == "temple")
+        {
+            legends = get_random(legends_op) as string;
+            hidden = get_random(hiddens_op) as string;
+            temple = get_random(temple_op) as string;
+        }
+        string ret_1 = legends + " of the";
+        string ret_2 = hidden + " " + temple;
+        string[] ret = { ret_1, ret_2};
+        return ret;
+    }
+
+    StorySet make_story()
+    {
+        StorySet story = new StorySet();
+        story.title = make_title();
         // These are the various options for all of the things.
         string[] adjectives = {"pubescent", "omnivorous", "vegetarian", "aloof", "forgetful", "absurd",
-                               "carnivorous", "powerful", "frightening", "religious", "sweaty", "demonic"};
-        string[] occupations = { "explorer", "author", "king", "general", "inventor", "explorer", "professor" };
+                               "carnivorous", "powerful", "frightening", "religious", "sweaty", "demonic", "first",
+                               "second", "10,000 year old", "fourty third"};
+ 
+        string[] occupations = { "explorer", "author", "king", "general", "inventor", "explorer", "professor", "president", "plantation owner",
+                                 "researcher"};
 
         // options for the names of the main character.
         string[] names_one = { "Schwifty Von Amrack", "his", "he", "him" };
         string[] names_two = { "Indiana Jones", "his", "he", "him" };
         string[] names_thr = { "Amelia Earhart", "her", "she", "her" };
         string[] names_fou = { "Ada Lovelace", "her", "she", "her"};
+        string[] names_fiv = { "Arsene Cagliostro", "his", "he", "him" };
+        string[] names_six = { "Michelle Obama", "her", "she", "her" };
 
-        string[][] names = { names_one, names_two, names_thr, names_fou };
+        string[][] names = { names_one, names_two, names_thr, names_fou, names_fiv, names_six };
         string[] items = { "medalion", "staff", "statute", "ark", "scepter", "sword", "necklace" };
         string[] gods = { "Amadeus", "Amaduso", "God", "Shiba", "Shiba Uno", "Pan", "Balphegor", "Hitler"};
         string[] curses = { "burned alive", "crippled", "mummified",
@@ -303,45 +356,51 @@ public class StoryGenerator : MonoBehaviour {
         MainCharacter mc = build_main_character(adjectives, occupations, names, servants, items, gods, locations, hobbies);
         GodReq god_req = build_god_req(adjectives, god_types);
         Relic rel = build_relic(adjectives, items, gods, curses, minions, values, locations);
-        story_pieces[0] = generate_opening(mc, rel);
-
+        story.story_1 = generate_opening(mc, rel);
         // Questions and answers possibilities for the first question.
-        string[][] questions_opening = {build_question_and_answers("What adjective would you use to describe " + mc.name + "?", mc.adjective, adjectives),
+        Question[] questions_opening = {build_question_and_answers("What adjective would you use to describe " + mc.name + "?", mc.adjective, adjectives),
                                    build_question_and_answers("What did " +  mc.he + " discover?", rel.item, items),
                                    build_question_and_answers("What adjective would you use to describe the " + rel.item + "?", rel.adjective, adjectives)};
-        questions[1] = get_random(questions_opening) as string[];
+        story.question_1 = get_random(questions_opening) as Question;
         if (get_bool())
         {
-            story_pieces[1] = generate_cursed(mc, rel);
-            string[][] questions_cursed = {build_question_and_answers("How was the " + mc.servant + " cursed?", rel.c3, curses),
+            story.story_2 = generate_cursed(mc, rel);
+            Question[] questions_cursed = {build_question_and_answers("How was the " + mc.servant + " cursed?", rel.c3, curses),
                                    build_question_and_answers("Who was most trusted by " +  mc.name + " ?", mc.servant, servants)};
-            questions[2] = get_random(questions_cursed) as string[];
+            story.question_2 =  get_random(questions_cursed) as Question;
             if (get_bool())
             {
 
-                string[][] questions_old = {build_question_and_answers("What kind of " + god_req.gods + " did " + mc.name + " pray to?", god_req.adj, adjectives),
+                Question[] questions_old = {build_question_and_answers("What kind of " + god_req.gods + " did " + mc.name + " pray to?", god_req.adj, adjectives),
                                    build_question_and_answers("What did " +  mc.he + " pray to?", god_req.gods, god_types),};
-                questions[3] = get_random(questions_old) as string[];
-                story_pieces[2] = generate_old(mc, rel, god_req);
+                story.question_3 = get_random(questions_old) as Question;
+                story.story_3 = generate_old(mc, rel, god_req);
             } else
             {
 
-                string[][] questions_horrible = {build_question_and_answers("What killed " + mc.name + "?", rel.minions , minions),
+                Question[] questions_horrible = {build_question_and_answers("What killed " + mc.name + "?", rel.minions , minions),
                                    build_question_and_answers("How did " + mc.name + " die?", rel.cf, curses)};
-                questions[3] = get_random(questions_horrible) as string[];
-                story_pieces[2] = generate_horrible(mc, rel);
+                story.question_3 = get_random(questions_horrible) as Question;
+                story.story_3 = generate_horrible(mc, rel);
             }
-            story_pieces[3] = generate_abandoned(mc, rel);
+            // NEED TO MAKE QUESTION FOR ABANDONED.
+            string minion = get_random(minions) as string;
+            string god = get_random(gods) as string;
+            Question[] questions_abandoned = {build_question_and_answers("What were the servants of " + god + "?", minion, minions),
+                                   build_question_and_answers("Who is in charge of the " +  minion + "?", god, gods)};
+            story.question_4 = get_random(questions_abandoned) as Question;
+
+            story.story_4 = generate_abandoned(mc, rel, minion, god, story.title[1]);
         } else
         {
 
             //
             // Putting him in a hole in the ground should be replaced with something. 
             //
-            story_pieces[1] = generate_scorned(mc, rel, "putting him in a hole in the ground");
-            string[][] questions_scorned = {build_question_and_answers("What hobby does " + mc.name + " have?", mc.hobby, hobbies),
+            story.story_2 = generate_scorned(mc, rel, "putting him in a hole in the ground");
+            Question[] questions_scorned = {build_question_and_answers("What hobby does " + mc.name + " have?", mc.hobby, hobbies),
                                    build_question_and_answers("How much money does the " +  rel.item + " cost?", rel.val, values)};
-            questions[2] = get_random(questions_scorned) as string[];
+            story.question_2 = get_random(questions_scorned) as Question;
             if (get_bool())
             {
 
@@ -362,38 +421,37 @@ public class StoryGenerator : MonoBehaviour {
                     i += 1;
                     if (i > 1000) break;
                 }
-                story_pieces[2] = generate_killed(mc, rel, first, second, third);
-                string[][] questions_killed = {build_question_and_answers("Who was most trusted by " +  mc.name + " ?", mc.servant, servants),
+                story.story_3 = generate_killed(mc, rel, first, second, third);
+                Question[] questions_killed = {build_question_and_answers("Who was most trusted by " +  mc.name + " ?", mc.servant, servants),
                                                build_question_and_answers("What fate did " +  mc.name + " suffer?", third, deaths),
                                                build_question_and_answers("What fate was suggested first?", first, deaths),
                                                build_question_and_answers("What fate was suggested second?", second, deaths)};
-                questions[3] = get_random(questions_killed) as string[];
+                story.question_3 = get_random(questions_killed) as Question;
             }
             else
             {
                 string loc = get_random(abandoned) as string;
-                story_pieces[2] = generate_stranded(mc, rel, loc);
-                string[][] questions_stranded = { build_question_and_answers("Where was " + mc.name + " left behind?", loc, abandoned) };
-                questions[3] = get_random(questions_stranded) as string[];
+                story.story_3 = generate_stranded(mc, rel, loc);
+                Question[] questions_stranded = { build_question_and_answers("Where was " + mc.name + " left behind?", loc, abandoned) };
+                story.question_3 = get_random(questions_stranded) as Question;
             }
-            story_pieces[3] = generate_lost(mc, rel);
-            string[][] questions_lost = {build_question_and_answers("Where was the " + rel.item + " lost?", rel.location, locations),
+            story.story_4 = generate_lost(mc, rel, story.title[1]);
+            Question[] questions_lost = {build_question_and_answers("Where was the " + rel.item + " lost?", rel.location, locations),
                                          build_question_and_answers("Where was the " + rel.item + "of " + rel.owner + " lost?", rel.location, locations)};
-            questions[4] = get_random(questions_lost) as string[];
+            story.question_4 = get_random(questions_lost) as Question;
         }
-        questions[0] = story_pieces;
-        return questions;
+        return story;
     }
 
-    string[] story;
+
     // Use this for initialization
     void Start () {
-        story = make_story()[0];
-        for (int i = 0;i < 4;++i)
-        {
-            Debug.Log(story[i]);
-        }
-	}
+        StorySet story = make_story();
+        Debug.Log(story.story_1);
+        Debug.Log(story.story_2);
+        Debug.Log(story.story_3);
+        Debug.Log(story.story_4);
+    }
 	
 	// Update is called once per frame
 	void Update () {
