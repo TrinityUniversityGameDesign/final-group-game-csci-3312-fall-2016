@@ -61,7 +61,7 @@ public class player_movement : MonoBehaviour {
 		} else if (other.gameObject.layer == LayerMask.NameToLayer("Portal"))
 		{
 			if (keyOwn >= 3) {
-				Application.LoadLevel ("Player_wins");
+				SceneManager.LoadScene("Player_wins");
 			}
 		}
 
