@@ -17,6 +17,7 @@ public class MemoryDisplay : MonoBehaviour {
 	public List<int> ReturnList2 = new List<int>();
 	public List<int> ReturnList3 = new List<int>();
 	public List<int> ReturnList4 = new List<int>();
+    
 	public int numButtons = 5; // records how many 'rounds' have occured during the game
 
     float displayTime = 2f;
@@ -35,29 +36,39 @@ public class MemoryDisplay : MonoBehaviour {
 
     public Text RandomInputText;
 	public Text OutputText;
+    Vector3 ColumnPos1;
+    Vector3 ColumnPos2;
+    Vector3 ColumnPos3;
+    Vector3 ColumnPos4;
 
-	// bools used to determine what stage of the round it is
-	public bool first = false; // 1st stage - display memory list, no input
+    // bools used to determine what stage of the round it is
+    public bool first = false; // 1st stage - display memory list, no input
 	public bool second = false; // 2nd stage - hide memory list, player input
 	public bool third = false; // 3rd stage - show both lists, comparison
 
     int x = 0; // temp display number
-	// Use this for initialization
-	void Start () {
-		curButtonPos = new Vector3 (-7, 0, 0);
-		aButton =  Resources.Load("Prefabs/aButton");
-		bButton =  Resources.Load("Prefabs/bButton");
-		xButton =  Resources.Load("Prefabs/xButton");
-		yButton =  Resources.Load("Prefabs/yButton");
-        qButton =  Resources.Load("Prefabs/qButton");
-        
-		player1 = GameObject.FindGameObjectWithTag ("Player1");
-		player2 = GameObject.FindGameObjectWithTag ("Player2");
-		player3 = GameObject.FindGameObjectWithTag ("Player3");
-		player4 = GameObject.FindGameObjectWithTag ("Player4");
+               // Use this for initialization
+    void Start() {
+        curButtonPos = new Vector3(-7, 0, 0);
+        aButton = Resources.Load("Prefabs/aButton");
+        bButton = Resources.Load("Prefabs/bButton");
+        xButton = Resources.Load("Prefabs/xButton");
+        yButton = Resources.Load("Prefabs/yButton");
+        qButton = Resources.Load("Prefabs/qButton");
 
-		first = true;
+        player1 = GameObject.FindGameObjectWithTag("Player1");
+        player2 = GameObject.FindGameObjectWithTag("Player2");
+        player3 = GameObject.FindGameObjectWithTag("Player3");
+        player4 = GameObject.FindGameObjectWithTag("Player4"); 
 
+		
+
+
+         ColumnPos1 = GameObject.Find("Column1").transform.position;
+         ColumnPos2 = GameObject.Find("Column2").transform.position;
+         ColumnPos3 = GameObject.Find("Column3").transform.position;
+         ColumnPos4 = GameObject.Find("Column4").transform.position;
+        first = true;
     }
 	
 	// Update is called once per frame
@@ -89,12 +100,15 @@ public class MemoryDisplay : MonoBehaviour {
 			third = true;
 		}
 		if (third) {
-			
-			if (PlayerList1.Count == (numButtons - 1)) {
+            
+            if (PlayerList1.Count == (numButtons - 1)) {
 				ReturnList1 = compareInputs (PlayerList1, InputList);
 				float loss = ReturnList1.Count;
-				Debug.Log (loss);
+                
+
+                Debug.Log (loss);
 				player1.GetComponent<PlayerScript> ().health -= loss;
+                GameObject.Find("Column1").transform.position = new Vector3(ColumnPos1.x, ColumnPos1.y - .5f * loss, ColumnPos1.z);
 				first = true;
 				third = false;
 			}
@@ -103,7 +117,8 @@ public class MemoryDisplay : MonoBehaviour {
 				float loss = ReturnList1.Count;
 				Debug.Log (loss);
 				player2.GetComponent<PlayerScript> ().health -= loss;
-				first = true;
+                GameObject.Find("Column2").transform.position = new Vector3(ColumnPos2.x, ColumnPos2.y - .5f * loss, ColumnPos2.z);
+                first = true;
 				third = false;
 			}
 			if (PlayerList3.Count == (numButtons - 1)) {
@@ -111,7 +126,8 @@ public class MemoryDisplay : MonoBehaviour {
 				float loss = ReturnList3.Count;
 				Debug.Log (loss);
 				player3.GetComponent<PlayerScript> ().health -= loss;
-				first = true;
+                GameObject.Find("Column3").transform.position = new Vector3(ColumnPos3.x, ColumnPos3.y - .5f * loss, ColumnPos3.z);
+                first = true;
 				third = false;
 			}
 			if (PlayerList4.Count == (numButtons - 1)) {
@@ -119,7 +135,8 @@ public class MemoryDisplay : MonoBehaviour {
 				float loss = ReturnList4.Count;
 				Debug.Log (loss);
 				player4.GetComponent<PlayerScript> ().health -= loss;
-				first = true;
+                GameObject.Find("Column4").transform.position = new Vector3(ColumnPos4.x, ColumnPos4.y - .5f * loss, ColumnPos4.z);
+                first = true;
 				third = false;
 			}
 			//if (GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerActive == false)
