@@ -34,6 +34,35 @@ public class JacketScript : MonoBehaviour
         {
             Explode();
         }
+        if (jacketScale > startJacketScale) {
+            ConstantDeflate();
+        }
+        
+    }
+
+    void ConstantDeflate()
+    {
+           // StartCoroutine(Delay(1.5f));
+        if (jacketScale < maxJacketSize / 2.0f)
+        {
+            if((jacketScale - (Time.deltaTime / 2)) >= startJacketScale)
+                jacketScale -= (Time.deltaTime/2);
+            else
+                jacketScale = startJacketScale;
+        }
+        else
+        {
+            if ((jacketScale - (Time.deltaTime / 4)) >= startJacketScale)
+                jacketScale -= (Time.deltaTime / 4);
+            else
+                jacketScale = startJacketScale;
+        }
+        
+        Debug.Log(jacketScale);
+    }
+
+    IEnumerator Delay(float secs) {
+        yield return new WaitForSeconds(secs);
     }
 
     void Inflate()
