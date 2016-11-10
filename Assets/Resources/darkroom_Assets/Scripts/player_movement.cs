@@ -29,8 +29,8 @@ public class player_movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		float translation_X = Input.GetAxis ("Horizontal" + controller) * speed;
-		float translation_Y = Input.GetAxis ("Vertical" + controller) * speed;
+		float translation_X = Input.GetAxis ("Horizontal_P" + controller) * speed;
+		float translation_Y = Input.GetAxis ("Vertical_P" + controller) * speed;
         rigid_body.velocity = new Vector2(translation_X, translation_Y);
 		player_pos = player.transform.position;
 
@@ -39,7 +39,7 @@ public class player_movement : MonoBehaviour {
             SceneManager.LoadScene(1);
 		}
 
-        if(Input.GetKeyDown(KeyCode.E) && toBeLockedDoors.Count > 0)
+        if(Input.GetAxis("A_P" + controller)> 0 && toBeLockedDoors.Count > 0)
         {
             /*The index is open for change based on design needs*/
             ((GameObject)toBeLockedDoors[0]).GetComponent<doorComboScript>().LockDoor();
