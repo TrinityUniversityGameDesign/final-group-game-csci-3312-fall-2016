@@ -60,6 +60,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	}
 
 
+	//Samuel's Functions;
 	void OnDeath() {
 		//Destroy (gameObject);
 		isDead = true;
@@ -71,7 +72,6 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		isDead = false;
 		transform.position = spawnPosition;
 	}
-
 	public void AddPoint(){
 		points++;
 	}

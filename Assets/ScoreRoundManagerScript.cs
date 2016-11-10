@@ -19,6 +19,11 @@ public class ScoreRoundManagerScript : MonoBehaviour {
 			playersInPlay [0].GetComponent<PlayerMovement_Jacket> ().AddPoint ();
 			StartNewRound ();
 		}
+		foreach(GameObject playerObj in playersInPlay) {
+			if (playerObj.GetComponent<PlayerMovement_Jacket> ().IsDead ()) {
+				playersInPlay.Remove (playerObj);
+			}
+		}
 	}
 
 	private void StartNewRound(){
