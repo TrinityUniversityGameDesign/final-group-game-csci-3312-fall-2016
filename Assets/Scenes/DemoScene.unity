@@ -189,6 +189,16 @@ Prefab:
       propertyPath: m_Radius
       value: 0.52665746
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012638240154, guid: 024dba819dd2141fab0af9b4665e7663,
+        type: 2}
+      propertyPath: jacketName
+      value: JacketThree
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012638240154, guid: 024dba819dd2141fab0af9b4665e7663,
+        type: 2}
+      propertyPath: playerString
+      value: PlayerThree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 024dba819dd2141fab0af9b4665e7663, type: 2}
   m_IsPrefabParent: 0
@@ -592,6 +602,10 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 0.51830816
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010644173268, guid: 024dba819dd2141fab0af9b4665e7663, type: 2}
+      propertyPath: m_Name
+      value: JacketOne
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 024dba819dd2141fab0af9b4665e7663, type: 2}
