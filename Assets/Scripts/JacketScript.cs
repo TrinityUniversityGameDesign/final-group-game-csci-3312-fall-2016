@@ -5,12 +5,12 @@ public class JacketScript : MonoBehaviour
 {
     public string inflateBtn;
     public string explodeBtn;
-
-	//1.5f default
+	
     public float jacketScale;
+    //1.5f possible default
     public float startJacketScale;
 
-	//6.0f default
+    //6.0f possible default
     public float maxJacketSize;
 
     private Transform theTransform;
