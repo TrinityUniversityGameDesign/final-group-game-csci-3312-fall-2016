@@ -22,8 +22,8 @@ GameObject:
   - 212: {fileID: 212000013309271372}
   - 114: {fileID: 114000012896782494}
   - 58: {fileID: 58000013079481466}
-  m_Layer: 0
-  m_Name: JacketOne
+  m_Layer: 8
+  m_Name: JacketFour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,9 +41,9 @@ GameObject:
   - 50: {fileID: 50000012133153198}
   - 114: {fileID: 114000010713921952}
   - 61: {fileID: 61000011983453646}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerWithJacket
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   - 4: {fileID: 4000010654885756}
   - 114: {fileID: 114000012638240154}
   - 120: {fileID: 120000012174364942}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JacketOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010644173268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -99,8 +99,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011161633866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6624546, y: 0.08921528, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.54, y: -1.47, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012871510334}
@@ -136,7 +136,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.575
+  m_Radius: 0.52151966
 --- !u!61 &61000011983453646
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02176a2932e2f4ac59f6cc98793149f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 1
+  playerNum: 4
   walkSpeed: 5
   dashSpeed: 200
   dashRegeneration: 3
@@ -197,7 +197,7 @@ MonoBehaviour:
   explodeBtn: Explode
   jacketScale: 1.5
   startJacketScale: 1.5
-  maxJacketSize: 6
+  maxJacketSize: 20
 --- !u!120 &120000012174364942
 LineRenderer:
   m_ObjectHideFlags: 1
