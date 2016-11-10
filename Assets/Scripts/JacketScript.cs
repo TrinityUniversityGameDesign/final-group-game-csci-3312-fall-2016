@@ -44,15 +44,15 @@ public class JacketScript : MonoBehaviour
     {
         if (jacketScale < maxJacketSize / 2.0f)
         {
-            if((jacketScale - (Time.deltaTime / 2)) >= startJacketScale)
-                jacketScale -= (Time.deltaTime/2);
+            if((jacketScale - (Time.deltaTime / 2f)) >= startJacketScale)
+                jacketScale -= (Time.deltaTime/2f);
             else
                 jacketScale = startJacketScale;
         }
         else
         {
-            if ((jacketScale - (Time.deltaTime / 4)) >= startJacketScale)
-                jacketScale -= (Time.deltaTime / 4);
+            if ((jacketScale - (Time.deltaTime / 4f)) >= startJacketScale)
+                jacketScale -= (Time.deltaTime / 4f);
             else
                 jacketScale = startJacketScale;
         }
