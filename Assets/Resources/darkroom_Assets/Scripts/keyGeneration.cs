@@ -63,9 +63,9 @@ public class keyGeneration : MonoBehaviour {
             newkey.transform.localPosition = keyLocs[i];
             keys.Add(newkey);
         }
-		GameObject portalInit = (GameObject)Instantiate(portal, portalLocs[0], Quaternion.identity);
+		/*GameObject portalInit = (GameObject)Instantiate(portal, portalLocs[0], Quaternion.identity);
 		portalInit.transform.parent = gameObject.transform;
-		portalInit.transform.localPosition = portalLocs[0];
+		portalInit.transform.localPosition = portalLocs[0];*/
 
     }
 
