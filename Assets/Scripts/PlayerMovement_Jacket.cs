@@ -19,8 +19,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
 	private string vertAxis;
 	private string horAxis;
-	private string jumpButton;
-	private string actionButton;
+	private string dashButton;
 
 	// Use this for initialization
 	void Start () {
@@ -28,8 +27,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		rigid = GetComponent<Rigidbody2D> ();
 		vertAxis = "Vertical_P" + playerNum.ToString();
 		horAxis = "Horizontal_P" + playerNum.ToString();
-		jumpButton = "A_P" + playerNum.ToString();
-		actionButton = "X_P" + playerNum.ToString();
+		dashButton = "A_P" + playerNum.ToString();
 
 	}
 	
@@ -39,7 +37,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		rigid.velocity = new Vector2 (Input.GetAxis (horAxis) * walkSpeed, Input.GetAxis (vertAxis) * walkSpeed);
 
 		//TODO : Add dashing in
-		float dash = Input.GetAxis(jumpButton);
+		float dash = Input.GetAxis(dashButton);
 		if (canDash && dash > 0) {
 			rigid.AddForce (new Vector2 (rigid.velocity.x * dash * dashSpeed, rigid.velocity.y * dash * dashSpeed));
 			canDash = false;
