@@ -17,7 +17,7 @@ public class MemoryDisplay : MonoBehaviour {
 	public List<int> ReturnList2 = new List<int>();
 	public List<int> ReturnList3 = new List<int>();
 	public List<int> ReturnList4 = new List<int>();
-    
+
 	public int numButtons = 5; // records how many 'rounds' have occured during the game
 
     float displayTime = 2f;
@@ -75,8 +75,10 @@ public class MemoryDisplay : MonoBehaviour {
 	void Update () {
 		if (first) {
 			newRound ();
+
 			first = false;
 			second = true;
+
 		}
 		if (second) {
 			RandomInputText = GameObject.Find ("InputText").GetComponent<Text> ();
@@ -153,10 +155,16 @@ public class MemoryDisplay : MonoBehaviour {
     //call timeToDisplay upon round start
     IEnumerator<WaitForSeconds> timeToDisplay(string message, float delay)
     {
+        GameObject[] buttonObjList;
         RandomInputText.text = message;
         RandomInputText.enabled = true;
         yield return new WaitForSeconds(delay);
-        //RandomInputText.enabled = false;
+        buttonObjList = GameObject.FindGameObjectsWithTag("Button");
+        for (int i = 0; i < buttonObjList.Length; i++)
+        {
+            Destroy(buttonObjList[i]);
+        }
+        RandomInputText.enabled = false;
         x += 1;
     }
 
@@ -206,7 +214,7 @@ public class MemoryDisplay : MonoBehaviour {
             }
 			if (instance) {
 				instance.transform.position = curButtonPos;
-				curButtonPos = new Vector3 (curButtonPos.x + 1, curButtonPos.y, curButtonPos.z); 
+				curButtonPos = new Vector3 (curButtonPos.x + 1.75f, curButtonPos.y, curButtonPos.z); 
 			}
 
 
@@ -247,13 +255,14 @@ public class MemoryDisplay : MonoBehaviour {
 
     void newRound()
     {
+        displayTime += 0.5f;
         PlayerList1.Clear();
 		PlayerList2.Clear ();
 		PlayerList3.Clear ();
 		PlayerList4.Clear ();
         InputList.Clear();
         var list = GameObject.FindGameObjectsWithTag("Button");
-        curButtonPos = new Vector3(-7, 0, 0);
+        curButtonPos = new Vector3(-7, 1, 0);
         foreach (var a in list)
         {
             Destroy(a);
