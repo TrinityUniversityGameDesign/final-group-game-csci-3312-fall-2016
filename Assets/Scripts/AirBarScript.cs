@@ -30,7 +30,6 @@ public class AirBarScript : MonoBehaviour {
 		jacketObject = GameObject.Find (jacketName) as GameObject;
 		jacketScript = jacketObject.GetComponent<JacketScript> ();
 
-
 		currentBarWidth = 0;
 		playerPanel = GameObject.Find (panelName) as GameObject;
 		maxBarWidth = (int)playerPanel.GetComponent<RectTransform> ().rect.width;

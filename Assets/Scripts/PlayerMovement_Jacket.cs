@@ -35,6 +35,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	void Update () {
 
 		rigid.velocity = new Vector2 (Input.GetAxis (horAxis) * walkSpeed, Input.GetAxis (vertAxis) * walkSpeed);
+        //Debug.Log(Input.GetAxis(horAxis));
 
 		//TODO : Add dashing in
 		float dash = Input.GetAxis(dashButton);

@@ -22,9 +22,10 @@ GameObject:
   - 212: {fileID: 212000010819088446}
   - 114: {fileID: 114000011392534388}
   - 58: {fileID: 58000012596130742}
+  - 50: {fileID: 50000012044067756}
   m_Layer: 0
   m_Name: RedPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +42,7 @@ GameObject:
   - 114: {fileID: 114000011241627412}
   - 58: {fileID: 58000013285113058}
   m_Layer: 0
-  m_Name: Jacket
+  m_Name: RedJacket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014160856374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -74,6 +75,23 @@ Transform:
   - {fileID: 4000010960850834}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000012044067756
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011235383304}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &58000012596130742
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -115,8 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inflateBtn: Jump
   explodeBtn: Explode
-  jacketScale: 1.5
-  startJacketScale: 0
+  jacketScale: 1
+  startJacketScale: 1
   maxJacketSize: 10
 --- !u!114 &114000011392534388
 MonoBehaviour:
