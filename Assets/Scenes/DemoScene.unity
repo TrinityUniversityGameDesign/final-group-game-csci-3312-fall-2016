@@ -424,14 +424,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 1000011397619692, guid: b20619e0dd95d044cb3776336658e083, type: 2}
-      propertyPath: m_Name
-      value: YellowJacket
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012813944372, guid: b20619e0dd95d044cb3776336658e083, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b20619e0dd95d044cb3776336658e083, type: 2}
   m_IsPrefabParent: 0
@@ -474,39 +466,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1000014160856374, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
-      propertyPath: m_Name
-      value: RedJacket
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011235383304, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &728508599 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000012968630448, guid: 7a61adab40272ba44828313b31ca59eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 2117831505}
---- !u!50 &728508604
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 728508599}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &809602741
 Prefab:
   m_ObjectHideFlags: 0
@@ -611,28 +573,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 024dba819dd2141fab0af9b4665e7663, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1672151431 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013700265662, guid: a69977abb348c9749ae4f50532d67e08,
-    type: 2}
-  m_PrefabInternal: {fileID: 1781980105}
---- !u!50 &1672151436
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1672151431}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &1781980105
 Prefab:
   m_ObjectHideFlags: 0
@@ -671,14 +611,6 @@ Prefab:
     - target: {fileID: 4000011227940252, guid: a69977abb348c9749ae4f50532d67e08, type: 2}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000014142188580, guid: a69977abb348c9749ae4f50532d67e08, type: 2}
-      propertyPath: m_Name
-      value: GreenJacket
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013700265662, guid: a69977abb348c9749ae4f50532d67e08, type: 2}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a69977abb348c9749ae4f50532d67e08, type: 2}
@@ -780,28 +712,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 024dba819dd2141fab0af9b4665e7663, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1861869636 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000012813944372, guid: b20619e0dd95d044cb3776336658e083,
-    type: 2}
-  m_PrefabInternal: {fileID: 597998858}
---- !u!50 &1861869641
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1861869636}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &2058602715
 Prefab:
   m_ObjectHideFlags: 0
@@ -966,36 +876,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 1000010374600510, guid: 7a61adab40272ba44828313b31ca59eb, type: 2}
-      propertyPath: m_Name
-      value: BlueJacket
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012968630448, guid: 7a61adab40272ba44828313b31ca59eb, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a61adab40272ba44828313b31ca59eb, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2142604476 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000011235383304, guid: 427c6202b0c5a4045a7097e6b241563c,
-    type: 2}
-  m_PrefabInternal: {fileID: 601382449}
---- !u!50 &2142604481
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2142604476}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
