@@ -39,7 +39,7 @@ public class player_movement : MonoBehaviour {
             SceneManager.LoadScene(1);
 		}
 
-        if(Input.GetAxis("A_P" + controller)> 0 && toBeLockedDoors.Count > 0 && this.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if(Input.GetAxis("A_P" + controller)> 0 && toBeLockedDoors.Count > 0)
         {
             /*The index is open for change based on design needs*/
             ((GameObject)toBeLockedDoors[0]).GetComponent<doorComboScript>().LockDoor();
