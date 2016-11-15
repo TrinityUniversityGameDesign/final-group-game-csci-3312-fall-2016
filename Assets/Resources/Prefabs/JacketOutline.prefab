@@ -52,6 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe0747a1cbc440858b2328c376042e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dotsColor: {r: 0, g: 0, b: 0, a: 1}
+  jacketName: BlueJacket
+  playerString: BluePlayer
   radius: 5
   dotsPerRadius: 5
 --- !u!120 &120000011527628478

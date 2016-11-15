@@ -50,17 +50,17 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		yield return new WaitForSeconds (dashRegeneration);
 		canDash = true;
 	}
-		
 
+    /*
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.CompareTag ("Water")) {
+		if (other.CompareTag ("Death") && gameObject.CompareTag("Player")) {
 			OnDeath ();
 		}
 	}
-
+    */
 
 	//Samuel's Functions;
-	void OnDeath() {
+	public void OnDeath() {
 		//Destroy (gameObject);
 		isDead = true;
 		Debug.Log("I died!");

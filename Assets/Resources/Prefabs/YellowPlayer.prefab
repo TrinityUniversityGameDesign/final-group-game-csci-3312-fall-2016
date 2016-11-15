@@ -11,6 +11,24 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1000012813944372}
   m_IsPrefabParent: 1
+--- !u!1 &1000011269283276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013722616944}
+  - 58: {fileID: 58000013086614598}
+  - 114: {fileID: 114000011887074882}
+  - 50: {fileID: 50000011682067752}
+  m_Layer: 0
+  m_Name: DeathCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000011397619692
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,7 +42,7 @@ GameObject:
   - 58: {fileID: 58000013926874090}
   m_Layer: 0
   m_Name: YellowJacket
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,6 +78,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012910656740}
+  - {fileID: 4000013722616944}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000012910656740
@@ -75,6 +94,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012267063780}
   m_RootOrder: 0
+--- !u!4 &4000013722616944
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011269283276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000012267063780}
+  m_RootOrder: 1
+--- !u!50 &50000011682067752
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011269283276}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!50 &50000012907853128
 Rigidbody2D:
   serializedVersion: 2
@@ -90,7 +139,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &58000011120487048
 CircleCollider2D:
@@ -101,11 +150,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.033476114
+--- !u!58 &58000013086614598
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011269283276}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.097488046
+  m_Radius: 0.118392766
 --- !u!58 &58000013926874090
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -119,7 +182,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3963549
+  m_Radius: 0.46036685
 --- !u!114 &114000010438506552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,11 +194,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae51963d5adb2c42a5c35b61acd4163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inflateBtn: Jump
-  explodeBtn: Explode
+  inflateBtn: A_P4
+  explodeBtn: RB_P4
   jacketScale: 1
   startJacketScale: 1
   maxJacketSize: 10
+--- !u!114 &114000011887074882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011269283276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b403443983a94f9449809aca3255ea41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013259438364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02176a2932e2f4ac59f6cc98793149f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
-  walkSpeed: 5
+  playerNum: 4
+  walkSpeed: 4
   dashSpeed: 200
   dashRegeneration: 3
 --- !u!212 &212000011376754024

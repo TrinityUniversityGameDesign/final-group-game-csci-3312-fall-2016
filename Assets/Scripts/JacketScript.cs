@@ -77,9 +77,13 @@ public class JacketScript : MonoBehaviour
 
     void Explode()
     {
-        theRigibody.mass = 10000f;
+        gameObject.transform.parent.GetComponent<Rigidbody2D>().mass = 10000f;
+        while(theTransform.localScale.x < jacketScale)
+        {
+            theTransform.localScale = new Vector3(theTransform.localScale.x+.001f, theTransform.localScale.y+.001f, 1f);
+        }
 		theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
-        StartCoroutine(Deflate(0.5f));
+        StartCoroutine(Deflate(.5f));
         Debug.Log("exploded");
     }
 
