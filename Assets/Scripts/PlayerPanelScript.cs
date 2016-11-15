@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
+
 
 public class PlayerPanelScript : MonoBehaviour {
 	public string playerName;
@@ -13,9 +16,14 @@ public class PlayerPanelScript : MonoBehaviour {
 	Vector3 skullStartPos;
 	GameObject skull;
 
+	Text pointsText;
+
+
 	// Use this for initialization
 	void Start () {
+		pointsText = transform.Find ("PointsText").GetComponent<Text> ();
 		player = GameObject.Find (playerName) as GameObject;
+		pointsText.text = "score: 0";
 
 		dumpPosition = new Vector3(1000,1000,1000);
 		idolPieces = 0;
@@ -35,6 +43,7 @@ public class PlayerPanelScript : MonoBehaviour {
 		if (!player.GetComponent<PlayerMovement_Jacket> ().IsDead () && isDead) {
 			SetIsDead (false);
 		}
+		pointsText.text = "points " + player.GetComponent<PlayerMovement_Jacket> ().GetPoints ();
 	}
 
 	public void SetIsDead(bool b){

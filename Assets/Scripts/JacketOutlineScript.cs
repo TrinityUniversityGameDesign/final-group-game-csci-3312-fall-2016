@@ -30,10 +30,11 @@ public class JacketOutlineScript : MonoBehaviour {
 	public float radius;
 
 	//dots per radius
-	public int dotsPerRadius;
+	private int dotsPerRadius;
 
 	// Use this for initialization
 	void Start () {
+		dotsPerRadius = 10;
 		playerObject = GameObject.Find (playerString) as GameObject;
 
 
@@ -96,7 +97,7 @@ public class JacketOutlineScript : MonoBehaviour {
 		}if (radius < 1) {
 			direction = 1;
 		}
-
+	
 		//radius += .01f * direction;
 	}
 
