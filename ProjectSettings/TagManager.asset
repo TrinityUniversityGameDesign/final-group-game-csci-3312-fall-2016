@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - Death
+  - Jacket
   layers:
   - Default
   - TransparentFX

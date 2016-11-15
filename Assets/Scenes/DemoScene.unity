@@ -1158,7 +1158,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012267063780, guid: b20619e0dd95d044cb3776336658e083, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.09
+      value: -2.55
       objectReference: {fileID: 0}
     - target: {fileID: 4000012267063780, guid: b20619e0dd95d044cb3776336658e083, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1199,6 +1199,15 @@ Prefab:
       propertyPath: pumpClip
       value: 
       objectReference: {fileID: 8300000, guid: 25acc3f29171e4b7082161fd06e4286d, type: 3}
+    - target: {fileID: 1000011397619692, guid: b20619e0dd95d044cb3776336658e083, type: 2}
+      propertyPath: m_TagString
+      value: Jacket
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013259438364, guid: b20619e0dd95d044cb3776336658e083,
+        type: 2}
+      propertyPath: jacketName
+      value: YellowJacket
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b20619e0dd95d044cb3776336658e083, type: 2}
   m_IsPrefabParent: 0
@@ -1215,7 +1224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012242315878, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.09
+      value: -3.55
       objectReference: {fileID: 0}
     - target: {fileID: 4000012242315878, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1271,6 +1280,15 @@ Prefab:
       propertyPath: pumpClip
       value: 
       objectReference: {fileID: 8300000, guid: 25acc3f29171e4b7082161fd06e4286d, type: 3}
+    - target: {fileID: 1000014160856374, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
+      propertyPath: m_TagString
+      value: Jacket
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011392534388, guid: 427c6202b0c5a4045a7097e6b241563c,
+        type: 2}
+      propertyPath: jacketName
+      value: RedJacket
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
   m_IsPrefabParent: 0
@@ -2320,7 +2338,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011227940252, guid: a69977abb348c9749ae4f50532d67e08, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.09
+      value: -2.55
       objectReference: {fileID: 0}
     - target: {fileID: 4000011227940252, guid: a69977abb348c9749ae4f50532d67e08, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2361,6 +2379,15 @@ Prefab:
       propertyPath: pumpClip
       value: 
       objectReference: {fileID: 8300000, guid: 25acc3f29171e4b7082161fd06e4286d, type: 3}
+    - target: {fileID: 1000014142188580, guid: a69977abb348c9749ae4f50532d67e08, type: 2}
+      propertyPath: m_TagString
+      value: Jacket
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011203828734, guid: a69977abb348c9749ae4f50532d67e08,
+        type: 2}
+      propertyPath: jacketName
+      value: GreenJacket
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a69977abb348c9749ae4f50532d67e08, type: 2}
   m_IsPrefabParent: 0
@@ -2709,7 +2736,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012623988324, guid: 7a61adab40272ba44828313b31ca59eb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.91
+      value: -1.55
       objectReference: {fileID: 0}
     - target: {fileID: 4000012623988324, guid: 7a61adab40272ba44828313b31ca59eb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2765,6 +2792,15 @@ Prefab:
       propertyPath: pumpClip
       value: 
       objectReference: {fileID: 8300000, guid: 25acc3f29171e4b7082161fd06e4286d, type: 3}
+    - target: {fileID: 1000010374600510, guid: 7a61adab40272ba44828313b31ca59eb, type: 2}
+      propertyPath: m_TagString
+      value: Jacket
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012777276330, guid: 7a61adab40272ba44828313b31ca59eb,
+        type: 2}
+      propertyPath: jacketName
+      value: BlueJacket
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a61adab40272ba44828313b31ca59eb, type: 2}
   m_IsPrefabParent: 0

@@ -23,8 +23,15 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
     private Animator animationController;
 
+	GameObject jacket;
+	JacketScript jacketScript;
+
+	public string jacketName;
+
     // Use this for initialization
     void Start () {
+		jacket = GameObject.Find (jacketName) as GameObject;
+		jacketScript = jacket.GetComponent<JacketScript> ();
 		spawnPosition = transform.position;
 		rigid = GetComponent<Rigidbody2D> ();
 		vertAxis = "Vertical_P" + playerNum.ToString();
@@ -42,7 +49,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		rigid.velocity = new Vector2 (Input.GetAxis(horAxis) * walkSpeed, Input.GetAxis(vertAxis) * walkSpeed);
         //transform.localRotation = Quaternion.Euler(Input.GetAxisRaw(horAxis), Quaternion.identity.y, Input.GetAxisRaw(horAxis) * 90);
         //rigidQuaternion.Angle(transform.rotation, target.rotation);
-        Debug.Log(Input.GetAxis(horAxis));
+        //Debug.Log(Input.GetAxis(horAxis));
         if(Input.GetAxisRaw(horAxis)!=0 || Input.GetAxisRaw(vertAxis) != 0) animationController.SetBool("isWalking", true);
         else animationController.SetBool("isWalking", false);
 
@@ -91,6 +98,8 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		//teleport player back to start
 		isDead = false;
 		transform.position = spawnPosition;
+		//reset Jacket
+		jacketScript.ResetJacket();
 	}
 	public void AddPoint(){
 		points++;

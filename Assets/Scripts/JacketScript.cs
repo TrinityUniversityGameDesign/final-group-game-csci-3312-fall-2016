@@ -20,11 +20,14 @@ public class JacketScript : MonoBehaviour
 	public AudioClip pumpClip;
 	AudioSource audioSource;
 
+	bool canInflate;
+
 	bool isDeflating;
 
     // Use this for initialization
     void Start()
     {
+		canInflate = true;
 		isDeflating = false;
         theTransform = gameObject.GetComponent<Transform>();
         theRigibody = gameObject.GetComponentInParent<Rigidbody2D>();
@@ -57,6 +60,8 @@ public class JacketScript : MonoBehaviour
     public void SuckAllDaAirOut()
     {
         jacketScale = startJacketScale;
+
+
     }
 
     void ConstantDeflate()
@@ -68,7 +73,7 @@ public class JacketScript : MonoBehaviour
 
     void Inflate()
     {
-		if (!isDeflating) {
+		if (!isDeflating && canInflate) {
 			if (jacketScale < maxJacketSize) {
 				jacketScale += .6f * ((maxJacketSize - jacketScale) / maxJacketSize);
 			}
@@ -83,7 +88,7 @@ public class JacketScript : MonoBehaviour
         gameObject.transform.parent.GetComponent<Rigidbody2D>().mass = 10000f;
         while(theTransform.localScale.x < jacketScale)
         {
-            theTransform.localScale = new Vector3((theTransform.localScale.x+Time.deltaTime/30) , (theTransform.localScale.y+ Time.deltaTime/30), 1f);
+            theTransform.localScale = new Vector3((theTransform.localScale.x+.001f) , (theTransform.localScale.y+ .001f), 1f);
         }
 		theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
         StartCoroutine(Deflate(.5f));
@@ -95,12 +100,19 @@ public class JacketScript : MonoBehaviour
 
     IEnumerator Deflate(float secs)
     {
+		canInflate = false;
         yield return new WaitForSeconds(secs);
+		canInflate = true;
 		isDeflating = true;
         //jacketScale = startJacketScale;
 		//theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
         theRigibody.mass = 1f;
         //Debug.Log("deflated");
     }
+
+	public void ResetJacket(){
+		theTransform.localScale = new Vector3(startJacketScale, startJacketScale, 1f);
+		isDeflating = false;
+	}
 
 }
