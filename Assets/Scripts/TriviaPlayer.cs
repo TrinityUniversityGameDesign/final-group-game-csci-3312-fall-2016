@@ -42,8 +42,7 @@ public class TriviaPlayer : MonoBehaviour
 	void Update ()
 	{
 		if (answered)
-        {
-            
+        { 
             if (sTime == -1)
                 sTime = 0;
             sTime += Time.deltaTime;
@@ -82,4 +81,11 @@ public class TriviaPlayer : MonoBehaviour
 			}
 		}
 	}
+
+    public void restart()
+    {
+        answered = false;
+        check.fillAmount = 0;
+        Button = none;
+    }
 }
