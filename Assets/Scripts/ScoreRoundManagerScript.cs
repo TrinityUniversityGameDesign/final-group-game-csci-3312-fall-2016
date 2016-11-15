@@ -30,6 +30,7 @@ public class ScoreRoundManagerScript : MonoBehaviour {
 		currentRoundNumber = 1;
 		foreach(GameObject playerObj in GameObject.FindGameObjectsWithTag("Player")) {
 			playersInPlay.Add(playerObj);
+			allPlayers.Add (playerObj);
 		}
 	}
 	
