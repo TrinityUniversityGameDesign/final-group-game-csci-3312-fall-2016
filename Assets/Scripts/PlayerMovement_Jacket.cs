@@ -34,11 +34,15 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		rigid.velocity = new Vector2 (Input.GetAxis (horAxis) * walkSpeed, Input.GetAxis (vertAxis) * walkSpeed);
+        //float x = Input.GetAxis(horAxis);
+        //float y = Input.GetAxis(vertAxis);
+		rigid.velocity = new Vector2 (Input.GetAxis(horAxis) * walkSpeed, Input.GetAxis(vertAxis) * walkSpeed);
+        //transform.localRotation = Quaternion.Euler(Input.GetAxisRaw(horAxis), Quaternion.identity.y, Input.GetAxisRaw(horAxis) * 90);
+        //rigidQuaternion.Angle(transform.rotation, target.rotation);
         //Debug.Log(Input.GetAxis(horAxis));
 
-		//TODO : Add dashing in
-		float dash = Input.GetAxis(dashButton);
+        //TODO : Add dashing in
+        float dash = Input.GetAxis(dashButton);
 		if (canDash && dash > 0) {
 			rigid.AddForce (new Vector2 (rigid.velocity.x * dash * dashSpeed, rigid.velocity.y * dash * dashSpeed));
 			canDash = false;

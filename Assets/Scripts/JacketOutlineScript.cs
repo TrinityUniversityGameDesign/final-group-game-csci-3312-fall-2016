@@ -63,13 +63,15 @@ public class JacketOutlineScript : MonoBehaviour {
 
 		//add new circles if pieces goes up
 		while (circleList.Count < pieces) {
-			GameObject spawnedCircle = Instantiate (circleObject, new Vector3 (0, 0, -9), Quaternion.identity) as GameObject;
+			GameObject spawnedCircle = Instantiate (circleObject, new Vector3 (0, 0, 1.1f), Quaternion.identity) as GameObject;
 			circleList.Add(spawnedCircle);
-		}
+            spawnedCircle.GetComponent<SpriteRenderer>().color = dotsColor;
+
+        }
 			
 		float posX = 0f;
 		float posY = 0f;
-		float posZ = -9f;
+		float posZ = 1.1f;
 
 		float angle = 0f;
 		float anglePerPiece = (360.0f / pieces);

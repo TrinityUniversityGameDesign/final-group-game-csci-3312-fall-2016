@@ -51,7 +51,7 @@ public class AirBarScript : MonoBehaviour {
 
 		airRect = new Rect (posX, posY, maxBarWidth, Screen.height/50);
 		airTexture = new Texture2D (1, 1);
-		airTexture.SetPixel (0, 0, Color.green);
+		airTexture.SetPixel (0, 0, Color.white);
 		airTexture.Apply ();
 
 		playerObject = playerPanel.GetComponent<PlayerPanelScript> ().GetPlayerObject ();

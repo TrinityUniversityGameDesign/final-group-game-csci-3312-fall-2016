@@ -41,7 +41,7 @@ public class JacketScript : MonoBehaviour
     }
 
     void ConstantDeflate()
-    {
+    {/*
         if (jacketScale < maxJacketSize / 2.0f)
         {
             if((jacketScale - (Time.deltaTime / 2f)) >= startJacketScale)
@@ -56,22 +56,14 @@ public class JacketScript : MonoBehaviour
             else
                 jacketScale = startJacketScale;
         }
-        
+        */
+        if(jacketScale > startJacketScale) { jacketScale -= (Time.deltaTime); }
         Debug.Log(jacketScale);
     }
 
     void Inflate()
     {
-        if (jacketScale < maxJacketSize)
-        {
-            if (jacketScale < maxJacketSize / 2.0f)
-            {
-                jacketScale += 0.5f;
-            }
-            else {
-                jacketScale += 0.25f;
-            }
-        }
+        if (jacketScale < maxJacketSize) { jacketScale += .8f * ((maxJacketSize - jacketScale)/maxJacketSize); }
         Debug.Log(jacketScale);
     }
 
@@ -80,7 +72,7 @@ public class JacketScript : MonoBehaviour
         gameObject.transform.parent.GetComponent<Rigidbody2D>().mass = 10000f;
         while(theTransform.localScale.x < jacketScale)
         {
-            theTransform.localScale = new Vector3(theTransform.localScale.x+.001f, theTransform.localScale.y+.001f, 1f);
+            theTransform.localScale = new Vector3((theTransform.localScale.x+Time.deltaTime) , (theTransform.localScale.y+ Time.deltaTime), 1f);
         }
 		theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
         StartCoroutine(Deflate(.5f));
