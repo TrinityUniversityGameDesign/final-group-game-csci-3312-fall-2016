@@ -16,20 +16,21 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	private Rigidbody2D rigid;
 	private bool canDash = true;
 
-
 	private string vertAxis;
 	private string horAxis;
 	private string dashButton;
 
-	// Use this for initialization
-	void Start () {
+    private Animator animationController;
+
+    // Use this for initialization
+    void Start () {
 		spawnPosition = transform.position;
 		rigid = GetComponent<Rigidbody2D> ();
 		vertAxis = "Vertical_P" + playerNum.ToString();
 		horAxis = "Horizontal_P" + playerNum.ToString();
 		dashButton = "B_P" + playerNum.ToString();
-
-	}
+        animationController = gameObject.GetComponent<Animator>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -39,7 +40,9 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		rigid.velocity = new Vector2 (Input.GetAxis(horAxis) * walkSpeed, Input.GetAxis(vertAxis) * walkSpeed);
         //transform.localRotation = Quaternion.Euler(Input.GetAxisRaw(horAxis), Quaternion.identity.y, Input.GetAxisRaw(horAxis) * 90);
         //rigidQuaternion.Angle(transform.rotation, target.rotation);
-        //Debug.Log(Input.GetAxis(horAxis));
+        Debug.Log(Input.GetAxis(horAxis));
+        if(Input.GetAxisRaw(horAxis)!=0) animationController.SetBool("isWalking", true);
+        else animationController.SetBool("isWalking", false);
 
         //TODO : Add dashing in
         float dash = Input.GetAxis(dashButton);

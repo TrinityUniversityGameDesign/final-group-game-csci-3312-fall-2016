@@ -129,8 +129,12 @@ public class TerrainGenerator : MonoBehaviour {
             for(int j=0; j<height; j++)
             {
                 if (board[i, j] == 2) createEdgeSprite(i, j);
-                else if (board[i, j] == 1) createTerrainSprite(i, j);
-                else if (board[i, j] == 3) createBoundarySprite(i, j);
+                if (board[i, j] == 1) createTerrainSprite(i, j);
+                if (board[i, j] == 3)
+                {
+                    createBoundarySprite(i, j);
+                    //Debug.Log("calling createBoundarySprite(" + i + "," + j + ")");
+                }
             }
         }
     }
@@ -175,28 +179,28 @@ public class TerrainGenerator : MonoBehaviour {
         GameObject image = one;
         try
         {
-            Debug.Log(j);
-            if(j==(height-1))
+            //Debug.Log(j);
+            if(j==0)
             {
-                Debug.Log("check");
-                if (board[i, j - 1] == 0 && board[i, j + 1] == 0 && board[i - 1, j] == 0) image = WNES;
-                else if (board[i, j - 1] == 0 && board[i, j + 1] == 0 && board[i - 1, j] != 0) image = WES;
-                else if (board[i, j - 1] == 0 && board[i, j + 1] != 0 && board[i - 1, j] == 0) image = WNS;
-                else if (board[i, j - 1] != 0 && board[i, j + 1] == 0 && board[i - 1, j] == 0) image = NES;
-                else if (board[i, j - 1] != 0 && board[i, j + 1] == 0 && board[i - 1, j] != 0) image = ES;
-                else if (board[i, j - 1] == 0 && board[i, j + 1] != 0 && board[i - 1, j] != 0) image = WS;
-                else if (board[i, j - 1] != 0 && board[i, j + 1] != 0 && board[i - 1, j] == 0) image = NS;
+                //Debug.Log("check");
+                if (board[i - 1, j] == 0 && board[i + 1, j] == 0 && board[i, j + 1] == 0) image = WNES;
+                else if (board[i - 1, j] == 0 && board[i + 1, j] == 0 && board[i, j + 1] != 0) image = WES;
+                else if (board[i - 1, j] == 0 && board[i + 1, j] != 0 && board[i, j + 1] == 0) image = WNS;
+                else if (board[i - 1, j] != 0 && board[i + 1, j] == 0 && board[i, j + 1] == 0) image = NES;
+                else if (board[i - 1, j] != 0 && board[i + 1, j] == 0 && board[i, j + 1] != 0) image = ES;
+                else if (board[i - 1, j] == 0 && board[i + 1, j] != 0 && board[i, j + 1] != 0) image = WS;
+                else if (board[i - 1, j] != 0 && board[i + 1, j] != 0 && board[i, j + 1] == 0) image = NS;
                 else image = S;
-                Debug.Log(image);
-            } else if (j==0)
+                //Debug.Log(image);
+            } else if (j==(height-1))
             {
-                if (board[i, j - 1] == 0 && board[i, j + 1] == 0 && board[i + 1, j] == 0) image = WNES;
-                else if (board[i, j - 1] == 0 && board[i, j + 1] == 0 && board[i + 1, j] != 0) image = WNE;
-                else if (board[i, j - 1] == 0 && board[i, j + 1] != 0 && board[i + 1, j] == 0) image = WNS;
-                else if (board[i, j - 1] != 0 && board[i, j + 1] == 0 && board[i + 1, j] == 0) image = NES;
-                else if (board[i, j - 1] != 0 && board[i, j + 1] == 0 && board[i + 1, j] != 0) image = NE;
-                else if (board[i, j - 1] == 0 && board[i, j + 1] != 0 && board[i + 1, j] != 0) image = WN;
-                else if (board[i, j - 1] != 0 && board[i, j + 1] != 0 && board[i + 1, j] == 0) image = NS;
+                if (board[i - 1, j] == 0 && board[i + 1, j] == 0 && board[i, j - 1] == 0) image = WNES;
+                else if (board[i - 1, j] == 0 && board[i + 1, j] == 0 && board[i, j - 1] != 0) image = WNE;
+                else if (board[i - 1, j] == 0 && board[i + 1, j] != 0 && board[i, j - 1] == 0) image = WNS;
+                else if (board[i - 1, j] != 0 && board[i + 1, j] == 0 && board[i, j - 1] == 0) image = NES;
+                else if (board[i - 1, j] != 0 && board[i + 1, j] == 0 && board[i, j - 1] != 0) image = NE;
+                else if (board[i - 1, j] == 0 && board[i + 1, j] != 0 && board[i, j - 1] != 0) image = WN;
+                else if (board[i - 1, j] != 0 && board[i + 1, j] != 0 && board[i, j - 1] == 0) image = NS;
                 else image = N;
             }
         }

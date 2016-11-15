@@ -55,7 +55,7 @@ public class JacketScript : MonoBehaviour
     void Inflate()
     {
         if (jacketScale < maxJacketSize) { jacketScale += .8f * ((maxJacketSize - jacketScale)/maxJacketSize); }
-        Debug.Log(jacketScale);
+        //Debug.Log(jacketScale);
     }
 
     void Explode()
@@ -67,7 +67,7 @@ public class JacketScript : MonoBehaviour
         }
 		theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
         StartCoroutine(Deflate(.5f));
-        Debug.Log("exploded");
+        //Debug.Log("exploded");
     }
 
     IEnumerator Deflate(float secs)
@@ -76,7 +76,7 @@ public class JacketScript : MonoBehaviour
         jacketScale = startJacketScale;
 		theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
         theRigibody.mass = 1f;
-        Debug.Log("deflated");
+        //Debug.Log("deflated");
     }
 
 }

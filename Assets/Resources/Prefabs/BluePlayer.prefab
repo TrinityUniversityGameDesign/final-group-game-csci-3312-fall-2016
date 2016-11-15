@@ -28,6 +28,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1000010215134168
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012959447630}
+  - 114: {fileID: 114000013753180066}
+  - 120: {fileID: 120000013026042446}
+  m_Layer: 0
+  m_Name: JacketOutline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000010374600510
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,8 +90,8 @@ GameObject:
   - 4: {fileID: 4000012623988324}
   - 212: {fileID: 212000010066765664}
   - 114: {fileID: 114000012777276330}
-  - 58: {fileID: 58000011594472484}
   - 50: {fileID: 50000010445250654}
+  - 95: {fileID: 95000010741037536}
   m_Layer: 0
   m_Name: BluePlayer
   m_TagString: Player
@@ -105,7 +122,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000012959447630}
   m_Father: {fileID: 4000012623988324}
   m_RootOrder: 0
 --- !u!4 &4000012623988324
@@ -123,6 +141,19 @@ Transform:
   - {fileID: 4000010008929964}
   - {fileID: 4000014062355300}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &4000012959447630
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010215134168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000011257821354}
   m_RootOrder: 0
 --- !u!4 &4000014062355300
 Transform:
@@ -152,7 +183,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &58000010552319306
 CircleCollider2D:
@@ -167,7 +198,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.118392766
+  m_Radius: 0.067
 --- !u!58 &58000011161654952
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -182,20 +213,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3.07
---- !u!58 &58000011594472484
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012968630448}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.041906387
 --- !u!58 &58000014064183868
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -209,7 +226,24 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4600752
+  m_Radius: 0.47858644
+--- !u!95 &95000010741037536
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012968630448}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5166ef080c0b7454ba1ff7172646cffb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000012120419782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,6 +286,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b403443983a94f9449809aca3255ea41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000013753180066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010215134168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe0747a1cbc440858b2328c376042e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dotsColor: {r: 0, g: 0.8592968, b: 1, a: 1}
+  jacketName: BlueJacket
+  playerString: BluePlayer
+  radius: 5
+  dotsPerRadius: 5
+--- !u!120 &120000013026042446
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010215134168}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: 1
+    endWidth: 1
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1
 --- !u!212 &212000010066765664
 SpriteRenderer:
   m_ObjectHideFlags: 1
