@@ -4,7 +4,7 @@ using System.Collections;
 public class doorComboScript : MonoBehaviour {
     private bool opening;
     private bool closing;
-    public bool locked;
+    private bool locked;
     public GameObject dr;
     public GameObject player;
     public int numPlayers;
