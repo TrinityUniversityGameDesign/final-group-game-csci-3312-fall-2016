@@ -12,6 +12,7 @@ public class StoryHandler : MonoBehaviour {
 	void Start () {
         int seed = (int)System.DateTime.Now.Ticks;
         PlayerPrefs.SetInt("RandomSeedStory", seed);
+
         StoryGenerator gen = GameObject.Find("StoryStuff").GetComponent<StoryGenerator>();
         story = gen.generate_story();
         story_string = "" + story.story_1 + "\n\n" + story.story_2 + "\n\n" + story.story_3 + "\n\n" + story.story_4;
