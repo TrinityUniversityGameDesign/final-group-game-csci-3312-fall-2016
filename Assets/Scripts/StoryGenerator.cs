@@ -331,8 +331,7 @@ public class StoryGenerator : MonoBehaviour {
         string[] names_non_object = { "HAL 9000", "its", "it", "it" };
 
         string[][] names = { names_one, names_two, names_thr, names_fou, names_fiv, names_six,
-                             names_sev, names_eig, names_nin, names_ten, names_non_object,
-                             names_non_object, names_non_object};
+                             names_sev, names_eig, names_nin, names_ten, names_non_object };
         string[] items = { "medalion", "staff", "statute", "ark", "scepter", "sword", "necklace" };
         string[] gods = { "Amadeus", "Amaduso", "God", "Shiba", "Shiba Uno", "Pan", "Balphegor", "Hitler"};
         string[] curses = { "burned alive", "crippled", "mummified",
