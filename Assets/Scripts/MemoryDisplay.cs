@@ -138,9 +138,9 @@ public class MemoryDisplay : MonoBehaviour {
 				if (player2.GetComponent<PlayerScript> ().alive) {
 					if (player3.GetComponent<PlayerScript> ().alive) {
 						if (player4.GetComponent<PlayerScript> ().alive) {
-							//player 1234 are alive
-							if ((PlayerList1.Count == (numButtons - 1)) && (PlayerList2.Count == (numButtons - 1)) && (PlayerList3.Count == (numButtons - 1)) && (PlayerList4.Count == (numButtons - 1))) {
-								first = true;
+                            //player 1234 are alive
+                            if ((PlayerList1.Count == (numButtons - 1)) && (PlayerList2.Count == (numButtons - 1)) && (PlayerList3.Count == (numButtons - 1)) && (PlayerList4.Count == (numButtons - 1))) {
+                                first = true;
 								third = false;
 							}
 						} else {
@@ -325,14 +325,14 @@ public class MemoryDisplay : MonoBehaviour {
 
     void newRound()
     {
-        displayTime += 0.5f;
+        displayTime += 0.33f;
         PlayerList1.Clear();
 		PlayerList2.Clear ();
 		PlayerList3.Clear ();
 		PlayerList4.Clear ();
         InputList.Clear();
         var list = GameObject.FindGameObjectsWithTag("Button");
-        curButtonPos = new Vector3(-7, 1, 0);
+        curButtonPos = new Vector3(-7, 3.3f, 0);
         foreach (var a in list)
         {
             Destroy(a);
