@@ -5,6 +5,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	//Samuel's stuff
 	private bool isDead = false;
 	private int points = 0;
+    private Vector3 originalSize;
 	private Vector3 dumpPosition = new Vector3(10000,10000,10000);
 	private Vector3 spawnPosition;
 
@@ -30,6 +31,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		horAxis = "Horizontal_P" + playerNum.ToString();
 		dashButton = "B_P" + playerNum.ToString();
         animationController = gameObject.GetComponent<Animator>();
+        originalSize = transform.localScale;
     }
 	
 	// Update is called once per frame
@@ -41,7 +43,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
         //transform.localRotation = Quaternion.Euler(Input.GetAxisRaw(horAxis), Quaternion.identity.y, Input.GetAxisRaw(horAxis) * 90);
         //rigidQuaternion.Angle(transform.rotation, target.rotation);
         Debug.Log(Input.GetAxis(horAxis));
-        if(Input.GetAxisRaw(horAxis)!=0) animationController.SetBool("isWalking", true);
+        if(Input.GetAxisRaw(horAxis)!=0 || Input.GetAxisRaw(vertAxis) != 0) animationController.SetBool("isWalking", true);
         else animationController.SetBool("isWalking", false);
 
         //TODO : Add dashing in
@@ -71,7 +73,13 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		//Destroy (gameObject);
 		isDead = true;
 		//Debug.Log("I died!");
+        /*while(transform.localScale.x>0)
+        {
+            //transform.lo
+            transform.localScale -= new Vector3(0.0001f, 0.0001f, 0.0f);
+        }*/
 		transform.position = dumpPosition;
+        //transform.localScale.Set(originalSize.x,originalSize.y,originalSize.z);
 	}
 	public void Respawn(){
 		//teleport player back to start

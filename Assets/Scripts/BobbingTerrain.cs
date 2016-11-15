@@ -5,15 +5,17 @@ public class BobbingTerrain : MonoBehaviour {
 
     public GameObject waterQuad;
 
-    private float y;
+    private Material waterQuadMaterial;
+    private float prevY;
 
 	// Use this for initialization
 	void Start () {
-        y = waterQuad.GetComponent<Renderer>().material.mainTextureOffset.y;
+        //prevY = 0f;
+        waterQuadMaterial = waterQuad.GetComponent<Renderer>().material;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //gameObject.transform.position.y = y;
+        gameObject.transform.position += new Vector3(0, waterQuad.GetComponent<ScrollingWaterBackground>().GetY(), 0);
 	}
 }

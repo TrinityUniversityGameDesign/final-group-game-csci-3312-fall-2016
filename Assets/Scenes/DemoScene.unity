@@ -295,6 +295,11 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 98072580}
+--- !u!1 &171518104 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011051947234, guid: 4b72607bf0544bb459d9b834d45df259,
+    type: 2}
+  m_PrefabInternal: {fileID: 364010555}
 --- !u!1 &308984104
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,6 +988,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012673817676, guid: 8d70a3a1c50039345914189093004017,
+        type: 2}
+      propertyPath: waterQuad
+      value: 
+      objectReference: {fileID: 171518104}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d70a3a1c50039345914189093004017, type: 2}
   m_IsPrefabParent: 0
@@ -1025,6 +1035,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010782537476, guid: b20619e0dd95d044cb3776336658e083,
+        type: 2}
+      propertyPath: waterQuad
+      value: 
+      objectReference: {fileID: 171518104}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b20619e0dd95d044cb3776336658e083, type: 2}
   m_IsPrefabParent: 0
@@ -1067,6 +1082,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011508984568, guid: 427c6202b0c5a4045a7097e6b241563c,
+        type: 2}
+      propertyPath: waterQuad
+      value: 
+      objectReference: {fileID: 171518104}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
   m_IsPrefabParent: 0
@@ -1844,6 +1864,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011686636994, guid: a69977abb348c9749ae4f50532d67e08,
+        type: 2}
+      propertyPath: waterQuad
+      value: 
+      objectReference: {fileID: 171518104}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a69977abb348c9749ae4f50532d67e08, type: 2}
   m_IsPrefabParent: 0
@@ -2217,6 +2242,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010561463040, guid: 7a61adab40272ba44828313b31ca59eb,
+        type: 2}
+      propertyPath: waterQuad
+      value: 
+      objectReference: {fileID: 171518104}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a61adab40272ba44828313b31ca59eb, type: 2}
   m_IsPrefabParent: 0

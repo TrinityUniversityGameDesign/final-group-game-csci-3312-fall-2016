@@ -58,6 +58,7 @@ GameObject:
   - 114: {fileID: 114000013259438364}
   - 50: {fileID: 50000012907853128}
   - 95: {fileID: 95000011626781382}
+  - 114: {fileID: 114000010782537476}
   m_Layer: 0
   m_Name: YellowPlayer
   m_TagString: Player
@@ -215,6 +216,18 @@ MonoBehaviour:
   jacketScale: 1
   startJacketScale: 1
   maxJacketSize: 10
+--- !u!114 &114000010782537476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012813944372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa9834640da1ea4ba135f39ecf3d66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterQuad: {fileID: 0}
 --- !u!114 &114000011887074882
 MonoBehaviour:
   m_ObjectHideFlags: 1
