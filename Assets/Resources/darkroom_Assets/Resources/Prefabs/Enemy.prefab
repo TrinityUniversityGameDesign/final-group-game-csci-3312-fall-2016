@@ -39,9 +39,9 @@ GameObject:
   - 95: {fileID: 95000013363429628}
   - 114: {fileID: 114000011710895740}
   - 50: {fileID: 50000011072276494}
-  - 114: {fileID: 114000011749196852}
   - 61: {fileID: 61000010569932904}
   - 114: {fileID: 114000011901677776}
+  - 114: {fileID: 114000010756786886}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -56,8 +56,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012313625682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2752237, y: 30.069128, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.157063, y: 26.737518, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000014019808284}
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010225243776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.322, y: -0.505, z: 0}
+  m_LocalPosition: {x: -0.003, y: -0.086, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -104,9 +104,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.31041193, y: -0.5615692}
+  m_Offset: {x: 0.00011205673, y: 0.0011205673}
   serializedVersion: 2
-  m_Size: {x: 0.83678854, y: 0.9952202}
+  m_Size: {x: 0.36099595, y: 0.4800974}
 --- !u!95 &95000013363429628
 Animator:
   serializedVersion: 3
@@ -158,6 +158,20 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114000010756786886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012313625682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e214ac9e20f1fdb44a7173e130262dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  controller: 2
+  player: {fileID: 1000012313625682}
 --- !u!114 &114000011710895740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,20 +186,7 @@ MonoBehaviour:
   enemy: {fileID: 1000012313625682}
   lightIntensity: 5
   lightObject: {fileID: 1000010225243776}
---- !u!114 &114000011749196852
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012313625682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e46c2620301eb418aa133e7d9182804e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  controller: 2
-  player: {fileID: 1000012313625682}
+  controller: 0
 --- !u!114 &114000011901677776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,7 +227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c5d381e39a63cc04d9ecf3b119325e2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1a06cb3ae6de32e469e1d968991aa34b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
