@@ -5,7 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Resources/darkroom_Assets/Scene/test_player_scene.unity
   - enabled: 1
-    path: Assets/UsingTilesStory.unity
+    path: Assets/Resources/darkroom_Assets/Scene/Player_wins.unity
   - enabled: 1
-    path: Assets/Scenes/UsingTiles.unity
+    path: Assets/Resources/darkroom_Assets/Scene/Enemy_Wins.unity
