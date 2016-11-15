@@ -57,7 +57,7 @@ GameObject:
   - 61: {fileID: 61000012036932624}
   - 60: {fileID: 60000010555280948}
   m_Layer: 8
-  m_Name: Player
+  m_Name: orange_player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
