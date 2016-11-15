@@ -18,12 +18,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Key
+  - DoorCombo
+  - Portal
+  - Enemy_Player
   - 
   - 
   - 
