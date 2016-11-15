@@ -312,7 +312,7 @@ public class StoryGenerator : MonoBehaviour {
         // These are the various options for all of the things.
         string[] adjectives = {"pubescent", "omnivorous", "vegetarian", "aloof", "forgetful", "absurd",
                                "carnivorous", "powerful", "frightening", "religious", "sweaty", "demonic", "first",
-                               "second", "10,000 year old", "fourty third"};
+                               "second", "10,000 year old", "fourty third", "prime" , "hungry"};
  
         string[] occupations = { "explorer", "author", "king", "general", "inventor", "explorer", "professor", "president", "plantation owner",
                                  "researcher"};
@@ -443,16 +443,17 @@ public class StoryGenerator : MonoBehaviour {
         return story;
     }
 
-
+    public StorySet story;
     // Use this for initialization
     void Start () {
-        StorySet story = make_story();
-        Debug.Log(story.story_1);
-        Debug.Log(story.story_2);
-        Debug.Log(story.story_3);
-        Debug.Log(story.story_4);
     }
 	
+    public StorySet generate_story()
+    {
+        Random.seed = PlayerPrefs.GetInt("RandomSeedStory");
+        return make_story();
+    }
+
 	// Update is called once per frame
 	void Update () {
 	    

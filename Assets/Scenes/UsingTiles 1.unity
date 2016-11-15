@@ -216,7 +216,7 @@ GameObject:
   - 222: {fileID: 14487972}
   - 114: {fileID: 14487971}
   m_Layer: 5
-  m_Name: button_B_text
+  m_Name: Text (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -441,7 +441,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8a4dd32995283fc48b65f18cf2be6a48, type: 3}
-    m_FontSize: 50
+    m_FontSize: 161
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -470,7 +470,7 @@ GameObject:
   - 222: {fileID: 46465076}
   - 114: {fileID: 46465075}
   m_Layer: 5
-  m_Name: button_Y_text
+  m_Name: Text (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -918,7 +918,7 @@ GameObject:
   - 222: {fileID: 643165949}
   - 114: {fileID: 643165948}
   m_Layer: 5
-  m_Name: button_A_text
+  m_Name: Text (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -963,7 +963,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8a4dd32995283fc48b65f18cf2be6a48, type: 3}
-    m_FontSize: 25
+    m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1452,11 +1452,6 @@ MonoBehaviour:
   txtScore: {fileID: 525517681}
   controller: {fileID: 849423146}
   scoreBar: {fileID: 849423149}
-  question_text: {fileID: 0}
-  answer_a: {fileID: 0}
-  answer_b: {fileID: 0}
-  answer_x: {fileID: 0}
-  answer_y: {fileID: 0}
 --- !u!114 &849423149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2399,7 +2394,7 @@ GameObject:
   - 222: {fileID: 1962078403}
   - 114: {fileID: 1962078402}
   m_Layer: 5
-  m_Name: button_X_text
+  m_Name: Text (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
