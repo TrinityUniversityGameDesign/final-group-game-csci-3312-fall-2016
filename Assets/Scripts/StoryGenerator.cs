@@ -289,7 +289,7 @@ public class StoryGenerator : MonoBehaviour {
         string[] hiddens_op = { "Hidden", "Mysterious", "Obscure", "Magnificent", "Unseen", "Invisible", "Forgotten"};
 
         string[] legends_op = { "Legends" , "Myths", "Tales", "Sagas", "Fables"};
-        string[] temple_op = {"Shrine", "Mosque", "Church", "Castle", "Palace", "House", "Backyard", "Coal mine", "Temple"};
+        string[] temple_op = {"Shrine", "Mosque", "Church", "Castle", "Palace", "Temple"};
         string legends = get_random(legends_op) as string;
         string hidden = get_random(hiddens_op) as string;
         string temple = get_random(temple_op) as string;
@@ -315,7 +315,7 @@ public class StoryGenerator : MonoBehaviour {
                                "second", "10,000 year old", "fourty third", "prime" , "hungry"};
  
         string[] occupations = { "explorer", "author", "king", "general", "inventor", "explorer", "professor", "president", "plantation owner",
-                                 "researcher"};
+                                 "researcher", "computer"};
 
         // options for the names of the main character.
         string[] names_one = { "Schwifty Von Amrack", "his", "he", "him" };
@@ -324,8 +324,15 @@ public class StoryGenerator : MonoBehaviour {
         string[] names_fou = { "Ada Lovelace", "her", "she", "her"};
         string[] names_fiv = { "Arsene Cagliostro", "his", "he", "him" };
         string[] names_six = { "Michelle Obama", "her", "she", "her" };
+        string[] names_sev = { "Matthew Hibbs", "his", "he", "him" };
+        string[] names_eig = { "Hilary Clinton", "her", "she", "her" };
+        string[] names_nin = { "Jesus Christ", "his", "he", "him" };
+        string[] names_ten = { "Kazi Azrul", "her", "she", "her" };
+        string[] names_non_object = { "HAL 9000", "its", "it", "it" };
 
-        string[][] names = { names_one, names_two, names_thr, names_fou, names_fiv, names_six };
+        string[][] names = { names_one, names_two, names_thr, names_fou, names_fiv, names_six,
+                             names_sev, names_eig, names_nin, names_ten, names_non_object,
+                             names_non_object, names_non_object};
         string[] items = { "medalion", "staff", "statute", "ark", "scepter", "sword", "necklace" };
         string[] gods = { "Amadeus", "Amaduso", "God", "Shiba", "Shiba Uno", "Pan", "Balphegor", "Hitler"};
         string[] curses = { "burned alive", "crippled", "mummified",
