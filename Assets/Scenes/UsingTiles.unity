@@ -145,6 +145,7 @@ MonoBehaviour:
   Y: {fileID: 103287947}
   none: {fileID: 0}
   check: {fileID: 2082612532}
+  checkSprite: {fileID: 2082612532}
   txtScore: {fileID: 1356817118}
   preScore: 0
   scoreFromQuestion: 0
@@ -1457,6 +1458,7 @@ MonoBehaviour:
   answer_b: {fileID: 0}
   answer_x: {fileID: 0}
   answer_y: {fileID: 0}
+  players: []
 --- !u!114 &849423149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1697,6 +1699,7 @@ MonoBehaviour:
   Y: {fileID: 103287947}
   none: {fileID: 0}
   check: {fileID: 789481944}
+  checkSprite: {fileID: 789481944}
   txtScore: {fileID: 650327761}
   preScore: 0
   scoreFromQuestion: 0
@@ -2042,6 +2045,11 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012793437612, guid: b7f024d1312201740a56a4d190af5814,
+        type: 2}
+      propertyPath: checkSprite
+      value: 
+      objectReference: {fileID: 1602475695}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7f024d1312201740a56a4d190af5814, type: 2}
   m_IsPrefabParent: 0
@@ -2262,7 +2270,8 @@ MonoBehaviour:
   B: {fileID: 296484593}
   Y: {fileID: 103287947}
   none: {fileID: 0}
-  check: {fileID: 82751325}
+  check: {fileID: 2082612532}
+  checkSprite: {fileID: 82751325}
   txtScore: {fileID: 234599892}
   preScore: 0
   scoreFromQuestion: 0

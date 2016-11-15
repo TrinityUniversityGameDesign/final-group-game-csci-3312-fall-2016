@@ -87,7 +87,7 @@ public class TriviaPlayer : MonoBehaviour
     {
         answered = false;
         check.fillAmount = 0;
-        Button = none;
+        Button = checkSprite;
         sTime = -1;
         tTime = -1;
         check.sprite = checkSprite.sprite;
