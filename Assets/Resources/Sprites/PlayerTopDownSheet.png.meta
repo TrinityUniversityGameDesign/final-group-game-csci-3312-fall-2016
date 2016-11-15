@@ -1,0 +1,577 @@
+fileFormatVersion: 2
+guid: ad2c46b5e7653465780c9048bf0ceb68
+timeCreated: 1478794519
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PlayerTopDownSheet_0
+    21300002: PlayerTopDownSheet_1
+    21300004: PlayerTopDownSheet_2
+    21300006: PlayerTopDownSheet_3
+    21300008: PlayerTopDownSheet_4
+    21300010: PlayerTopDownSheet_5
+    21300012: PlayerTopDownSheet_6
+    21300014: PlayerTopDownSheet_7
+    21300016: PlayerTopDownSheet_8
+    21300018: PlayerTopDownSheet_9
+    21300020: PlayerTopDownSheet_10
+    21300022: PlayerTopDownSheet_11
+    21300024: PlayerTopDownSheet_12
+    21300026: PlayerTopDownSheet_13
+    21300028: PlayerTopDownSheet_14
+    21300030: PlayerTopDownSheet_15
+    21300032: PlayerTopDownSheet_16
+    21300034: PlayerTopDownSheet_17
+    21300036: PlayerTopDownSheet_18
+    21300038: PlayerTopDownSheet_19
+    21300040: PlayerTopDownSheet_20
+    21300042: PlayerTopDownSheet_21
+    21300044: PlayerTopDownSheet_22
+    21300046: PlayerTopDownSheet_23
+    21300048: PlayerTopDownSheet_24
+    21300050: PlayerTopDownSheet_25
+    21300052: PlayerTopDownSheet_26
+    21300054: PlayerTopDownSheet_27
+    21300056: PlayerTopDownSheet_28
+    21300058: PlayerTopDownSheet_29
+    21300060: PlayerTopDownSheet_30
+    21300062: PlayerTopDownSheet_31
+    21300064: PlayerTopDownSheet_32
+    21300066: PlayerTopDownSheet_33
+    21300068: PlayerTopDownSheet_34
+    21300070: PlayerTopDownSheet_35
+    21300072: PlayerTopDownSheet_36
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2520
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_1
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 2520
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_2
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 2520
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 2520
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 2520
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_5
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 2520
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2100
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_7
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 2100
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_8
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 2100
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 2100
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 2100
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_11
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 2100
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1680
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_13
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1680
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_14
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1680
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1680
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1680
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_17
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1680
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1260
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_19
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1260
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_20
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1260
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1260
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_22
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1260
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_23
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1260
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 840
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_25
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 840
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_26
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 840
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_27
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 840
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_28
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 840
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_29
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 840
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_31
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 420
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_32
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 420
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_33
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 420
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_34
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 420
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_35
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 420
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTopDownSheet_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 420
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
