@@ -34,7 +34,7 @@ public class JacketOutlineScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		dotsPerRadius = 10;
+		dotsPerRadius = 6;
 		playerObject = GameObject.Find (playerString) as GameObject;
 
 
