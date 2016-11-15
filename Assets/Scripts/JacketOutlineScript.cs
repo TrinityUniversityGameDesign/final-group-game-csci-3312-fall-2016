@@ -54,8 +54,6 @@ public class JacketOutlineScript : MonoBehaviour {
 	{
 		pieces = (int)(radius*dotsPerRadius);
 
-
-
 		//remove excess circles if pieces goes down
 		while (circleList.Count > pieces) {
 			Destroy(circleList[0]);

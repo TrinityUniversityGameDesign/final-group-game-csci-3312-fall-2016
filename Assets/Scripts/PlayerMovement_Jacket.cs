@@ -53,6 +53,12 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 			canDash = false;
 			StartCoroutine (ResetDash ());
 		}
+		//ugly, fix later
+		if ((transform.position.x < -7 || transform.position.x > 7) && !isDead) {
+			OnDeath ();
+		} else if ((transform.position.y < -4 || transform.position.y > 3.5)&&!isDead) {
+			OnDeath ();
+		}
 	}
 
 	IEnumerator ResetDash() {
