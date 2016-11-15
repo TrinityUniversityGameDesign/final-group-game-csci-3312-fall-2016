@@ -9,7 +9,7 @@ public class TriviaPlayer : MonoBehaviour
 	public Image X;
 	public Image B;
 	public Image Y;
-	public Image none;
+	//public Image none;
 	public Image check;
 	public Text txtScore;
 	public int preScore = 0;
@@ -30,7 +30,7 @@ public class TriviaPlayer : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		Button = none;
+		Button = check;
 		answered = false;
 		controller = controllerGameObject.GetComponent<TrivaController> ();
 		check.fillAmount = 0;
@@ -86,6 +86,9 @@ public class TriviaPlayer : MonoBehaviour
     {
         answered = false;
         check.fillAmount = 0;
-        Button = none;
+        Button = check;
+        sTime = -1;
+        tTime = -1;
+        check.sprite = Button.sprite;
     }
 }
