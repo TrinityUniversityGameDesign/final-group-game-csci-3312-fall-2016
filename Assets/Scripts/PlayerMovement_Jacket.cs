@@ -67,7 +67,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	public void OnDeath() {
 		//Destroy (gameObject);
 		isDead = true;
-		Debug.Log("I died!");
+		//Debug.Log("I died!");
 		transform.position = dumpPosition;
 	}
 	public void Respawn(){
