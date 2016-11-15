@@ -12,7 +12,15 @@ public class ScoreRoundManagerScript : MonoBehaviour {
 	private int maxPlayers = 4;
 	private int currentRoundNumber;
 	private int currentPlayers = 1;
-	List<GameObject> playersInPlay = new List<GameObject>();
+    public GameObject blueJacket;
+    public GameObject greenJacket;
+    public GameObject redJacket;
+    public GameObject yellowJacket;
+
+    bool startingNewRound = false;
+
+
+    List<GameObject> playersInPlay = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
 		roundText = GameObject.Find ("RoundText").GetComponent<Text>();
@@ -26,28 +34,44 @@ public class ScoreRoundManagerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (playersInPlay.Count < 2) {
-			playersInPlay [0].GetComponent<PlayerMovement_Jacket> ().AddPoint ();
-			StartNewRound ();
-		}
-		foreach(GameObject playerObj in playersInPlay) {
-			if (playerObj.GetComponent<PlayerMovement_Jacket> ().IsDead ()) {
-				playersInPlay.Remove (playerObj);
-			}
-		}
+        if (!startingNewRound)
+        {
+            if (playersInPlay.Count < 2)
+            {
+                playersInPlay[0].GetComponent<PlayerMovement_Jacket>().AddPoint();
+                StartCoroutine(StartNewRound());
+            }
+            foreach (GameObject playerObj in playersInPlay)
+            {
+                if (playerObj.GetComponent<PlayerMovement_Jacket>().IsDead())
+                {
+                    playersInPlay.Remove(playerObj);
+                }
+            }
+        }
 	}
 
-	private void StartNewRound(){
-		currentRoundNumber++;
+	private IEnumerator StartNewRound(){
+        roundText.text = "A New Round is About to Begin!";
+        startingNewRound = true;
+        yield return new WaitForSeconds(3);
+        currentRoundNumber++;
 		roundText.text = "Round " + currentRoundNumber;
 		playersInPlay = new List<GameObject> ();
 		foreach(GameObject playerObj in GameObject.FindGameObjectsWithTag("Player")) {
 			playerObj.GetComponent<PlayerMovement_Jacket> ().Respawn ();
-			playersInPlay.Add(playerObj);
+
+            greenJacket.GetComponent<JacketScript>().SuckAllDaAirOut();
+            redJacket.GetComponent<JacketScript>().SuckAllDaAirOut();
+            blueJacket.GetComponent<JacketScript>().SuckAllDaAirOut();
+            yellowJacket.GetComponent<JacketScript>().SuckAllDaAirOut();
+
+            playersInPlay.Add(playerObj);
 		}
 
 		if (currentRoundNumber > maxRoundNumber) {
 			//next levels
 		}
+        startingNewRound = false;
 	}
 }

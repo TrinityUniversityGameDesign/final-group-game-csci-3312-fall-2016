@@ -40,23 +40,14 @@ public class JacketScript : MonoBehaviour
         
     }
 
+    public void SuckAllDaAirOut()
+    {
+        jacketScale = startJacketScale;
+    }
+
     void ConstantDeflate()
-    {/*
-        if (jacketScale < maxJacketSize / 2.0f)
-        {
-            if((jacketScale - (Time.deltaTime / 2f)) >= startJacketScale)
-                jacketScale -= (Time.deltaTime/2f);
-            else
-                jacketScale = startJacketScale;
-        }
-        else
-        {
-            if ((jacketScale - (Time.deltaTime / 4f)) >= startJacketScale)
-                jacketScale -= (Time.deltaTime / 4f);
-            else
-                jacketScale = startJacketScale;
-        }
-        */
+    {
+
         if(jacketScale > startJacketScale) { jacketScale -= (Time.deltaTime); }
         Debug.Log(jacketScale);
     }
