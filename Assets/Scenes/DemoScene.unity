@@ -681,6 +681,7 @@ MonoBehaviour:
   greenJacket: {fileID: 902074758}
   redJacket: {fileID: 1567378500}
   yellowJacket: {fileID: 1309126748}
+  terrainGenerator: {fileID: 730523431}
 --- !u!1 &402702185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,6 +1290,21 @@ Prefab:
       propertyPath: jacketName
       value: RedJacket
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011422007228, guid: 427c6202b0c5a4045a7097e6b241563c,
+        type: 2}
+      propertyPath: dotsColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011422007228, guid: 427c6202b0c5a4045a7097e6b241563c,
+        type: 2}
+      propertyPath: dotsColor.g
+      value: 0.24264705
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011422007228, guid: 427c6202b0c5a4045a7097e6b241563c,
+        type: 2}
+      propertyPath: dotsColor.b
+      value: 0.24264705
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
   m_IsPrefabParent: 0
@@ -1466,6 +1482,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 618388581}
+--- !u!1 &730523431 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012555036466, guid: 8d70a3a1c50039345914189093004017,
+    type: 2}
+  m_PrefabInternal: {fileID: 592096247}
 --- !u!1 &732392395
 GameObject:
   m_ObjectHideFlags: 0

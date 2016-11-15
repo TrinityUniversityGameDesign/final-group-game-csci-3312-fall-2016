@@ -58,6 +58,18 @@ public class TerrainGenerator : MonoBehaviour {
         checkForBoundaries();
     }
 
+    public void doEverything()
+    {
+        //Destroy((GameObject)board);
+        foreach (Transform child in gameObject.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        board = new int[width, height];
+        createTerrain();
+        addTerrainToScene();
+    }
+
     void createNewBoard() {
         for (int i = 0; i < width; i++)
         {
