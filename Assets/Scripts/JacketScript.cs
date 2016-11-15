@@ -16,11 +16,17 @@ public class JacketScript : MonoBehaviour
     private Transform theTransform;
     private Rigidbody2D theRigibody;
 
+	public AudioClip explosionClip;
+	public AudioClip pumpClip;
+	AudioSource audioSource;
+
     // Use this for initialization
     void Start()
     {
         theTransform = gameObject.GetComponent<Transform>();
         theRigibody = gameObject.GetComponentInParent<Rigidbody2D>();
+		audioSource = GetComponent<AudioSource> ();
+
     }
 
     // Update is called once per frame
@@ -55,6 +61,8 @@ public class JacketScript : MonoBehaviour
     void Inflate()
     {
         if (jacketScale < maxJacketSize) { jacketScale += .8f * ((maxJacketSize - jacketScale)/maxJacketSize); }
+		audioSource.clip = pumpClip;
+		audioSource.Play ();
         //Debug.Log(jacketScale);
     }
 
@@ -68,6 +76,8 @@ public class JacketScript : MonoBehaviour
 		theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
         StartCoroutine(Deflate(.5f));
         //Debug.Log("exploded");
+		audioSource.clip = explosionClip;
+		audioSource.Play ();
     }
 
     IEnumerator Deflate(float secs)
