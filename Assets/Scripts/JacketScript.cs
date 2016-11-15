@@ -63,7 +63,7 @@ public class JacketScript : MonoBehaviour
         gameObject.transform.parent.GetComponent<Rigidbody2D>().mass = 10000f;
         while(theTransform.localScale.x < jacketScale)
         {
-            theTransform.localScale = new Vector3((theTransform.localScale.x+Time.deltaTime) , (theTransform.localScale.y+ Time.deltaTime), 1f);
+            theTransform.localScale = new Vector3((theTransform.localScale.x+Time.deltaTime/10) , (theTransform.localScale.y+ Time.deltaTime/10), 1f);
         }
 		theTransform.localScale = new Vector3(jacketScale, jacketScale, 1f);
         StartCoroutine(Deflate(.5f));
