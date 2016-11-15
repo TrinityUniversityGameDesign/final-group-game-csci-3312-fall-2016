@@ -9,8 +9,9 @@ public class TriviaPlayer : MonoBehaviour
 	public Image X;
 	public Image B;
 	public Image Y;
-	//public Image none;
+	public Image none;
 	public Image check;
+    public Image checkSprite;
 	public Text txtScore;
 	public int preScore = 0;
 	public int scoreFromQuestion = 0;
@@ -86,10 +87,10 @@ public class TriviaPlayer : MonoBehaviour
     {
         answered = false;
         check.fillAmount = 0;
-        Button = check;
+        Button = none;
         sTime = -1;
         tTime = -1;
-        check.sprite = Button.sprite;
+        check.sprite = checkSprite.sprite;
         
     }
 }
