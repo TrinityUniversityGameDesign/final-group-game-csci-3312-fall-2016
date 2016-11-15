@@ -21,6 +21,7 @@ public class ScoreRoundManagerScript : MonoBehaviour {
 
 
     List<GameObject> playersInPlay = new List<GameObject>();
+	List<GameObject> allPlayers = new List<GameObject> ();
 	// Use this for initialization
 	void Start () {
 		roundText = GameObject.Find ("RoundText").GetComponent<Text>();
@@ -41,7 +42,7 @@ public class ScoreRoundManagerScript : MonoBehaviour {
                 playersInPlay[0].GetComponent<PlayerMovement_Jacket>().AddPoint();
                 StartCoroutine(StartNewRound());
             }
-            foreach (GameObject playerObj in playersInPlay)
+            foreach (GameObject playerObj in allPlayers)
             {
                 if (playerObj.GetComponent<PlayerMovement_Jacket>().IsDead())
                 {
