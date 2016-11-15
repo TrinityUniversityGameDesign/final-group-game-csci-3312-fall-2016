@@ -45,12 +45,9 @@ public class TrivaController : MonoBehaviour
     {
         if (questionIsDone())
         {
-            question += 1;
-            answers = 0;
-            score = 1000;
-            readTime = 150;
-            set_cur_question();
-
+            
+            Invoke("set_cur_question", 5f);
+            //set_cur_question();
         }
         else
         {
@@ -66,6 +63,11 @@ public class TrivaController : MonoBehaviour
 
     void set_cur_question()
     {
+        question += 1;
+        answers = 0;
+        score = 1000;
+        readTime = 150;
+
         question_text.text = questions[question].question;
         answer_a.text = questions[question].choices[0];
         answer_b.text = questions[question].choices[1];
@@ -79,12 +81,12 @@ public class TrivaController : MonoBehaviour
                 correct_answer = ops[i];
             }
         }
+
         foreach (GameObject player in players)
         {
             TriviaPlayer a = player.GetComponent<TriviaPlayer>();
             a.restart();
         }
-
     }
 
     public int amIRight(char answer)
