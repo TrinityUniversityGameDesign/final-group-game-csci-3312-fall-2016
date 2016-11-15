@@ -12,7 +12,7 @@ public class ScrollingWaterBackground : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         waterMaterialCountdownInner = waterMaterialCountdown;
-        waterMaterial = GetComponent<MeshRenderer>().material;
+        //waterMaterial = GetComponent<MeshRenderer>().material;
         waterMaterial = GetComponent<Renderer>().material;
         y = 0.001f;
         //waterMaterial.SetTextureScale("_MainTex", new Vector2(transform.localScale.x / 10, transform.localScale.y / 10));
