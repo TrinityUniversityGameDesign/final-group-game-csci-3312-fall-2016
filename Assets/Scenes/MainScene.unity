@@ -506,7 +506,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 277, y: -67.5}
+  m_AnchoredPosition: {x: -491, y: 268}
   m_SizeDelta: {x: 554, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771407207
@@ -897,6 +897,16 @@ Prefab:
       propertyPath: m_TagString
       value: Player4
       objectReference: {fileID: 0}
+    - target: {fileID: 212000012835792950, guid: 212caf671807787469fb93e6b2b7ea2c,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011505014320, guid: 212caf671807787469fb93e6b2b7ea2c,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212caf671807787469fb93e6b2b7ea2c, type: 2}
   m_IsPrefabParent: 0
@@ -1051,8 +1061,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 61000010060728976, guid: 212caf671807787469fb93e6b2b7ea2c, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212caf671807787469fb93e6b2b7ea2c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1521255242
@@ -1102,28 +1111,14 @@ Prefab:
       propertyPath: m_TagString
       value: Player3
       objectReference: {fileID: 0}
+    - target: {fileID: 212000011505014320, guid: 212caf671807787469fb93e6b2b7ea2c,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212caf671807787469fb93e6b2b7ea2c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1683036128 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010804415270, guid: 212caf671807787469fb93e6b2b7ea2c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1436186290}
---- !u!61 &1683036133
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1683036128}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 4, y: 4}
 --- !u!1 &1865086761
 GameObject:
   m_ObjectHideFlags: 0
