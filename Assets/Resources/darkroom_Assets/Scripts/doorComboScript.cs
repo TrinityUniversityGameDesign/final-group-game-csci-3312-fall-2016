@@ -37,7 +37,7 @@ public class doorComboScript : MonoBehaviour {
                 opening = false;
             }
         }
-        if (closing)
+        else if (closing)
         {
             if (dr.transform.localPosition.x > 0)
             {

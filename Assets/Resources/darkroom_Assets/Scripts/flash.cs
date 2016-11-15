@@ -9,6 +9,7 @@ public class flash : MonoBehaviour {
     public GameObject lightObject;
     private Light lightSource;
     private SpriteRenderer spriteRenderer;
+    public int controller;
 
 	void Start () {
         lightSource = lightObject.GetComponent<Light>();
@@ -21,7 +22,7 @@ public class flash : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        float flash = Input.GetAxisRaw("Flash");
+        float flash = Input.GetAxisRaw("B_P" + controller); 
         if(flash > 0)
         {
             Debug.Log("space hit");
