@@ -1,0 +1,563 @@
+fileFormatVersion: 2
+guid: f74840db78e874d4bb0b0f01f482985c
+timeCreated: 1478817356
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Top-Down Work in Progress 1_0
+    21300002: Top-Down Work in Progress 1_1
+    21300004: Top-Down Work in Progress 1_2
+    21300006: Top-Down Work in Progress 1_3
+    21300008: Top-Down Work in Progress 1_4
+    21300010: Top-Down Work in Progress 1_5
+    21300012: Top-Down Work in Progress 1_6
+    21300014: Top-Down Work in Progress 1_7
+    21300016: Top-Down Work in Progress 1_8
+    21300018: Top-Down Work in Progress 1_9
+    21300020: Top-Down Work in Progress 1_10
+    21300022: Top-Down Work in Progress 1_11
+    21300024: Top-Down Work in Progress 1_12
+    21300026: Top-Down Work in Progress 1_13
+    21300028: Top-Down Work in Progress 1_14
+    21300030: Top-Down Work in Progress 1_15
+    21300032: Top-Down Work in Progress 1_16
+    21300034: Top-Down Work in Progress 1_17
+    21300036: Top-Down Work in Progress 1_18
+    21300038: Top-Down Work in Progress 1_19
+    21300040: Top-Down Work in Progress 1_20
+    21300042: Top-Down Work in Progress 1_21
+    21300044: Top-Down Work in Progress 1_22
+    21300046: Top-Down Work in Progress 1_23
+    21300048: Top-Down Work in Progress 1_24
+    21300050: Top-Down Work in Progress 1_25
+    21300052: Top-Down Work in Progress 1_26
+    21300054: Top-Down Work in Progress 1_27
+    21300056: Top-Down Work in Progress 1_28
+    21300058: Top-Down Work in Progress 1_29
+    21300060: Top-Down Work in Progress 1_30
+    21300062: Top-Down Work in Progress 1_31
+    21300064: Top-Down Work in Progress 1_32
+    21300066: Top-Down Work in Progress 1_33
+    21300068: Top-Down Work in Progress 1_34
+    21300070: Top-Down Work in Progress 1_35
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 128
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 430
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 430
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_2
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 430
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_3
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 430
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_4
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 430
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_5
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 430
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 346
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_7
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 346
+        width: 64
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_8
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 344
+        width: 64
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_9
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 345
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_10
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 346
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_11
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 346
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_12
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 262
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_13
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 262
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_14
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 262
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_15
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 262
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_16
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 262
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_17
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 262
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_18
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 178
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_19
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 178
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_20
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 178
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_21
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 178
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_22
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 178
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_23
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 178
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_24
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 94
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_25
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 94
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_26
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 94
+        width: 64
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_27
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 92
+        width: 64
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_28
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 93
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_29
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 94
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_30
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 10
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_31
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 10
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_32
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 10
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_33
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 10
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_34
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 10
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Top-Down Work in Progress 1_35
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 10
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
