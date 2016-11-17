@@ -45,7 +45,7 @@ public class MemoryDisplay : MonoBehaviour {
     public bool first = false; // 1st stage - display memory list, no input
 	public bool second = false; // 2nd stage - hide memory list, player input
 	public bool third = false; // 3rd stage - show both lists, comparison
-
+    public bool butsAlive = false;
     int x = 0; // temp display number
                // Use this for initialization
     void Start() {
@@ -157,6 +157,7 @@ public class MemoryDisplay : MonoBehaviour {
     //call timeToDisplay upon round start
     IEnumerator<WaitForSeconds> timeToDisplay(string message, float delay)
     {
+        butsAlive = true;
         GameObject[] buttonObjList;
         RandomInputText.text = message;
         RandomInputText.enabled = true;
@@ -168,6 +169,7 @@ public class MemoryDisplay : MonoBehaviour {
         }
         RandomInputText.enabled = false;
         x += 1;
+        butsAlive = false;
     }
 
 	void printOutputs(List<int> PassedList){
@@ -257,7 +259,7 @@ public class MemoryDisplay : MonoBehaviour {
 
     void newRound()
     {
-        displayTime += 0.33f;
+        displayTime += 0.5f;
         PlayerList1.Clear();
 		PlayerList2.Clear ();
 		PlayerList3.Clear ();
