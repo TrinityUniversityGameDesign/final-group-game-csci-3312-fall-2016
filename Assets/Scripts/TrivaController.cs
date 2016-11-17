@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TrivaController : MonoBehaviour
@@ -44,11 +45,21 @@ public class TrivaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (questionIsDone() && !invoked)
         {
-            
-            Invoke("set_cur_question", 3f);
-            invoked = true;
+            if (question == 3)
+            {
+                Invoke("changeToEnd", 3f);
+                invoked = true;
+            }
+            else
+            {
+                Invoke("set_cur_question", 3f);
+                invoked = true;
+
+            }
+           
             //set_cur_question();
         }
         else if(!invoked)
@@ -63,6 +74,10 @@ public class TrivaController : MonoBehaviour
         }
     }
 
+    void changeToEnd()
+    {
+        SceneManager.LoadScene(4);
+    }
     void set_cur_question()
     {
         invoked = false;

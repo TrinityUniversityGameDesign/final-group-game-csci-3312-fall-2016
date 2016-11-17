@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\TitleScreenGenerator.cs" />
      <Compile Include="Assets\Scripts\TrivaController.cs" />
      <Compile Include="Assets\Scripts\TriviaPlayer.cs" />
+     <Compile Include="Assets\Scripts\TriviaWinning.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
      <None Include="Assets\Resources\darkroom_Assets\Resources\Sprites\nervous\anke-art-README-deutsch.txt" />
      <None Include="Assets\Resources\Sounds\DELETE_ME.txt" />
