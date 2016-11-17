@@ -20,8 +20,7 @@ public class StoryHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Debug.Log("Yes");
-        bool key = Input.GetKey("down");
-        if (key)
+        if (Input.GetAxis("A_P1") > 0)
         {
             Application.LoadLevel("UsingTiles");
         }

@@ -45,7 +45,7 @@ public class TrivaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (questionIsDone() && !invoked)
         {
             if (question == 3)
@@ -59,10 +59,10 @@ public class TrivaController : MonoBehaviour
                 invoked = true;
 
             }
-           
+
             //set_cur_question();
         }
-        else if(!invoked)
+        else if (!invoked)
         {
             txtScore.text = score.ToString();
             if (readTime == 0 && score > 1)
@@ -109,13 +109,8 @@ public class TrivaController : MonoBehaviour
     public int amIRight(char answer)
     {
         answers += 1;
-        if (question == 1)
-        {
-            if (answer == correct_answer)
-                return score;
-            else
-                return 0;
-        }
+        if (answer == correct_answer)
+            return score;
         else
             return 0;
     }
