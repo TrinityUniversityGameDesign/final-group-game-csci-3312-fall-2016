@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 public class TrivaController : MonoBehaviour
 {
+    public bool invoked = false;
     public Color Highest;
     public Color Lowest;
     public Text txtScore;
-    int question = -1;
+    public int question = -1;
     int score = 1000;
     public GameObject controller;
     public Image scoreBar;
@@ -43,13 +44,14 @@ public class TrivaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (questionIsDone())
+        if (questionIsDone() && !invoked)
         {
             
             Invoke("set_cur_question", 3f);
+            invoked = true;
             //set_cur_question();
         }
-        else
+        else if(!invoked)
         {
             txtScore.text = score.ToString();
             if (readTime == 0 && score > 1)
@@ -63,6 +65,7 @@ public class TrivaController : MonoBehaviour
 
     void set_cur_question()
     {
+        invoked = false;
         question += 1;
         answers = 0;
         score = 1000;
