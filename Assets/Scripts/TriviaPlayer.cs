@@ -91,6 +91,5 @@ public class TriviaPlayer : MonoBehaviour
         sTime = -1;
         tTime = -1;
         check.sprite = checkSprite.sprite;
-        
     }
 }

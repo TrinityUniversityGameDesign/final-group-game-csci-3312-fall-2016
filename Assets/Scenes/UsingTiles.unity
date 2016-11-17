@@ -145,7 +145,7 @@ MonoBehaviour:
   Y: {fileID: 103287947}
   none: {fileID: 0}
   check: {fileID: 2082612532}
-  checkSprite: {fileID: 2082612532}
+  checkSprite: {fileID: 176706383}
   txtScore: {fileID: 1356817118}
   preScore: 0
   scoreFromQuestion: 0
@@ -720,6 +720,74 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03e2db54f78d6d444a31a31c0374a2c9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &176706381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 176706382}
+  - 222: {fileID: 176706384}
+  - 114: {fileID: 176706383}
+  m_Layer: 0
+  m_Name: Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &176706382
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176706381}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.5754192, y: 3.5754192, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1832608731}
+  m_RootOrder: 10
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -23.4, y: 605.5}
+  m_SizeDelta: {x: 32.71, y: 32.71}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &176706383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176706381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.14705884, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: a978495d26f5c1b4c8c7af72a1a58c2a, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &176706384
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176706381}
 --- !u!1 &234599890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,6 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4696f94fc3ecf40b7f28300378fc99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invoked: 0
   Highest: {r: 0, g: 1, b: 0.11764717, a: 1}
   Lowest: {r: 1, g: 0, b: 0, a: 1}
   txtScore: {fileID: 525517681}
@@ -1723,7 +1792,7 @@ MonoBehaviour:
   Y: {fileID: 103287947}
   none: {fileID: 0}
   check: {fileID: 789481944}
-  checkSprite: {fileID: 789481944}
+  checkSprite: {fileID: 176706383}
   txtScore: {fileID: 650327761}
   preScore: 0
   scoreFromQuestion: 0
@@ -2073,7 +2142,7 @@ Prefab:
         type: 2}
       propertyPath: checkSprite
       value: 
-      objectReference: {fileID: 1602475695}
+      objectReference: {fileID: 176706383}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7f024d1312201740a56a4d190af5814, type: 2}
   m_IsPrefabParent: 0
@@ -2294,8 +2363,8 @@ MonoBehaviour:
   B: {fileID: 296484593}
   Y: {fileID: 103287947}
   none: {fileID: 0}
-  check: {fileID: 2082612532}
-  checkSprite: {fileID: 82751325}
+  check: {fileID: 82751325}
+  checkSprite: {fileID: 176706383}
   txtScore: {fileID: 234599892}
   preScore: 0
   scoreFromQuestion: 0
@@ -2418,6 +2487,7 @@ RectTransform:
   - {fileID: 477658556}
   - {fileID: 1105698566}
   - {fileID: 9696274}
+  - {fileID: 176706382}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
