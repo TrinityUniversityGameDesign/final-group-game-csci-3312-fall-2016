@@ -11,12 +11,10 @@ public class UIManager : MonoBehaviour
     public static bool gameWon = false;
 
     public static Stack<string> playerPlacing = new Stack<string>();
-    //public static int alivePlayers = 4;
 
     // Use this for initialization
     void Start()
     {
-        //alivePlayers = 4;
         playerPlacing = new Stack<string>();
         gameWon = false;
         winText = GameObject.Find("WinText").GetComponent<Text>();
