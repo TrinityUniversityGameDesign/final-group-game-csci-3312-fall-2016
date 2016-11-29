@@ -12,10 +12,14 @@ public class UIManager : MonoBehaviour
 
     public static Stack<string> playerPlacing = new Stack<string>();
 
+    private Transform platform;
+    private float shrinkRate = 0.1f;
+
     // Use this for initialization
     void Start()
     {
         playerPlacing = new Stack<string>();
+        platform = GameObject.Find("Platform").transform;
         gameWon = false;
         winText = GameObject.Find("WinText").GetComponent<Text>();
         winText.gameObject.SetActive(false);
@@ -36,10 +40,8 @@ public class UIManager : MonoBehaviour
         }
         else if (time <= 0)
         {
-            gameWon = true;
-            winText.gameObject.SetActive(true);
+            platform.localScale -= new Vector3(shrinkRate*Time.deltaTime, shrinkRate*Time.deltaTime, 0);
             timer.text = "0";
-            winText.text = "Game Over";
         }
         else
         {
