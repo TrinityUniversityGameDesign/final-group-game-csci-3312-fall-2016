@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013306686892}
   - 61: {fileID: 61000013952600470}
+  - 114: {fileID: 114000011050639768}
   m_Layer: 12
   m_Name: Exit
   m_TagString: Untagged
@@ -54,3 +55,15 @@ BoxCollider2D:
   m_Offset: {x: -0.15005302, y: -0.10388279}
   serializedVersion: 2
   m_Size: {x: 1.2077647, y: 1.2077656}
+--- !u!114 &114000011050639768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010080264310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18610571c269b6348b1fa34cea658151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portalNum: 0
