@@ -19,6 +19,7 @@ public class TriviaPlayer : MonoBehaviour
 	bool answered;
 	public GameObject controllerGameObject;
 	TrivaController controller;
+    public string playerString;
 
     //Text/check animation vars
     public AnimationCurve cur;
@@ -37,7 +38,8 @@ public class TriviaPlayer : MonoBehaviour
 		check.fillAmount = 0;
         startScale = check.transform.localScale;
         startScaleText = txtScore.gameObject.transform.localScale;
-	}
+        playerString= "Trivia Player " + playerNumber;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -60,6 +62,11 @@ public class TriviaPlayer : MonoBehaviour
                 tTime = 0;
             tTime += Time.deltaTime;
             txtScore.gameObject.transform.localScale = startScaleText * cur.Evaluate(tTime);
+		   
+            
+            PlayerPrefs.SetInt("TEST",preScore);
+            PlayerPrefs.SetInt(playerString,preScore);
+            PlayerPrefs.Save();
         }
 		txtScore.text = "Score : " + preScore;
 		if (!answered && controller.canIAnswer ()) {
@@ -91,6 +98,5 @@ public class TriviaPlayer : MonoBehaviour
         sTime = -1;
         tTime = -1;
         check.sprite = checkSprite.sprite;
-        
     }
 }
