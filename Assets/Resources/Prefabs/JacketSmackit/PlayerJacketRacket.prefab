@@ -89,6 +89,7 @@ MonoBehaviour:
   walkSpeed: 5
   dashSpeed: 500
   dashRegeneration: 3
+  jacketName: 
 --- !u!212 &212000013525668890
 SpriteRenderer:
   m_ObjectHideFlags: 1

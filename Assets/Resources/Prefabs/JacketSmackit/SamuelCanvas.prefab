@@ -630,6 +630,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94edb6cefa2ee41e2a89181faf193d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueJacket: {fileID: 0}
+  greenJacket: {fileID: 0}
+  redJacket: {fileID: 0}
+  yellowJacket: {fileID: 0}
+  terrainGenerator: {fileID: 0}
+  logo: {fileID: 0}
 --- !u!114 &114000011459638188
 MonoBehaviour:
   m_ObjectHideFlags: 1

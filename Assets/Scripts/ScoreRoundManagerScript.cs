@@ -61,9 +61,9 @@ public class ScoreRoundManagerScript : MonoBehaviour {
         roundText.text = "A New Round is About to Begin!";
         startingNewRound = true;
         Debug.Log(logo.transform.localScale);
-        while (logo.transform.localScale.x < 1.5f)
+        while (logo.transform.localScale.x < 2f)
         {
-            logo.transform.localScale += new Vector3(0.01f, 0.01f, 0.0f);
+            logo.transform.localScale += new Vector3(0.02f, 0.02f, 0.0f);
             yield return new WaitForSeconds(0.001f);
         }
         Debug.Log(logo.transform.localScale);

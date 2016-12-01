@@ -56,7 +56,6 @@ MonoBehaviour:
   jacketName: BlueJacket
   playerString: BluePlayer
   radius: 5
-  dotsPerRadius: 5
 --- !u!120 &120000011527628478
 LineRenderer:
   m_ObjectHideFlags: 1

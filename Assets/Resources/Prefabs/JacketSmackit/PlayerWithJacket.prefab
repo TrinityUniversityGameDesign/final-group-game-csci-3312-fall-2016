@@ -166,6 +166,7 @@ MonoBehaviour:
   walkSpeed: 5
   dashSpeed: 200
   dashRegeneration: 3
+  jacketName: 
 --- !u!114 &114000012638240154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,7 +182,6 @@ MonoBehaviour:
   jacketName: JacketOne
   playerString: PlayerOne
   radius: 5
-  dotsPerRadius: 15
 --- !u!114 &114000012896782494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,11 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae51963d5adb2c42a5c35b61acd4163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inflateBtn: Jump
+  inflateBtnL: 
+  inflateBtnR: 
   explodeBtn: Explode
   jacketScale: 1.5
   startJacketScale: 1.5
   maxJacketSize: 20
+  explosionClip: {fileID: 0}
+  pumpClip: {fileID: 0}
 --- !u!120 &120000012174364942
 LineRenderer:
   m_ObjectHideFlags: 1

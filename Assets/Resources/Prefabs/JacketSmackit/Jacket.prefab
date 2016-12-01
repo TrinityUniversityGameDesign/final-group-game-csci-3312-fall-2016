@@ -67,11 +67,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae51963d5adb2c42a5c35b61acd4163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inflateBtn: Jump
+  inflateBtnL: 
+  inflateBtnR: 
   explodeBtn: Explode
   jacketScale: 1.5
   startJacketScale: 0
   maxJacketSize: 10
+  explosionClip: {fileID: 0}
+  pumpClip: {fileID: 0}
 --- !u!212 &212000011223957738
 SpriteRenderer:
   m_ObjectHideFlags: 1
