@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TrivaController : MonoBehaviour
 {
+    public bool invoked = false;
     public Color Highest;
     public Color Lowest;
     public Text txtScore;
-    int question = 0;
+    public int question = -1;
     int score = 1000;
     public GameObject controller;
     public Image scoreBar;
-    private int readTime = 150;
+    private int readTime = 100;
     private int answers;
     StorySet story;
     private char correct_answer;
@@ -43,13 +45,24 @@ public class TrivaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (questionIsDone())
+
+        if (questionIsDone() && !invoked)
         {
-            
-            Invoke("set_cur_question", 5f);
+            if (question == 3)
+            {
+                Invoke("changeToEnd", 3f);
+                invoked = true;
+            }
+            else
+            {
+                Invoke("set_cur_question", 3f);
+                invoked = true;
+
+            }
+
             //set_cur_question();
         }
-        else
+        else if (!invoked)
         {
             txtScore.text = score.ToString();
             if (readTime == 0 && score > 1)
@@ -61,12 +74,17 @@ public class TrivaController : MonoBehaviour
         }
     }
 
+    void changeToEnd()
+    {
+        SceneManager.LoadScene(4);
+    }
     void set_cur_question()
     {
+        invoked = false;
         question += 1;
         answers = 0;
         score = 1000;
-        readTime = 150;
+        readTime = 100;
 
         question_text.text = questions[question].question;
         answer_a.text = questions[question].choices[0];
@@ -81,7 +99,6 @@ public class TrivaController : MonoBehaviour
                 correct_answer = ops[i];
             }
         }
-
         foreach (GameObject player in players)
         {
             TriviaPlayer a = player.GetComponent<TriviaPlayer>();
@@ -92,13 +109,8 @@ public class TrivaController : MonoBehaviour
     public int amIRight(char answer)
     {
         answers += 1;
-        if (question == 1)
-        {
-            if (answer == correct_answer)
-                return score;
-            else
-                return 0;
-        }
+        if (answer == correct_answer)
+            return score;
         else
             return 0;
     }
