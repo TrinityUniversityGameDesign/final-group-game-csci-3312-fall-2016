@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 15f;
     public float speedCap = 0.89f;
-    public string playerNo = "";
+    public int playerNo = 1;
     public float customFriction = 0.5f;
     private string horizontalCtrl = "Horizontal_P";
     private string verticalCtrl = "Vertical_P";
@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         theRigidBody = GetComponent<Rigidbody2D>();
-        horizontalCtrl += playerNo;
-        verticalCtrl += playerNo;
+        horizontalCtrl += playerNo.ToString();
+        verticalCtrl += playerNo.ToString();
         animationController = GetComponent<Animator>();
     }
 
@@ -49,8 +49,9 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 gameObject.SetActive(false);
+                //adds points to player score
                 UIManager.playerPlacing.Push(gameObject.name);
-                //UIManager.alivePlayers -= 1;
+                UIManager.playerPoints[playerNo] += UIManager.playerPlacing.Count;
             }
         }
         else
