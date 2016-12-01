@@ -53,15 +53,19 @@ public class PlayerMovement_Jacket : MonoBehaviour {
         if(Input.GetAxisRaw(horAxis)!=0 || Input.GetAxisRaw(vertAxis) != 0) animationController.SetBool("isWalking", true);
         else animationController.SetBool("isWalking", false);
 
-        //TODO : Add dashing in
-        float dash = Input.GetAxis(dashButton);
-		if (canDash && dash > 0) {
-			rigid.AddForce (new Vector2 (rigid.velocity.x * dash * dashSpeed, rigid.velocity.y * dash * dashSpeed));
-			canDash = false;
-			StartCoroutine (ResetDash ());
-		}
-		//ugly, fix later
-		if ((transform.position.x < -7 || transform.position.x > 7) && !isDead) {
+        //if (Input.GetButtonDown(inflateBtnR))
+
+            /*
+            //TODO : Add dashing in
+            float dash = Input.GetAxis(dashButton);
+            if (canDash && dash > 0) {
+                rigid.AddForce (new Vector2 (rigid.velocity.x * dash * dashSpeed, rigid.velocity.y * dash * dashSpeed));
+                canDash = false;
+                StartCoroutine (ResetDash ());
+            }
+            */
+            //ugly, fix later
+            if ((transform.position.x < -7 || transform.position.x > 7) && !isDead) {
 			OnDeath ();
 		} else if ((transform.position.y < -4 || transform.position.y > 3.5)&&!isDead) {
 			OnDeath ();
