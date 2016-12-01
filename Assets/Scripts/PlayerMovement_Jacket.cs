@@ -53,7 +53,15 @@ public class PlayerMovement_Jacket : MonoBehaviour {
         if(Input.GetAxisRaw(horAxis)!=0 || Input.GetAxisRaw(vertAxis) != 0) animationController.SetBool("isWalking", true);
         else animationController.SetBool("isWalking", false);
 
-        //if (Input.GetButtonDown(inflateBtnR))
+        if (Input.GetButtonDown(dashButton))
+        {
+            if(canDash)
+            {
+                rigid.AddForce(new Vector2(rigid.velocity.x * dashSpeed, rigid.velocity.y * dashSpeed));
+                canDash = false;
+                StartCoroutine(ResetDash());
+            }
+        }
 
             /*
             //TODO : Add dashing in
