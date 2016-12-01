@@ -6,9 +6,14 @@ public class PlayerMovement : MonoBehaviour {
     public float moveSpeed = 15f;
     public float speedCap = 0.89f;
     public string playerNo = "";
+	public float customFriction = 0.5f;
     private string horizontalCtrl = "Horizontal_P";
     private string verticalCtrl = "Vertical_P";
     private bool dead = false;
+	private Animator animationController;
+	private float animSpeedMult = 1.5f; //Meant to increase the speed of the animation of the player
+
+	private Quaternion originalRotation;
 
     private Rigidbody2D theRigidBody;
     
@@ -16,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
         theRigidBody = GetComponent<Rigidbody2D>();
         horizontalCtrl += playerNo;
         verticalCtrl += playerNo;
+		animationController = GetComponent<Animator> ();
 	}
 	
     void OnTriggerExit2D(Collider2D other)
@@ -44,11 +50,33 @@ public class PlayerMovement : MonoBehaviour {
         }
         else
         {
-            theRigidBody.AddForce(new Vector2(inputX * moveSpeed, inputY * moveSpeed));
-            if (theRigidBody.velocity.magnitude > speedCap)
+            if (UIManager.gameWon)
             {
-                theRigidBody.velocity.Normalize();
-                theRigidBody.velocity = theRigidBody.velocity * speedCap;
+                theRigidBody.velocity = new Vector3(0, 0, 0);
+                animationController.speed = 0;
+            }
+            else
+            {
+                theRigidBody.AddForce(new Vector2(inputX * moveSpeed, inputY * moveSpeed));
+                if (theRigidBody.velocity.magnitude > speedCap) //Meant to limit the player's top Speed
+                {
+                    Vector2 temp = theRigidBody.velocity;
+                    temp.Normalize();
+                    if ((theRigidBody.velocity - temp * customFriction).magnitude < speedCap)
+                    { //If reducing speed would reduce it to less than speedcap, only go to speedcap
+                        theRigidBody.velocity = temp * speedCap;
+                    }
+                    else
+                    {
+                        theRigidBody.velocity = theRigidBody.velocity - (temp * customFriction); //Otherwise just steadily reduce speed
+                    }
+                }
+                Vector3 tempVel = theRigidBody.velocity;
+                animationController.speed = animSpeedMult * Mathf.Abs(theRigidBody.velocity.magnitude);
+                if (theRigidBody.velocity.magnitude > 0)
+                {
+                    transform.rotation = Quaternion.LookRotation(Vector3.forward, tempVel); //Currently turns towards current velocity, will probably change to turn towards player input. Maybe smooth using lerp.
+                }
             }
         }
     }

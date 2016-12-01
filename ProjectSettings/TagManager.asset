@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Water
-  - Death
-  - Jacket
+  - Player1
+  - Button
+  - Player2
+  - Player3
+  - Player4
   layers:
   - Default
   - TransparentFX
@@ -17,11 +19,11 @@ TagManager:
   - 
   - 
   - Player
-  - Background
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Key
+  - DoorCombo
+  - Portal
+  - Enemy_Player
   - 
   - 
   - 
