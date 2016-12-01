@@ -3,7 +3,8 @@ using System.Collections;
 
 public class JacketScript : MonoBehaviour
 {
-    public string inflateBtn;
+    public string inflateBtnL;
+    public string inflateBtnR;
     public string explodeBtn;
 	
     public float jacketScale;
@@ -21,6 +22,7 @@ public class JacketScript : MonoBehaviour
 	AudioSource audioSource;
 
 	bool canInflate;
+    private bool lNext;
 
 	bool isDeflating;
 
@@ -38,9 +40,19 @@ public class JacketScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown(inflateBtn))
+        if (Input.GetButtonDown(inflateBtnL))
         {
-            Inflate();
+            if (lNext)
+            {
+                Inflate();
+                lNext = false;
+            }
+        } else if (Input.GetButtonDown(inflateBtnR)) {
+            if (!lNext)
+            {
+                Inflate();
+                lNext = true;
+            }
         }
         if (Input.GetButtonDown(explodeBtn))
         {
