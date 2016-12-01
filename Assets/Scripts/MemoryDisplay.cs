@@ -45,7 +45,7 @@ public class MemoryDisplay : MonoBehaviour {
     public bool first = false; // 1st stage - display memory list, no input
 	public bool second = false; // 2nd stage - hide memory list, player input
 	public bool third = false; // 3rd stage - show both lists, comparison
-
+    public bool butsAlive = false;
     int x = 0; // temp display number
                // Use this for initialization
     void Start() {
@@ -61,13 +61,6 @@ public class MemoryDisplay : MonoBehaviour {
         player3 = GameObject.FindGameObjectWithTag("Player3");
         player4 = GameObject.FindGameObjectWithTag("Player4"); 
 
-		
-
-
-         ColumnPos1 = GameObject.Find("Column1").transform.position;
-         ColumnPos2 = GameObject.Find("Column2").transform.position;
-         ColumnPos3 = GameObject.Find("Column3").transform.position;
-         ColumnPos4 = GameObject.Find("Column4").transform.position;
         first = true;
     }
 	
@@ -101,130 +94,70 @@ public class MemoryDisplay : MonoBehaviour {
 			third = true;
 		}
 		if (third) {
-            if (PlayerList1.Count == (numButtons - 1)) {
-				ReturnList1 = compareInputs (PlayerList1, InputList);
-				float loss = ReturnList1.Count;
-                Debug.Log (loss);
-				player1.GetComponent<PlayerScript> ().health -= loss;
-                GameObject.Find("Column1").transform.position = new Vector3(ColumnPos1.x, ColumnPos1.y - .5f * loss, ColumnPos1.z);
-			}
-			if (PlayerList2.Count == (numButtons - 1)) {
-				ReturnList2 = compareInputs (PlayerList2, InputList);
-				float loss = ReturnList2.Count;
-				Debug.Log (loss);
-				player2.GetComponent<PlayerScript> ().health -= loss;
-                GameObject.Find("Column2").transform.position = new Vector3(ColumnPos2.x, ColumnPos2.y - .5f * loss, ColumnPos2.z);
-               
-			}
-			if (PlayerList3.Count == (numButtons - 1)) {
-				ReturnList3 = compareInputs (PlayerList3, InputList);
-				float loss = ReturnList3.Count;
-				Debug.Log (loss);
-				player3.GetComponent<PlayerScript> ().health -= loss;
-                GameObject.Find("Column3").transform.position = new Vector3(ColumnPos3.x, ColumnPos3.y - .5f * loss, ColumnPos3.z);
-             
-			}
-			if (PlayerList4.Count == (numButtons - 1)) {
-				ReturnList4 = compareInputs (PlayerList4, InputList);
-				float loss = ReturnList4.Count;
-				Debug.Log (loss);
-				player4.GetComponent<PlayerScript> ().health -= loss;
-                GameObject.Find("Column4").transform.position = new Vector3(ColumnPos4.x, ColumnPos4.y - .5f * loss, ColumnPos4.z);
-
-			}
-
-			//Should actually be checking only the valid players alive
-			if (player1.GetComponent<PlayerScript> ().alive) {
-				if (player2.GetComponent<PlayerScript> ().alive) {
-					if (player3.GetComponent<PlayerScript> ().alive) {
-						if (player4.GetComponent<PlayerScript> ().alive) {
-                            //player 1234 are alive
-                            if ((PlayerList1.Count == (numButtons - 1)) && (PlayerList2.Count == (numButtons - 1)) && (PlayerList3.Count == (numButtons - 1)) && (PlayerList4.Count == (numButtons - 1))) {
-                                first = true;
-								third = false;
-							}
-						} else {
-							//player 123 are alive
-							if ((PlayerList1.Count == (numButtons - 1)) && (PlayerList2.Count == (numButtons - 1)) && (PlayerList3.Count == (numButtons - 1))) {
-								first = true;
-								third = false;
-							}
-						}
-					} else {
-						//player 12 are alive
-						if ((PlayerList1.Count == (numButtons - 1)) && (PlayerList2.Count == (numButtons - 1))) {
-							first = true;
-							third = false;
-						}
-					}
-				} else {
-					if ((PlayerList1.Count == (numButtons - 1))) {
-						first = true;
-						third = false;
-					}
-				}
-			}
-			//player 1 is dead
-		   else if (player2.GetComponent<PlayerScript> ().alive) {
-
-				if (player3.GetComponent<PlayerScript> ().alive) {
-					
-					if (player4.GetComponent<PlayerScript> ().alive) {
-						if ((PlayerList2.Count == (numButtons - 1)) && (PlayerList3.Count == (numButtons - 1)) && (PlayerList4.Count == (numButtons - 1))) {
-							first = true;
-							third = false;
-						}
-					} else {
-						if ((PlayerList2.Count == (numButtons - 1)) && (PlayerList3.Count == (numButtons - 1))) {
-							first = true;
-							third = false;
-						}
-					}
-				} else {
-					if ((PlayerList2.Count == (numButtons - 1))) {
-						first = true;
-						third = false;
-					}
-				}
-			}
-			//player 1 & 2 are dead
-			else if (player3.GetComponent<PlayerScript> ().alive) {
-
-				if (player4.GetComponent<PlayerScript> ().alive) {
-					if ((PlayerList3.Count == (numButtons - 1)) && (PlayerList4.Count == (numButtons - 1))) {
-						first = true;
-						third = false;
-					}
-				} else {
-					if ((PlayerList3.Count == (numButtons - 1))) {
-						first = true;
-						third = false;
-					}
-				}
 			
+			//playersDone should just check the alive players' lists and the 
+			if(PlayersDone()){
+				DamagePlayers();
+				first = true;
+				third = false;
 			}
-			// player 1, 2, & 3 are dead
-			else if (player4.GetComponent<PlayerScript> ().alive) {
-				if ((PlayerList4.Count == (numButtons - 1))) {
-					first = true;
-					third = false;
-				}
-			}
-
-			//if (GameObject.Find("Main Camera").GetComponent<ControllerScript>().timerActive == false)
-			//{
-				//StartCoroutine
-				//first = true;
-				//third = false;
-			//}
+		
 		}
 
         //StartCoroutine(timeToDisplay(x.ToString(), 2f));
     }
 
+	void DamagePlayer(GameObject player,GameObject column){
+		float loss = (float)compareInputs (player.GetComponent<PlayerScript> ().InputList, InputList).Count;
+		player.GetComponent<PlayerScript>().health -= loss;
+		column.transform.position = new Vector3(column.transform.position.x, column.transform.position.y - .5f * loss, column.transform.position.z);
+	}
+	
+	void DamagePlayers(){
+		if(player1.GetComponent<PlayerScript>().alive){
+			DamagePlayer(player1, GameObject.Find("Column1"));
+		}
+		if(player2.GetComponent<PlayerScript>().alive){
+			DamagePlayer(player2, GameObject.Find("Column2"));
+		}
+		if(player3.GetComponent<PlayerScript>().alive){
+			DamagePlayer(player3, GameObject.Find("Column3"));
+		}
+		if(player4.GetComponent<PlayerScript>().alive){
+			DamagePlayer(player4, GameObject.Find("Column4"));
+		}
+	}
+	
+	public bool PlayersDone(){
+		if(player1.GetComponent<PlayerScript>().alive){
+			if(PlayerList1.Count != (numButtons - 1)){
+				return false;
+			}
+		}
+		if(player2.GetComponent<PlayerScript>().alive){
+			if(PlayerList2.Count != (numButtons - 1)){
+				return false;
+			}
+		}
+		if(player3.GetComponent<PlayerScript>().alive){
+			if(PlayerList3.Count != (numButtons -1)){
+				return false;
+			}
+		}
+		if(player4.GetComponent<PlayerScript>().alive){
+			if(PlayerList4.Count != (numButtons -1)){
+				return false;
+			}
+		}
+		
+		return true;
+		
+	}
+	
     //call timeToDisplay upon round start
     IEnumerator<WaitForSeconds> timeToDisplay(string message, float delay)
     {
+        butsAlive = true;
         GameObject[] buttonObjList;
         RandomInputText.text = message;
         RandomInputText.enabled = true;
@@ -236,6 +169,7 @@ public class MemoryDisplay : MonoBehaviour {
         }
         RandomInputText.enabled = false;
         x += 1;
+        butsAlive = false;
     }
 
 	void printOutputs(List<int> PassedList){
@@ -325,7 +259,7 @@ public class MemoryDisplay : MonoBehaviour {
 
     void newRound()
     {
-        displayTime += 0.33f;
+        displayTime += 0.5f;
         PlayerList1.Clear();
 		PlayerList2.Clear ();
 		PlayerList3.Clear ();
