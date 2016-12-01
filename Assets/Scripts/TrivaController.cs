@@ -74,6 +74,7 @@ public class TrivaController : MonoBehaviour
         }
     }
 
+
     void changeToEnd()
     {
         SceneManager.LoadScene(4);
