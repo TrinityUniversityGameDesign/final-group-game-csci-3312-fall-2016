@@ -21,6 +21,9 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	private string horAxis;
 	private string dashButton;
 
+	public Sprite deathSprite;
+	private GameObject spawnSprite;
+
     private Animator animationController;
 
 	GameObject jacket;
@@ -39,6 +42,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		dashButton = "B_P" + playerNum.ToString();
         animationController = gameObject.GetComponent<Animator>();
         originalSize = transform.localScale;
+		spawnSprite = Instantiate (deathSprite, dumpPosition, Quaternion.identity) as GameObject;
     }
 	
 	// Update is called once per frame
@@ -95,9 +99,16 @@ public class PlayerMovement_Jacket : MonoBehaviour {
             //transform.lo
             transform.localScale -= new Vector3(0.0001f, 0.0001f, 0.0f);
         }*/
+		spawnSprite.transform.position = transform.position;
 		transform.position = dumpPosition;
         //transform.localScale.Set(originalSize.x,originalSize.y,originalSize.z);
 	}
+
+	IEnumerator DespawnSkull() {
+		yield return new WaitForSeconds(2);
+		spawnSprite.transform.position = dumpPosition;
+	}
+
 	public void Respawn(){
 		//teleport player back to start
 		isDead = false;
