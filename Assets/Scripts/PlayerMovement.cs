@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
                 gameObject.SetActive(false);
                 //adds points to player score
                 UIManager.playerPlacing.Push(gameObject.name);
-                UIManager.playerPoints[playerNo] += UIManager.playerPlacing.Count;
+                UIManager.playerPoints[playerNo-1] += UIManager.playerPlacing.Count;
             }
         }
         else
