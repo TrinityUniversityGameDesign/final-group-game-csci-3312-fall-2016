@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class TriviaWinning : MonoBehaviour
 {
     public Text p1Score;
@@ -22,6 +22,9 @@ public class TriviaWinning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetAxis("Start_P1") > 0)
+        {
+            SceneManager.LoadScene("scene1");
+        }
     }
 }

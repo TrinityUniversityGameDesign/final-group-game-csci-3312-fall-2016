@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class StoryHandler : MonoBehaviour {
 
@@ -29,33 +30,9 @@ public class StoryHandler : MonoBehaviour {
 	void Update () {
         if (Input.GetAxis("Start_P1") > 0)
         {
-            if (PlayerPrefs.GetInt("StoryNumber") == 4)
-            {
-                Application.LoadLevel("UsingTiles");
-            }
-            else
-            {
-                string level = "";
-                while (level == "")
-                {
-                    if (PlayerPrefs.GetInt("ButtonCombinations") == 0 &&
-                        get_random() == 1)
-                    {
-                        level = PlayerPrefs.GetString("FirstButtonsLevel");
-                    }
-                    else if (PlayerPrefs.GetInt("KnockOffGame") == 0 &&
-                        get_random() == 1)
-                    {
-                        level = PlayerPrefs.GetString("FirstKnockOffGameLevel");
-                    }
-                    else if (PlayerPrefs.GetInt("InflatableGame") == 0 &&
-                        get_random() == 1)
-                    {
-                        level = PlayerPrefs.GetString("FirstInflatableGameLevel");
-                    }
-                }
-                Application.LoadLevel(level);
-            }
+            SceneManager.LoadScene(PlayerPrefs.GetString("GameNumber" + 
+                                  PlayerPrefs.GetInt("StoryNumber")));
+
         }
 	}
 }
