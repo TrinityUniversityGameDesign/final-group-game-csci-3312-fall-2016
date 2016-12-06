@@ -19,7 +19,7 @@ public class MemoryDisplay : MonoBehaviour {
 	public List<int> ReturnList4 = new List<int>();
 
 	public int numButtons = 5; // records how many 'rounds' have occured during the game
-	public int rankCount = 0;
+	public int rankCount;
 
     float displayTime = 2f;
 	public GameObject player1 = null;
@@ -63,6 +63,7 @@ public class MemoryDisplay : MonoBehaviour {
         player4 = GameObject.FindGameObjectWithTag("Player4");
 
 		// checks to see if a player is alive; if it is alive, rank is incremented
+		rankCount = 0;
 		if(player1.GetComponent<PlayerScript> ().alive) { rankCount++; }
 		if(player2.GetComponent<PlayerScript> ().alive) { rankCount++; }
 		if(player3.GetComponent<PlayerScript> ().alive) { rankCount++; }
