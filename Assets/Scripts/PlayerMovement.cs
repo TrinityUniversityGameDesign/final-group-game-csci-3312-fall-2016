@@ -2,35 +2,38 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
     public float moveSpeed = 15f;
     public float speedCap = 0.89f;
-    public string playerNo = "";
-	public float customFriction = 0.5f;
+    public int playerNo = 1;
+    public float customFriction = 0.5f;
     private string horizontalCtrl = "Horizontal_P";
     private string verticalCtrl = "Vertical_P";
     private bool dead = false;
-	private Animator animationController;
-	private float animSpeedMult = 1.5f; //Meant to increase the speed of the animation of the player
+    private Animator animationController;
+    private float animSpeedMult = 1.5f; //Meant to increase the speed of the animation of the player
 
-	private Quaternion originalRotation;
+    private Quaternion originalRotation;
 
     private Rigidbody2D theRigidBody;
-    
-	void Start () {
+
+    void Start()
+    {
         theRigidBody = GetComponent<Rigidbody2D>();
-        horizontalCtrl += playerNo;
-        verticalCtrl += playerNo;
-		animationController = GetComponent<Animator> ();
-	}
-	
+        horizontalCtrl += playerNo.ToString();
+        verticalCtrl += playerNo.ToString();
+        animationController = GetComponent<Animator>();
+    }
+
     void OnTriggerExit2D(Collider2D other)
     {
         dead = true;
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         float inputX = Input.GetAxis(horizontalCtrl);
         float inputY = Input.GetAxis(verticalCtrl);
 
@@ -43,9 +46,12 @@ public class PlayerMovement : MonoBehaviour {
             //shrinks player until it is almost invisible then removes the player
             if (transform.localScale.x >= 0)
                 transform.localScale -= new Vector3(0.02f, 0.02f, 0f);
-            else {
+            else
+            {
                 gameObject.SetActive(false);
-                UIManager.alivePlayers -= 1;
+                //adds points to player score
+                UIManager.playerPlacing.Push(gameObject.name);
+                UIManager.playerPoints[playerNo] += UIManager.playerPlacing.Count;
             }
         }
         else
