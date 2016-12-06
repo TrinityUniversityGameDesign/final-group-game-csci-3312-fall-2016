@@ -34,6 +34,10 @@ public class MemoryDisplay : MonoBehaviour {
 
 	public Vector3 curButtonPos;
 
+    public Text Player1ButtonCount;
+    public Text Player2ButtonCount;
+    public Text Player3ButtonCount;
+    public Text Player4ButtonCount;
     public Text RandomInputText;
 	public Text OutputText;
     Vector3 ColumnPos1;
@@ -94,7 +98,7 @@ public class MemoryDisplay : MonoBehaviour {
 			third = true;
 		}
 		if (third) {
-			
+            updatePlayerListCount();
 			//playersDone should just check the alive players' lists and the 
 			if(PlayersDone()){
 				DamagePlayers();
@@ -128,25 +132,56 @@ public class MemoryDisplay : MonoBehaviour {
 		}
 	}
 	
+    void playerListCount(int playerListCount, Text countText)
+    {
+        countText.text = playerListCount.ToString() + "/" + InputList.Count.ToString();
+    }
+
+    void updatePlayerListCount()
+    {
+        if (player1.GetComponent<PlayerScript>().alive)
+        {
+                playerListCount(PlayerList1.Count, Player1ButtonCount);
+        }
+        if (player2.GetComponent<PlayerScript>().alive)
+        {
+                playerListCount(PlayerList2.Count, Player2ButtonCount);
+
+        }
+        if (player3.GetComponent<PlayerScript>().alive)
+        {
+                playerListCount(PlayerList3.Count, Player3ButtonCount);
+
+        }
+        if (player4.GetComponent<PlayerScript>().alive)
+        {
+                playerListCount(PlayerList4.Count, Player4ButtonCount);
+        }
+    }
+
 	public bool PlayersDone(){
 		if(player1.GetComponent<PlayerScript>().alive){
 			if(PlayerList1.Count != (numButtons - 1)){
+                playerListCount(PlayerList1.Count, Player1ButtonCount);
 				return false;
 			}
 		}
 		if(player2.GetComponent<PlayerScript>().alive){
 			if(PlayerList2.Count != (numButtons - 1)){
-				return false;
+                playerListCount(PlayerList2.Count, Player2ButtonCount);
+                return false;
 			}
 		}
 		if(player3.GetComponent<PlayerScript>().alive){
 			if(PlayerList3.Count != (numButtons -1)){
-				return false;
+                playerListCount(PlayerList3.Count, Player3ButtonCount);
+                return false;
 			}
 		}
 		if(player4.GetComponent<PlayerScript>().alive){
 			if(PlayerList4.Count != (numButtons -1)){
-				return false;
+                playerListCount(PlayerList4.Count, Player4ButtonCount);
+                return false;
 			}
 		}
 		
