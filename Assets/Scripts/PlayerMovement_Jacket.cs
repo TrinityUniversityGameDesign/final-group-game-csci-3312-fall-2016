@@ -21,6 +21,8 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	private string horAxis;
 	private string dashButton;
 
+	public GameObject deathSprite;
+
     private Animator animationController;
 
 	GameObject jacket;
@@ -39,6 +41,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		dashButton = "B_P" + playerNum.ToString();
         animationController = gameObject.GetComponent<Animator>();
         originalSize = transform.localScale;
+		deathSprite.transform.position = dumpPosition;
     }
 	
 	// Update is called once per frame
@@ -95,6 +98,8 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
 	//Samuel's Functions;
 	public void OnDeath() {
+		deathSprite.transform.position = transform.position;
+		StartCoroutine (despawnSkull());
 		//Destroy (gameObject);
 		isDead = true;
 		//Debug.Log("I died!");
@@ -105,6 +110,11 @@ public class PlayerMovement_Jacket : MonoBehaviour {
         }*/
 		transform.position = dumpPosition;
         //transform.localScale.Set(originalSize.x,originalSize.y,originalSize.z);
+	}
+
+	private IEnumerator despawnSkull(){
+		yield return new WaitForSeconds(2);
+		deathSprite.transform.position = dumpPosition;
 	}
 	public void Respawn(){
 		//teleport player back to start
