@@ -606,17 +606,17 @@ Prefab:
     - target: {fileID: 212000013497299146, guid: 3aae2d9d100e69343ad8c3d4744dbb85,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.77205884
+      value: 0.9338235
       objectReference: {fileID: 0}
     - target: {fileID: 212000013497299146, guid: 3aae2d9d100e69343ad8c3d4744dbb85,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.5778696
+      value: 0.6654203
       objectReference: {fileID: 0}
     - target: {fileID: 212000013497299146, guid: 3aae2d9d100e69343ad8c3d4744dbb85,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.06812286
+      value: 0.18539144
       objectReference: {fileID: 0}
     - target: {fileID: 114000010263049592, guid: 3aae2d9d100e69343ad8c3d4744dbb85,
         type: 2}
@@ -877,7 +877,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 60
-  rounds: 3
 --- !u!4 &1723398347 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012693626444, guid: 3aae2d9d100e69343ad8c3d4744dbb85,

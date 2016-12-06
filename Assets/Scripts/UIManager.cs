@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
     private Transform platform;
     private float shrinkRate = 0.1f;
 
-    //used to keep only one instance of canvas
+    //used to keep only one instance of this script
     public static UIManager master;
 
     void restart()
@@ -41,6 +41,10 @@ public class UIManager : MonoBehaviour
             }
             else
             {
+                //winning player score increments constantly, fix this
+                //also add a way to keep track of the current rounds
+                //little player icons in the corners of the screen to show score?
+                //also, destroy the script when done with everything
                 Debug.Log(playerPoints[0] + " " + playerPoints[1] + " " + playerPoints[2] + " " + playerPoints[3]);
             }
         }
