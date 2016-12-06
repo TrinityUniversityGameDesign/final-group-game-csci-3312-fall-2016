@@ -19,6 +19,7 @@ public class MemoryDisplay : MonoBehaviour {
 	public List<int> ReturnList4 = new List<int>();
 
 	public int numButtons = 5; // records how many 'rounds' have occured during the game
+	public int rankCount;
 
     float displayTime = 2f;
 	public GameObject player1 = null;
@@ -63,7 +64,14 @@ public class MemoryDisplay : MonoBehaviour {
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
         player3 = GameObject.FindGameObjectWithTag("Player3");
-        player4 = GameObject.FindGameObjectWithTag("Player4"); 
+        player4 = GameObject.FindGameObjectWithTag("Player4");
+
+		// checks to see if a player is alive; if it is alive, rank is incremented
+		rankCount = 0;
+		if(player1.GetComponent<PlayerScript> ().alive) { rankCount++; }
+		if(player2.GetComponent<PlayerScript> ().alive) { rankCount++; }
+		if(player3.GetComponent<PlayerScript> ().alive) { rankCount++; }
+		if(player4.GetComponent<PlayerScript> ().alive) { rankCount++; }
 
         first = true;
     }
@@ -130,6 +138,25 @@ public class MemoryDisplay : MonoBehaviour {
 		if(player4.GetComponent<PlayerScript>().alive){
 			DamagePlayer(player4, GameObject.Find("Column4"));
 		}
+		// if a player is not alive after receiving damage, it has died and should recieve a ranking
+		int count = 0;
+		if (player1.GetComponent<PlayerScript> ().alive == false) {
+			player1.GetComponent<PlayerScript> ().rank = rankCount;
+			count++;
+		}
+		if (player2.GetComponent<PlayerScript> ().alive == false) {
+			player2.GetComponent<PlayerScript> ().rank = rankCount;
+			count++;
+		}
+		if (player3.GetComponent<PlayerScript> ().alive == false) {
+			player3.GetComponent<PlayerScript> ().rank = rankCount;
+			count++;
+		}
+		if (player4.GetComponent<PlayerScript> ().alive == false) {
+			player4.GetComponent<PlayerScript> ().rank = rankCount;
+			count++;
+		}
+		rankCount -= count; // ranking is decremented after player(s) is ranked
 	}
 	
     void playerListCount(int playerListCount, Text countText)
