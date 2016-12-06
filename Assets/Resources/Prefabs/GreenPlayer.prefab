@@ -76,9 +76,10 @@ GameObject:
   - 212: {fileID: 212000014023688228}
   - 114: {fileID: 114000010653822122}
   - 58: {fileID: 58000011555325806}
+  - 82: {fileID: 82000013378831490}
   m_Layer: 0
   m_Name: GreenJacket
-  m_TagString: EditorOnly
+  m_TagString: Jacket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013700265662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.97, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -183,6 +184,80 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.47254533
+--- !u!82 &82000013378831490
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014142188580}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 25acc3f29171e4b7082161fd06e4286d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95000012456763764
 Animator:
   serializedVersion: 3
@@ -211,11 +286,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae51963d5adb2c42a5c35b61acd4163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inflateBtn: A_P2
-  explodeBtn: RB_P2
+  inflateBtnL: LB_P2
+  inflateBtnR: RB_P2
+  explodeBtn: A_P2
   jacketScale: 1
   startJacketScale: 1
   maxJacketSize: 10
+  explosionClip: {fileID: 8300000, guid: ba37e14b806724e6496d1f06b6a1700f, type: 3}
+  pumpClip: {fileID: 8300000, guid: 25acc3f29171e4b7082161fd06e4286d, type: 3}
 --- !u!114 &114000011203828734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,6 +309,7 @@ MonoBehaviour:
   walkSpeed: 4
   dashSpeed: 200
   dashRegeneration: 3
+  jacketName: GreenJacket
 --- !u!114 &114000011686636994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,7 +337,6 @@ MonoBehaviour:
   jacketName: GreenJacket
   playerString: GreenPlayer
   radius: 5
-  dotsPerRadius: 5
 --- !u!114 &114000013968870730
 MonoBehaviour:
   m_ObjectHideFlags: 1
