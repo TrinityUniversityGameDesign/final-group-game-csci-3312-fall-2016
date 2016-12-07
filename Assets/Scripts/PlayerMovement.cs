@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
         dead = true;
     }
 
+    //put OnTriggerEnter for the death tag here
+
     // Update is called once per frame
     void Update()
     {
