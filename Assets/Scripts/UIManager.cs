@@ -1,40 +1,66 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
-public class UIManager : MonoBehaviour {
+public class UIManager : MonoBehaviour
+{
     private Text winText;
     private Text timer;
 
     public float time = 60f;
+    public int rounds = 3;
+    public static bool gameWon = false;
 
-    public static int alivePlayers = 2;
+    public static Stack<string> playerPlacing;
+    public static int[] playerPoints = new int[4];
 
-	// Use this for initialization
-	void Start () {
+    private Transform platform;
+    private float shrinkRate = 0.1f;
+
+    // Use this for initialization
+    void Start()
+    {
+        playerPlacing = new Stack<string>();
+        platform = GameObject.Find("Platform").transform;
+        gameWon = false;
         winText = GameObject.Find("WinText").GetComponent<Text>();
         winText.gameObject.SetActive(false);
         timer = GameObject.Find("Timer").GetComponent<Text>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	    if (alivePlayers == 1)
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (playerPlacing.Count >= 3)
         {
+            gameWon = true;
             winText.gameObject.SetActive(true);
-            string winPlayer = GameObject.FindGameObjectWithTag("Player").name;
+            //get the last player alive and puts them into the stack
+            int playerNum = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().playerNo;
+            string winPlayer = "Player " + playerNum;
+
+            //add points to player
+            playerPlacing.Push(winPlayer);
+            playerPoints[playerNum] += playerPlacing.Count;
+
             winText.text = winPlayer + " wins!";
+            float waitRestart = 3f;
+            while(waitRestart > 0f)
+            {
+                waitRestart -= Time.deltaTime;
+            }
+            SceneManager.LoadScene("Balls");
         }
-        else if(time <= 0)
+        else if (time <= 0)
         {
-            winText.gameObject.SetActive(true);
+            platform.localScale -= new Vector3(shrinkRate*Time.deltaTime, shrinkRate*Time.deltaTime, 0);
             timer.text = "0";
-            winText.text = "Game Over";
         }
         else
         {
             time -= Time.deltaTime;
             timer.text = time.ToString("n0");
         }
-	}
+    }
 }
