@@ -64,11 +64,13 @@ public class TrivaController : MonoBehaviour
         }
         else if (!invoked)
         {
-            txtScore.text = score.ToString();
             if (readTime == 0 && score > 1)
                 score -= 2;
             else if (readTime > 0)
                 readTime--;
+            txtScore.text = score.ToString();
+            
+           
             scoreBar.fillAmount = (score / 1000f);
             txtScore.color = Color.Lerp(Lowest, Highest, scoreBar.fillAmount);
         }
