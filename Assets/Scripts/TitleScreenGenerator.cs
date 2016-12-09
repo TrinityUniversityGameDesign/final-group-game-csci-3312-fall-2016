@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Crosstales.RTVoice.Model;
+using Crosstales.RTVoice.Util;
 
 public class TitleScreenGenerator : MonoBehaviour
 {
@@ -47,6 +49,9 @@ public class TitleScreenGenerator : MonoBehaviour
         PlayerPrefs.SetString("ArtifactName", story.artifact);
         text = GameObject.Find("Title").GetComponent<Text>();
         text.text = story.title[0] + " " + story.title[1];
+
+        Crosstales.RTVoice.Speaker.Speak(text.text, GetComponent<AudioSource>(), null, true, 0.26f, 1, "", 2f);
+        
         PlayerPrefs.Save();
     }
 
