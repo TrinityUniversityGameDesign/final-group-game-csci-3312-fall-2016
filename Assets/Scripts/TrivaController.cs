@@ -13,7 +13,7 @@ public class TrivaController : MonoBehaviour
     int score = 1000;
     public GameObject controller;
     public Image scoreBar;
-    private int readTime = 100;
+    private int readTime = 20;
     private int answers;
     StorySet story;
     private char correct_answer;
@@ -24,9 +24,12 @@ public class TrivaController : MonoBehaviour
     public Text answer_y;
     Question[] questions;
     public GameObject[] players;
+    int numPlayers;
     // Use this for initialization
     void Start()
     {
+        PlayerPrefs.SetInt("NumPlayers", 3);
+        numPlayers = PlayerPrefs.GetInt("NumPlayers");
         players = GameObject.FindGameObjectsWithTag("Player");
         story = GameObject.Find("StoryStuff").GetComponent<StoryGenerator>().generate_story();
         question_text = GameObject.Find("QuestionText").GetComponent<Text>();
@@ -87,7 +90,7 @@ public class TrivaController : MonoBehaviour
         question += 1;
         answers = 0;
         score = 1000;
-        readTime = 100;
+        readTime = 20;
 
         question_text.text = questions[question].question;
         answer_a.text = questions[question].choices[0];
@@ -126,7 +129,7 @@ public class TrivaController : MonoBehaviour
     }
     public bool questionIsDone()
     {
-        if (answers == 4 || score == 0)
+        if (answers == numPlayers || score == 0)
             return true;
         else
             return false;
