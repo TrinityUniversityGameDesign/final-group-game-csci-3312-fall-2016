@@ -16,7 +16,7 @@ public class TrivaController : MonoBehaviour
     private int readTime = 20;
     private int answers;
     StorySet story;
-    private char correct_answer;
+    public char correct_answer;
     public Text question_text;
     public Text answer_a;
     public Text answer_b;

@@ -20,6 +20,9 @@ public class TriviaPlayer : MonoBehaviour
 	public GameObject controllerGameObject;
 	TrivaController controller;
     public string playerString;
+    public string playerStringHighest;
+    public string playerStringLowest;
+
     public Image Uniform;
     public Image playerImage;
     //Text/check animation vars
@@ -53,13 +56,17 @@ public class TriviaPlayer : MonoBehaviour
             startScale = check.transform.localScale;
             startScaleText = txtScore.gameObject.transform.localScale;
             playerString = "Trivia Player " + playerNumber;
+            playerStringHighest = "Highest Trivia Player " + playerNumber;
+            playerStringLowest = "Lowest Trivia Player " + playerNumber;
+            PlayerPrefs.SetInt(playerStringLowest, 1001);
+
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (numPlayers > playerNumber)
+        if (numPlayers >= playerNumber)
         {
             if (answered)
             {
@@ -74,6 +81,10 @@ public class TriviaPlayer : MonoBehaviour
             {
                 check.sprite = Button.sprite;
                 preScore += scoreFromQuestion;
+                if (PlayerPrefs.GetInt(playerStringHighest) < scoreFromQuestion)
+                    PlayerPrefs.SetInt(playerStringHighest, scoreFromQuestion);
+                if (PlayerPrefs.GetInt(playerStringLowest) > scoreFromQuestion && scoreFromQuestion > 0)
+                    PlayerPrefs.SetInt(playerStringLowest, scoreFromQuestion);
                 scoreFromQuestion = 0;
 
                 if (tTime == -1)
@@ -82,7 +93,6 @@ public class TriviaPlayer : MonoBehaviour
                 txtScore.gameObject.transform.localScale = startScaleText * cur.Evaluate(tTime);
 
 
-                PlayerPrefs.SetInt("TEST", preScore);
                 PlayerPrefs.SetInt(playerString, preScore);
                 PlayerPrefs.Save();
             }
