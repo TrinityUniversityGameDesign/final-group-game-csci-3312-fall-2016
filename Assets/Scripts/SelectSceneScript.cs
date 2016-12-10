@@ -194,10 +194,6 @@ public class SelectSceneScript : MonoBehaviour {
 			activated_p4 = true;
 		}
 
-
-
-
-
 	}
 
 	void playerActivate(GameObject col){

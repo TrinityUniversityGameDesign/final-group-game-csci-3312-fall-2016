@@ -36,15 +36,15 @@ public class ColorPickerScript : MonoBehaviour {
 		}
 
 		if (redSlider != null) {
-			chc.r = redSlider.value;
+			chc.r = (redSlider.value*2)/255;
 		}
 
 		if (blueSlider != null) {
-			chc.b = blueSlider.value;
+			chc.b = (blueSlider.value*2)/255;
 		}
 
 		if (greenSlider != null) {
-			chc.g = greenSlider.value;
+			chc.g = (greenSlider.value*2)/255;
 		}
 		
 		

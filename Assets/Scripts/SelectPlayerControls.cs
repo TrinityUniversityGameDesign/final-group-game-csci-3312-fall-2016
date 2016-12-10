@@ -52,8 +52,10 @@ public class SelectPlayerControls : MonoBehaviour {
 				if (Input.GetButtonDown (iC.startBut)) {
 					nameSet = true;
 				}
-				if (Input.GetButtonDown (iC.backBut)) {
-					name.Remove (name.Length - 1, 1);
+				if (name.Length > 0) {
+					if (Input.GetButtonDown (iC.backBut)) {
+						name = name.Substring (0, name.Length - 1);
+					}
 				}
 			} else {
 				if (colorPicker != null && !colorSet) {
