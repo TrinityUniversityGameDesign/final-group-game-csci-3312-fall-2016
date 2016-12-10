@@ -26,8 +26,11 @@ public class MemoryDisplay : MonoBehaviour {
 	public GameObject player2 = null;
 	public GameObject player3 = null;
 	public GameObject player4 = null;
+    GameObject TeachBoard;
+    GameObject TeachColumn;
+    string TeachString;
 
-	public Object aButton;
+    public Object aButton;
 	public Object bButton;
 	public Object yButton;
 	public Object xButton;
@@ -54,6 +57,13 @@ public class MemoryDisplay : MonoBehaviour {
     int x = 0; // temp display number
                // Use this for initialization
     void Start() {
+        TeachBoard = GameObject.Find("TeachBoard");
+        TeachColumn = GameObject.Find("TeachColumn");
+        TeachString = PlayerPrefs.GetString("font_name");
+        TeachBoard.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
+        TeachColumn.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
+
+
         curButtonPos = new Vector3(-7, 0, 0);
         aButton = Resources.Load("Prefabs/aButton");
         bButton = Resources.Load("Prefabs/bButton");
