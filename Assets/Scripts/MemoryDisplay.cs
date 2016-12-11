@@ -21,25 +21,12 @@ public class MemoryDisplay : MonoBehaviour {
 	public int numButtons = 5; // records how many 'rounds' have occured during the game
 
     float displayTime = 2f;
-    float timeBarPos = 0f;
-
 	public GameObject player1 = null;
 	public GameObject player2 = null;
 	public GameObject player3 = null;
 	public GameObject player4 = null;
 
-    public GameObject boardBorder;
-    public GameObject boardBG;
-    public GameObject timerBar;
-    public SpriteRenderer borderSR;
-    public SpriteRenderer BGSR;
-    public SpriteRenderer timerSR;
-    public Sprite borderReg;
-    public Sprite borderTime;
-    public Sprite BGReg;
-    public Sprite BGTime;
-
-    public Object aButton;
+	public Object aButton;
 	public Object bButton;
 	public Object yButton;
 	public Object xButton;
@@ -72,15 +59,7 @@ public class MemoryDisplay : MonoBehaviour {
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
         player3 = GameObject.FindGameObjectWithTag("Player3");
-        player4 = GameObject.FindGameObjectWithTag("Player4");
-
-        boardBorder = GameObject.Find("board border");
-        boardBG = GameObject.Find("board background");
-        timerBar = GameObject.Find("timer bar");
-
-        borderSR = boardBorder.GetComponent<SpriteRenderer>();
-        BGSR = boardBG.GetComponent<SpriteRenderer>();
-        timerSR = timerBar.GetComponent<SpriteRenderer>();
+        player4 = GameObject.FindGameObjectWithTag("Player4"); 
 
         first = true;
     }
@@ -88,15 +67,13 @@ public class MemoryDisplay : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (first) {
-            borderSR.sprite = borderReg;
-            BGSR.sprite = BGReg;
-            newRound();
+			newRound ();
 			first = false;
 			second = true;
+
 		}
 		if (second) {
-            
-            RandomInputText = GameObject.Find ("InputText").GetComponent<Text> ();
+			RandomInputText = GameObject.Find ("InputText").GetComponent<Text> ();
 			OutputText = GameObject.Find ("PlayerText").GetComponent<Text> ();
 			if (player1) {
 				PlayerList1 = player1.GetComponent<PlayerScript> ().InputList;
@@ -117,24 +94,9 @@ public class MemoryDisplay : MonoBehaviour {
 			third = true;
 		}
 		if (third) {
-
-            //playersDone should just check the alive players' lists and the 
-            if (!butsAlive)
-            {
-                timerSR.enabled = true;
-                borderSR.sprite = borderTime;
-                BGSR.sprite = BGTime;
-                if (timerBar.transform.position.x > -17f)
-                {
-                    timerBar.transform.position = new Vector2(timerBar.transform.position.x - 0.03f, timerBar.transform.position.y);
-                }
-            }
-            else
-            {
-                timerSR.enabled = false;
-                timerBar.transform.position = new Vector2(0, timerBar.transform.position.y);
-            }
-            if (PlayersDone()){
+			
+			//playersDone should just check the alive players' lists and the 
+			if(PlayersDone()){
 				DamagePlayers();
 				first = true;
 				third = false;
@@ -167,11 +129,7 @@ public class MemoryDisplay : MonoBehaviour {
 	}
 	
 	public bool PlayersDone(){
-        if (timerBar.transform.position.x <= -16.8f)
-        {
-            return true;
-        }
-        if (player1.GetComponent<PlayerScript>().alive){
+		if(player1.GetComponent<PlayerScript>().alive){
 			if(PlayerList1.Count != (numButtons - 1)){
 				return false;
 			}
@@ -214,7 +172,7 @@ public class MemoryDisplay : MonoBehaviour {
         butsAlive = false;
     }
 
-    void printOutputs(List<int> PassedList){
+	void printOutputs(List<int> PassedList){
 		string message = "";
 
 		for (int i = 0; i < PassedList.Count; i++) {
