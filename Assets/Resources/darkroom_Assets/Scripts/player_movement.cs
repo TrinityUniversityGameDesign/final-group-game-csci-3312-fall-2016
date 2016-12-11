@@ -63,45 +63,97 @@ public class player_movement : MonoBehaviour {
 
         controller = 1;
 
+        int numEnemies = PlayerPrefs.GetInt("NumPlayers")-1;
 
         if (p2score > max)
         {
-            GameObject.Find("orange_enemy").GetComponent<enemy_movement>().controller = controller;
-            GameObject.Find("orange_enemy").GetComponent<flash>().controller = controller;
+            if(numEnemies > 0)
+            {
+                GameObject.Find("orange_enemy").GetComponent<enemy_movement>().controller = controller;
+                GameObject.Find("orange_enemy").GetComponent<flash>().controller = controller;
+                numEnemies--;
+            }
+            else
+            {
+                GameObject.Find("orange_enemy").SetActive(false);
+            }
+            
             max = p2score;
             //enemyControllers.Push (controller);
             controller = 2;
         }
         else
         {
-            GameObject.Find("orange_enemy").GetComponent<enemy_movement>().controller = 2;
-            GameObject.Find("orange_enemy").GetComponent<flash>().controller = 2;
+            if(numEnemies > 0)
+            {
+                GameObject.Find("orange_enemy").GetComponent<enemy_movement>().controller = 2;
+                GameObject.Find("orange_enemy").GetComponent<flash>().controller = 2;
+                numEnemies--;
+            }
+            else
+            {
+                GameObject.Find("orange_enemy").SetActive(false);
+            }
+            
         }
         if (p3score > max)
         {
-            GameObject.Find("Enemy (1)").GetComponent<enemy_movement>().controller = controller;
-            GameObject.Find("Enemy (1)").GetComponent<flash>().controller = controller;
+            if (numEnemies > 0)
+            {
+                GameObject.Find("Enemy (1)").GetComponent<enemy_movement>().controller = controller;
+                GameObject.Find("Enemy (1)").GetComponent<flash>().controller = controller;
+                numEnemies--;
+            }
+            else
+            {
+                GameObject.Find("Enemy (1)").SetActive(false);
+            }
             max = p3score;
             controller = 3;
 
         }
         else
         {
-            GameObject.Find("Enemy (1)").GetComponent<enemy_movement>().controller = 3;
-            GameObject.Find("Enemy (1)").GetComponent<flash>().controller = 3;
+            if(numEnemies > 0)
+            {
+                GameObject.Find("Enemy (1)").GetComponent<enemy_movement>().controller = 3;
+                GameObject.Find("Enemy (1)").GetComponent<flash>().controller = 3;
+                numEnemies--;
+            }
+            else
+            {
+                GameObject.Find("Enemy (1)").SetActive(false);
+            }
+            
         }
 
         if (p4score > max)
         {
-            GameObject.Find("Enemy (2)").GetComponent<enemy_movement>().controller = controller;
-            GameObject.Find("Enemy (2)").GetComponent<flash>().controller = controller;
+            if(numEnemies > 0)
+            {
+                GameObject.Find("Enemy (2)").GetComponent<enemy_movement>().controller = controller;
+                GameObject.Find("Enemy (2)").GetComponent<flash>().controller = controller;
+            }
+            else
+            {
+                GameObject.Find("Enemy (2)").SetActive(false);
+            }
+            
             max = p4score;
             controller = 4;
         }
         else
         {
-            GameObject.Find("Enemy (2)").GetComponent<enemy_movement>().controller = 4;
-            GameObject.Find("Enemy (2)").GetComponent<flash>().controller = 4;
+            if(numEnemies > 0)
+            {
+                GameObject.Find("Enemy (2)").GetComponent<enemy_movement>().controller = 4;
+                GameObject.Find("Enemy (2)").GetComponent<flash>().controller = 4;
+            }
+            else
+            {
+                GameObject.Find("Enemy (2)").SetActive(false);
+            }
+            
         }
 
 
