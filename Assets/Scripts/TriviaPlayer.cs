@@ -20,7 +20,11 @@ public class TriviaPlayer : MonoBehaviour
 	public GameObject controllerGameObject;
 	TrivaController controller;
     public string playerString;
+    public string playerStringHighest;
+    public string playerStringLowest;
 
+    public Image Uniform;
+    public Image playerImage;
     //Text/check animation vars
     public AnimationCurve cur;
     float sTime = -1;
@@ -29,67 +33,99 @@ public class TriviaPlayer : MonoBehaviour
     Vector3 startScaleText;
     public float fillSpeed;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    int numPlayers;
+    void Start ()
 	{
-		Button = check;
-		answered = false;
-		controller = controllerGameObject.GetComponent<TrivaController> ();
-		check.fillAmount = 0;
-        startScale = check.transform.localScale;
-        startScaleText = txtScore.gameObject.transform.localScale;
-        playerString= "Trivia Player " + playerNumber;
+        numPlayers = PlayerPrefs.GetInt("NumPlayers");
+        Debug.Log(numPlayers);
+        if (numPlayers < playerNumber)
+        {
+            txtScore.text = "";
+            check.fillAmount = 0;
+            Uniform.fillAmount = 0;
+            playerImage.fillAmount = 0;
+
+        }
+        else
+        {
+            Button = check;
+            answered = false;
+            controller = controllerGameObject.GetComponent<TrivaController>();
+            check.fillAmount = 0;
+            startScale = check.transform.localScale;
+            startScaleText = txtScore.gameObject.transform.localScale;
+            playerString = "Trivia Player " + playerNumber;
+            playerStringHighest = "Highest Trivia Player " + playerNumber;
+            playerStringLowest = "Lowest Trivia Player " + playerNumber;
+            PlayerPrefs.SetInt(playerStringLowest, 1001);
+
+        }
     }
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		if (answered)
-        { 
-            if (sTime == -1)
-                sTime = 0;
-            sTime += Time.deltaTime;
-            if(check.fillAmount < 1)
-                check.fillAmount = sTime * fillSpeed;
-            check.transform.localScale = startScale * cur.Evaluate(sTime);
-        }
-		if (controller.questionIsDone ()) {
-			check.sprite = Button.sprite;
-			preScore += scoreFromQuestion;
-			scoreFromQuestion = 0;
 
-            if (tTime == -1)
-                tTime = 0;
-            tTime += Time.deltaTime;
-            txtScore.gameObject.transform.localScale = startScaleText * cur.Evaluate(tTime);
-		   
-            
-            PlayerPrefs.SetInt("TEST",preScore);
-            PlayerPrefs.SetInt(playerString,preScore);
-            PlayerPrefs.Save();
-        }
-		txtScore.text = "Score : " + preScore;
-		if (!answered && controller.canIAnswer ()) {
-			if (Input.GetAxis ("A_P" + playerNumber) > 0) {
-				Button = A;
-				answered = true;
-				scoreFromQuestion = controller.amIRight ('a');
-			} else if (Input.GetAxis ("X_P" + playerNumber) > 0) {
-				Button = X;
-				answered = true;
-				scoreFromQuestion = controller.amIRight ('x');
-			} else if (Input.GetAxis ("B_P" + playerNumber) > 0) {
-				Button = B;
-				answered = true;
-				scoreFromQuestion = controller.amIRight ('b');
-			} else if (Input.GetAxis ("Y_P" + playerNumber) > 0) {
-				Button = Y;
-				answered = true;
-				scoreFromQuestion = controller.amIRight ('y');
-			}
-		}
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        if (numPlayers >= playerNumber)
+        {
+            if (answered)
+            {
+                if (sTime == -1)
+                    sTime = 0;
+                sTime += Time.deltaTime;
+                if (check.fillAmount < 1)
+                    check.fillAmount = sTime * fillSpeed;
+                check.transform.localScale = startScale * cur.Evaluate(sTime);
+            }
+            if (controller.questionIsDone())
+            {
+                check.sprite = Button.sprite;
+                preScore += scoreFromQuestion;
+                if (PlayerPrefs.GetInt(playerStringHighest) < scoreFromQuestion)
+                    PlayerPrefs.SetInt(playerStringHighest, scoreFromQuestion);
+                if (PlayerPrefs.GetInt(playerStringLowest) > scoreFromQuestion && scoreFromQuestion > 0)
+                    PlayerPrefs.SetInt(playerStringLowest, scoreFromQuestion);
+                scoreFromQuestion = 0;
 
+                if (tTime == -1)
+                    tTime = 0;
+                tTime += Time.deltaTime;
+                txtScore.gameObject.transform.localScale = startScaleText * cur.Evaluate(tTime);
+
+
+                PlayerPrefs.SetInt(playerString, preScore);
+                PlayerPrefs.Save();
+            }
+            txtScore.text = "Score : " + preScore;
+            if (!answered && controller.canIAnswer())
+            {
+                if (Input.GetAxis("A_P" + playerNumber) > 0)
+                {
+                    Button = A;
+                    answered = true;
+                    scoreFromQuestion = controller.amIRight('a');
+                }
+                else if (Input.GetAxis("X_P" + playerNumber) > 0)
+                {
+                    Button = X;
+                    answered = true;
+                    scoreFromQuestion = controller.amIRight('x');
+                }
+                else if (Input.GetAxis("B_P" + playerNumber) > 0)
+                {
+                    Button = B;
+                    answered = true;
+                    scoreFromQuestion = controller.amIRight('b');
+                }
+                else if (Input.GetAxis("Y_P" + playerNumber) > 0)
+                {
+                    Button = Y;
+                    answered = true;
+                    scoreFromQuestion = controller.amIRight('y');
+                }
+            }
+        }
+    }
     public void restart()
     {
         answered = false;
