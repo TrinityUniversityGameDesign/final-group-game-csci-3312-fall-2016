@@ -18,9 +18,16 @@ public class PlayerPrefsManager : MonoBehaviour {
 
     void Awake()
     {
+        playerNames = new List<string>();
+        playerScores = new List<int>();
+        playerColors = new List<string>();
+        playerObjects = new List<GameObject>();
+        currentPlayers = new List<GameObject>();
+        numPlayers = PlayerPrefs.GetInt("NumPlayers");
+        Debug.Log(numPlayers);
         DontDestroyOnLoad(this.gameObject);
         playerObjects = new List<GameObject> { playerOne, playerTwo, playerThree, playerFour };
-        for (int i = 0; i < numPlayers; i++)
+        for (int i = 0; i < 4; i++)
         {
             playerObjects[i].SetActive(false);
         }
