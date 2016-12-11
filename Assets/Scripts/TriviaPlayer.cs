@@ -37,8 +37,8 @@ public class TriviaPlayer : MonoBehaviour
     int numPlayers;
     void Start ()
 	{
+      //  PlayerPrefs.SetInt("NumPlayers", 4);
         numPlayers = PlayerPrefs.GetInt("NumPlayers");
-        Debug.Log(numPlayers);
         if (numPlayers < playerNumber)
         {
             txtScore.text = "";
