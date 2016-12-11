@@ -36,17 +36,24 @@ public class ControllerScript : MonoBehaviour {
 		player4 = GameObject.FindGameObjectWithTag("Player4");
 
 		//setting player's round
-		var p1 = player1.GetComponent<PlayerScript> ();
-		var p2 = player2.GetComponent<PlayerScript> ();
-		var p3 = player3.GetComponent<PlayerScript> ();
-		var p4 = player4.GetComponent<PlayerScript> ();
-		p1.setRound (round);
-		p2.setRound (round);
-		p3.setRound (round);
-		p4.setRound (round);
+		if (player1 != null && player1.activeSelf) {
+			var p1 = player1.GetComponent<PlayerScript> ();
+			p1.setRound (round);
+		}
+		if (player2 != null && player2.activeSelf) {
+			var p2 = player2.GetComponent<PlayerScript> ();
+			p2.setRound (round);
+		}
+		if (player3 != null && player3.activeSelf) {
+			var p3 = player3.GetComponent<PlayerScript> ();
+			p3.setRound (round);
+		}
+		if (player4 != null && player4.activeSelf) {
+			var p4 = player4.GetComponent<PlayerScript> ();
+			p4.setRound (round);
+		}
 
 		canvas.GetComponent<MemoryDisplay> ().numButtons = round;
-
 
 
 		if(timerActive)
