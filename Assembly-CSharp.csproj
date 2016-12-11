@@ -68,8 +68,10 @@
      <Compile Include="Assets\Scripts\PlayerMovement_Jacket.cs" />
      <Compile Include="Assets\Scripts\PlayerPanelScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\SceneTransition.cs" />
      <Compile Include="Assets\Scripts\ScoreRoundManagerScript.cs" />
      <Compile Include="Assets\Scripts\ScrollingWaterBackground.cs" />
+     <Compile Include="Assets\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\StoryGenerator.cs" />
      <Compile Include="Assets\Scripts\StoryHandler.cs" />
      <Compile Include="Assets\Scripts\TerrainGenerator.cs" />
