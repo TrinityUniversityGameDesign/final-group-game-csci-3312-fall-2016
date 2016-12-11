@@ -108,6 +108,7 @@ public class GlobalPlayerControllerScript : MonoBehaviour {
 	public PlayerInput player2_in;
 	public PlayerInput player3_in;
 	public PlayerInput player4_in;
+	public PlayerInput[] players;
 
 	void Awake(){
 		if (!gameCont) {

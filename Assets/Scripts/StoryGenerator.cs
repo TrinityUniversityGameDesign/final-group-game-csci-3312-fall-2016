@@ -15,7 +15,7 @@ public class StorySet
     public string story_2;
     public string story_3;
     public string story_4;
-
+    public string artifact;
     public Question question_1;
     public Question question_2;
     public Question question_3;
@@ -362,6 +362,7 @@ public class StoryGenerator : MonoBehaviour {
         MainCharacter mc = build_main_character(adjectives, occupations, names, servants, items, gods, locations, hobbies);
         GodReq god_req = build_god_req(adjectives, god_types);
         Relic rel = build_relic(adjectives, items, gods, curses, minions, values, locations);
+        story.artifact = rel.item;
         story.story_1 = generate_opening(mc, rel);
         // Questions and answers possibilities for the first question.
         Question[] questions_opening = {build_question_and_answers("What adjective would you use to describe " + mc.name + "?", mc.adjective, adjectives),
