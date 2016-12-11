@@ -9,6 +9,7 @@ public class EndingScene : MonoBehaviour {
 
     // Use this for initialization
     public GameObject statue;
+    public GameObject scores;
     int numPlayers;
     
     void Start () {
@@ -46,8 +47,14 @@ public class EndingScene : MonoBehaviour {
         }
 
     }
+
 	// Update is called once per frame
 	void Update () {
-	    
+	    if(statue.transform.position.y < 300 && statue.transform.localScale.x < 1900 && statue.transform.localScale.y < 1900)
+        {
+            statue.transform.position = new Vector3(statue.transform.position.x, statue.transform.position.y + Time.deltaTime * 300*(5f/18f), statue.transform.position.z);
+            statue.transform.localScale = new Vector3(statue.transform.localScale.x + Time.deltaTime * 500, statue.transform.localScale.y + Time.deltaTime * 500, statue.transform.localScale.z);
+            scores.transform.localScale = new Vector3(scores.transform.localScale.x + Time.deltaTime * 0.9f * (5f / 18f), scores.transform.localScale.y + Time.deltaTime * 0.9f * (5f / 18f), scores.transform.localScale.z);
+        }
 	}
 }
