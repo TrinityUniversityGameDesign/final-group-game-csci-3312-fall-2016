@@ -5,6 +5,8 @@ using System.Collections;
 
 public class MyButton : Button {
 	public EventSystem eventSystem;
+	public Color highlighted;
+	public Color pressed; 
 
 	protected override void Awake(){
 		base.Awake ();

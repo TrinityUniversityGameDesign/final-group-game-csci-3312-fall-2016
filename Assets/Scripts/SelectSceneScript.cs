@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SelectSceneScript : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class SelectSceneScript : MonoBehaviour {
 	public GlobalPlayerControllerScript gameCont;
 
 	public GameObject canvas;
+
+	public string color = "";
 
 	public GameObject player1 = null;
 	public GameObject player2 = null;
@@ -38,6 +41,7 @@ public class SelectSceneScript : MonoBehaviour {
 	public EventSystem eventSystem_p4;
 
 	public bool moveOn;
+	public bool loadNew;
 
 	void Awake(){
 		//Should clear out player prefs' of the controller associated with it
@@ -175,6 +179,7 @@ public class SelectSceneScript : MonoBehaviour {
 		}
 		if (gameCont.player2_in != null && !activated_p2) {
 			player2.GetComponent<SelectPlayerControls> ().iC = gameCont.player2_in;
+			player2.GetComponent<SelectPlayerControls> ().txt_Name = GameObject.Find ("Player2Name").GetComponent<Text>();
 			player2.GetComponent<SelectPlayerControls> ().active = true;
 			playerActivate (player2_Col);
 			eventSystem_p2.GetComponent<NewEventSystem> ().player = player2;
@@ -183,6 +188,7 @@ public class SelectSceneScript : MonoBehaviour {
 		}
 		if (gameCont.player3_in != null && !activated_p3) {
 			player3.GetComponent<SelectPlayerControls> ().iC = gameCont.player3_in;
+			player3.GetComponent<SelectPlayerControls> ().txt_Name = GameObject.Find ("Player3Name").GetComponent<Text>();
 			player3.GetComponent<SelectPlayerControls> ().active = true;
 			playerActivate (player3_Col);
 			eventSystem_p3.GetComponent<NewEventSystem> ().player = player3;
@@ -191,6 +197,7 @@ public class SelectSceneScript : MonoBehaviour {
 		}
 		if (gameCont.player4_in != null && !activated_p4) {
 			player4.GetComponent<SelectPlayerControls> ().iC = gameCont.player4_in;
+			player4.GetComponent<SelectPlayerControls> ().txt_Name = GameObject.Find ("Player4Name").GetComponent<Text>();
 			player4.GetComponent<SelectPlayerControls> ().active = true;
 			playerActivate (player4_Col);
 			eventSystem_p4.GetComponent<NewEventSystem> ().player = player4;
@@ -198,9 +205,73 @@ public class SelectSceneScript : MonoBehaviour {
 			activated_p4 = true;
 		}
 
+		if (gameCont.num_players == 1) {
+			if (player1.GetComponent<SelectPlayerControls> ().ready) {
+				moveOn = true;
+			}
+		}
+		if (gameCont.num_players == 2) {
+			if (player1.GetComponent<SelectPlayerControls> ().ready && player2.GetComponent<SelectPlayerControls> ().ready) {
+				moveOn = true;
+			}
+		}
+		if (gameCont.num_players == 3) {
+			if (player1.GetComponent<SelectPlayerControls> ().ready && player2.GetComponent<SelectPlayerControls> ().ready && player3.GetComponent<SelectPlayerControls> ().ready) {
+				moveOn = true;
+			}
+		}
+		if (gameCont.num_players == 4) {
+			if (player1.GetComponent<SelectPlayerControls> ().ready && player2.GetComponent<SelectPlayerControls> ().ready && player3.GetComponent<SelectPlayerControls> ().ready && player4.GetComponent<SelectPlayerControls> ().ready) {
+				moveOn = true;
+			}
+		}
+
+
 		if (moveOn) {
+			if (activated_p1) {
+				player1.GetComponent<SelectPlayerControls> ().cntDown = true;
+			}
+			if (activated_p2) {
+				player2.GetComponent<SelectPlayerControls> ().cntDown = true;
+			}
+			if (activated_p3) {
+				player3.GetComponent<SelectPlayerControls> ().cntDown = true;
+			}
+			if (activated_p4) {
+				player4.GetComponent<SelectPlayerControls> ().cntDown = true;
+			}
+
+			StartCoroutine (nameInput (10));
+		
+		}
+
+		if (loadNew) {
+			if (activated_p1) {
+				var color = "#" + player1_Sliders.GetComponent<ColorPickerScript> ().red.ToString ("X2") + player1_Sliders.GetComponent<ColorPickerScript> ().green.ToString ("X2") + player1_Sliders.GetComponent<ColorPickerScript> ().blue.ToString ("X2");
+				PlayerPrefs.SetString ("player1_color",color);
+				PlayerPrefs.SetString ("player1_name", player1.GetComponent<SelectPlayerControls> ().name);
+			}
+			if (activated_p2) {
+				var color = "#" + player2_Sliders.GetComponent<ColorPickerScript> ().red.ToString ("X2") + player2_Sliders.GetComponent<ColorPickerScript> ().green.ToString ("X2") + player2_Sliders.GetComponent<ColorPickerScript> ().blue.ToString ("X2");
+				PlayerPrefs.SetString ("player2_color",color);
+				PlayerPrefs.SetString ("player2_name", player2.GetComponent<SelectPlayerControls> ().name);
+			}
+			if (activated_p3) {
+				var color = "#" + player3_Sliders.GetComponent<ColorPickerScript> ().red.ToString ("X2") + player3_Sliders.GetComponent<ColorPickerScript> ().green.ToString ("X2") + player3_Sliders.GetComponent<ColorPickerScript> ().blue.ToString ("X2");
+				PlayerPrefs.SetString ("player3_color",color);
+				PlayerPrefs.SetString ("player3_name", player3.GetComponent<SelectPlayerControls> ().name);
+			}
+			if (activated_p4) {
+				var color = "#" + player4_Sliders.GetComponent<ColorPickerScript> ().red.ToString ("X2") + player4_Sliders.GetComponent<ColorPickerScript> ().green.ToString ("X2") + player4_Sliders.GetComponent<ColorPickerScript> ().blue.ToString ("X2");
+				PlayerPrefs.SetString ("player4_color",color);
+				PlayerPrefs.SetString ("player4_name", player4.GetComponent<SelectPlayerControls> ().name);
+			}
+			PlayerPrefs.Save ();
+
+			//should happen after timer goes off for player names
 			SceneManager.LoadSceneAsync ("Scenes/IntroScene");
 		}
+
 
 	}
 
@@ -208,4 +279,10 @@ public class SelectSceneScript : MonoBehaviour {
 		col.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * 100);
 	}
 
+
+	IEnumerator<WaitForSeconds> nameInput(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		loadNew = true;
+	}
 }

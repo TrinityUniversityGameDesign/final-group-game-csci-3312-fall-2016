@@ -15,7 +15,8 @@ public class SelectPlayerControls : MonoBehaviour {
 	public bool active;
 	public bool nameSet;
 	public bool colorSet;
-
+	public bool ready;
+	public bool cntDown;
 
 	public string name;
 
@@ -23,20 +24,26 @@ public class SelectPlayerControls : MonoBehaviour {
 		active = false;
 		nameSet = false;
 		colorSet = false;
+		ready = false;
+		cntDown = false;
 	}
 
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
+
+	public void setReady(){
+		ready = !ready;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (active) {
 			if (txt_Name != null) {
 				txt_Name.text = name;
 			}
-			if (!nameSet) {
+			if (!nameSet && ready && cntDown) {
 				if (Input.GetButtonDown (iC.ABut)) {
 					name += "a";
 				}
@@ -49,6 +56,25 @@ public class SelectPlayerControls : MonoBehaviour {
 				if (Input.GetButtonDown (iC.XBut)) {
 					name += "x";
 				}
+				if (Input.GetButtonDown (iC.LB)) {
+					name += "lb";
+				}
+				if (Input.GetButtonDown (iC.RB)) {
+					name += "rb";
+				}
+				if(Input.GetAxisRaw(iC.DPadX) < 0){
+					name += "l";
+				}
+				if(Input.GetAxisRaw(iC.DPadX) > 0){
+					name += "r";
+				}
+				if(Input.GetAxisRaw(iC.DPadY) < 0){
+					name += "d";
+				}
+				if(Input.GetAxisRaw(iC.DPadY) > 0){
+					name += "u";
+				}
+
 				if (Input.GetButtonDown (iC.startBut)) {
 					nameSet = true;
 				}
@@ -63,6 +89,7 @@ public class SelectPlayerControls : MonoBehaviour {
 						selected = colorPicker.redSlider.gameObject;
 					}
 				}
+
 			}
 		
 		}

@@ -4,14 +4,17 @@ using System.Collections;
 
 public class ColorPickerScript : MonoBehaviour {
 
-	int red = 0;
-	int green = 0;
-	int blue = 0;
+	public int red = 0;
+	public int green = 0;
+	public int blue = 0;
 	int alpha;
+
+	string hexVal; 
 
 	public Slider redSlider;
 	public Slider blueSlider;
 	public Slider greenSlider;
+	public Button playerButton;
 
 	public GameObject shirt;
 	public GameObject player;
@@ -36,14 +39,17 @@ public class ColorPickerScript : MonoBehaviour {
 		}
 
 		if (redSlider != null) {
+			red = (int) redSlider.value;
 			chc.r = (redSlider.value)/255;
 		}
 
 		if (blueSlider != null) {
+			blue =(int) blueSlider.value;
 			chc.b = (blueSlider.value)/255;
 		}
 
 		if (greenSlider != null) {
+			green = (int) greenSlider.value;
 			chc.g = (greenSlider.value)/255;
 		}
 		

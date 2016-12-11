@@ -23,12 +23,10 @@ public class MySlider : Slider{
 	}
 
 	public override void Select(){
-
 		if (eventSystem.alreadySelecting) {
 			return;
 		}
-
-		eventSystem.SetSelectedGameObject (gameObject);
+			eventSystem.SetSelectedGameObject (gameObject);
 	}
 
 }
