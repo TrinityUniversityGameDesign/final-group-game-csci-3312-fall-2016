@@ -8,6 +8,7 @@ public class enemy_movement : MonoBehaviour {
     private Rigidbody2D rigid_body;
     public GameObject player;
     Vector3 player_pos;
+    public GlobalPlayerControllerScript gameCont;
 
 
     // Use this for initialization
@@ -22,8 +23,8 @@ public class enemy_movement : MonoBehaviour {
     void Update()
     {
 
-        float translation_X = Input.GetAxis("Horizontal_P" + controller) * speed;
-        float translation_Y = Input.GetAxis("Vertical_P" + controller) * speed;
+        float translation_X = Input.GetAxis(gameCont.players[controller].hor) * speed;
+        float translation_Y = Input.GetAxis(gameCont.players[controller].vert) * speed;
         rigid_body.velocity = new Vector2(translation_X, translation_Y);
         player_pos = player.transform.position;
 
