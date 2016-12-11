@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   First: {fileID: 1805782790}
+  statue: {fileID: 1411607502}
 --- !u!1 &1362838899
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +385,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -433,7 +434,7 @@ GameObject:
   - 212: {fileID: 1411607504}
   - 95: {fileID: 1411607503}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Statue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

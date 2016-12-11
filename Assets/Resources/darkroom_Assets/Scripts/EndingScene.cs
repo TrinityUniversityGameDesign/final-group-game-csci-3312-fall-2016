@@ -8,7 +8,7 @@ public class EndingScene : MonoBehaviour {
     public GameObject First;
 
     // Use this for initialization
-
+    public GameObject statue;
     int numPlayers;
     
     void Start () {
@@ -48,6 +48,6 @@ public class EndingScene : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-	
+	    
 	}
 }

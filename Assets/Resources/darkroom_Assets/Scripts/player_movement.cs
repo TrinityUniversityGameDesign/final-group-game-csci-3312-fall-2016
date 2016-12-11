@@ -16,11 +16,11 @@ public class player_movement : MonoBehaviour {
     AudioSource[] sounds;
     AudioSource footStep;
     AudioSource pickupkey;
+    string font = PlayerPrefs.GetString("font_name");
 
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         float orientation = Mathf.Floor(Random.Range(0f, 3.9f));
         orientation *= 90f;
         //Camera one = Camera.main;
@@ -40,10 +40,15 @@ public class player_movement : MonoBehaviour {
         sounds = GetComponents<AudioSource>();
         footStep = sounds[0];
         pickupkey = sounds[1];
+        //SetFont(font);
     }
-
-	// Update is called once per frame
-	void Update () {
+    void SetFont(string f)
+    {
+        keyScore.font = Resources.GetBuiltinResource<Font>(f + ".ttf");
+        keyName.font = Resources.GetBuiltinResource<Font>(f + ".ttf");
+    }
+    // Update is called once per frame
+    void Update () {
 
 		float translation_X = Input.GetAxis ("Horizontal_P" + controller) * speed;
 		float translation_Y = Input.GetAxis ("Vertical_P" + controller) * speed;
