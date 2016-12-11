@@ -16,6 +16,7 @@ public class ScoreRoundManagerScript : MonoBehaviour {
     public GameObject greenJacket;
     public GameObject redJacket;
     public GameObject yellowJacket;
+    public GameObject terrainGenerator;
 
     bool startingNewRound = false;
 
@@ -57,6 +58,7 @@ public class ScoreRoundManagerScript : MonoBehaviour {
         roundText.text = "A New Round is About to Begin!";
         startingNewRound = true;
         yield return new WaitForSeconds(3);
+        terrainGenerator.GetComponent<TerrainGenerator>().doEverything();
         currentRoundNumber++;
 		roundText.text = "Round " + currentRoundNumber;
 		playersInPlay = new List<GameObject> ();
