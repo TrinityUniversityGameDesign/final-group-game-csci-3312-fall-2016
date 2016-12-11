@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
@@ -36,10 +37,13 @@ public class SelectSceneScript : MonoBehaviour {
 	public EventSystem eventSystem_p3;
 	public EventSystem eventSystem_p4;
 
+	public bool moveOn;
+
 	void Awake(){
 		//Should clear out player prefs' of the controller associated with it
 		gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
 		canvas = GameObject.Find ("Canvas");
+		moveOn = false;
 	}
 
 	// Use this for initialization
@@ -192,6 +196,10 @@ public class SelectSceneScript : MonoBehaviour {
 			eventSystem_p4.GetComponent<NewEventSystem> ().player = player4;
 			eventSystem_p4.GetComponent<NewEventSystem>().selection = GameObject.Find ("Player4Color").GetComponent<ColorPickerScript> ().redSlider.gameObject;
 			activated_p4 = true;
+		}
+
+		if (moveOn) {
+			SceneManager.LoadSceneAsync ("Scenes/MainScene");
 		}
 
 	}

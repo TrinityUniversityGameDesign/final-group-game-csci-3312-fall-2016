@@ -14,6 +14,7 @@ public class MemoryDisplay : MonoBehaviour {
 	public List<Buttons> PlayerList2 = new List<Buttons>();
 	public List<Buttons> PlayerList3 = new List<Buttons>();
 	public List<Buttons> PlayerList4 = new List<Buttons>();
+
 	public List<int> ReturnList1 = new List<int>();
 	public List<int> ReturnList2 = new List<int>();
 	public List<int> ReturnList3 = new List<int>();
@@ -64,6 +65,8 @@ public class MemoryDisplay : MonoBehaviour {
     Vector3 ColumnPos3;
     Vector3 ColumnPos4;
 
+	public int numPlayers;
+
     // bools used to determine what stage of the round it is
     public bool first = false; // 1st stage - display memory list, no input
 	public bool second = false; // 2nd stage - hide memory list, player input
@@ -74,6 +77,7 @@ public class MemoryDisplay : MonoBehaviour {
 	
     // Use this for initialization
     void Start() {
+
         sneaky = GameObject.Find("Sneaky");
         TeachBoard = GameObject.Find("TeachBoard");
         TeachColumn = GameObject.Find("TeachColumn");
@@ -81,6 +85,8 @@ public class MemoryDisplay : MonoBehaviour {
         TeachBoard.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
         TeachColumn.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
 		
+		numPlayers = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GlobalPlayerControllerScript> ().num_players;
+
         curButtonPos = new Vector3(-7, 0, 0);
         aButton = Resources.Load("Prefabs/aButton");
         bButton = Resources.Load("Prefabs/bButton");
@@ -89,11 +95,22 @@ public class MemoryDisplay : MonoBehaviour {
         qButton = Resources.Load("Prefabs/qButton");
 
         player1 = GameObject.FindGameObjectWithTag("Player1");
-        player2 = GameObject.FindGameObjectWithTag("Player2");
-        player3 = GameObject.FindGameObjectWithTag("Player3");
-        player4 = GameObject.FindGameObjectWithTag("Player4");
+		player2 = GameObject.FindGameObjectWithTag("Player2");
+		player3 = GameObject.FindGameObjectWithTag("Player3");
+		player4 = GameObject.FindGameObjectWithTag("Player4");
 
-		// checks to see if a player is alive; if it is alive, rank is incremented
+		if (numPlayers <= 1) {
+			player2.SetActive (false);
+		}
+		if (numPlayers <= 2) {	
+			player3.SetActive (false);
+		}
+		if (numPlayers <= 3) {
+			player4.SetActive (false);
+		}
+
+
+        // checks to see if a player is alive; if it is alive, rank is incremented
 		rankCount = 0;
 		if(player1.GetComponent<PlayerScript> ().alive) { rankCount++; }
 		if(player2.GetComponent<PlayerScript> ().alive) { rankCount++; }
@@ -135,11 +152,19 @@ public class MemoryDisplay : MonoBehaviour {
             
             RandomInputText = GameObject.Find ("InputText").GetComponent<Text> ();
 			OutputText = GameObject.Find ("PlayerText").GetComponent<Text> ();
-			if (player1) {
+			if (player1.activeSelf) {
 				PlayerList1 = player1.GetComponent<PlayerScript> ().InputList;
+			}
+			if (player2.activeSelf) {
 				PlayerList2 = player2.GetComponent<PlayerScript> ().InputList;
+			}
+			if (player3.activeSelf) {
 				PlayerList3 = player3.GetComponent<PlayerScript> ().InputList;
+			}
+			if (player4.activeSelf) {
 				PlayerList4 = player4.GetComponent<PlayerScript> ().InputList;
+			}
+
 				//GameObject.Find ("Main Camera").GetComponent<ControllerScript> ().updateRounds ();
 				/*Debug.Log ("PENIS");
 				if (PlayerList.Count >= numButtons) {
@@ -148,8 +173,7 @@ public class MemoryDisplay : MonoBehaviour {
 					Debug.Log (loss);
 					player1.GetComponent<PlayerScript> ().health -= loss;
 				} */
-				printOutputs (ReturnList1);
-			}
+			//printOutputs (ReturnList1);
 			second = false;
 			third = true;
 		}
@@ -189,20 +213,21 @@ public class MemoryDisplay : MonoBehaviour {
 	}
 	
 	void DamagePlayers(){
-		if(player1.GetComponent<PlayerScript>().alive){
+		if(player1.activeSelf && player1.GetComponent<PlayerScript>().alive){
 			DamagePlayer(player1, GameObject.Find("Column1"));
 		}
-		if(player2.GetComponent<PlayerScript>().alive){
+		if(player2.activeSelf && player2.GetComponent<PlayerScript>().alive){
 			DamagePlayer(player2, GameObject.Find("Column2"));
 		}
-		if(player3.GetComponent<PlayerScript>().alive){
+		if(player3.activeSelf && player3.GetComponent<PlayerScript>().alive){
 			DamagePlayer(player3, GameObject.Find("Column3"));
 		}
-		if(player4.GetComponent<PlayerScript>().alive){
+		if(player4.activeSelf && player4.GetComponent<PlayerScript>().alive){
 			DamagePlayer(player4, GameObject.Find("Column4"));
 		}
 		// if a player is not alive after receiving damage, it has died and should recieve a ranking
 		int count = 0;
+
 		if (player1.GetComponent<PlayerScript> ().alive == false) {
             sneaky.GetComponent<SneakyScript>().p1Rank = rankCount;
 			player1.GetComponent<PlayerScript> ().rank = rankCount;
@@ -233,50 +258,53 @@ public class MemoryDisplay : MonoBehaviour {
 
     void updatePlayerListCount()
     {
-        if (player1.GetComponent<PlayerScript>().alive)
+		if (player1.activeSelf && player1.GetComponent<PlayerScript>().alive)
         {
             playerListCount(PlayerList1.Count, Player1ButtonCount);
         }
-        if (player2.GetComponent<PlayerScript>().alive)
+		if (player2.activeSelf && player2.GetComponent<PlayerScript>().alive)
         {
             playerListCount(PlayerList2.Count, Player2ButtonCount);
 
         }
-        if (player3.GetComponent<PlayerScript>().alive)
+		if (player3.activeSelf && player3.GetComponent<PlayerScript>().alive)
         {
             playerListCount(PlayerList3.Count, Player3ButtonCount);
 
         }
-        if (player4.GetComponent<PlayerScript>().alive)
+		if (player4.activeSelf && player4.GetComponent<PlayerScript>().alive)
         {
             playerListCount(PlayerList4.Count, Player4ButtonCount);
         }
     }
 	
 	public bool PlayersDone(){
+
         if (timerBar.transform.position.x <= -16.8f)
         {
             return true;
         }
-        if (player1.GetComponent<PlayerScript>().alive){
+
+		if(player1.activeSelf && player1.GetComponent<PlayerScript>().alive){
+
 			if(PlayerList1.Count != (numButtons - 1)){
 				playerListCount(PlayerList1.Count,Player1ButtonCount);
 				return false;
 			}
 		}
-		if(player2.GetComponent<PlayerScript>().alive){
+		if(player2.activeSelf && player2.GetComponent<PlayerScript>().alive){
 			if(PlayerList2.Count != (numButtons - 1)){
 				playerListCount(PlayerList2.Count, Player2ButtonCount);
 				return false;
 			}
 		}
-		if(player3.GetComponent<PlayerScript>().alive){
+		if(player3.activeSelf && player3.GetComponent<PlayerScript>().alive){
 			if(PlayerList3.Count != (numButtons -1)){
 				playerListCount(PlayerList3.Count, Player3ButtonCount);
 				return false;
 			}
 		}
-		if(player4.GetComponent<PlayerScript>().alive){
+		if(player4.activeSelf && player4.GetComponent<PlayerScript>().alive){
 			if(PlayerList4.Count != (numButtons -1)){
 				playerListCount(PlayerList4.Count, Player4ButtonCount);
 				return false;
@@ -393,10 +421,19 @@ public class MemoryDisplay : MonoBehaviour {
     void newRound()
     {
         displayTime += 0.5f;
-        PlayerList1.Clear();
-		PlayerList2.Clear ();
-		PlayerList3.Clear ();
-		PlayerList4.Clear ();
+
+		if (player1.activeSelf) {
+			PlayerList1.Clear();
+		}
+		if (player2.activeSelf) {
+			PlayerList2.Clear ();
+		}
+		if (player3.activeSelf) {
+			PlayerList3.Clear ();
+		}
+		if (player4.activeSelf) {
+			PlayerList4.Clear ();
+		}
         InputList.Clear();
         var list = GameObject.FindGameObjectsWithTag("Button");
         curButtonPos = new Vector3(-7, 3.3f, 0);
