@@ -63,7 +63,7 @@ public class EndSceneManager : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown("A_P1")) {
             Destroy(GameObject.Find("SoundManager"));
-            Destroy(GameObject.Find("PlayerPrefsManagers"));
+            Destroy(GameObject.Find("PlayerPrefsManager"));
             Destroy(GameObject.Find("ScoreManager"));
 			Destroy (alldat);
             SceneManager.LoadScene("UsingTilesStory");
