@@ -21,14 +21,11 @@ public class player_movement : MonoBehaviour {
     AudioSource pickupkey;
     public GlobalPlayerControllerScript gameCont;
 
-    void Awake() { gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); }
-
-
-
-
+    void Awake() { gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
+    //}
 
     // Use this for initialization
-    void Start () {
+//    void Start () {
         float orientation = Mathf.Floor(Random.Range(0f, 3.9f));
         orientation *= 90f;
        /* mapOrientation = orientation;
@@ -211,7 +208,7 @@ public class player_movement : MonoBehaviour {
 
 		if (this.gameObject.GetComponentInChildren<Light> ().range < 3) {
 			//Application.LoadLevel (1);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("endscene1");
 		}
 
 
@@ -246,7 +243,7 @@ public class player_movement : MonoBehaviour {
         else if (other.gameObject.layer == LayerMask.NameToLayer("Portal"))
 		{
 			if (keyOwn >= 3) {
-				SceneManager.LoadScene("Player_wins");
+				SceneManager.LoadScene("endscene1");
 			}
 		}
 

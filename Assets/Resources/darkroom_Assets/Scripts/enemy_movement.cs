@@ -20,7 +20,7 @@ public class enemy_movement : MonoBehaviour {
         player_pos = player.transform.position;
         gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
         // player.transform.rotation = Quaternion.Euler(0f, 0f, mapOrientation);
-        ColorUtility.TryParseHtmlString(PlayerPrefs.GetString("player" + gameCont.players[controller]+"_color"), out tmpColor);
+        ColorUtility.TryParseHtmlString(PlayerPrefs.GetString("player" +controller+"_color"), out tmpColor);
 
         //transform.FindChild("enemyLight").GetComponent<Light>().color = tmpColor;
         GetComponentInChildren<Light>().color = tmpColor;
