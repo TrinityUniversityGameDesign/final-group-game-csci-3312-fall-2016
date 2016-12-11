@@ -45,8 +45,9 @@ public class SelectSceneScript : MonoBehaviour {
 
 	public bool moveOn;
 	public bool loadNew;
+    public bool transition_happens_only_once = true;
 
-	void Awake(){
+    void Awake(){
 		//Should clear out player prefs' of the controller associated with it
 		gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
 		canvas = GameObject.Find ("Canvas");
@@ -248,44 +249,49 @@ public class SelectSceneScript : MonoBehaviour {
 		
 		}
 
-		if (loadNew) {
-			if (activated_p1) {
-				var color = "#" + player1_Sliders.GetComponent<ColorPickerScript> ().red.ToString ("X2") + player1_Sliders.GetComponent<ColorPickerScript> ().green.ToString ("X2") + player1_Sliders.GetComponent<ColorPickerScript> ().blue.ToString ("X2");
-				PlayerPrefs.SetString ("player1_color",color);
-				PlayerPrefs.SetString ("player1_name", player1.GetComponent<SelectPlayerControls> ().name);
-			}
-			if (activated_p2) {
-				var color = "#" + player2_Sliders.GetComponent<ColorPickerScript> ().red.ToString ("X2") + player2_Sliders.GetComponent<ColorPickerScript> ().green.ToString ("X2") + player2_Sliders.GetComponent<ColorPickerScript> ().blue.ToString ("X2");
-				PlayerPrefs.SetString ("player2_color",color);
-				PlayerPrefs.SetString ("player2_name", player2.GetComponent<SelectPlayerControls> ().name);
-			}
-			if (activated_p3) {
-				var color = "#" + player3_Sliders.GetComponent<ColorPickerScript> ().red.ToString ("X2") + player3_Sliders.GetComponent<ColorPickerScript> ().green.ToString ("X2") + player3_Sliders.GetComponent<ColorPickerScript> ().blue.ToString ("X2");
-				PlayerPrefs.SetString ("player3_color",color);
-				PlayerPrefs.SetString ("player3_name", player3.GetComponent<SelectPlayerControls> ().name);
-			}
-			if (activated_p4) {
-				var color = "#" + player4_Sliders.GetComponent<ColorPickerScript> ().red.ToString ("X2") + player4_Sliders.GetComponent<ColorPickerScript> ().green.ToString ("X2") + player4_Sliders.GetComponent<ColorPickerScript> ().blue.ToString ("X2");
-				PlayerPrefs.SetString ("player4_color",color);
-				PlayerPrefs.SetString ("player4_name", player4.GetComponent<SelectPlayerControls> ().name);
-			}
-			PlayerPrefs.Save ();
+        if (loadNew) {
+            if (activated_p1) {
+                var color = "#" + player1_Sliders.GetComponent<ColorPickerScript>().red.ToString("X2") + player1_Sliders.GetComponent<ColorPickerScript>().green.ToString("X2") + player1_Sliders.GetComponent<ColorPickerScript>().blue.ToString("X2");
+                PlayerPrefs.SetString("player1_color", color);
+                PlayerPrefs.SetString("player1_name", player1.GetComponent<SelectPlayerControls>().name);
+            }
+            if (activated_p2) {
+                var color = "#" + player2_Sliders.GetComponent<ColorPickerScript>().red.ToString("X2") + player2_Sliders.GetComponent<ColorPickerScript>().green.ToString("X2") + player2_Sliders.GetComponent<ColorPickerScript>().blue.ToString("X2");
+                PlayerPrefs.SetString("player2_color", color);
+                PlayerPrefs.SetString("player2_name", player2.GetComponent<SelectPlayerControls>().name);
+            }
+            if (activated_p3) {
+                var color = "#" + player3_Sliders.GetComponent<ColorPickerScript>().red.ToString("X2") + player3_Sliders.GetComponent<ColorPickerScript>().green.ToString("X2") + player3_Sliders.GetComponent<ColorPickerScript>().blue.ToString("X2");
+                PlayerPrefs.SetString("player3_color", color);
+                PlayerPrefs.SetString("player3_name", player3.GetComponent<SelectPlayerControls>().name);
+            }
+            if (activated_p4) {
+                var color = "#" + player4_Sliders.GetComponent<ColorPickerScript>().red.ToString("X2") + player4_Sliders.GetComponent<ColorPickerScript>().green.ToString("X2") + player4_Sliders.GetComponent<ColorPickerScript>().blue.ToString("X2");
+                PlayerPrefs.SetString("player4_color", color);
+                PlayerPrefs.SetString("player4_name", player4.GetComponent<SelectPlayerControls>().name);
+            }
+			PlayerPrefs.SetInt ("NumPlayers", gameCont.num_players);
+            PlayerPrefs.Save();
 
-			gameCont.players = new PlayerInput[gameCont.num_players + 1];
-			if (gameCont.num_players >= 1) {
-				gameCont.players [1] = gameCont.player1_in;
-			}
-			if (gameCont.num_players >= 2) {
-				gameCont.players [2] = gameCont.player2_in;
-			}
-			if (gameCont.num_players >= 3) {
-				gameCont.players [3] = gameCont.player3_in;
-			}
-			if (gameCont.num_players >= 4) {
-				gameCont.players [4] = gameCont.player4_in;
-			}
-			//should happen after timer goes off for player names
-			SceneManager.LoadSceneAsync (next_scene);
+            gameCont.players = new PlayerInput[gameCont.num_players + 1];
+            if (gameCont.num_players >= 1) {
+                gameCont.players[1] = gameCont.player1_in;
+            }
+            if (gameCont.num_players >= 2) {
+                gameCont.players[2] = gameCont.player2_in;
+            }
+            if (gameCont.num_players >= 3) {
+                gameCont.players[3] = gameCont.player3_in;
+            }
+            if (gameCont.num_players >= 4) {
+                gameCont.players[4] = gameCont.player4_in;
+            }
+            if (transition_happens_only_once)
+            {
+                //should happen after timer goes off for player names
+                SceneManager.LoadSceneAsync(next_scene);
+                transition_happens_only_once = false;
+            }
 		}
 
 

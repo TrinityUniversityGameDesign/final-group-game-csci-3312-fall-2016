@@ -4,10 +4,10 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 15f;
-    public float speedCap = 0.89f;
+    public float moveSpeed = 2f;
+    public float speedCap = 2.5f;
     public int playerNo = 1;
-    public float customFriction = 0.5f;
+    public float customFriction = 0.1f;
     private string horizontalCtrl = "Horizontal_P";
     private string verticalCtrl = "Vertical_P";
     private bool dead = false;
@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
         dead = true;
     }
 
+    //put OnTriggerEnter for the death tag here
+
     // Update is called once per frame
     void Update()
     {
@@ -51,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
                 gameObject.SetActive(false);
                 //adds points to player score
                 UIManager.playerPlacing.Push(gameObject.name);
-                UIManager.playerPoints[playerNo] += UIManager.playerPlacing.Count;
+                UIManager.playerPoints[playerNo-1] += UIManager.playerPlacing.Count;
             }
         }
         else
