@@ -60,20 +60,16 @@ public class ScoreRoundManagerScript : MonoBehaviour {
 	private IEnumerator StartNewRound(){
         roundText.text = "A New Round is About to Begin!";
         startingNewRound = true;
-        Debug.Log(logo.transform.localScale);
-        while (logo.transform.localScale.x < 2f)
+        float maxLogoSize = 38f;
+        while (logo.transform.localScale.x < maxLogoSize)
         {
-            logo.transform.localScale += new Vector3(0.02f, 0.02f, 0.0f);
+            float growFactor = 1+70*(logo.transform.localScale.x / maxLogoSize);
+            logo.transform.localScale += new Vector3(0.01f*growFactor, 0.01f*growFactor, 0.0f);
             yield return new WaitForSeconds(0.001f);
         }
         Debug.Log(logo.transform.localScale);
         logo.transform.localScale = new Vector3(0, 0, 0);
-        //while (logo.GetComponent<Transform>().localPosition.z > -9) logo.GetComponent<Transform>().localPosition = new Vector3(logo.GetComponent<Transform>().localPosition.x, logo.GetComponent<Transform>().localPosition.y, logo.GetComponent<Transform>().localPosition.z - 1);
-        //logo.GetComponent<Transform>().localPosition = new Vector3(0, 0, 101);
-        yield return new WaitForSeconds(3);
         terrainGenerator.GetComponent<TerrainGenerator>().doEverything();
-        //while(logo.GetComponent<Transform>().localPosition.z >-12) logo.GetComponent<Transform>().localPosition = new Vector3(logo.GetComponent<Transform>().localPosition.x, logo.GetComponent<Transform>().localPosition.y, logo.GetComponent<Transform>().localPosition.z-1);
-        //logo.GetComponent<Transform>().localPosition = new Vector3(0, 0, 101);
         currentRoundNumber++;
 		roundText.text = "Round " + currentRoundNumber;
 		playersInPlay = new List<GameObject> ();
@@ -91,6 +87,7 @@ public class ScoreRoundManagerScript : MonoBehaviour {
 		if (currentRoundNumber > maxRoundNumber) {
 			//next levels
 		}
+        yield return new WaitForSeconds(2);
         startingNewRound = false;
 	}
 }
