@@ -51,6 +51,11 @@ public class TrivaController : MonoBehaviour
 
         if (questionIsDone() && !invoked)
         {
+            AudioClip a = Resources.Load<AudioClip>("Sounds/TriviaSounds/coins");
+            GetComponent<AudioSource>().clip = a;
+            //GetComponent<AudioSource>().time = 0.8f + Random.value / 10f;
+            GetComponent<AudioSource>().Play();
+
             if (question == 3)
             {
                 Invoke("changeToEnd", 3f);

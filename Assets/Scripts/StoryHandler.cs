@@ -45,9 +45,12 @@ public class StoryHandler : MonoBehaviour {
 	void Start () {
         StoryGenerator gen = GameObject.Find("StoryStuff").GetComponent<StoryGenerator>();
         int story_number = PlayerPrefs.GetInt("StoryNumber");
+        Debug.Log("Story Number " + story_number);
         story = gen.generate_story();
         string[] pieces = { story.story_1, story.story_2, story.story_3, story.story_4 };
+        Debug.Log("Story Number " + story_number);
         story_string = pieces[story_number];
+        Debug.Log("Story Number " + story_number);
         PlayerPrefs.SetInt("StoryNumber", story_number + 1);
         text = GameObject.Find("StoryText").GetComponent<Text>();
         story_sentences = get_sentences(story_string);

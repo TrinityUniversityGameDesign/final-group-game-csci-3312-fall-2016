@@ -70,8 +70,6 @@ public class TriviaPlayer : MonoBehaviour
         {
             if (answered)
             {
-                
-
                 if (sTime == -1)
                     sTime = 0;
                 sTime += Time.deltaTime;
@@ -81,9 +79,10 @@ public class TriviaPlayer : MonoBehaviour
             }
             if (controller.questionIsDone())
             {
-                AudioClip a = Resources.Load<AudioClip>("Sounds/TriviaSounds/coins");
-                GetComponent<AudioSource>().PlayOneShot(a);
-
+                if(playerNumber == 1)
+                {
+                    
+                }
                 check.sprite = Button.sprite;
                 preScore += scoreFromQuestion;
                 if (PlayerPrefs.GetInt(playerStringHighest) < scoreFromQuestion)
