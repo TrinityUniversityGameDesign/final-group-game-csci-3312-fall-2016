@@ -2025,6 +2025,11 @@ Prefab:
       propertyPath: txt_Name
       value: 
       objectReference: {fileID: 1341227912}
+    - target: {fileID: 114000010198875096, guid: 5ddc2f8e03ef3fc438306ac348a5df35,
+        type: 2}
+      propertyPath: next_scene
+      value: Scenes/UsingTilesStory
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ddc2f8e03ef3fc438306ac348a5df35, type: 2}
   m_IsPrefabParent: 0

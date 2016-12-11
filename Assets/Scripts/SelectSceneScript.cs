@@ -15,6 +15,9 @@ public class SelectSceneScript : MonoBehaviour {
 
 	public string color = "";
 
+    // Default, should be set final.
+    public string next_scene = "Scenes/UsingTilesStory";
+
 	public GameObject player1 = null;
 	public GameObject player2 = null;
 	public GameObject player3 = null;
@@ -282,7 +285,7 @@ public class SelectSceneScript : MonoBehaviour {
 				gameCont.players [4] = gameCont.player4_in;
 			}
 			//should happen after timer goes off for player names
-			SceneManager.LoadSceneAsync ("Scenes/IntroScene");
+			SceneManager.LoadSceneAsync (next_scene);
 		}
 
 
