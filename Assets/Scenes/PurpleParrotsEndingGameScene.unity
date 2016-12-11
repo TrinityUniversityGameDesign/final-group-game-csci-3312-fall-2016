@@ -521,18 +521,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 507880579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2339a1cb64d84814a41292684d540ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 090b3d642de92f84c908ae62f2e28979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1_rank: 0
-  player2_rank: 0
-  player3_rank: 0
-  player4_rank: 0
+  player1_rank: 1
+  player2_rank: 2
+  player3_rank: 3
+  player4_rank: 4
   column1_adj: 0
   column2_adj: 0
   column3_adj: 0
   column4_adj: 0
-  goalHeight: 4.2
+  goalHeight: -3.5
 --- !u!1001 &816163462
 Prefab:
   m_ObjectHideFlags: 0
