@@ -49,8 +49,8 @@ public class TriviaWinning : MonoBehaviour
 
 
 
-        TotalScore.text = "Highest Score \n" + getHighest(Player1Score, Player2Score, Player3Score, Player4Score).ToString() + whichPlayer;
-        Fastest.text = "Fastest Correct Answer \n" + getHighest(Player1Fastest, Player2Fastest, Player3Fastest, Player4Fastest).ToString() + whichPlayer;
+        TotalScore.text = "Highest Score \n" + getHighest(Player1Score, Player2Score, Player3Score, Player4Score,5).ToString() + whichPlayer;
+        Fastest.text = "Fastest Correct Answer \n" + getHighest(Player1Fastest, Player2Fastest, Player3Fastest, Player4Fastest,3).ToString() + whichPlayer;
         Slowest.text = "Slowest Correct Answer \n"  + getLowest(Player1Slowest, Player2Slowest, Player3Slowest, Player4Slowest).ToString() + whichPlayer;
 
 
@@ -64,28 +64,36 @@ public class TriviaWinning : MonoBehaviour
             SceneManager.LoadScene("scene1");
         }
     }
-    int getHighest(int a, int b, int c, int d)
+    int getHighest(int a, int b, int c, int d, int e)
     {
         if (a > b && a > c && a > d && a > 0)
         {
-            whichPlayer = "\nPlayer 1";
+            whichPlayer = PlayerPrefs.GetString("Player1_Name");
+            int temp = PlayerPrefs.GetInt("Player1_Score");
+            PlayerPrefs.SetInt("Player1_Score", temp + e);
             return a;
         }
         else if (b > a && b > c && b > d && b > 0)
         {
-            whichPlayer = "\nPlayer 2";
+            whichPlayer = PlayerPrefs.GetString("Player2_Name");
+            int temp = PlayerPrefs.GetInt("Player2_Score");
+            PlayerPrefs.SetInt("Player2_Score", temp + e);
             return b;
 
         }
         else if (c > a && c > b && c > d && c > 0)
         {
-            whichPlayer = "\nPlayer 3";
+            whichPlayer = PlayerPrefs.GetString("Player3_Name");
+            int temp = PlayerPrefs.GetInt("Player3_Score");
+            PlayerPrefs.SetInt("Player3_Score", temp + e);
             return c;
 
         }
         else
         {
-            whichPlayer = "\nPlayer 4";
+            whichPlayer = PlayerPrefs.GetString("Player4_Name");
+            int temp = PlayerPrefs.GetInt("Player4_Score");
+            PlayerPrefs.SetInt("Player4_Score", temp + e);
             return d;
         }
     }
@@ -99,27 +107,34 @@ public class TriviaWinning : MonoBehaviour
             c = 1001;
         if (d == 0)
             d = 1001;
-        Debug.Log("a = " + a.ToString() + "b - " + b.ToString() + "C = " + c.ToString() + "d = " + d.ToString());
         if (a < b && a < c && a < d)
         {
-            whichPlayer = "\nPlayer 1";
+            whichPlayer = PlayerPrefs.GetString("Player1_Name");
+            int temp = PlayerPrefs.GetInt("Player1_Score");
+            PlayerPrefs.SetInt("Player1_Score", temp + 1);
             return a;
         }
         else if (b < a && b < c && b < d)
         {
-            whichPlayer = "\nPlayer 2";
+            whichPlayer = PlayerPrefs.GetString("Player2_Name");
+            int temp = PlayerPrefs.GetInt("Player2_Score");
+            PlayerPrefs.SetInt("Player2_Score", temp + 1);
             return b;
 
         }
         else if (c < a && c < b && c < d)
         {
-            whichPlayer = "\nPlayer 3";
+            whichPlayer = PlayerPrefs.GetString("Player3_Name");
+            int temp = PlayerPrefs.GetInt("Player3_Score");
+            PlayerPrefs.SetInt("Player3_Score", temp + 1);
             return c;
 
         }
         else
         {
-            whichPlayer = "\nPlayer 4";
+            whichPlayer = PlayerPrefs.GetString("Player4_Name");
+            int temp = PlayerPrefs.GetInt("Player4_Score");
+            PlayerPrefs.SetInt("Player4_Score", temp + 1);
             return d;
         }
     }
