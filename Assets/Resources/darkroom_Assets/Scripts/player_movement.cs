@@ -13,10 +13,20 @@ public class player_movement : MonoBehaviour {
     Text keyName;
     public int keyOwn = 0;
     private ArrayList toBeLockedDoors;
+    AudioSource[] sounds;
+    AudioSource footStep;
+    AudioSource pickupkey;
+
 
 
 	// Use this for initialization
-	void Start () {        
+	void Start () {
+        float orientation = Mathf.Floor(Random.Range(0f, 3.9f));
+        orientation *= 90f;
+        //Camera one = Camera.main;
+        Camera.main.transform.rotation = Quaternion.Euler(0f, 0f, orientation);
+        player.transform.rotation = Quaternion.Euler(0f, 0f, orientation);
+
 		rigid_body = GetComponent<Rigidbody2D>();		
 		player_pos = player.transform.position;  
 		if (this.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
@@ -26,6 +36,10 @@ public class player_movement : MonoBehaviour {
 		keyScore = GameObject.Find ("KeyScore").GetComponent<Text> ();
         keyName = GameObject.Find("KeyName").GetComponent<Text>();
         keyName.text = "Artifacts:";
+
+        sounds = GetComponents<AudioSource>();
+        footStep = sounds[0];
+        pickupkey = sounds[1];
     }
 
 	// Update is called once per frame
@@ -34,7 +48,18 @@ public class player_movement : MonoBehaviour {
 		float translation_X = Input.GetAxis ("Horizontal_P" + controller) * speed;
 		float translation_Y = Input.GetAxis ("Vertical_P" + controller) * speed;
         rigid_body.velocity = new Vector2(translation_X, translation_Y);
-		player_pos = player.transform.position;
+        Vector3 old_position = player_pos;
+        player_pos = player.transform.position;
+
+        if(old_position != player_pos)
+        {
+            footStep.Play();
+        }
+        else
+        {
+            footStep.Stop();
+        }
+
 
 		if (this.gameObject.GetComponentInChildren<Light> ().range < 3) {
 			//Application.LoadLevel (1);
@@ -56,11 +81,14 @@ public class player_movement : MonoBehaviour {
             other.gameObject.SetActive(false);
             keyOwn += 1;
 			keyScore.text = keyOwn.ToString () + "/3";
-        } else if(other.gameObject.layer == LayerMask.NameToLayer("DoorCombo"))
+            pickupkey.Play();
+        }
+        else if(other.gameObject.layer == LayerMask.NameToLayer("DoorCombo"))
         {
             other.gameObject.GetComponent<doorComboScript>().OpenDoor();
             toBeLockedDoors.Add(other.gameObject);
-		} else if (other.gameObject.layer == LayerMask.NameToLayer("Portal"))
+		}
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Portal"))
 		{
 			if (keyOwn >= 3) {
 				SceneManager.LoadScene("Player_wins");
