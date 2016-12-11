@@ -22,6 +22,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	private string dashButton;
 
 	public GameObject deathSprite;
+    public GameObject ScoreManager;
 
     private Animator animationController;
 
@@ -135,4 +136,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	public bool IsDead(){
 		return isDead;
 	}
+    public void SendWinner() {
+        ScoreManager.GetComponent<ScoreManager>().SetWinner(gameObject);
+    }
 }
