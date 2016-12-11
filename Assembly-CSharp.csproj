@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\IntroControllerScript.cs" />
+     <Compile Include="Assets\JacketIntroCameraScript.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\dim_light.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\doorComboScript.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\enemy_movement.cs" />
@@ -53,7 +55,6 @@
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\player_movement.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\portal.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\rb_movement.cs" />
-     <Compile Include="Assets\Scenes\edgeTilerScript.cs" />
      <Compile Include="Assets\Scripts\AirBarScript.cs" />
      <Compile Include="Assets\Scripts\BobbingTerrain.cs" />
      <Compile Include="Assets\Scripts\ButtonScript.cs" />
@@ -78,6 +79,7 @@
      <Compile Include="Assets\Scripts\TriviaPlayer.cs" />
      <Compile Include="Assets\Scripts\TriviaWinning.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
+     <Compile Include="Assets\Scripts\edgeTilerScript.cs" />
      <Compile Include="Assets\crosstales\RTVoice\Demo\Scripts\Dialog.cs" />
      <Compile Include="Assets\crosstales\RTVoice\Demo\Scripts\GUIAudioFilter.cs" />
      <Compile Include="Assets\crosstales\RTVoice\Demo\Scripts\GUIDialog.cs" />
