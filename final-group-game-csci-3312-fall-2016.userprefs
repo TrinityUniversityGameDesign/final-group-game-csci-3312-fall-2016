@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/IntroControllerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PPDefScript.cs">
     <Files>
-      <File FileName="Assets/JacketIntroCameraScript.cs" Line="21" Column="1" />
-      <File FileName="Assets/IntroControllerScript.cs" Line="20" Column="1" />
-      <File FileName="Assets/Scripts/PlayerMovement_Jacket.cs" Line="60" Column="10" />
-      <File FileName="Assets/Scripts/JacketScript.cs" Line="42" Column="6" />
+      <File FileName="Assets/Scripts/ScoreRoundManagerScript.cs" Line="19" Column="30" />
+      <File FileName="Assets/Scripts/PlayerMovement_Jacket.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/JacketScript.cs" Line="103" Column="74" />
+      <File FileName="Assets/PPDefScript.cs" Line="6" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
