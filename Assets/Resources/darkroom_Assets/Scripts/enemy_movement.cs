@@ -9,6 +9,8 @@ public class enemy_movement : MonoBehaviour {
     public GameObject player;
     Vector3 player_pos;
     public GlobalPlayerControllerScript gameCont;
+    //  public int mapOrientation;
+    Color tmpColor;
 
 
     // Use this for initialization
@@ -16,7 +18,12 @@ public class enemy_movement : MonoBehaviour {
     {
         rigid_body = GetComponent<Rigidbody2D>();
         player_pos = player.transform.position;
+        gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
+        // player.transform.rotation = Quaternion.Euler(0f, 0f, mapOrientation);
+        ColorUtility.TryParseHtmlString(PlayerPrefs.GetString("player" + gameCont.players[controller]+"_color"), out tmpColor);
 
+        //transform.FindChild("enemyLight").GetComponent<Light>().color = tmpColor;
+        GetComponentInChildren<Light>().color = tmpColor;
     }
 
     // Update is called once per frame
@@ -25,6 +32,27 @@ public class enemy_movement : MonoBehaviour {
 
         float translation_X = Input.GetAxis(gameCont.players[controller].hor) * speed;
         float translation_Y = Input.GetAxis(gameCont.players[controller].vert) * speed;
+  /*      switch ((int)mapOrientation)
+        {
+            case 0:
+                translation_X = translation_X;
+                translation_Y = translation_Y;
+                break;
+            case 90:
+                float transx = translation_X;
+                translation_X = translation_Y;
+                translation_Y = -transx;
+                break;
+            case 180:
+                translation_X = -translation_X;
+                translation_Y = -translation_Y;
+                break;
+            case 270:
+                float transx2 = translation_X;
+                translation_X = -translation_Y;
+                translation_Y = transx2;
+                break;
+        }*/
         rigid_body.velocity = new Vector2(translation_X, translation_Y);
         player_pos = player.transform.position;
 

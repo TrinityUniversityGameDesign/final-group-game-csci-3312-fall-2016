@@ -14,7 +14,7 @@ public class player_movement : MonoBehaviour {
     public int keyOwn = 0;
     private ArrayList toBeLockedDoors;
     private Queue lockedDoors;
-    private float mapOrientation;
+   // private float mapOrientation;
 
     AudioSource[] sounds;
     AudioSource footStep;
@@ -31,10 +31,13 @@ public class player_movement : MonoBehaviour {
     void Start () {
         float orientation = Mathf.Floor(Random.Range(0f, 3.9f));
         orientation *= 90f;
-        mapOrientation = orientation;
+       /* mapOrientation = orientation;
+        GameObject.Find("orange_enemy").GetComponent<enemy_movement>().mapOrientation = (int) mapOrientation;
+        GameObject.Find("Enemy (1)").GetComponent<enemy_movement>().mapOrientation = (int)mapOrientation;
+        GameObject.Find("Enemy (2)").GetComponent<enemy_movement>().mapOrientation = (int)mapOrientation;*/
         //Camera one = Camera.main;
-        Camera.main.transform.rotation = Quaternion.Euler(0f, 0f, orientation);
-        player.transform.rotation = Quaternion.Euler(0f, 0f, orientation);
+    /*    Camera.main.transform.rotation = Quaternion.Euler(0f, 0f, orientation);
+        player.transform.rotation = Quaternion.Euler(0f, 0f, orientation);*/
 
 		rigid_body = GetComponent<Rigidbody2D>();		
 		player_pos = player.transform.position;  
@@ -64,6 +67,7 @@ public class player_movement : MonoBehaviour {
         if (p2score > max)
         {
             GameObject.Find("orange_enemy").GetComponent<enemy_movement>().controller = controller;
+            GameObject.Find("orange_enemy").GetComponent<flash>().controller = controller;
             max = p2score;
             //enemyControllers.Push (controller);
             controller = 2;
@@ -71,10 +75,12 @@ public class player_movement : MonoBehaviour {
         else
         {
             GameObject.Find("orange_enemy").GetComponent<enemy_movement>().controller = 2;
+            GameObject.Find("orange_enemy").GetComponent<flash>().controller = 2;
         }
         if (p3score > max)
         {
             GameObject.Find("Enemy (1)").GetComponent<enemy_movement>().controller = controller;
+            GameObject.Find("Enemy (1)").GetComponent<flash>().controller = controller;
             max = p3score;
             controller = 3;
 
@@ -82,17 +88,20 @@ public class player_movement : MonoBehaviour {
         else
         {
             GameObject.Find("Enemy (1)").GetComponent<enemy_movement>().controller = 3;
+            GameObject.Find("Enemy (1)").GetComponent<flash>().controller = 3;
         }
 
         if (p4score > max)
         {
             GameObject.Find("Enemy (2)").GetComponent<enemy_movement>().controller = controller;
+            GameObject.Find("Enemy (2)").GetComponent<flash>().controller = controller;
             max = p4score;
             controller = 4;
         }
         else
         {
             GameObject.Find("Enemy (2)").GetComponent<enemy_movement>().controller = 4;
+            GameObject.Find("Enemy (2)").GetComponent<flash>().controller = 4;
         }
 
 
@@ -109,7 +118,7 @@ public class player_movement : MonoBehaviour {
 
         //        float translation_X = Input.GetAxis ("Horizontal_P" + controller) * speed;
         //        float translation_Y = Input.GetAxis ("Vertical_P" + controller) * speed;
-        Debug.Log(mapOrientation);
+     /*   Debug.Log(mapOrientation);
         switch ((int)mapOrientation)
         {
             case 0:
@@ -117,19 +126,21 @@ public class player_movement : MonoBehaviour {
                 translation_Y = translation_Y;
                 break;
             case 90:
+                float transx = translation_X;
                 translation_X = translation_Y;
-                translation_Y = -translation_X;
+                translation_Y = -transx;
                 break;
             case 180:
                 translation_X = -translation_X;
                 translation_Y = -translation_Y;
                 break;
             case 270:
+                float transx2 = translation_X;
                 translation_X = -translation_Y;
-                translation_Y = translation_X;
+                translation_Y = transx2;
                 break;
         }
-
+        */
 
         rigid_body.velocity = new Vector2(translation_X, translation_Y);
         Vector3 old_position = player_pos;
