@@ -63,7 +63,7 @@ public class ScoreRoundManagerScript : MonoBehaviour {
         float maxLogoSize = 38f;
         while (logo.transform.localScale.x < maxLogoSize)
         {
-            float growFactor = 1+70*(logo.transform.localScale.x / maxLogoSize);
+            float growFactor = 1+200*(logo.transform.localScale.x / maxLogoSize);
             logo.transform.localScale += new Vector3(0.01f*growFactor, 0.01f*growFactor, 0.0f);
             yield return new WaitForSeconds(0.001f);
         }
