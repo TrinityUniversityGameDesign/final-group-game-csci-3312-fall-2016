@@ -10,6 +10,7 @@ public class player_movement : MonoBehaviour {
 	public GameObject player;
 	Vector3 player_pos;
 	Text keyScore;
+    Text keyName;
     public int keyOwn = 0;
     private ArrayList toBeLockedDoors;
 
@@ -23,8 +24,9 @@ public class player_movement : MonoBehaviour {
 		}
         toBeLockedDoors = new ArrayList();
 		keyScore = GameObject.Find ("KeyScore").GetComponent<Text> ();
-
-	}
+        keyName = GameObject.Find("KeyName").GetComponent<Text>();
+        keyName.text = "Artifacts:";
+    }
 
 	// Update is called once per frame
 	void Update () {
