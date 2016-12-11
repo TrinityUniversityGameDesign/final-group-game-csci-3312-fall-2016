@@ -82,10 +82,16 @@ public class MemoryDisplay : MonoBehaviour {
     void Start() {
 
         sneaky = GameObject.Find("Sneaky");
-        TeachBoard = GameObject.Find("TeachBoard");
+    
+		borderReg = Resources.Load ("Sprites/l0_board_1", typeof(Sprite)) as Sprite;
+		borderTime = Resources.Load ("Sprites/l0_board_2", typeof(Sprite)) as Sprite;
+		BGReg = Resources.Load ("Sprites/l1_board_1", typeof(Sprite)) as Sprite;
+		BGTime = Resources.Load ("Sprites/l1_board_2", typeof(Sprite)) as Sprite;
+
+		TeachBoard = GameObject.Find("TeachBoard");
         TeachColumn = GameObject.Find("TeachColumn");
         TeachString = PlayerPrefs.GetString("font_name");
-       // TeachBoard.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
+        // TeachBoard.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
         // TeachColumn.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
 		
 		numPlayers = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GlobalPlayerControllerScript> ().num_players;
@@ -116,10 +122,10 @@ public class MemoryDisplay : MonoBehaviour {
 
         // checks to see if a player is alive; if it is alive, rank is incremented
 		rankCount = 0;
-		if(player1.GetComponent<PlayerScript> ().alive) { rankCount++; }
-		if(player2.GetComponent<PlayerScript> ().alive) { rankCount++; }
-		if(player3.GetComponent<PlayerScript> ().alive) { rankCount++; }
-		if(player4.GetComponent<PlayerScript> ().alive) { rankCount++; }
+		if(player1.activeSelf) { rankCount++; }
+		if(player2.activeSelf) { rankCount++; }
+		if(player3.activeSelf) { rankCount++; }
+		if(player4.activeSelf) { rankCount++; }
 		
         boardBorder = GameObject.Find("board border");
         boardBG = GameObject.Find("board background");
@@ -138,13 +144,6 @@ public class MemoryDisplay : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(SceneManager.GetActiveScene().name == "IntroScene")
-		{
-			if(Input.GetButtonDown(gameCont.player1_in.ABut))
-			{
-				SceneManager.LoadScene(6);
-			}
-		}
 		if (first) {
             borderSR.sprite = borderReg;
             BGSR.sprite = BGReg;
@@ -222,7 +221,19 @@ public class MemoryDisplay : MonoBehaviour {
 		fourth = false;
 		yield return new WaitForSeconds (delay);
 		RemoveButtons ();
-		if (numAlive == 0) {
+		if (numAlive <= 1) {
+			if (player1.GetComponent<PlayerScript> ().alive) {
+				sneaky.GetComponent<SneakyScript> ().p1Rank = 1;
+			}
+			if (player2.GetComponent<PlayerScript> ().alive) {
+				sneaky.GetComponent<SneakyScript> ().p2Rank = 1;
+			}
+			if (player3.activeSelf && player3.GetComponent<PlayerScript> ().alive) {
+				sneaky.GetComponent<SneakyScript> ().p3Rank = 1;
+			}
+			if (player4.activeSelf && player4.GetComponent<PlayerScript> ().alive) {
+				sneaky.GetComponent<SneakyScript> ().p4Rank = 1;
+			}
 			endScene = true;
 		} else {
 			first = true;
@@ -244,52 +255,48 @@ public class MemoryDisplay : MonoBehaviour {
 		}
 	}
 
-	void DamagePlayer(GameObject player,GameObject column){
+	void DamagePlayer(GameObject player,GameObject column,int pnum){
 		float loss = (float)compareInputs (player.GetComponent<PlayerScript> ().InputList, InputList).Count;
 		player.GetComponent<PlayerScript>().health -= loss;
 		column.transform.position = new Vector3(column.transform.position.x, column.transform.position.y - .5f * loss, column.transform.position.z);
-		if (player.GetComponent<PlayerScript> ().health < 0) {
+		if (player.GetComponent<PlayerScript> ().health <= 0) {
 			numAlive--;
+			player.GetComponent<PlayerScript> ().alive = false;
+			if (pnum == 1) {
+				sneaky.GetComponent<SneakyScript>().p1Rank = rankCount;
+				player.GetComponent<PlayerScript> ().rank = rankCount;
+			}
+			if (pnum == 2) {
+				sneaky.GetComponent<SneakyScript>().p2Rank = rankCount;
+				player2.GetComponent<PlayerScript> ().rank = rankCount;
+			}
+			if (pnum == 3) {
+				sneaky.GetComponent<SneakyScript>().p3Rank = rankCount;
+				player3.GetComponent<PlayerScript> ().rank = rankCount;
+			}
+			if (pnum == 4) {
+				sneaky.GetComponent<SneakyScript>().p4Rank = rankCount;
+				player4.GetComponent<PlayerScript> ().rank = rankCount;
+			}
+			rankCount -= 1;
 		}
 	}
 	
 	void DamagePlayers(){
 		if(player1.activeSelf && player1.GetComponent<PlayerScript>().alive){
-			DamagePlayer(player1, GameObject.Find("Column1"));
+			DamagePlayer(player1, GameObject.Find("Column1"),1);
 		}
 		if(player2.activeSelf && player2.GetComponent<PlayerScript>().alive){
-			DamagePlayer(player2, GameObject.Find("Column2"));
+			DamagePlayer(player2, GameObject.Find("Column2"),2);
 		}
 		if(player3.activeSelf && player3.GetComponent<PlayerScript>().alive){
-			DamagePlayer(player3, GameObject.Find("Column3"));
+			DamagePlayer(player3, GameObject.Find("Column3"),3);
 		}
 		if(player4.activeSelf && player4.GetComponent<PlayerScript>().alive){
-			DamagePlayer(player4, GameObject.Find("Column4"));
+			DamagePlayer(player4, GameObject.Find("Column4"),4);
 		}
 		// if a player is not alive after receiving damage, it has died and should recieve a ranking
-		int count = 0;
-
-		if (player1.activeSelf && player1.GetComponent<PlayerScript> ().alive == false) {
-            sneaky.GetComponent<SneakyScript>().p1Rank = rankCount;
-			player1.GetComponent<PlayerScript> ().rank = rankCount;
-			count++;
-		}
-		if (player1.activeSelf && player2.GetComponent<PlayerScript> ().alive == false) {
-            sneaky.GetComponent<SneakyScript>().p2Rank = rankCount;
-            player2.GetComponent<PlayerScript> ().rank = rankCount;
-			count++;
-		}
-		if (player1.activeSelf && player3.GetComponent<PlayerScript> ().alive == false) {
-            sneaky.GetComponent<SneakyScript>().p3Rank = rankCount;
-            player3.GetComponent<PlayerScript> ().rank = rankCount;
-			count++;
-		}
-		if (player1.activeSelf && player4.GetComponent<PlayerScript> ().alive == false) {
-            sneaky.GetComponent<SneakyScript>().p4Rank = rankCount;
-            player4.GetComponent<PlayerScript> ().rank = rankCount;
-			count++;
-		}
-		rankCount -= count; // ranking is decremented after player(s) is ranked
+		// ranking is decremented after player(s) is ranked
 	}
 	
 	void playerListCount(int playerListCount, Text countText)

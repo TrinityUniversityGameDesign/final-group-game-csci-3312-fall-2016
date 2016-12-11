@@ -959,9 +959,13 @@ MonoBehaviour:
   Player4ButtonCount: {fileID: 2027989381}
   RandomInputText: {fileID: 771407207}
   OutputText: {fileID: 1865086763}
+  numPlayers: 0
+  numAlive: 0
   first: 0
   second: 0
   third: 0
+  fourth: 0
+  endScene: 0
   butsAlive: 0
   gameCont: {fileID: 0}
 --- !u!1001 &1142426919
@@ -1124,6 +1128,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4000013134043018, guid: 9503921380a38d640a3425a3a3ad8511, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012967135088, guid: 9503921380a38d640a3425a3a3ad8511, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000014081497626, guid: 9503921380a38d640a3425a3a3ad8511,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6f2b676ce4eb523488026e2fe959be34,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9503921380a38d640a3425a3a3ad8511, type: 2}
   m_IsPrefabParent: 0
@@ -1482,6 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d260999d04fdc6040b8beb5f4dfcc8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sneak: {fileID: 0}
   p1Rank: 0
   p2Rank: 0
   p3Rank: 0

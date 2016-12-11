@@ -22,28 +22,20 @@ public class SneakyScript : MonoBehaviour {
 		} else {
 			Destroy (this);
 		}
+		player1 = GameObject.FindGameObjectWithTag("Player1");
+		player2 = GameObject.FindGameObjectWithTag("Player2");
+		player3 = GameObject.FindGameObjectWithTag("Player3");
+		player4 = GameObject.FindGameObjectWithTag("Player4");
+
 	}
 
     void Start () {
-
-        player1 = GameObject.FindGameObjectWithTag("Player1");
-        player2 = GameObject.FindGameObjectWithTag("Player2");
-        player3 = GameObject.FindGameObjectWithTag("Player3");
-        player4 = GameObject.FindGameObjectWithTag("Player4");
- 
-        if (player1 == null) {
-           // player1.GetComponent<PlayerScript>().rank = -1;
-            p1Rank = -1;
-        }
-        if (player2 == null) {
-            //player2.GetComponent<PlayerScript>().rank = -1;
-            p2Rank = -1;
-        }
-        if (player3 == null) {
+		
+		if (!player3.activeSelf) {
            //player3.GetComponent<PlayerScript>().rank = -1;
             p3Rank = -1;
         }
-        if (player4 == null) {
+		if (!player4.activeSelf) {
             //player4.GetComponent<PlayerScript>().rank = -1;
             p4Rank = -1;
         }

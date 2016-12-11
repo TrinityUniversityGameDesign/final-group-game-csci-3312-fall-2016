@@ -4,6 +4,16 @@ using UnityEngine.UI;
 
 public class PurpleParrotsEndingSceneScoring : MonoBehaviour {
 
+	public GameObject Player1;
+	public GameObject Player2;
+	public GameObject Player3;
+	public GameObject Player4;
+
+	public int num_players;
+
+	public string hexColor;
+	public Color player_color;
+
 	public int player1_rank = 1;
 	public int player2_rank = 2;
 	public int player3_rank = 3;
@@ -16,23 +26,53 @@ public class PurpleParrotsEndingSceneScoring : MonoBehaviour {
 
 	public float goalHeight = -3.5f; //height of 1st ranked column;
 
-	public string font = PlayerPrefs.GetString("font_name");
+	public string font;
 	public Text winningString;
+
+	void Awake(){
+		font = PlayerPrefs.GetString("font_name");
+		num_players = PlayerPrefs.GetInt ("NumPlayers");
+		Player1 = GameObject.FindGameObjectWithTag ("Player1");
+		Player2 = GameObject.FindGameObjectWithTag ("Player2");
+		Player3 = GameObject.FindGameObjectWithTag ("Player3");
+		Player4 = GameObject.FindGameObjectWithTag ("Player4");
+
+		if (num_players == 2) {
+			Player3.SetActive (false);
+			Player4.SetActive (false);
+		
+			hexColor = PlayerPrefs.GetString ("player1_color");
+			ColorUtility.TryParseHtmlString (hexColor,out player_color);
+			Player1.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color = player_color;
+
+			hexColor = PlayerPrefs.GetString ("player2_color");
+			ColorUtility.TryParseHtmlString (hexColor,out player_color);
+			Player2.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color = player_color;
+		
+		} else if (num_players == 3) {
+			Player4.SetActive (false);
+
+			hexColor = PlayerPrefs.GetString ("player3_color");
+			ColorUtility.TryParseHtmlString (hexColor,out player_color);
+			Player3.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color = player_color;
+		} else if (num_players == 4) {
+
+			hexColor = PlayerPrefs.GetString ("player4_color");
+			ColorUtility.TryParseHtmlString (hexColor,out player_color);
+			Player4.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color = player_color;
+		}
+			
+	}
 
 	// Use this for initialization
 	void Start () {
-		GameObject sneakyFinds = GameObject.FindGameObjectWithTag("Player1");
+		GameObject sneakyFinds = GameObject.Find("Sneaky");
 		//winningString.font = Resources.Load<Font>(font);
 
 		player1_rank = sneakyFinds.GetComponent<SneakyScript>().p1Rank;
 		player2_rank = sneakyFinds.GetComponent<SneakyScript>().p2Rank;
 		player3_rank = sneakyFinds.GetComponent<SneakyScript>().p3Rank;
 		player4_rank = sneakyFinds.GetComponent<SneakyScript>().p4Rank;
-
-		player1_rank = 1;
-		player2_rank = 4;
-		player3_rank = 2;
-		player4_rank = 2;
 
 		int p1 = PlayerPrefs.GetInt("player1_score");
 		int p2 = PlayerPrefs.GetInt("player2_score");
@@ -117,12 +157,10 @@ public class PurpleParrotsEndingSceneScoring : MonoBehaviour {
 			column1.transform.position = new Vector3 (column1.transform.position.x, column1.transform.position.y + .05f, column1.transform.position.z);
 		}
 		if (column2.transform.position.y <= column2_adj && (player2_rank != -1)) {
-
 			column2.transform.position = new Vector3 (column2.transform.position.x, column2.transform.position.y + .05f, column2.transform.position.z);
 			//column2_adj += .05f;
 		}
 		if (column3.transform.position.y <= column3_adj && (player3_rank != -1)) {
-
 			column3.transform.position = new Vector3(column3.transform.position.x, column3.transform.position.y + .05f, column3.transform.position.z);
 			//column3_adj += .05f;
 		}
