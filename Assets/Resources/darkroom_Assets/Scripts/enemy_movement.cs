@@ -8,6 +8,9 @@ public class enemy_movement : MonoBehaviour {
     private Rigidbody2D rigid_body;
     public GameObject player;
     Vector3 player_pos;
+    public GlobalPlayerControllerScript gameCont;
+    //  public int mapOrientation;
+    Color tmpColor;
 
 
     // Use this for initialization
@@ -15,15 +18,42 @@ public class enemy_movement : MonoBehaviour {
     {
         rigid_body = GetComponent<Rigidbody2D>();
         player_pos = player.transform.position;
+        gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
+        // player.transform.rotation = Quaternion.Euler(0f, 0f, mapOrientation);
+        ColorUtility.TryParseHtmlString(PlayerPrefs.GetString("player" +controller+"_color"), out tmpColor);
 
+        //transform.FindChild("enemyLight").GetComponent<Light>().color = tmpColor;
+        GetComponentInChildren<Light>().color = tmpColor;
+        Debug.Log(tmpColor);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        float translation_X = Input.GetAxis("Horizontal_P" + controller) * speed;
-        float translation_Y = Input.GetAxis("Vertical_P" + controller) * speed;
+        float translation_X = Input.GetAxis(gameCont.players[controller].hor) * speed;
+        float translation_Y = Input.GetAxis(gameCont.players[controller].vert) * speed;
+  /*      switch ((int)mapOrientation)
+        {
+            case 0:
+                translation_X = translation_X;
+                translation_Y = translation_Y;
+                break;
+            case 90:
+                float transx = translation_X;
+                translation_X = translation_Y;
+                translation_Y = -transx;
+                break;
+            case 180:
+                translation_X = -translation_X;
+                translation_Y = -translation_Y;
+                break;
+            case 270:
+                float transx2 = translation_X;
+                translation_X = -translation_Y;
+                translation_Y = transx2;
+                break;
+        }*/
         rigid_body.velocity = new Vector2(translation_X, translation_Y);
         player_pos = player.transform.position;
 
