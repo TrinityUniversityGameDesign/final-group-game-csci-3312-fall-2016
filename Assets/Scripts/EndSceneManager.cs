@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndSceneManager : MonoBehaviour {
 
@@ -63,6 +64,7 @@ public class EndSceneManager : MonoBehaviour {
 		if (Input.GetButtonDown ("A_P1")) {
 			Destroy (alldat);
 		}
+		SceneManager.LoadScene ("UsingTilesStory");
 
 	}
 
