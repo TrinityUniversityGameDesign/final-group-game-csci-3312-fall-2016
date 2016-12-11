@@ -56,7 +56,10 @@ public class JacketScript : MonoBehaviour
         }
         if (Input.GetButtonDown(explodeBtn))
         {
-            Explode();
+			Debug.Log(jacketScale);
+			if (jacketScale > 1) {
+				Explode ();
+			}
         }
 		if (jacketScale > startJacketScale) {
 			ConstantDeflate ();
