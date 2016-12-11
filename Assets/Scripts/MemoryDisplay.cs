@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum Buttons { A, B, X, Y }; // buttons that can be recognized
 
@@ -13,20 +14,39 @@ public class MemoryDisplay : MonoBehaviour {
 	public List<Buttons> PlayerList2 = new List<Buttons>();
 	public List<Buttons> PlayerList3 = new List<Buttons>();
 	public List<Buttons> PlayerList4 = new List<Buttons>();
+
 	public List<int> ReturnList1 = new List<int>();
 	public List<int> ReturnList2 = new List<int>();
 	public List<int> ReturnList3 = new List<int>();
 	public List<int> ReturnList4 = new List<int>();
 
 	public int numButtons = 5; // records how many 'rounds' have occured during the game
-
+	public int rankCount;
+	
     float displayTime = 2f;
+    float timeBarPos = 0f;
+
+    GameObject sneaky;
 	public GameObject player1 = null;
 	public GameObject player2 = null;
 	public GameObject player3 = null;
 	public GameObject player4 = null;
+	GameObject TeachBoard;
+    GameObject TeachColumn;
+    string TeachString;
 
-	public Object aButton;
+    public GameObject boardBorder;
+    public GameObject boardBG;
+    public GameObject timerBar;
+    public SpriteRenderer borderSR;
+    public SpriteRenderer BGSR;
+    public SpriteRenderer timerSR;
+    public Sprite borderReg;
+    public Sprite borderTime;
+    public Sprite BGReg;
+    public Sprite BGTime;
+
+    public Object aButton;
 	public Object bButton;
 	public Object yButton;
 	public Object xButton;
@@ -34,6 +54,10 @@ public class MemoryDisplay : MonoBehaviour {
 
 	public Vector3 curButtonPos;
 
+	public Text Player1ButtonCount;
+    public Text Player2ButtonCount;
+    public Text Player3ButtonCount;
+    public Text Player4ButtonCount;
     public Text RandomInputText;
 	public Text OutputText;
     Vector3 ColumnPos1;
@@ -41,14 +65,28 @@ public class MemoryDisplay : MonoBehaviour {
     Vector3 ColumnPos3;
     Vector3 ColumnPos4;
 
+	public int numPlayers;
+
     // bools used to determine what stage of the round it is
     public bool first = false; // 1st stage - display memory list, no input
 	public bool second = false; // 2nd stage - hide memory list, player input
 	public bool third = false; // 3rd stage - show both lists, comparison
     public bool butsAlive = false;
     int x = 0; // temp display number
-               // Use this for initialization
+	public GlobalPlayerControllerScript gameCont;
+	
+    // Use this for initialization
     void Start() {
+
+        sneaky = GameObject.Find("Sneaky");
+        TeachBoard = GameObject.Find("TeachBoard");
+        TeachColumn = GameObject.Find("TeachColumn");
+        TeachString = PlayerPrefs.GetString("font_name");
+       // TeachBoard.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
+        // TeachColumn.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
+		
+		numPlayers = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GlobalPlayerControllerScript> ().num_players;
+
         curButtonPos = new Vector3(-7, 0, 0);
         aButton = Resources.Load("Prefabs/aButton");
         bButton = Resources.Load("Prefabs/bButton");
@@ -57,29 +95,76 @@ public class MemoryDisplay : MonoBehaviour {
         qButton = Resources.Load("Prefabs/qButton");
 
         player1 = GameObject.FindGameObjectWithTag("Player1");
-        player2 = GameObject.FindGameObjectWithTag("Player2");
-        player3 = GameObject.FindGameObjectWithTag("Player3");
-        player4 = GameObject.FindGameObjectWithTag("Player4"); 
+		player2 = GameObject.FindGameObjectWithTag("Player2");
+		player3 = GameObject.FindGameObjectWithTag("Player3");
+		player4 = GameObject.FindGameObjectWithTag("Player4");
+
+		if (player2 != null && numPlayers <= 1) {
+			player2.SetActive (false);
+		}
+		if (player3 != null && numPlayers <= 2) {	
+			player3.SetActive (false);
+		}
+		if (player4 != null && numPlayers <= 3) {
+			player4.SetActive (false);
+		}
+
+
+        // checks to see if a player is alive; if it is alive, rank is incremented
+		rankCount = 0;
+		if(player1.GetComponent<PlayerScript> ().alive) { rankCount++; }
+		if(player2.GetComponent<PlayerScript> ().alive) { rankCount++; }
+		if(player3.GetComponent<PlayerScript> ().alive) { rankCount++; }
+		if(player4.GetComponent<PlayerScript> ().alive) { rankCount++; }
+		
+        boardBorder = GameObject.Find("board border");
+        boardBG = GameObject.Find("board background");
+        timerBar = GameObject.Find("timer bar");
+
+        borderSR = boardBorder.GetComponent<SpriteRenderer>();
+        BGSR = boardBG.GetComponent<SpriteRenderer>();
+        timerSR = timerBar.GetComponent<SpriteRenderer>();
 
         first = true;
     }
 	
+	void Awake() { 
+	gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); 
+	}
+
 	// Update is called once per frame
 	void Update () {
+		if(SceneManager.GetActiveScene().name == "IntroScene")
+		{
+			if(Input.GetButtonDown(gameCont.player1_in.ABut))
+			{
+				SceneManager.LoadScene(6);
+			}
+		}
 		if (first) {
-			newRound ();
+            borderSR.sprite = borderReg;
+            BGSR.sprite = BGReg;
+            newRound();
 			first = false;
 			second = true;
-
 		}
 		if (second) {
-			RandomInputText = GameObject.Find ("InputText").GetComponent<Text> ();
+            
+            RandomInputText = GameObject.Find ("InputText").GetComponent<Text> ();
 			OutputText = GameObject.Find ("PlayerText").GetComponent<Text> ();
-			if (player1) {
+			if (player1.activeSelf) {
 				PlayerList1 = player1.GetComponent<PlayerScript> ().InputList;
+			}
+			if (player2.activeSelf) {
 				PlayerList2 = player2.GetComponent<PlayerScript> ().InputList;
+			}
+			if (player3.activeSelf) {
 				PlayerList3 = player3.GetComponent<PlayerScript> ().InputList;
+			}
+			if (player4.activeSelf) {
 				PlayerList4 = player4.GetComponent<PlayerScript> ().InputList;
+			}
+
 				//GameObject.Find ("Main Camera").GetComponent<ControllerScript> ().updateRounds ();
 				/*Debug.Log ("PENIS");
 				if (PlayerList.Count >= numButtons) {
@@ -88,15 +173,29 @@ public class MemoryDisplay : MonoBehaviour {
 					Debug.Log (loss);
 					player1.GetComponent<PlayerScript> ().health -= loss;
 				} */
-				printOutputs (ReturnList1);
-			}
+			//printOutputs (ReturnList1);
 			second = false;
 			third = true;
 		}
 		if (third) {
-			
+            if (!butsAlive)
+            {
+                timerSR.enabled = true;
+                borderSR.sprite = borderTime;
+                BGSR.sprite = BGTime;
+                if (timerBar.transform.position.x > -17f)
+                {
+                    timerBar.transform.position = new Vector2(timerBar.transform.position.x - 0.03f, timerBar.transform.position.y);
+                }
+            }
+            else
+            {
+                timerSR.enabled = false;
+                timerBar.transform.position = new Vector2(0, timerBar.transform.position.y);
+            }
+			updatePlayerListCount();
 			//playersDone should just check the alive players' lists and the 
-			if(PlayersDone()){
+            if (PlayersDone()){
 				DamagePlayers();
 				first = true;
 				third = false;
@@ -114,38 +213,100 @@ public class MemoryDisplay : MonoBehaviour {
 	}
 	
 	void DamagePlayers(){
-		if(player1.GetComponent<PlayerScript>().alive){
+		if(player1.activeSelf && player1.GetComponent<PlayerScript>().alive){
 			DamagePlayer(player1, GameObject.Find("Column1"));
 		}
-		if(player2.GetComponent<PlayerScript>().alive){
+		if(player2.activeSelf && player2.GetComponent<PlayerScript>().alive){
 			DamagePlayer(player2, GameObject.Find("Column2"));
 		}
-		if(player3.GetComponent<PlayerScript>().alive){
+		if(player3.activeSelf && player3.GetComponent<PlayerScript>().alive){
 			DamagePlayer(player3, GameObject.Find("Column3"));
 		}
-		if(player4.GetComponent<PlayerScript>().alive){
+		if(player4.activeSelf && player4.GetComponent<PlayerScript>().alive){
 			DamagePlayer(player4, GameObject.Find("Column4"));
 		}
+		// if a player is not alive after receiving damage, it has died and should recieve a ranking
+		int count = 0;
+
+		if (player1.activeSelf && player1.GetComponent<PlayerScript> ().alive == false) {
+            sneaky.GetComponent<SneakyScript>().p1Rank = rankCount;
+			player1.GetComponent<PlayerScript> ().rank = rankCount;
+			count++;
+		}
+		if (player1.activeSelf && player2.GetComponent<PlayerScript> ().alive == false) {
+            sneaky.GetComponent<SneakyScript>().p2Rank = rankCount;
+            player2.GetComponent<PlayerScript> ().rank = rankCount;
+			count++;
+		}
+		if (player1.activeSelf && player3.GetComponent<PlayerScript> ().alive == false) {
+            sneaky.GetComponent<SneakyScript>().p3Rank = rankCount;
+            player3.GetComponent<PlayerScript> ().rank = rankCount;
+			count++;
+		}
+		if (player1.activeSelf && player4.GetComponent<PlayerScript> ().alive == false) {
+            sneaky.GetComponent<SneakyScript>().p4Rank = rankCount;
+            player4.GetComponent<PlayerScript> ().rank = rankCount;
+			count++;
+		}
+		rankCount -= count; // ranking is decremented after player(s) is ranked
 	}
 	
+	void playerListCount(int playerListCount, Text countText)
+    {
+        countText.text = playerListCount.ToString() + "/" + InputList.Count.ToString();
+    }
+
+    void updatePlayerListCount()
+    {
+		if (player1.activeSelf && player1.GetComponent<PlayerScript>().alive)
+        {
+            playerListCount(PlayerList1.Count, Player1ButtonCount);
+        }
+		if (player2.activeSelf && player2.GetComponent<PlayerScript>().alive)
+        {
+            playerListCount(PlayerList2.Count, Player2ButtonCount);
+
+        }
+		if (player3.activeSelf && player3.GetComponent<PlayerScript>().alive)
+        {
+            playerListCount(PlayerList3.Count, Player3ButtonCount);
+
+        }
+		if (player4.activeSelf && player4.GetComponent<PlayerScript>().alive)
+        {
+            playerListCount(PlayerList4.Count, Player4ButtonCount);
+        }
+    }
+	
 	public bool PlayersDone(){
-		if(player1.GetComponent<PlayerScript>().alive){
+
+        if (timerBar.transform.position.x <= -16.8f)
+        {
+            return true;
+        }
+
+		if(player1.activeSelf && player1.GetComponent<PlayerScript>().alive){
+
 			if(PlayerList1.Count != (numButtons - 1)){
+				playerListCount(PlayerList1.Count,Player1ButtonCount);
 				return false;
 			}
 		}
-		if(player2.GetComponent<PlayerScript>().alive){
+		if(player2.activeSelf && player2.GetComponent<PlayerScript>().alive){
 			if(PlayerList2.Count != (numButtons - 1)){
+				playerListCount(PlayerList2.Count, Player2ButtonCount);
 				return false;
 			}
 		}
-		if(player3.GetComponent<PlayerScript>().alive){
+		if(player3.activeSelf && player3.GetComponent<PlayerScript>().alive){
 			if(PlayerList3.Count != (numButtons -1)){
+				playerListCount(PlayerList3.Count, Player3ButtonCount);
 				return false;
 			}
 		}
-		if(player4.GetComponent<PlayerScript>().alive){
+		if(player4.activeSelf && player4.GetComponent<PlayerScript>().alive){
 			if(PlayerList4.Count != (numButtons -1)){
+				playerListCount(PlayerList4.Count, Player4ButtonCount);
 				return false;
 			}
 		}
@@ -172,7 +333,7 @@ public class MemoryDisplay : MonoBehaviour {
         butsAlive = false;
     }
 
-	void printOutputs(List<int> PassedList){
+    void printOutputs(List<int> PassedList){
 		string message = "";
 
 		for (int i = 0; i < PassedList.Count; i++) {
@@ -260,10 +421,19 @@ public class MemoryDisplay : MonoBehaviour {
     void newRound()
     {
         displayTime += 0.5f;
-        PlayerList1.Clear();
-		PlayerList2.Clear ();
-		PlayerList3.Clear ();
-		PlayerList4.Clear ();
+
+		if (player1.activeSelf) {
+			PlayerList1.Clear();
+		}
+		if (player2.activeSelf) {
+			PlayerList2.Clear ();
+		}
+		if (player3.activeSelf) {
+			PlayerList3.Clear ();
+		}
+		if (player4.activeSelf) {
+			PlayerList4.Clear ();
+		}
         InputList.Clear();
         var list = GameObject.FindGameObjectsWithTag("Button");
         curButtonPos = new Vector3(-7, 3.3f, 0);
