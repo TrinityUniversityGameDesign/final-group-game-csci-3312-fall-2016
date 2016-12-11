@@ -14,7 +14,7 @@ public class player_movement : MonoBehaviour {
     public int keyOwn = 0;
     private ArrayList toBeLockedDoors;
     private Queue lockedDoors;
-
+    private float mapOrientation;
 
     AudioSource[] sounds;
     AudioSource footStep;
@@ -31,6 +31,7 @@ public class player_movement : MonoBehaviour {
     void Start () {
         float orientation = Mathf.Floor(Random.Range(0f, 3.9f));
         orientation *= 90f;
+        mapOrientation = orientation;
         //Camera one = Camera.main;
         Camera.main.transform.rotation = Quaternion.Euler(0f, 0f, orientation);
         player.transform.rotation = Quaternion.Euler(0f, 0f, orientation);
@@ -108,7 +109,26 @@ public class player_movement : MonoBehaviour {
 
         //        float translation_X = Input.GetAxis ("Horizontal_P" + controller) * speed;
         //        float translation_Y = Input.GetAxis ("Vertical_P" + controller) * speed;
-
+        Debug.Log(mapOrientation);
+        switch ((int)mapOrientation)
+        {
+            case 0:
+                translation_X = translation_X;
+                translation_Y = translation_Y;
+                break;
+            case 90:
+                translation_X = translation_Y;
+                translation_Y = -translation_X;
+                break;
+            case 180:
+                translation_X = -translation_X;
+                translation_Y = -translation_Y;
+                break;
+            case 270:
+                translation_X = -translation_Y;
+                translation_Y = translation_X;
+                break;
+        }
 
 
         rigid_body.velocity = new Vector2(translation_X, translation_Y);
