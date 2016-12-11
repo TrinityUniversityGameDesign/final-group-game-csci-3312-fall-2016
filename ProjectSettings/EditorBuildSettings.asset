@@ -12,8 +12,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Resources/darkroom_Assets/Scene/Enemy_Wins.unity
   - enabled: 0
-    path: Assets/Scenes/UsingTilesStory.unity
-  - enabled: 0
     path: Assets/Scenes/UsingTiles.unity
   - enabled: 0
     path: Assets/Scenes/TriviaEnd.unity
@@ -23,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoScene.unity
   - enabled: 1
     path: Assets/Scenes/EndJacketSmackIt.unity
+  - enabled: 1
+    path: Assets/Scenes/UsingTilesStory.unity

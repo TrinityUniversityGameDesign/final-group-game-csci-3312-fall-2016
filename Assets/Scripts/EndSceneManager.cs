@@ -61,11 +61,13 @@ public class EndSceneManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("A_P1")) {
+        if (Input.GetButtonDown("A_P1")) {
+            Destroy(GameObject.Find("SoundManager"));
+            Destroy(GameObject.Find("PlayerPrefsManagers"));
+            Destroy(GameObject.Find("ScoreManager"));
 			Destroy (alldat);
-		}
-		SceneManager.LoadScene ("UsingTilesStory");
-
+            SceneManager.LoadScene("UsingTilesStory");
+        }
 	}
 
     void ActivateCurrentPlayers()
