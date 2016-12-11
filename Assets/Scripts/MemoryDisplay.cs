@@ -21,15 +21,28 @@ public class MemoryDisplay : MonoBehaviour {
 
 	public int numButtons = 5; // records how many 'rounds' have occured during the game
 	public int rankCount;
-
+	
     float displayTime = 2f;
+    float timeBarPos = 0f;
+
 	public GameObject player1 = null;
 	public GameObject player2 = null;
 	public GameObject player3 = null;
 	public GameObject player4 = null;
-    GameObject TeachBoard;
+	GameObject TeachBoard;
     GameObject TeachColumn;
     string TeachString;
+
+    public GameObject boardBorder;
+    public GameObject boardBG;
+    public GameObject timerBar;
+    public SpriteRenderer borderSR;
+    public SpriteRenderer BGSR;
+    public SpriteRenderer timerSR;
+    public Sprite borderReg;
+    public Sprite borderTime;
+    public Sprite BGReg;
+    public Sprite BGTime;
 
     public Object aButton;
 	public Object bButton;
@@ -39,7 +52,7 @@ public class MemoryDisplay : MonoBehaviour {
 
 	public Vector3 curButtonPos;
 
-    public Text Player1ButtonCount;
+	public Text Player1ButtonCount;
     public Text Player2ButtonCount;
     public Text Player3ButtonCount;
     public Text Player4ButtonCount;
@@ -56,17 +69,16 @@ public class MemoryDisplay : MonoBehaviour {
 	public bool third = false; // 3rd stage - show both lists, comparison
     public bool butsAlive = false;
     int x = 0; // temp display number
-    public GlobalPlayerControllerScript gameCont;
-
+	public GlobalPlayerControllerScript gameCont;
+	
     // Use this for initialization
     void Start() {
-        TeachBoard = GameObject.Find("TeachBoard");
+		TeachBoard = GameObject.Find("TeachBoard");
         TeachColumn = GameObject.Find("TeachColumn");
         TeachString = PlayerPrefs.GetString("font_name");
         TeachBoard.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
         TeachColumn.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
-
-
+		
         curButtonPos = new Vector3(-7, 0, 0);
         aButton = Resources.Load("Prefabs/aButton");
         bButton = Resources.Load("Prefabs/bButton");
@@ -85,30 +97,41 @@ public class MemoryDisplay : MonoBehaviour {
 		if(player2.GetComponent<PlayerScript> ().alive) { rankCount++; }
 		if(player3.GetComponent<PlayerScript> ().alive) { rankCount++; }
 		if(player4.GetComponent<PlayerScript> ().alive) { rankCount++; }
+		
+        boardBorder = GameObject.Find("board border");
+        boardBG = GameObject.Find("board background");
+        timerBar = GameObject.Find("timer bar");
+
+        borderSR = boardBorder.GetComponent<SpriteRenderer>();
+        BGSR = boardBG.GetComponent<SpriteRenderer>();
+        timerSR = timerBar.GetComponent<SpriteRenderer>();
 
         first = true;
     }
+	
+	void Awake() { 
+	gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); 
+	}
 
-    void Awake() { gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); }
-
-    // Update is called once per frame
-    void Update () {
-        if(SceneManager.GetActiveScene().name == "IntroScene")
+	// Update is called once per frame
+	void Update () {
+		if(SceneManager.GetActiveScene().name == "IntroScene")
         {
             if(Input.GetButtonDown(gameCont.player1_in.ABut))
             {
                 SceneManager.LoadScene(6);
             }
         }
-
 		if (first) {
-			newRound ();
+            borderSR.sprite = borderReg;
+            BGSR.sprite = BGReg;
+            newRound();
 			first = false;
 			second = true;
-
 		}
 		if (second) {
-			RandomInputText = GameObject.Find ("InputText").GetComponent<Text> ();
+            
+            RandomInputText = GameObject.Find ("InputText").GetComponent<Text> ();
 			OutputText = GameObject.Find ("PlayerText").GetComponent<Text> ();
 			if (player1) {
 				PlayerList1 = player1.GetComponent<PlayerScript> ().InputList;
@@ -129,9 +152,24 @@ public class MemoryDisplay : MonoBehaviour {
 			third = true;
 		}
 		if (third) {
-            updatePlayerListCount();
+            if (!butsAlive)
+            {
+                timerSR.enabled = true;
+                borderSR.sprite = borderTime;
+                BGSR.sprite = BGTime;
+                if (timerBar.transform.position.x > -17f)
+                {
+                    timerBar.transform.position = new Vector2(timerBar.transform.position.x - 0.03f, timerBar.transform.position.y);
+                }
+            }
+            else
+            {
+                timerSR.enabled = false;
+                timerBar.transform.position = new Vector2(0, timerBar.transform.position.y);
+            }
+			updatePlayerListCount();
 			//playersDone should just check the alive players' lists and the 
-			if(PlayersDone()){
+            if (PlayersDone()){
 				DamagePlayers();
 				first = true;
 				third = false;
@@ -182,7 +220,7 @@ public class MemoryDisplay : MonoBehaviour {
 		rankCount -= count; // ranking is decremented after player(s) is ranked
 	}
 	
-    void playerListCount(int playerListCount, Text countText)
+	void playerListCount(int playerListCount, Text countText)
     {
         countText.text = playerListCount.ToString() + "/" + InputList.Count.ToString();
     }
@@ -204,34 +242,37 @@ public class MemoryDisplay : MonoBehaviour {
 
         }
         if (player4.GetComponent<PlayerScript>().alive)
-        {
+		{
                 playerListCount(PlayerList4.Count, Player4ButtonCount);
-        }
-    }
-
+		}
+	
 	public bool PlayersDone(){
-		if(player1.GetComponent<PlayerScript>().alive){
+        if (timerBar.transform.position.x <= -16.8f)
+        {
+            return true;
+        }
+        if (player1.GetComponent<PlayerScript>().alive){
 			if(PlayerList1.Count != (numButtons - 1)){
-                playerListCount(PlayerList1.Count, Player1ButtonCount);
+				playerListCount(PlayerList1.Count,Player1ButtonCount);
 				return false;
 			}
 		}
 		if(player2.GetComponent<PlayerScript>().alive){
 			if(PlayerList2.Count != (numButtons - 1)){
-                playerListCount(PlayerList2.Count, Player2ButtonCount);
-                return false;
+				playerListCount(PlayerList2.Count, Player2ButtonCount);
+				return false;
 			}
 		}
 		if(player3.GetComponent<PlayerScript>().alive){
 			if(PlayerList3.Count != (numButtons -1)){
-                playerListCount(PlayerList3.Count, Player3ButtonCount);
-                return false;
+				playerListCount(PlayerList3.Count, Player3ButtonCount);
+				return false;
 			}
 		}
 		if(player4.GetComponent<PlayerScript>().alive){
 			if(PlayerList4.Count != (numButtons -1)){
-                playerListCount(PlayerList4.Count, Player4ButtonCount);
-                return false;
+				playerListCount(PlayerList4.Count, Player4ButtonCount);
+				return false;
 			}
 		}
 		
@@ -257,7 +298,7 @@ public class MemoryDisplay : MonoBehaviour {
         butsAlive = false;
     }
 
-	void printOutputs(List<int> PassedList){
+    void printOutputs(List<int> PassedList){
 		string message = "";
 
 		for (int i = 0; i < PassedList.Count; i++) {
