@@ -7,12 +7,12 @@ public class JacketOutlineScript : MonoBehaviour {
 
 	private Color dotsColor;
 
-	public string jacketName;
-	GameObject jacketObject;
+	//public string jacketName;
+	public GameObject jacketObject;
 	JacketScript jacketScript;
 
-	public string playerString;
-	GameObject playerObject;
+	//public string playerString;
+	public GameObject playerObject;
 
 
 
@@ -37,12 +37,12 @@ public class JacketOutlineScript : MonoBehaviour {
         dotsColor = gameObject.transform.parent.parent.GetComponent<SpriteRenderer>().color;
             
 		dotsPerRadius = 6;
-		playerObject = GameObject.Find (playerString) as GameObject;
+		//playerObject = GameObject.Find (playerString) as GameObject;
 
 
 		//find jacket object
 		//find player
-		jacketObject = GameObject.Find(jacketName) as GameObject;
+		//jacketObject = GameObject.Find(jacketName) as GameObject;
 		jacketScript = jacketObject.GetComponent<JacketScript> ();
 		//-----------------
 		circleObject = Resources.Load ("Prefabs/Circle") as GameObject;

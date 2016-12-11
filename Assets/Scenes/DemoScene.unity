@@ -1401,6 +1401,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013923218814, guid: b20619e0dd95d044cb3776336658e083,
+        type: 2}
+      propertyPath: jacketObject
+      value: 
+      objectReference: {fileID: 1309126748}
+    - target: {fileID: 114000013923218814, guid: b20619e0dd95d044cb3776336658e083,
+        type: 2}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 7818564}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b20619e0dd95d044cb3776336658e083, type: 2}
   m_IsPrefabParent: 0
@@ -1462,6 +1472,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011422007228, guid: 427c6202b0c5a4045a7097e6b241563c,
+        type: 2}
+      propertyPath: jacketObject
+      value: 
+      objectReference: {fileID: 1567378500}
+    - target: {fileID: 114000011422007228, guid: 427c6202b0c5a4045a7097e6b241563c,
+        type: 2}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1217392056}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
   m_IsPrefabParent: 0
@@ -2279,6 +2299,16 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013753180066, guid: 7a61adab40272ba44828313b31ca59eb,
+        type: 2}
+      propertyPath: jacketObject
+      value: 
+      objectReference: {fileID: 755986871}
+    - target: {fileID: 114000013753180066, guid: 7a61adab40272ba44828313b31ca59eb,
+        type: 2}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1025967149}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a61adab40272ba44828313b31ca59eb, type: 2}
   m_IsPrefabParent: 0
@@ -3019,6 +3049,16 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.23508534
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012733814784, guid: a69977abb348c9749ae4f50532d67e08,
+        type: 2}
+      propertyPath: jacketObject
+      value: 
+      objectReference: {fileID: 902074758}
+    - target: {fileID: 114000012733814784, guid: a69977abb348c9749ae4f50532d67e08,
+        type: 2}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 984590817}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a69977abb348c9749ae4f50532d67e08, type: 2}
   m_IsPrefabParent: 0
