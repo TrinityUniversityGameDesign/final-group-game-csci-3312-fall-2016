@@ -4,12 +4,14 @@ using System.Collections;
 public class PPDefScript : MonoBehaviour {
 
 	void Awake(){
-        PlayerPrefs.SetInt("NumPlayers", 2);
+        PlayerPrefs.DeleteAll();
 
-		PlayerPrefs.SetInt ("player1_score", 1);
-		PlayerPrefs.SetInt ("player2_score", 2);
-		PlayerPrefs.SetInt ("player3_score", 3);
-		PlayerPrefs.SetInt ("player4_score", 4);
+        PlayerPrefs.SetInt("NumPlayers", 4);
+
+		PlayerPrefs.SetInt ("player1_score", 0);
+		PlayerPrefs.SetInt ("player2_score", 0);
+		PlayerPrefs.SetInt ("player3_score", 0);
+		PlayerPrefs.SetInt ("player4_score", 0);
 
 		PlayerPrefs.SetString ("player1_name", "Beano");
 		PlayerPrefs.SetString ("player2_name", "Cheddar");

@@ -82,5 +82,5 @@ public class PlayerPrefsManager : MonoBehaviour {
         return temp;
     }
     public string GetPlayerName(int i) { return playerNames[i]; }
-    public int GetPlayerScore(int i) { return playerScores[i]; }
+    public int GetPlayerScore(int i) { return PlayerPrefs.GetInt("player" + i + "_score"); }
 }

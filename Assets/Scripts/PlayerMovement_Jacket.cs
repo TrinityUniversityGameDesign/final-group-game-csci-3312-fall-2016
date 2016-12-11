@@ -136,7 +136,4 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	public bool IsDead(){
 		return isDead;
 	}
-    public void SendWinner() {
-        ScoreManager.GetComponent<ScoreManager>().SetWinner(gameObject);
-    }
 }

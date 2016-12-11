@@ -16,6 +16,7 @@ public class ScoreRoundManagerScript : MonoBehaviour {
     private List<GameObject> playersInPlay = new List<GameObject>();
     private List<GameObject> allPlayers = new List<GameObject>();
 
+    public GameObject scoreManager;
     public int maxRoundNumber;
     public string nextScene;
     public GameObject blueJacket;
@@ -69,7 +70,7 @@ public class ScoreRoundManagerScript : MonoBehaviour {
         logo.transform.localScale = new Vector3(0, 0, 0);
         if (currentRoundNumber >= maxRoundNumber)
         {
-            playersInPlay[0].GetComponent<PlayerMovement_Jacket>().SendWinner();
+            scoreManager.GetComponent<ScoreManager>().GrabScores();
             LoadNextScene();
         }
         else

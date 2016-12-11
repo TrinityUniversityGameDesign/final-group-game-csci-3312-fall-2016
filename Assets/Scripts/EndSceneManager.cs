@@ -51,6 +51,7 @@ public class EndSceneManager : MonoBehaviour {
             scoreTexts[i].SetActive(false);
         }
         ActivateCurrentPlayers();
+        SaveScores();
         SetPlayerInfo();
     }
 
@@ -62,6 +63,7 @@ public class EndSceneManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetButtonDown("A_P1")) {
+            //SaveScores();
             Destroy(GameObject.Find("SoundManager"));
             Destroy(GameObject.Find("PlayerPrefsManager"));
             Destroy(GameObject.Find("ScoreManager"));
@@ -91,6 +93,58 @@ public class EndSceneManager : MonoBehaviour {
             currentPlayers[i].name = playerPrefsManager.GetComponent<PlayerPrefsManager>().GetPlayerName(i);
             currentNameTexts[i].GetComponent<Text>().text = currentPlayers[i].name;
             currentScoreTexts[i].GetComponent<Text>().text = (playerPrefsManager.GetComponent<PlayerPrefsManager>().GetPlayerScore(i)).ToString();
+        }
+    }
+
+    void SaveScores()
+    {
+        GameObject scoreManager = GameObject.Find("ScoreManager");
+        int first = 0;
+        int second = 0;
+        int third = 0;
+        int fourth = 0;
+        List<int> scores = scoreManager.GetComponent<ScoreManager>().GetScores();
+        for(int i=0; i<scores.Count; i++) {
+            if(scores[i] > first)
+            {
+                first = scores[i];
+            }
+        }
+        for (int i = 0; i < scores.Count; i++)
+        {
+            if (scores[i] > second && scores[i] < first)
+            {
+                second = scores[i];
+            }
+        }
+        for (int i = 0; i < scores.Count; i++)
+        {
+            if (scores[i] > third && scores[i] < second)
+            {
+                third = scores[i];
+            }
+        }
+        for (int i = 0; i < scores.Count; i++)
+        {
+            if (scores[i] > fourth && scores[i] < third)
+            {
+                fourth = scores[i];
+            }
+        }
+
+        for(int i = 0; i< scores.Count; ++i){
+            if(scores[i] == first)
+            {
+                PlayerPrefs.SetInt("player" + i + "_score", PlayerPrefs.GetInt("player" + i + "_score") + 5);
+            }
+            else if (scores[i] == second)
+            {
+                PlayerPrefs.SetInt("player" + i + "_score", PlayerPrefs.GetInt("player" + i + "_score") + 3);
+            }
+            else if (scores[i] == third)
+            {
+                PlayerPrefs.SetInt("player" + i + "_score", PlayerPrefs.GetInt("player" + i + "_score") + 1);
+            }
         }
     }
 }

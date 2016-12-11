@@ -815,7 +815,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94edb6cefa2ee41e2a89181faf193d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRoundNumber: 1
+  scoreManager: {fileID: 680521267}
+  maxRoundNumber: 3
   nextScene: EndJacketSmackIt
   blueJacket: {fileID: 755986871}
   greenJacket: {fileID: 902074758}
@@ -1685,6 +1686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6e245db621baa47821b8b4e613f719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOne: {fileID: 1025967149}
+  playerTwo: {fileID: 984590817}
+  playerThree: {fileID: 1217392056}
+  playerFour: {fileID: 7818564}
 --- !u!4 &680521269
 Transform:
   m_ObjectHideFlags: 0
