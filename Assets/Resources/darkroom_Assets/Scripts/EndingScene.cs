@@ -13,8 +13,8 @@ public class EndingScene : MonoBehaviour {
     int numPlayers;
     
     void Start () {
-        SetScores();
-        PlayerPrefs.SetInt("NumPlayers", 4);
+    
+       /* PlayerPrefs.SetInt("NumPlayers", 4);
         PlayerPrefs.SetString("player1_name", "Miguel");
         PlayerPrefs.SetInt("player1_score", 4);
         PlayerPrefs.SetString("player2_name", "Po");
@@ -22,9 +22,9 @@ public class EndingScene : MonoBehaviour {
         PlayerPrefs.SetString("player3_name", "Subrat");
         PlayerPrefs.SetInt("player3_score", 2);
         PlayerPrefs.SetString("player4_name", "Mary");
-        PlayerPrefs.SetInt("player4_score", 1);
+        PlayerPrefs.SetInt("player4_score", 1);*/
         numPlayers = PlayerPrefs.GetInt("NumPlayers");
-        Debug.Log(numPlayers);
+       // Debug.Log(numPlayers);
         SetScores();
 
     }
