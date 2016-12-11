@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum Buttons { A, B, X, Y }; // buttons that can be recognized
 
@@ -55,7 +56,9 @@ public class MemoryDisplay : MonoBehaviour {
 	public bool third = false; // 3rd stage - show both lists, comparison
     public bool butsAlive = false;
     int x = 0; // temp display number
-               // Use this for initialization
+    public GlobalPlayerControllerScript gameCont;
+
+    // Use this for initialization
     void Start() {
         TeachBoard = GameObject.Find("TeachBoard");
         TeachColumn = GameObject.Find("TeachColumn");
@@ -85,9 +88,19 @@ public class MemoryDisplay : MonoBehaviour {
 
         first = true;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Awake() { gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); }
+
+    // Update is called once per frame
+    void Update () {
+        if(SceneManager.GetActiveScene().name == "IntroScene")
+        {
+            if(Input.GetButtonDown(gameCont.player1_in.ABut))
+            {
+                SceneManager.LoadScene(6);
+            }
+        }
+
 		if (first) {
 			newRound ();
 			first = false;
