@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class JacketOutlineScript : MonoBehaviour {
 	int direction = 1;
 
-	public Color dotsColor;
+	private Color dotsColor;
 
 	public string jacketName;
 	GameObject jacketObject;
@@ -34,6 +34,8 @@ public class JacketOutlineScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        dotsColor = gameObject.transform.parent.parent.GetComponent<SpriteRenderer>().color;
+            
 		dotsPerRadius = 6;
 		playerObject = GameObject.Find (playerString) as GameObject;
 
