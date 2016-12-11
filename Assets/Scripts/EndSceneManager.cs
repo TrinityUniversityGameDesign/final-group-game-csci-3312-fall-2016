@@ -29,6 +29,13 @@ public class EndSceneManager : MonoBehaviour {
 
     void Awake()
     {
+        playerObjects = new List<GameObject>();
+        currentPlayers = new List<GameObject>();
+        nameTexts = new List<GameObject>();
+        currentNameTexts = new List<GameObject>();
+        scoreTexts = new List<GameObject>();
+        currentScoreTexts = new List<GameObject>();
+
         playerPrefsManager = GameObject.Find("PlayerPrefsManager") as GameObject;
         numPlayers = playerPrefsManager.GetComponent<PlayerPrefsManager>().GetNumPlayers();
         playerObjects = new List<GameObject> { playerOne, playerTwo, playerThree, playerFour };
@@ -41,6 +48,7 @@ public class EndSceneManager : MonoBehaviour {
             scoreTexts[i].SetActive(false);
         }
         ActivateCurrentPlayers();
+        SetPlayerInfo();
     }
 
     // Use this for initialization

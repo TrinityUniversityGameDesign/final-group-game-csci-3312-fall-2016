@@ -815,7 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94edb6cefa2ee41e2a89181faf193d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRoundNumber: 5
+  maxRoundNumber: 1
   nextScene: EndJacketSmackIt
   blueJacket: {fileID: 755986871}
   greenJacket: {fileID: 902074758}
