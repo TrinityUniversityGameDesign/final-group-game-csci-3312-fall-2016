@@ -18,6 +18,7 @@ public class PlayerPrefsManager : MonoBehaviour {
 
     void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         playerObjects = new List<GameObject> { playerOne, playerTwo, playerThree, playerFour };
         for (int i = 0; i < numPlayers; i++)
         {
@@ -66,4 +67,13 @@ public class PlayerPrefsManager : MonoBehaviour {
             currentPlayers[i].GetComponent<SpriteRenderer>().color = temp;
         }
     }
+
+    public int GetNumPlayers() { return numPlayers; }
+    public Color GetPlayerColor(int i) {
+        Color temp = Color.black;
+        bool b = ColorUtility.TryParseHtmlString(playerColors[i], out temp);
+        return temp;
+    }
+    public string GetPlayerName(int i) { return playerNames[i]; }
+    public int GetPlayerScore(int i) { return playerScores[i]; }
 }
