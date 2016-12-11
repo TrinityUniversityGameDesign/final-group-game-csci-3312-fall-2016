@@ -25,6 +25,7 @@ public class MemoryDisplay : MonoBehaviour {
     float displayTime = 2f;
     float timeBarPos = 0f;
 
+    GameObject sneaky;
 	public GameObject player1 = null;
 	public GameObject player2 = null;
 	public GameObject player3 = null;
@@ -73,7 +74,8 @@ public class MemoryDisplay : MonoBehaviour {
 	
     // Use this for initialization
     void Start() {
-		TeachBoard = GameObject.Find("TeachBoard");
+        sneaky = GameObject.Find("Sneaky");
+        TeachBoard = GameObject.Find("TeachBoard");
         TeachColumn = GameObject.Find("TeachColumn");
         TeachString = PlayerPrefs.GetString("font_name");
         TeachBoard.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
@@ -202,19 +204,23 @@ public class MemoryDisplay : MonoBehaviour {
 		// if a player is not alive after receiving damage, it has died and should recieve a ranking
 		int count = 0;
 		if (player1.GetComponent<PlayerScript> ().alive == false) {
+            sneaky.GetComponent<SneakyScript>().p1Rank = rankCount;
 			player1.GetComponent<PlayerScript> ().rank = rankCount;
 			count++;
 		}
 		if (player2.GetComponent<PlayerScript> ().alive == false) {
-			player2.GetComponent<PlayerScript> ().rank = rankCount;
+            sneaky.GetComponent<SneakyScript>().p2Rank = rankCount;
+            player2.GetComponent<PlayerScript> ().rank = rankCount;
 			count++;
 		}
 		if (player3.GetComponent<PlayerScript> ().alive == false) {
-			player3.GetComponent<PlayerScript> ().rank = rankCount;
+            sneaky.GetComponent<SneakyScript>().p3Rank = rankCount;
+            player3.GetComponent<PlayerScript> ().rank = rankCount;
 			count++;
 		}
 		if (player4.GetComponent<PlayerScript> ().alive == false) {
-			player4.GetComponent<PlayerScript> ().rank = rankCount;
+            sneaky.GetComponent<SneakyScript>().p4Rank = rankCount;
+            player4.GetComponent<PlayerScript> ().rank = rankCount;
 			count++;
 		}
 		rankCount -= count; // ranking is decremented after player(s) is ranked
@@ -229,22 +235,23 @@ public class MemoryDisplay : MonoBehaviour {
     {
         if (player1.GetComponent<PlayerScript>().alive)
         {
-                playerListCount(PlayerList1.Count, Player1ButtonCount);
+            playerListCount(PlayerList1.Count, Player1ButtonCount);
         }
         if (player2.GetComponent<PlayerScript>().alive)
         {
-                playerListCount(PlayerList2.Count, Player2ButtonCount);
+            playerListCount(PlayerList2.Count, Player2ButtonCount);
 
         }
         if (player3.GetComponent<PlayerScript>().alive)
         {
-                playerListCount(PlayerList3.Count, Player3ButtonCount);
+            playerListCount(PlayerList3.Count, Player3ButtonCount);
 
         }
         if (player4.GetComponent<PlayerScript>().alive)
-		{
-                playerListCount(PlayerList4.Count, Player4ButtonCount);
-		}
+        {
+            playerListCount(PlayerList4.Count, Player4ButtonCount);
+        }
+    }
 	
 	public bool PlayersDone(){
         if (timerBar.transform.position.x <= -16.8f)
