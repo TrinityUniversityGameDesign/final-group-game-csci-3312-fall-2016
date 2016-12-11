@@ -37,7 +37,7 @@ public class TriviaPlayer : MonoBehaviour
     int numPlayers;
     void Start ()
 	{
-        numPlayers = PlayerPrefs.GetInt("NumPlayers");
+        numPlayers = 4; // PlayerPrefs.GetInt("NumPlayers");
         Debug.Log(numPlayers);
         if (numPlayers < playerNumber)
         {
@@ -70,6 +70,9 @@ public class TriviaPlayer : MonoBehaviour
         {
             if (answered)
             {
+                AudioClip ac = Resources.Load<AudioClip>("Sounds/TriviaSounds/Answer" + playerNumber);
+                GetComponent<AudioSource>().PlayOneShot(ac);
+
                 if (sTime == -1)
                     sTime = 0;
                 sTime += Time.deltaTime;
@@ -79,6 +82,9 @@ public class TriviaPlayer : MonoBehaviour
             }
             if (controller.questionIsDone())
             {
+                AudioClip a = Resources.Load<AudioClip>("Sounds/TriviaSounds/coins");
+                GetComponent<AudioSource>().PlayOneShot(a);
+
                 check.sprite = Button.sprite;
                 preScore += scoreFromQuestion;
                 if (PlayerPrefs.GetInt(playerStringHighest) < scoreFromQuestion)
@@ -91,7 +97,6 @@ public class TriviaPlayer : MonoBehaviour
                     tTime = 0;
                 tTime += Time.deltaTime;
                 txtScore.gameObject.transform.localScale = startScaleText * cur.Evaluate(tTime);
-
 
                 PlayerPrefs.SetInt(playerString, preScore);
                 PlayerPrefs.Save();
