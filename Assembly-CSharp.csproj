@@ -45,8 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\EndSceneManager.cs" />
-     <Compile Include="Assets\PPDefScript.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\dim_light.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\doorComboScript.cs" />
      <Compile Include="Assets\Resources\darkroom_Assets\Scripts\enemy_movement.cs" />
@@ -60,11 +58,13 @@
      <Compile Include="Assets\Scripts\ButtonScript.cs" />
      <Compile Include="Assets\Scripts\ControllerScript.cs" />
      <Compile Include="Assets\Scripts\DeathCollider.cs" />
+     <Compile Include="Assets\Scripts\EndSceneManager.cs" />
      <Compile Include="Assets\Scripts\IntroControllerScript.cs" />
      <Compile Include="Assets\Scripts\JacketIntroCameraScript.cs" />
      <Compile Include="Assets\Scripts\JacketOutlineScript.cs" />
      <Compile Include="Assets\Scripts\JacketScript.cs" />
      <Compile Include="Assets\Scripts\MemoryDisplay.cs" />
+     <Compile Include="Assets\Scripts\PPDefScript.cs" />
      <Compile Include="Assets\Scripts\ParentUIPanelScript.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement_Jacket.cs" />

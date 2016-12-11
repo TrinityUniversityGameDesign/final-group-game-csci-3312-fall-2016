@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class EndSceneManager : MonoBehaviour {
 
+	public GameObject alldat;
+
     public GameObject playerOne;
     public GameObject playerTwo;
     public GameObject playerThree;
@@ -58,7 +60,10 @@ public class EndSceneManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (Input.GetButtonDown ("A_P1")) {
+			Destroy (alldat);
+		}
+
 	}
 
     void ActivateCurrentPlayers()
