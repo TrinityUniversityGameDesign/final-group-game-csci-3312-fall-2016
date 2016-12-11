@@ -60,7 +60,7 @@ public class PlayerPrefsManager : MonoBehaviour {
         }
         for (int i = 1; i < (numPlayers + 1); i++)
         {
-            playerNames.Add(PlayerPrefs.GetString("player" + i + "_score"));
+            playerNames.Add(PlayerPrefs.GetString("player" + i + "_name"));
             playerScores.Add(PlayerPrefs.GetInt("player" + i + "_score"));
             playerColors.Add(PlayerPrefs.GetString("player" + i + "_color"));
         }
