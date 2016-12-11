@@ -134,6 +134,13 @@ public class MemoryDisplay : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if(SceneManager.GetActiveScene().name == "IntroScene")
+		{
+			if(Input.GetButtonDown(gameCont.player1_in.ABut))
+			{
+				SceneManager.LoadScene(6);
+			}
+		}
 		if (first) {
             borderSR.sprite = borderReg;
             BGSR.sprite = BGReg;

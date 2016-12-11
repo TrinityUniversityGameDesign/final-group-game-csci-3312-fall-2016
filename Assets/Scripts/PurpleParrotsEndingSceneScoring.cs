@@ -17,10 +17,25 @@ public class PurpleParrotsEndingSceneScoring : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player1_rank = -1;
-		player2_rank = 3;
-		player3_rank = 1;
-		player4_rank = 2;
+		GameObject sneakyFinds = GameObject.FindGameObjectWithTag("Player1");
+
+		player1_rank = sneakyFinds.GetComponent<SneakyScript>().p1Rank;
+		player2_rank = sneakyFinds.GetComponent<SneakyScript>().p2Rank;
+		player3_rank = sneakyFinds.GetComponent<SneakyScript>().p3Rank;
+		player4_rank = sneakyFinds.GetComponent<SneakyScript>().p4Rank;
+
+		int p1 = PlayerPrefs.GetInt("player1_score");
+		int p2 = PlayerPrefs.GetInt("player2_score");
+		int p3 = PlayerPrefs.GetInt("player3_score");
+		int p4 = PlayerPrefs.GetInt("player4_score");
+
+		if (player1_rank == 1) {
+			p1 += 5;
+		} else if (player1_rank == 2) {
+			p1 += 3;
+		} else if (player1_rank == 3) {
+			p1 += 1;
+		}
 
 		/*
 		if (player1_rank != -1) {
