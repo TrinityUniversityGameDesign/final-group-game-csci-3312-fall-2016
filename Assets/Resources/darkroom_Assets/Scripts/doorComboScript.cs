@@ -13,12 +13,18 @@ public class doorComboScript : MonoBehaviour {
     public GameObject enemy3;
     public float slideDistance;
     public float slideSpeed;
+    private AudioSource[] sounds;
+    private AudioSource doorLockSound;
+    private AudioSource doorOpenSound;
     // Use this for initialization
     void Start()
     {
         this.locked = false;
         this.opening = false;
         this.closing = true;
+        sounds = GetComponents<AudioSource>();
+        doorLockSound = sounds[0];
+        doorOpenSound = sounds[1];
 
         
     }
@@ -56,11 +62,13 @@ public class doorComboScript : MonoBehaviour {
         {
             locked = false;
             opening = true;
+            doorOpenSound.Play();
         }
         else
         {
             locked = true;
             closing = true;
+            doorLockSound.Play();
         }
     }
 
@@ -69,12 +77,14 @@ public class doorComboScript : MonoBehaviour {
         if (!locked)
         {
             opening = true;
+            doorOpenSound.Play();
         }
     }
 
     public void CloseDoor()
     {
         closing = true;
+        doorLockSound.Play();
     }
 
     void OnTriggerEnter2D(Collider2D other)

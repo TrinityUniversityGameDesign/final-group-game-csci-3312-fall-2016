@@ -11,7 +11,12 @@ public class flash : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     public int controller;
 
-	void Start () {
+    public GlobalPlayerControllerScript gameCont;
+
+
+
+    void Start () {
+        gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
         lightSource = lightObject.GetComponent<Light>();
         spriteRenderer = enemy.GetComponent<SpriteRenderer>();
         lightSource.intensity = 0;
@@ -22,8 +27,9 @@ public class flash : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        float flash = Input.GetAxisRaw("B_P" + controller); 
-        if(flash > 0)
+        //float flash = Input.GetAxisRaw(gameCont.players[controller].ABut);
+        bool flash = Input.GetButton(gameCont.players[controller].ABut);
+        if(flash)
         {
             Debug.Log("space hit");
             FlashMap();
