@@ -36,6 +36,8 @@ public class PlayerPanelScript : MonoBehaviour {
             skull.transform.position = dumpPosition;
 
             gameObject.transform.FindChild("PlayerNum").gameObject.GetComponent<Text>().text = player.name;
+            transform.GetComponent<Image>().color = player.GetComponent<SpriteRenderer>().color;
+            transform.GetComponent<Image>().color = new Color(transform.GetComponent<Image>().color.r, transform.GetComponent<Image>().color.g, transform.GetComponent<Image>().color.b, 0.4f);
         }
 	}
 	

@@ -4,7 +4,7 @@ using System.Collections;
 public class PPDefScript : MonoBehaviour {
 
 	void Awake(){
-        PlayerPrefs.SetInt("NumPlayers", 3);
+        PlayerPrefs.SetInt("NumPlayers", 4);
 
 		PlayerPrefs.SetInt ("player1_score", 1);
 		PlayerPrefs.SetInt ("player2_score", 2);
