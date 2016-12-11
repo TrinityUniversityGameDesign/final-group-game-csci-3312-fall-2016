@@ -24,6 +24,7 @@ public class enemy_movement : MonoBehaviour {
 
         //transform.FindChild("enemyLight").GetComponent<Light>().color = tmpColor;
         GetComponentInChildren<Light>().color = tmpColor;
+        Debug.Log(tmpColor);
     }
 
     // Update is called once per frame

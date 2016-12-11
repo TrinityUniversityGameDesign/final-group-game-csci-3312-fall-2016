@@ -64,6 +64,7 @@ public class player_movement : MonoBehaviour {
         controller = 1;
 
         int numEnemies = PlayerPrefs.GetInt("NumPlayers")-1;
+        Debug.Log("enemy num: " + numEnemies);
 
         if (p2score > max)
         {

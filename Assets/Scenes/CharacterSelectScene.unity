@@ -2028,7 +2028,7 @@ Prefab:
     - target: {fileID: 114000010198875096, guid: 5ddc2f8e03ef3fc438306ac348a5df35,
         type: 2}
       propertyPath: next_scene
-      value: Scenes/UsingTilesStory
+      value: Resources/darkroom_Assets/Scene/scene1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ddc2f8e03ef3fc438306ac348a5df35, type: 2}
