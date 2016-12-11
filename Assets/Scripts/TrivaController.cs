@@ -28,7 +28,7 @@ public class TrivaController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        PlayerPrefs.SetInt("NumPlayers", 3);
+        //PlayerPrefs.SetInt("NumPlayers", 4);
         numPlayers = PlayerPrefs.GetInt("NumPlayers");
         players = GameObject.FindGameObjectsWithTag("Player");
         story = GameObject.Find("StoryStuff").GetComponent<StoryGenerator>().generate_story();
@@ -62,7 +62,30 @@ public class TrivaController : MonoBehaviour
                 invoked = true;
 
             }
-
+            if (correct_answer == 'a')
+            {
+                answer_b.text = "";
+                answer_x.text = "";
+                answer_y.text = "";
+            }
+            else if (correct_answer == 'b')
+            {
+                answer_a.text = "";
+                answer_x.text = "";
+                answer_y.text = ""; 
+            }
+            else if(correct_answer == 'y')
+            {
+                answer_a.text = "";
+                answer_b.text = "";
+                answer_x.text = "";
+            }
+            else if(correct_answer == 'x')
+            {
+                answer_a.text = "";
+                answer_b.text = "";
+                answer_y.text = "";
+            }
             //set_cur_question();
         }
         else if (!invoked)
@@ -72,8 +95,8 @@ public class TrivaController : MonoBehaviour
             else if (readTime > 0)
                 readTime--;
             txtScore.text = score.ToString();
-            
-           
+
+
             scoreBar.fillAmount = (score / 1000f);
             txtScore.color = Color.Lerp(Lowest, Highest, scoreBar.fillAmount);
         }
