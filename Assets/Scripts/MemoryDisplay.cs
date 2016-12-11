@@ -82,8 +82,8 @@ public class MemoryDisplay : MonoBehaviour {
         TeachBoard = GameObject.Find("TeachBoard");
         TeachColumn = GameObject.Find("TeachColumn");
         TeachString = PlayerPrefs.GetString("font_name");
-        TeachBoard.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
-        TeachColumn.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
+       // TeachBoard.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
+        // TeachColumn.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
 		
 		numPlayers = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GlobalPlayerControllerScript> ().num_players;
 
@@ -99,13 +99,13 @@ public class MemoryDisplay : MonoBehaviour {
 		player3 = GameObject.FindGameObjectWithTag("Player3");
 		player4 = GameObject.FindGameObjectWithTag("Player4");
 
-		if (numPlayers <= 1) {
+		if (player2 != null && numPlayers <= 1) {
 			player2.SetActive (false);
 		}
-		if (numPlayers <= 2) {	
+		if (player3 != null && numPlayers <= 2) {	
 			player3.SetActive (false);
 		}
-		if (numPlayers <= 3) {
+		if (player4 != null && numPlayers <= 3) {
 			player4.SetActive (false);
 		}
 
@@ -134,13 +134,6 @@ public class MemoryDisplay : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(SceneManager.GetActiveScene().name == "IntroScene")
-        {
-            if(Input.GetButtonDown(gameCont.player1_in.ABut))
-            {
-                SceneManager.LoadScene(6);
-            }
-        }
 		if (first) {
             borderSR.sprite = borderReg;
             BGSR.sprite = BGReg;
@@ -228,22 +221,22 @@ public class MemoryDisplay : MonoBehaviour {
 		// if a player is not alive after receiving damage, it has died and should recieve a ranking
 		int count = 0;
 
-		if (player1.GetComponent<PlayerScript> ().alive == false) {
+		if (player1.activeSelf && player1.GetComponent<PlayerScript> ().alive == false) {
             sneaky.GetComponent<SneakyScript>().p1Rank = rankCount;
 			player1.GetComponent<PlayerScript> ().rank = rankCount;
 			count++;
 		}
-		if (player2.GetComponent<PlayerScript> ().alive == false) {
+		if (player1.activeSelf && player2.GetComponent<PlayerScript> ().alive == false) {
             sneaky.GetComponent<SneakyScript>().p2Rank = rankCount;
             player2.GetComponent<PlayerScript> ().rank = rankCount;
 			count++;
 		}
-		if (player3.GetComponent<PlayerScript> ().alive == false) {
+		if (player1.activeSelf && player3.GetComponent<PlayerScript> ().alive == false) {
             sneaky.GetComponent<SneakyScript>().p3Rank = rankCount;
             player3.GetComponent<PlayerScript> ().rank = rankCount;
 			count++;
 		}
-		if (player4.GetComponent<PlayerScript> ().alive == false) {
+		if (player1.activeSelf && player4.GetComponent<PlayerScript> ().alive == false) {
             sneaky.GetComponent<SneakyScript>().p4Rank = rankCount;
             player4.GetComponent<PlayerScript> ().rank = rankCount;
 			count++;

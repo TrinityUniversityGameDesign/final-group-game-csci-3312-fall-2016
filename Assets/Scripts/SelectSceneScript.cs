@@ -199,7 +199,7 @@ public class SelectSceneScript : MonoBehaviour {
 		}
 
 		if (moveOn) {
-			SceneManager.LoadSceneAsync ("Scenes/MainScene");
+			SceneManager.LoadSceneAsync ("Scenes/IntroScene");
 		}
 
 	}
