@@ -549,7 +549,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bea94c6e09876084f92b4c6023c6825c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1f8aa6388066df438358c404e89ed7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -867,8 +867,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "press \"RB\" and \"LB\" to inflate your lifejacket, \n\npress \"A\" to
-    release the air! Blow the other players off the island to win!"
+  m_Text: 'press "RB" and "LB" to inflate your lifejacket.
+
+
+    press "A" to release the air! Blow the other players off the island to win!'
 --- !u!222 &1869447873
 CanvasRenderer:
   m_ObjectHideFlags: 0
