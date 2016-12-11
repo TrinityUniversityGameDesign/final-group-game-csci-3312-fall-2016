@@ -24,7 +24,7 @@ GameObject:
   - 23: {fileID: 23000013243783900}
   - 95: {fileID: 95000013310779478}
   - 114: {fileID: 114000014241436684}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WaterQuad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011051947234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 28.880733, y: 9.93898, z: 4.9945555}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
+  m_LocalScale: {x: 28.880733, y: 10.1310835, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 48ceebb886a1ba6408357398ecdb9abc, type: 2}
+  - {fileID: 2100000, guid: df95fbe8e45793d4389b98ff8a54b43a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
