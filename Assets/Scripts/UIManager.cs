@@ -45,7 +45,13 @@ public class UIManager : MonoBehaviour
                 //also add a way to keep track of the current rounds
                 //little player icons in the corners of the screen to show score?
                 //also, destroy the script when done with everything
-                Debug.Log(playerPoints[0] + " " + playerPoints[1] + " " + playerPoints[2] + " " + playerPoints[3]);
+                PlayerPrefs.SetInt("player1_score", PlayerPrefs.GetInt("player1_score") + playerPoints[0]);
+                PlayerPrefs.SetInt("player2_score", PlayerPrefs.GetInt("player2_score") + playerPoints[1]);
+                PlayerPrefs.SetInt("player3_score", PlayerPrefs.GetInt("player3_score") + playerPoints[2]);
+                PlayerPrefs.SetInt("player4_score", PlayerPrefs.GetInt("player4_score") + playerPoints[3]);
+                //load next scene for game
+                Destroy(this);
+                //Debug.Log(playerPoints[0] + " " + playerPoints[1] + " " + playerPoints[2] + " " + playerPoints[3]);
             }
         }
     }
@@ -124,7 +130,7 @@ public class UIManager : MonoBehaviour
 
                 //add points to player
                 playerPlacing.Push(winPlayer);
-                playerPoints[playerNum - 1] += playerPlacing.Count;
+                playerPoints[playerNum - 1] += 5;
 
                 winText.text = winPlayer + " wins!";
                 restart();

@@ -7,23 +7,41 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 2f;
     public float speedCap = 2.5f;
     public int playerNo = 1;
+    private int numPlayers = 1;
     public float customFriction = 0.1f;
-    private string horizontalCtrl = "Horizontal_P";
-    private string verticalCtrl = "Vertical_P";
+    //private string horizontalCtrl = "Horizontal_P";
+    //private string verticalCtrl = "Vertical_P";
     private bool dead = false;
     private Animator animationController;
     private float animSpeedMult = 1.5f; //Meant to increase the speed of the animation of the player
 
     private Quaternion originalRotation;
-
     private Rigidbody2D theRigidBody;
+    private string playerCol;
+    private Color col;
+
+    public GlobalPlayerControllerScript gameCont;
+
+    public GameObject player = null;
 
     void Start()
     {
+        numPlayers = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>().num_players;
+
+        player = GameObject.FindGameObjectWithTag("Player" + playerNo);
+        player.SetActive(true);
+
+        playerCol = PlayerPrefs.GetString("player" + playerNo + "_color");
+        ColorUtility.TryParseHtmlString(playerCol, out col);
+        player.GetComponent<SpriteRenderer>().color = col;
+
         theRigidBody = GetComponent<Rigidbody2D>();
-        horizontalCtrl += playerNo.ToString();
-        verticalCtrl += playerNo.ToString();
         animationController = GetComponent<Animator>();
+    }
+
+    void Awake()
+    {
+        gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -36,8 +54,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float inputX = Input.GetAxis(horizontalCtrl);
-        float inputY = Input.GetAxis(verticalCtrl);
+        float inputX = Input.GetAxis(gameCont.players[playerNo].hor);
+        float inputY = Input.GetAxis(gameCont.players[playerNo].vert);
 
         if (Input.GetKeyDown("r"))
             SceneManager.LoadScene("Balls");
@@ -53,7 +71,10 @@ public class PlayerMovement : MonoBehaviour
                 gameObject.SetActive(false);
                 //adds points to player score
                 UIManager.playerPlacing.Push(gameObject.name);
-                UIManager.playerPoints[playerNo-1] += UIManager.playerPlacing.Count;
+                if (UIManager.playerPlacing.Count == 2) UIManager.playerPoints[playerNo-1] += 1;
+                if (UIManager.playerPlacing.Count == 3) UIManager.playerPoints[playerNo - 1] += 3;
+                //else if (UIManager.playerPlacing.Count == 2) UIManager.playerPoints[playerNo - 1] += 1;
+                //else { }
             }
         }
         else
