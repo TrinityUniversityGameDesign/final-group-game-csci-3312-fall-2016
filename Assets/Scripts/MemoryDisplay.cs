@@ -66,11 +66,14 @@ public class MemoryDisplay : MonoBehaviour {
     Vector3 ColumnPos4;
 
 	public int numPlayers;
+	public int numAlive;
 
     // bools used to determine what stage of the round it is
     public bool first = false; // 1st stage - display memory list, no input
 	public bool second = false; // 2nd stage - hide memory list, player input
 	public bool third = false; // 3rd stage - show both lists, comparison
+	public bool fourth = false;
+	public bool endScene = false;
     public bool butsAlive = false;
     int x = 0; // temp display number
 	public GlobalPlayerControllerScript gameCont;
@@ -86,6 +89,7 @@ public class MemoryDisplay : MonoBehaviour {
         // TeachColumn.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), TeachString + ".ttf") as Font;
 		
 		numPlayers = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GlobalPlayerControllerScript> ().num_players;
+		numAlive = numPlayers;
 
         curButtonPos = new Vector3(-7, 0, 0);
         aButton = Resources.Load("Prefabs/aButton");
@@ -197,19 +201,56 @@ public class MemoryDisplay : MonoBehaviour {
 			//playersDone should just check the alive players' lists and the 
             if (PlayersDone()){
 				DamagePlayers();
-				first = true;
+				UpdateButtons ();
 				third = false;
+				fourth = true;
 			}
 		
+		}
+
+		if (fourth) {
+			StartCoroutine(waitToUpdate(5f));
+		}
+		if (endScene) {
+			SceneManager.LoadScene ("Scenes/PurpleParrotsEndingGameScene");
 		}
 
         //StartCoroutine(timeToDisplay(x.ToString(), 2f));
     }
 
+	IEnumerator<WaitForSeconds> waitToUpdate(float delay){
+		fourth = false;
+		yield return new WaitForSeconds (delay);
+		RemoveButtons ();
+		if (numAlive == 0) {
+			endScene = true;
+		} else {
+			first = true;
+		}
+
+	}
+
+	void RemoveButtons(){
+		var list = GameObject.FindGameObjectsWithTag("Button");
+		foreach (var a in list) {
+			Destroy (a);
+		}
+	}
+
+	void UpdateButtons(){
+		var list = GameObject.FindGameObjectsWithTag("Button");
+		foreach (var a in list) {
+			a.GetComponent<ButtonScript> ().EndRound ();
+		}
+	}
+
 	void DamagePlayer(GameObject player,GameObject column){
 		float loss = (float)compareInputs (player.GetComponent<PlayerScript> ().InputList, InputList).Count;
 		player.GetComponent<PlayerScript>().health -= loss;
 		column.transform.position = new Vector3(column.transform.position.x, column.transform.position.y - .5f * loss, column.transform.position.z);
+		if (player.GetComponent<PlayerScript> ().health < 0) {
+			numAlive--;
+		}
 	}
 	
 	void DamagePlayers(){
