@@ -14,7 +14,7 @@ public class TitleContinueScript : MonoBehaviour {
 
         if(Input.GetButtonDown("Start_P1") || Input.GetAxis("A_P1") > 0)
         {
-            SceneManager.LoadScene("UsingTilesStory");
+            SceneManager.LoadScene("Scenes/CharacterSelectScene");
         }
 	
 	}
