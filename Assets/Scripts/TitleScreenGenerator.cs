@@ -56,7 +56,8 @@ public class TitleScreenGenerator : MonoBehaviour
         text = GameObject.Find("Title").GetComponent<Text>();
         text.text = story.title[0] + " " + story.title[1];
 
-        //Crosstales.RTVoice.Speaker.Speak(text.text, GetComponent<AudioSource>(), null, true, 0.26f, 1, "", 2f);
+        Crosstales.RTVoice.Speaker.Speak(text.text, GetComponent<AudioSource>(), null, true, 0.26f, 1, "", 2f);
+
         string[] fonts = {"BlackCastleMF", "burritos",
                           "dum1", "JUNGLEFE", "lightmorning",
                           "Luminari", "Mayan", "Taibaijan",

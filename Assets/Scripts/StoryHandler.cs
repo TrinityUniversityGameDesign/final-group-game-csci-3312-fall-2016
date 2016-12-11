@@ -45,6 +45,7 @@ public class StoryHandler : MonoBehaviour {
 	void Start () {
         StoryGenerator gen = GameObject.Find("StoryStuff").GetComponent<StoryGenerator>();
         int story_number = PlayerPrefs.GetInt("StoryNumber");
+        story_number = 0;
         Debug.Log("Story Number " + story_number);
         story = gen.generate_story();
         string[] pieces = { story.story_1, story.story_2, story.story_3, story.story_4 };
@@ -55,13 +56,14 @@ public class StoryHandler : MonoBehaviour {
         text = GameObject.Find("StoryText").GetComponent<Text>();
         story_sentences = get_sentences(story_string);
         text.text = story_sentences[cur_sentence] as string;
-        
+        Crosstales.RTVoice.Speaker.Speak(text.text, GetComponent<AudioSource>(), null, true, 0.26f, 1, "", 2f);
     }
 	
     void get_next_story_chunk()
     {
         cur_sentence += 1;
         text.text = story_sentences[cur_sentence] as string;
+        Crosstales.RTVoice.Speaker.Speak(text.text, GetComponent<AudioSource>(), null, true, 0.26f, 1, "", 2f);
     }
 
     int get_random()
