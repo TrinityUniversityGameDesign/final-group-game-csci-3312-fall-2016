@@ -268,6 +268,19 @@ public class SelectSceneScript : MonoBehaviour {
 			}
 			PlayerPrefs.Save ();
 
+			gameCont.players = new PlayerInput[gameCont.num_players + 1];
+			if (gameCont.num_players >= 1) {
+				gameCont.players [1] = gameCont.player1_in;
+			}
+			if (gameCont.num_players >= 2) {
+				gameCont.players [2] = gameCont.player2_in;
+			}
+			if (gameCont.num_players >= 3) {
+				gameCont.players [3] = gameCont.player3_in;
+			}
+			if (gameCont.num_players >= 4) {
+				gameCont.players [4] = gameCont.player4_in;
+			}
 			//should happen after timer goes off for player names
 			SceneManager.LoadSceneAsync ("Scenes/IntroScene");
 		}
