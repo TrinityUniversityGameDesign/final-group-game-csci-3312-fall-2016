@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PurpleParrotsEndingSceneScoring : MonoBehaviour {
 
@@ -15,9 +16,13 @@ public class PurpleParrotsEndingSceneScoring : MonoBehaviour {
 
 	public float goalHeight = -3.5f; //height of 1st ranked column;
 
+	public string font = PlayerPrefs.GetString("font_name");
+	public Text winningString;
+
 	// Use this for initialization
 	void Start () {
 		GameObject sneakyFinds = GameObject.FindGameObjectWithTag("Player1");
+		//winningString.font = Resources.Load<Font>(font);
 
 		player1_rank = sneakyFinds.GetComponent<SneakyScript>().p1Rank;
 		player2_rank = sneakyFinds.GetComponent<SneakyScript>().p2Rank;
@@ -43,6 +48,41 @@ public class PurpleParrotsEndingSceneScoring : MonoBehaviour {
 		} else {
 			p1 += 0;
 		}
+		if (player2_rank == 1) {
+			p2 += 5;
+		} else if (player2_rank == 2) {
+			p2 += 3;
+		} else if (player2_rank == 3) {
+			p2 += 1;
+		} else {
+			p2 += 0;
+		}
+		if (player3_rank == 1) {
+			p3 += 5;
+		} else if (player3_rank == 2) {
+			p3 += 3;
+		} else if (player3_rank == 3) {
+			p3 += 1;
+		} else {
+			p3 += 0;
+		}
+		if (player4_rank == 1) {
+			p4 += 5;
+		} else if (player4_rank == 2) {
+			p4 += 3;
+		} else if (player4_rank == 3) {
+			p4 += 1;
+		} else {
+			p4 += 0;
+		}
+
+		PlayerPrefs.SetInt ("player1_score", p1);
+		PlayerPrefs.SetInt ("player2_score", p2);
+		PlayerPrefs.SetInt ("player3_score", p3);
+		PlayerPrefs.SetInt ("player4_score", p4);
+
+		PlayerPrefs.Save ();
+
 		/*
 		column1_adj = -3.5f - player1_rank + 1f;
 		column2_adj = -3.5f - player2_rank + 1f;
@@ -53,6 +93,16 @@ public class PurpleParrotsEndingSceneScoring : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (player1_rank == 1) {
+			winningString.text = "Player 1 Wins!";
+		} else if (player2_rank == 1) {
+			winningString.text = "Player 2 Wins!";
+		} else if (player3_rank == 1) {
+			winningString.text = "Player 3 Wins!";
+		} else {
+			winningString.text = "Player 4 Wins!";
+		}
+
 		column1_adj = -3.5f - player1_rank + 1f;
 		column2_adj = -3.5f - player2_rank + 1f;
 		column3_adj = -3.5f - player3_rank + 1f;
