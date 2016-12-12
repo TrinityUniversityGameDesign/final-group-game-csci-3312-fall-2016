@@ -2384,6 +2384,10 @@ Prefab:
       propertyPath: customFriction
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011963621388, guid: 3aae2d9d100e69343ad8c3d4744dbb85, type: 2}
+      propertyPath: m_TagString
+      value: Player3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3aae2d9d100e69343ad8c3d4744dbb85, type: 2}
   m_IsPrefabParent: 0
@@ -2553,6 +2557,10 @@ Prefab:
       propertyPath: playerNo
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011963621388, guid: 3aae2d9d100e69343ad8c3d4744dbb85, type: 2}
+      propertyPath: m_TagString
+      value: Player4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3aae2d9d100e69343ad8c3d4744dbb85, type: 2}
   m_IsPrefabParent: 0
@@ -2660,6 +2668,10 @@ Prefab:
         type: 2}
       propertyPath: moveSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011963621388, guid: 3aae2d9d100e69343ad8c3d4744dbb85, type: 2}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3aae2d9d100e69343ad8c3d4744dbb85, type: 2}
@@ -6891,6 +6903,10 @@ Prefab:
         type: 2}
       propertyPath: customFriction
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011963621388, guid: 3aae2d9d100e69343ad8c3d4744dbb85, type: 2}
+      propertyPath: m_TagString
+      value: Player2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3aae2d9d100e69343ad8c3d4744dbb85, type: 2}

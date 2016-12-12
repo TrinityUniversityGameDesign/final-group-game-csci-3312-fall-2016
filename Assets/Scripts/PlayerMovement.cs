@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         numPlayers = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>().num_players;
+        Debug.Log(numPlayers);
+        Debug.Log("PlayerNo:" + playerNo);
 
         player = GameObject.FindGameObjectWithTag("Player" + playerNo);
         player.SetActive(true);
@@ -35,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
         ColorUtility.TryParseHtmlString(playerCol, out col);
         player.GetComponent<SpriteRenderer>().color = col;
 
+        if(numPlayers < playerNo)
+        {
+            player.SetActive(false);
+            Debug.Log("does this happen k thanks");
+        }
         theRigidBody = GetComponent<Rigidbody2D>();
         animationController = GetComponent<Animator>();
     }
