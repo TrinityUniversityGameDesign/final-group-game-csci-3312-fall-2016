@@ -265,7 +265,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011235383304}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b481aa0b19077844ba297acac09337f1, type: 2}
   m_CullingMode: 0
@@ -323,9 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe0747a1cbc440858b2328c376042e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dotsColor: {r: 1, g: 1, b: 1, a: 1}
-  jacketName: RedJacket
-  playerString: RedPlayer
+  jacketObject: {fileID: 1000014160856374}
+  playerObject: {fileID: 1000011235383304}
   radius: 5
 --- !u!114 &114000011508984568
 MonoBehaviour:

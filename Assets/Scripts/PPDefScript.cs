@@ -4,8 +4,8 @@ using System.Collections;
 public class PPDefScript : MonoBehaviour {
 
 	void Awake(){
-        PlayerPrefs.DeleteAll();
-
+        //PlayerPrefs.DeleteAll();
+        /*
         PlayerPrefs.SetInt("NumPlayers", 4);
 
 		PlayerPrefs.SetInt ("player1_score", 0);
@@ -22,6 +22,7 @@ public class PPDefScript : MonoBehaviour {
 		PlayerPrefs.SetString ("player2_color", "#7af442");
 		PlayerPrefs.SetString ("player3_color", "#af2845");
 		PlayerPrefs.SetString ("player3_color", "#d8d50f");
+        */
 	}
 
 	// Use this for initialization

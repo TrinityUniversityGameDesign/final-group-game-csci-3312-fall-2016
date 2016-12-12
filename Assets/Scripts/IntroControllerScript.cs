@@ -14,9 +14,13 @@ public class IntroControllerScript : MonoBehaviour {
 
 	private Vector3 InstructionTextPosition;
 	private Vector3 BowlMecPosition;
-	private Vector3 dump; 
-	// Use this for initialization
-	void Start () {
+	private Vector3 dump;
+
+    public GlobalPlayerControllerScript gameCont;
+    void Awake() { gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); }
+
+    // Use this for initialization
+    void Start () {
 		dump = new Vector3(1000,1000,1000);
 		BowlMecPosition = BowlMec.transform.position;
 		BowlMec.transform.position = dump;
@@ -27,12 +31,12 @@ public class IntroControllerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("A_P1") && mode == 0) {
+		if (Input.GetButtonDown(gameCont.player1_in.ABut) && mode == 0) {
 			SmackText.transform.position = dump;
 			BowlMec.transform.position = BowlMecPosition;
 			InstructionText.transform.position = InstructionTextPosition;
 			mode++;
-		} else if (Input.GetButtonDown ("A_P1") && mode == 1) {
+		} else if (Input.GetButtonDown(gameCont.player1_in.ABut) && mode == 1) {
 			referenceToTheButton.onClick.Invoke();
 			/*SceneManager.LoadScene ("DemoScene", LoadSceneMode.Additive);
 			Destroy (BowlMec);

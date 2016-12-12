@@ -26,6 +26,9 @@ public class JacketScript : MonoBehaviour
 
 	bool isDeflating;
 
+    public GlobalPlayerControllerScript gameCont;
+    void Awake() { gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); }
+
     // Use this for initialization
     void Start()
     {
@@ -34,27 +37,30 @@ public class JacketScript : MonoBehaviour
         theTransform = gameObject.GetComponent<Transform>();
         theRigibody = gameObject.GetComponentInParent<Rigidbody2D>();
 		audioSource = GetComponent<AudioSource> ();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown(inflateBtnL))
+        if (Input.GetButtonDown(gameCont.players[transform.parent.gameObject.GetComponent<PlayerMovement_Jacket>().playerNum].LB))
+        //if(Input.GetKeyDown("r"))
         {
             if (lNext)
             {
                 Inflate();
                 lNext = false;
             }
-        } else if (Input.GetButtonDown(inflateBtnR)) {
-            if (!lNext)
+        } if (Input.GetButtonDown(gameCont.players[transform.parent.gameObject.GetComponent<PlayerMovement_Jacket>().playerNum].RB)) {
+            //else if (Input.Input("l"))
             {
-                Inflate();
-                lNext = true;
+                if (!lNext)
+                {
+                    Inflate();
+                    lNext = true;
+                }
             }
         }
-        if (Input.GetButtonDown(explodeBtn))
+        if (Input.GetButtonDown(gameCont.players[transform.parent.gameObject.GetComponent<PlayerMovement_Jacket>().playerNum].ABut))
         {
 			Debug.Log(jacketScale);
 			if (jacketScale > 1) {
@@ -95,7 +101,6 @@ public class JacketScript : MonoBehaviour
 			audioSource.clip = pumpClip;
 			audioSource.Play ();
 		}
-        //Debug.Log(jacketScale);
     }
 
     void Explode()
