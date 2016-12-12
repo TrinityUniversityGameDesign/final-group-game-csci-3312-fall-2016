@@ -8,7 +8,8 @@ public class TitleScreenGenerator : MonoBehaviour
 {
 
     StorySet story;
-    public Text text;
+    public Text nounText;
+	public Text locationText;
 
     object get_random(object[] elems)
     {
@@ -39,31 +40,45 @@ public class TitleScreenGenerator : MonoBehaviour
         }
         // Show story part 1 before this
         PlayerPrefs.SetString("GameNumber1", games[f]);
-        Debug.Log(PlayerPrefs.GetString("GameNumber1"));
+        //Debug.Log(PlayerPrefs.GetString("GameNumber1"));
         // Show story part 2 before this
         PlayerPrefs.SetString("GameNumber2", games[s]);
-        Debug.Log(PlayerPrefs.GetString("GameNumber2"));
+        //Debug.Log(PlayerPrefs.GetString("GameNumber2"));
         // Show story part 3 before this
         PlayerPrefs.SetString("GameNumber3", games[t]);
-        Debug.Log(PlayerPrefs.GetString("GameNumber3"));
+        //Debug.Log(PlayerPrefs.GetString("GameNumber3"));
         // Show story part 4 before this, final piece
         PlayerPrefs.SetString("GameNumber4", "UsingTiles");
-        Debug.Log(PlayerPrefs.GetString("GameNumber4"));
+        //Debug.Log(PlayerPrefs.GetString("GameNumber4"));
 
         story = gen.generate_story();
         PlayerPrefs.SetString("HiddenTemple", story.title[1]);
         PlayerPrefs.SetString("ArtifactName", story.artifact);
-        text = GameObject.Find("Title").GetComponent<Text>();
-        text.text = story.title[0] + " " + story.title[1];
+		nounText = GameObject.Find("NounText").GetComponent<Text>();
+		nounText.text = story.title [0].Substring (0, story.title [0].IndexOf (' '));
+		locationText = GameObject.Find ("LocationText").GetComponent<Text> ();
+		locationText.text = story.title [1].Replace(" ","\n");
 
         //Crosstales.RTVoice.Speaker.Speak(text.text, GetComponent<AudioSource>(), null, true, 0.26f, 1, "", 2f);
-        string[] fonts = {"BlackCastleMF", "burritos",
+        string[] fonts = {"BlackCastleMF", "burrito",
                           "dum1", "JUNGLEFE", "lightmorning",
                           "Luminari", "Mayan", "Taibaijan",
                           "Trattatello"};
         string random_font = get_random(fonts) as string;
         PlayerPrefs.SetString("font_name", random_font);
 
+		Font locationFont = Resources.Load ("Fonts/" + random_font) as Font;
+		locationText.font = locationFont;
+		Font nounFont = Resources.Load ("Fonts/" + fonts [(int)Random.Range (0, fonts.Length)]) as Font;
+		nounText.font = nounFont;
+
+		Color textColor = Color.HSVToRGB (Random.value, Random.value, Random.Range (0.8f, 1.0f));
+		locationText.color = textColor;
+		nounText.color = textColor;
+		GameObject.Find ("OfTheText").GetComponent<Text> ().color = textColor;
+		GameObject.Find ("Text").GetComponent<Text> ().color = textColor;
+
+		GameObject.Find ("Image").GetComponent<Image> ().color = Color.HSVToRGB (Random.value, Random.value, 1f);
 
         PlayerPrefs.Save();
     }
