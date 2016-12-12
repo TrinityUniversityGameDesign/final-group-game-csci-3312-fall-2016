@@ -49,6 +49,29 @@ public class PlayerMovement : MonoBehaviour
         dead = true;
     }
 
+    bool IsInsideHole(CircleCollider2D hole, CircleCollider2D player)
+    {
+        Bounds enterableBounds = hole.bounds;
+        Bounds enteringBounds = player.bounds;
+        Vector2 center = enteringBounds.center;
+        Vector2 extents = enteringBounds.extents;
+        Vector2[] enteringVerticles = new Vector2[4];
+
+        enteringVerticles[0] = new Vector2(center.x + extents.x, center.y + extents.y);
+        enteringVerticles[1] = new Vector2(center.x - extents.x, center.y + extents.y);
+        enteringVerticles[2] = new Vector2(center.x + extents.x, center.y - extents.y);
+        enteringVerticles[3] = new Vector2(center.x - extents.x, center.y - extents.y);
+
+        foreach (Vector2 verticle in enteringVerticles)
+        {
+            if (!enterableBounds.Contains(verticle))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     //put OnTriggerEnter for the death tag here
 
     // Update is called once per frame
@@ -105,6 +128,10 @@ public class PlayerMovement : MonoBehaviour
                 if (theRigidBody.velocity.magnitude > 0)
                 {
                     transform.rotation = Quaternion.LookRotation(Vector3.forward, tempVel); //Currently turns towards current velocity, will probably change to turn towards player input. Maybe smooth using lerp.
+                }
+                CircleCollider2D hole = GameObject.FindGameObjectWithTag("Hole").GetComponent<CircleCollider2D>();
+                if(IsInsideHole(this.gameObject.GetComponent< CircleCollider2D>(), hole)){
+                    dead = true;
                 }
             }
         }
