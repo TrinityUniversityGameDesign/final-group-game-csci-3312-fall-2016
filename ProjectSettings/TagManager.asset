@@ -9,6 +9,10 @@ TagManager:
   - Player2
   - Player3
   - Player4
+  - Death
+  - Water
+  - Jacket
+  - Hole
   layers:
   - Default
   - TransparentFX

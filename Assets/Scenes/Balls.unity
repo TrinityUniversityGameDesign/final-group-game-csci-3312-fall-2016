@@ -4708,7 +4708,7 @@ GameObject:
   - 212: {fileID: 1671207301}
   m_Layer: 0
   m_Name: Hole
-  m_TagString: Death
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4721,7 +4721,7 @@ Transform:
   m_GameObject: {fileID: 1671207299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2530584, y: 1.208401, z: 1}
+  m_LocalScale: {x: 1.35, y: 1.35, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 983487707}
