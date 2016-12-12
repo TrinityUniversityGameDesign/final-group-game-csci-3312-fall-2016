@@ -816,7 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 680521267}
-  maxRoundNumber: 3
+  maxRoundNumber: 1
   nextScene: EndJacketSmackIt
   blueJacket: {fileID: 755986871}
   greenJacket: {fileID: 902074758}
@@ -1398,20 +1398,6 @@ Prefab:
       propertyPath: waterQuad
       value: 
       objectReference: {fileID: 171518104}
-    - target: {fileID: 1000012813944372, guid: b20619e0dd95d044cb3776336658e083, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013923218814, guid: b20619e0dd95d044cb3776336658e083,
-        type: 2}
-      propertyPath: jacketObject
-      value: 
-      objectReference: {fileID: 1309126748}
-    - target: {fileID: 114000013923218814, guid: b20619e0dd95d044cb3776336658e083,
-        type: 2}
-      propertyPath: playerObject
-      value: 
-      objectReference: {fileID: 7818564}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b20619e0dd95d044cb3776336658e083, type: 2}
   m_IsPrefabParent: 0
@@ -1469,20 +1455,6 @@ Prefab:
       propertyPath: ScoreManager
       value: 
       objectReference: {fileID: 680521267}
-    - target: {fileID: 1000011235383304, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011422007228, guid: 427c6202b0c5a4045a7097e6b241563c,
-        type: 2}
-      propertyPath: jacketObject
-      value: 
-      objectReference: {fileID: 1567378500}
-    - target: {fileID: 114000011422007228, guid: 427c6202b0c5a4045a7097e6b241563c,
-        type: 2}
-      propertyPath: playerObject
-      value: 
-      objectReference: {fileID: 1217392056}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 427c6202b0c5a4045a7097e6b241563c, type: 2}
   m_IsPrefabParent: 0

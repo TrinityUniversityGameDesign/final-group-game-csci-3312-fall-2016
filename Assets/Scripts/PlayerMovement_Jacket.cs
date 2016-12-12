@@ -31,15 +31,22 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
 	public string jacketName;
 
+    public GlobalPlayerControllerScript gameCont;
+    void Awake() { gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); }
+
     // Use this for initialization
     void Start () {
 		jacket = GameObject.Find (jacketName) as GameObject;
 		jacketScript = jacket.GetComponent<JacketScript> ();
 		spawnPosition = transform.position;
 		rigid = GetComponent<Rigidbody2D> ();
-		vertAxis = "Vertical_P" + playerNum.ToString();
-		horAxis = "Horizontal_P" + playerNum.ToString();
-		dashButton = "B_P" + playerNum.ToString();
+        //Input.GetButtonDown(gameCont.playerNUM_in.ABut)
+        //string playerNum2 = "player" + playerNum.ToString() + "_in";
+        //vertAxis = "Vertical_P" + playerNum.ToString(); gameCont.players[playerNum].ABut;
+        vertAxis = gameCont.players[playerNum].vert;
+        horAxis = gameCont.players[playerNum].hor;
+        //horAxis = "Horizontal_P" + playerNum.ToString();
+		//dashButton = "B_P" + playerNum.ToString();
         animationController = gameObject.GetComponent<Animator>();
         originalSize = transform.localScale;
 		deathSprite.transform.position = dumpPosition;
@@ -57,6 +64,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
         if(Input.GetAxisRaw(horAxis)!=0 || Input.GetAxisRaw(vertAxis) != 0) animationController.SetBool("isWalking", true);
         else animationController.SetBool("isWalking", false);
 
+        /*
         if (Input.GetButtonDown(dashButton))
         {
             if(canDash)
@@ -66,7 +74,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
                 StartCoroutine(ResetDash());
             }
         }
-
+        */
             /*
             //TODO : Add dashing in
             float dash = Input.GetAxis(dashButton);
