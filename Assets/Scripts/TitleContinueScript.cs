@@ -12,7 +12,7 @@ public class TitleContinueScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(Input.GetButtonDown("Start_P1") || Input.GetAxis("A_P1") > 0)
+		if(Input.GetButtonDown("Start_P1") || Input.GetButtonDown("A_P1") || Input.GetButtonDown("Start_P1_KEYBOARD") || Input.GetButtonDown("A_P1_KEYBOARD"))
         {
             SceneManager.LoadScene("Scenes/CharacterSelectScene");
         }

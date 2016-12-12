@@ -271,6 +271,7 @@ public class SelectSceneScript : MonoBehaviour {
                 PlayerPrefs.SetString("player4_color", color);
                 PlayerPrefs.SetString("player4_name", player4.GetComponent<SelectPlayerControls>().name);
             }
+			PlayerPrefs.SetInt ("NumPlayers", gameCont.num_players);
             PlayerPrefs.Save();
 
             gameCont.players = new PlayerInput[gameCont.num_players + 1];
