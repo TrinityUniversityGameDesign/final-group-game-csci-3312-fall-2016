@@ -21,6 +21,8 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	private string horAxis;
 	private string dashButton;
 
+	public GameObject deathSprite;
+
     private Animator animationController;
 
 	GameObject jacket;
@@ -39,7 +41,8 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 		dashButton = "B_P" + playerNum.ToString();
         animationController = gameObject.GetComponent<Animator>();
         originalSize = transform.localScale;
-    }
+		deathSprite.transform.position = dumpPosition;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -65,7 +68,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
             }
             */
             //ugly, fix later
-            if ((transform.position.x < -7 || transform.position.x > 7) && !isDead) {
+          if ((transform.position.x < -7 || transform.position.x > 7) && !isDead) {
 			OnDeath ();
 		} else if ((transform.position.y < -4 || transform.position.y > 3.5)&&!isDead) {
 			OnDeath ();
@@ -87,6 +90,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
 	//Samuel's Functions;
 	public void OnDeath() {
+		Debug.Log ("isdead");
 		//Destroy (gameObject);
 		isDead = true;
 		//Debug.Log("I died!");
@@ -95,9 +99,17 @@ public class PlayerMovement_Jacket : MonoBehaviour {
             //transform.lo
             transform.localScale -= new Vector3(0.0001f, 0.0001f, 0.0f);
         }*/
+		deathSprite.transform.position = transform.position;
 		transform.position = dumpPosition;
+		StartCoroutine (DespawnSkull ());
         //transform.localScale.Set(originalSize.x,originalSize.y,originalSize.z);
 	}
+
+	IEnumerator DespawnSkull() {
+		yield return new WaitForSeconds(2);
+		deathSprite.transform.position = dumpPosition;
+	}
+
 	public void Respawn(){
 		//teleport player back to start
 		isDead = false;

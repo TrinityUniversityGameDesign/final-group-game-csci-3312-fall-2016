@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "final-group-game-csci-3312-fall-2016.CSharp", "final-group-game-csci-3312-fall-2016.CSharp.csproj", "{6FDDFDD3-0E97-08C8-8BDC-C2F32121A262}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "final-group-game-csci-3312-fall-2016.CSharp.Editor", "final-group-game-csci-3312-fall-2016.CSharp.Editor.csproj", "{8B512219-8B29-5A0E-E4D9-8E99934EF715}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{6FDDFDD3-0E97-08C8-8BDC-C2F32121A262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FDDFDD3-0E97-08C8-8BDC-C2F32121A262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FDDFDD3-0E97-08C8-8BDC-C2F32121A262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B512219-8B29-5A0E-E4D9-8E99934EF715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B512219-8B29-5A0E-E4D9-8E99934EF715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B512219-8B29-5A0E-E4D9-8E99934EF715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B512219-8B29-5A0E-E4D9-8E99934EF715}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
