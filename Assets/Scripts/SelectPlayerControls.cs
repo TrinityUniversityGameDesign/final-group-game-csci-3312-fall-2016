@@ -13,7 +13,6 @@ public class SelectPlayerControls : MonoBehaviour {
 	public Text txt_Name;
 
 	public bool active;
-	public bool nameSet;
 	public bool colorSet;
 	public bool ready;
 	public bool cntDown;
@@ -22,7 +21,6 @@ public class SelectPlayerControls : MonoBehaviour {
 
 	void Awake (){
 		active = false;
-		nameSet = false;
 		colorSet = false;
 		ready = false;
 		cntDown = false;
@@ -43,7 +41,7 @@ public class SelectPlayerControls : MonoBehaviour {
 			if (txt_Name != null) {
 				txt_Name.text = name;
 			}
-			if (!nameSet && ready && cntDown) {
+			if (ready && cntDown) {
 				if (Input.GetButtonDown (iC.ABut)) {
 					name += "a";
 				}
@@ -73,10 +71,6 @@ public class SelectPlayerControls : MonoBehaviour {
 				}
 				if(Input.GetAxisRaw(iC.DPadY) > 0){
 					name += "u";
-				}
-
-				if (Input.GetButtonDown (iC.startBut)) {
-					nameSet = true;
 				}
 				if (name.Length > 0) {
 					if (Input.GetButtonDown (iC.backBut)) {

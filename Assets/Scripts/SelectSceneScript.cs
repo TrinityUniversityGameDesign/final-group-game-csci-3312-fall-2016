@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class SelectSceneScript : MonoBehaviour {
 
 	public bool isKeyboard;
+	public bool isController;
 
 	public GlobalPlayerControllerScript gameCont;
 
@@ -52,6 +53,8 @@ public class SelectSceneScript : MonoBehaviour {
 		gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
 		canvas = GameObject.Find ("Canvas");
 		moveOn = false;
+		isController = false;
+		isKeyboard = false;
 	}
 
 	// Use this for initialization
@@ -117,14 +120,12 @@ public class SelectSceneScript : MonoBehaviour {
 		if (gameCont.player1_in == null) {
 			if (Input.GetButtonDown ("A_P1")) {
 				gameCont.player1_in = new PlayerInput("P1");
-				isKeyboard = false;
-				Debug.Log ("Controller Used");
+				isController = true;
 				gameCont.num_players += 1;
 			}
 			if(Input.GetButtonDown("A_P1_KEYBOARD")){
 				gameCont.player1_in = new PlayerInput("P1_KEYBOARD");
 				isKeyboard = true;
-				Debug.Log ("Keyboard Used");
 				gameCont.num_players += 1;
 			}
 		}
@@ -149,7 +150,7 @@ public class SelectSceneScript : MonoBehaviour {
 				}
 			}
 		}
-		else{
+		else if (isController){
 			if (gameCont.player2_in == null) {
 				if(Input.GetButtonDown("A_P2")){
 					gameCont.player2_in = new PlayerInput("P2");
@@ -286,6 +287,7 @@ public class SelectSceneScript : MonoBehaviour {
             if (gameCont.num_players >= 4) {
                 gameCont.players[4] = gameCont.player4_in;
             }
+
             if (transition_happens_only_once)
             {
                 //should happen after timer goes off for player names
