@@ -110,7 +110,7 @@ public class TrivaController : MonoBehaviour
 
     void changeToEnd()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("TriviaEnd");
     }
     void set_cur_question()
     {

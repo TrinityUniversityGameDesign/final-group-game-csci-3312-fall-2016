@@ -149,5 +149,6 @@ public class EndSceneManager : MonoBehaviour {
                 PlayerPrefs.SetInt("player" + i + "_score", PlayerPrefs.GetInt("player" + i + "_score") + 1);
             }
         }
+        PlayerPrefs.Save();
     }
 }
