@@ -48,7 +48,6 @@ public class StoryHandler : MonoBehaviour {
 	void Start () {
         StoryGenerator gen = GameObject.Find("StoryStuff").GetComponent<StoryGenerator>();
         int story_number = PlayerPrefs.GetInt("StoryNumber");
-        story_number = 0;
         Debug.Log("Story Number " + story_number);
         story = gen.generate_story();
         string[] pieces = { story.story_1, story.story_2, story.story_3, story.story_4 };
