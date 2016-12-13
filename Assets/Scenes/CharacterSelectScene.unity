@@ -1692,7 +1692,7 @@ MonoBehaviour:
   gameCont: {fileID: 0}
   canvas: {fileID: 0}
   color: 
-  next_scene: Scenes/UsingTilesStory
+  next_scene: Scenes/Balls
   player1: {fileID: 0}
   player2: {fileID: 0}
   player3: {fileID: 0}
