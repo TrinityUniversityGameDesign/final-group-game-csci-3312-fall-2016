@@ -30,8 +30,11 @@ public class EndSceneManager : MonoBehaviour {
     private List<GameObject> scoreTexts;
     private List<GameObject> currentScoreTexts;
 
+    public GlobalPlayerControllerScript gameCont;
+
     void Awake()
     {
+        gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
         playerObjects = new List<GameObject>();
         currentPlayers = new List<GameObject>();
         nameTexts = new List<GameObject>();
@@ -62,7 +65,7 @@ public class EndSceneManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("A_P1")) {
+        if (Input.GetButtonDown(gameCont.player1_in.ABut)) {
             //SaveScores();
             Destroy(GameObject.Find("SoundManager"));
             Destroy(GameObject.Find("PlayerPrefsManager"));
