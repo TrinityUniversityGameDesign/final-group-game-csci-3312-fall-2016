@@ -1689,10 +1689,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countDownText: {fileID: 1091545435}
   isKeyboard: 0
+  isController: 0
   gameCont: {fileID: 0}
   canvas: {fileID: 0}
   color: 
-  next_scene: Scenes/BallsTitleScreen
+  next_scene: Scenes/UsingTilesStory
   player1: {fileID: 0}
   player2: {fileID: 0}
   player3: {fileID: 0}

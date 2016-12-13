@@ -107,18 +107,21 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
 	//Samuel's Functions;
 	public void OnDeath() {
-		deathSprite.transform.position = transform.position;
-		StartCoroutine (despawnSkull());
-		//Destroy (gameObject);
-		isDead = true;
-		//Debug.Log("I died!");
-        /*while(transform.localScale.x>0)
+        if (GameObject.Find("ScoreRoundManager").GetComponent<ScoreRoundManagerScript>().GetNumPlayersInPlay() > 1)
         {
-            //transform.lo
-            transform.localScale -= new Vector3(0.0001f, 0.0001f, 0.0f);
-        }*/
-		transform.position = dumpPosition;
-        //transform.localScale.Set(originalSize.x,originalSize.y,originalSize.z);
+            deathSprite.transform.position = transform.position;
+            StartCoroutine(despawnSkull());
+            //Destroy (gameObject);
+            isDead = true;
+            //Debug.Log("I died!");
+            /*while(transform.localScale.x>0)
+            {
+                //transform.lo
+                transform.localScale -= new Vector3(0.0001f, 0.0001f, 0.0f);
+            }*/
+            transform.position = dumpPosition;
+            //transform.localScale.Set(originalSize.x,originalSize.y,originalSize.z);
+        }
 	}
 
 	private IEnumerator despawnSkull(){
