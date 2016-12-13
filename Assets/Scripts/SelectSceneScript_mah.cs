@@ -10,6 +10,7 @@ public class SelectSceneScript_mah : MonoBehaviour {
 	public Text countDownText;
 
 	public bool isKeyboard;
+    public bool isController;
 
 	public GlobalPlayerControllerScript gameCont;
 
@@ -56,7 +57,9 @@ public class SelectSceneScript_mah : MonoBehaviour {
 		canvas = GameObject.Find ("Canvas");
 		moveOn = false;
 		movedOn = false;
-	}
+        isKeyboard = false;
+        isController = false;
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -122,13 +125,13 @@ public class SelectSceneScript_mah : MonoBehaviour {
 			if (Input.GetButtonDown ("A_P1")) {
 				gameCont.player1_in = new PlayerInput("P1");
 				isKeyboard = false;
-				Debug.Log ("Controller Used");
+                isController = true;
 				gameCont.num_players += 1;
 			}
 			if(Input.GetButtonDown("A_P1_KEYBOARD")){
 				gameCont.player1_in = new PlayerInput("P1_KEYBOARD");
 				isKeyboard = true;
-				Debug.Log ("Keyboard Used");
+                isController = true;
 				gameCont.num_players += 1;
 			}
 		}
@@ -153,7 +156,7 @@ public class SelectSceneScript_mah : MonoBehaviour {
 				}
 			}
 		}
-		else{
+		else if(isController){
 			if (gameCont.player2_in == null) {
 				if(Input.GetButtonDown("A_P2")){
 					gameCont.player2_in = new PlayerInput("P2");

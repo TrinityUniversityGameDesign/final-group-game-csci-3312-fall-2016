@@ -23,7 +23,7 @@ public class ControllerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         timerActive = false;
-        round = 3; // we begin at round 3 because the number of buttons displayed = round
+        round = 2; // we begin at round 3 because the number of buttons displayed = round
 		canvas.GetComponent<MemoryDisplay> ().numButtons = round; // when the game begins, numButtons is set to round
 		timerGenerator();
 
@@ -57,8 +57,6 @@ public class ControllerScript : MonoBehaviour {
 			p4.setRound (round);
 		}
 
-		canvas.GetComponent<MemoryDisplay> ().numButtons = round;
-
 		if(timerActive)
 		{
 			targetTime -= Time.deltaTime;
@@ -87,6 +85,7 @@ public class ControllerScript : MonoBehaviour {
         if (round < 9)
         {
             round += 1;
+            canvas.GetComponent<MemoryDisplay>().numButtons = round;
         }
     }
 		

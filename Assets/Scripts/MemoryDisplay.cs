@@ -355,25 +355,25 @@ public class MemoryDisplay : MonoBehaviour {
         // declare the round over if all 4 players have the correct number of inputs
 		if(player1.activeSelf && player1.GetComponent<PlayerScript>().alive){
 
-			if(PlayerList1.Count != (numButtons - 1)){
+			if(PlayerList1.Count != (numButtons )){
 				playerListCount(PlayerList1.Count,Player1ButtonCount);
 				return false;
 			}
 		}
 		if(player2.activeSelf && player2.GetComponent<PlayerScript>().alive){
-			if(PlayerList2.Count != (numButtons - 1)){
+			if(PlayerList2.Count != (numButtons )){
 				playerListCount(PlayerList2.Count, Player2ButtonCount);
 				return false;
 			}
 		}
 		if(player3.activeSelf && player3.GetComponent<PlayerScript>().alive){
-			if(PlayerList3.Count != (numButtons -1)){
+			if(PlayerList3.Count != (numButtons )){
 				playerListCount(PlayerList3.Count, Player3ButtonCount);
 				return false;
 			}
 		}
 		if(player4.activeSelf && player4.GetComponent<PlayerScript>().alive){
-			if(PlayerList4.Count != (numButtons -1)){
+			if(PlayerList4.Count != (numButtons )){
 				playerListCount(PlayerList4.Count, Player4ButtonCount);
 				return false;
 			}
@@ -465,7 +465,7 @@ public class MemoryDisplay : MonoBehaviour {
 
     // generate the random list of buttons
     void generateRandomInputs(int roundNumber) {
-		for (int i = 0; i < roundNumber; i++) {
+		for (int i = 1; i <= roundNumber; i++) {
 			InputList.Add((Buttons)Random.Range (0, 4));
 		}
 	}
@@ -513,8 +513,9 @@ public class MemoryDisplay : MonoBehaviour {
         {
             Destroy(a);
         }
-        getRandomInputs();
         GameObject.Find("Main Camera").GetComponent<ControllerScript>().updateRounds();
+        getRandomInputs();
+        
     }
 
 }
