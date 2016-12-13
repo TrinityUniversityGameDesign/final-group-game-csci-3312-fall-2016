@@ -293,6 +293,9 @@ public class SelectSceneScript_mah : MonoBehaviour {
             }
             if (transition_happens_only_once)
             {
+				GameObject titleMusic = GameObject.Find ("TitleMusic").gameObject;
+				if (titleMusic != null)
+					Destroy (titleMusic);
                 //should happen after timer goes off for player names
                 SceneManager.LoadSceneAsync(next_scene);
                 transition_happens_only_once = false;
