@@ -125,10 +125,18 @@ public class PlayerMovement : MonoBehaviour
                 {
                     transform.rotation = Quaternion.LookRotation(Vector3.forward, tempVel); //Currently turns towards current velocity, will probably change to turn towards player input. Maybe smooth using lerp.
                 }
-                SpriteRenderer hole = GameObject.FindGameObjectWithTag("Hole").GetComponent<SpriteRenderer>();
-                if (hole.gameObject.activeInHierarchy == true)
+                //SpriteRenderer hole = GameObject.FindGameObjectWithTag("Hole").GetComponent<SpriteRenderer>();
+                //if (hole.gameObject.activeInHierarchy == true)
+                //{
+                //    if (IsInsideHole(hole, this.gameObject.GetComponent<CircleCollider2D>()))
+                //    {
+                //        dead = true;
+                //    }
+                //}
+                if(GameObject.FindGameObjectWithTag("Hole") != null)
                 {
-                    if (IsInsideHole(hole, this.gameObject.GetComponent<CircleCollider2D>()))
+                    SpriteRenderer hole = GameObject.FindGameObjectWithTag("Hole").GetComponent<SpriteRenderer>();
+                    if(IsInsideHole(hole, this.gameObject.GetComponent<CircleCollider2D>()))
                     {
                         dead = true;
                     }

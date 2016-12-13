@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     private float waitRestart;
 
     public float time;
-    public static int rounds = 3;
+    public static int rounds = 2;
     public static bool gameWon;
 
     public static Stack<string> playerPlacing;
@@ -124,8 +124,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Is find object getting the playerno?" + GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerMovement>().playerNo);
-            Debug.Log("Is find object getting the playerno?" + GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerMovement>().playerNo);
+            //Debug.Log("Is find object getting the playerno?" + GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerMovement>().playerNo);
+            //Debug.Log("Is find object getting the playerno?" + GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerMovement>().playerNo);
 
             if (playerPlacing.Count >= numPlayers-1)
             {
@@ -137,7 +137,7 @@ public class UIManager : MonoBehaviour
                 {
                     string player = "Player" + i;
                     
-                    if(GameObject.FindGameObjectWithTag(player).GetComponent<PlayerMovement>().isActiveAndEnabled)
+                    if(GameObject.FindGameObjectWithTag(player) != null)
                     {
                         playerNum = GameObject.FindGameObjectWithTag(player).GetComponent<PlayerMovement>().playerNo;
                         winPlayer = "Player " + i;
