@@ -53,14 +53,16 @@ public class PlayerMovement : MonoBehaviour
 
         playerCol = PlayerPrefs.GetString("player" + playerNo + "_color");
         ColorUtility.TryParseHtmlString(playerCol, out col);
-        player.GetComponent<SpriteRenderer>().color = col;
+        player.transform.FindChild("TDHelm").GetComponent<SpriteRenderer>().color = col;
+        player.transform.FindChild("Ball").GetComponent<SpriteRenderer>().color = col;
 
-        if(numPlayers < playerNo)
+        if (numPlayers < playerNo)
         {
             player.SetActive(false);
             Debug.Log("does this happen k thanks");
         }
         theRigidBody = GetComponent<Rigidbody2D>();
+        Debug.Log("Rigid Body: " + theRigidBody);
         animationController = transform.FindChild("TDLegs_0").GetComponent<Animator>();
         animationController2 = transform.FindChild("TDShoulders_0").GetComponent<Animator>();
     }
