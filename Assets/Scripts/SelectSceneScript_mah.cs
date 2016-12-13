@@ -56,6 +56,15 @@ public class SelectSceneScript_mah : MonoBehaviour {
     public bool transition_happens_only_once = true;
 
     void Awake(){
+		Text[] allText = GameObject.FindObjectsOfType<Text> () as Text[];
+		string font_name = PlayerPrefs.GetString ("font_name");
+		if (font_name == "")
+			font_name = "JUNGLEFE";
+		Font theFont = Resources.Load ("Fonts/" + font_name) as Font;
+		foreach(Text t in allText) {
+			t.font = theFont;
+		}
+
 		//Should clear out player prefs' of the controller associated with it
 		gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
 		canvas = GameObject.Find ("Canvas");
