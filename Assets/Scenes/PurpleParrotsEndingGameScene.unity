@@ -524,6 +524,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090b3d642de92f84c908ae62f2e28979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCont: {fileID: 0}
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
+  Player3: {fileID: 0}
+  Player4: {fileID: 0}
+  num_players: 0
+  hexColor: 
+  player_color: {r: 0, g: 0, b: 0, a: 0}
   player1_rank: 1
   player2_rank: 2
   player3_rank: 3
@@ -535,6 +543,7 @@ MonoBehaviour:
   goalHeight: -3.5
   font: 
   winningString: {fileID: 1147608923}
+  endTransition: 0
 --- !u!1001 &816163462
 Prefab:
   m_ObjectHideFlags: 0
@@ -1101,7 +1110,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 97177b7f991b74f498c9edeebdf8d742, type: 3}
+  m_audioClip: {fileID: 8300000, guid: eb16808b4866a044a98a950701a2dbb8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
