@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// The purpose of this script is to take the ranks earned by players in the main scene
+// and transfer those values over into the ending scene so proper action can be taken.
+
 public class SneakyScript : MonoBehaviour {
 	public SneakyScript sneak;
 
-    // Use this for initialization
     GameObject player1;
     GameObject player2;
     GameObject player3;
