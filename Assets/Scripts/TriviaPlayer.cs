@@ -33,13 +33,11 @@ public class TriviaPlayer : MonoBehaviour
     Vector3 startScaleText;
     public float fillSpeed;
 
-	public GlobalPlayerControllerScript gameCont;
-	void Awake() { gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); }
-
     // Use this for initialization
     int numPlayers;
     void Start ()
 	{
+        PlayerPrefs.SetInt("NumPlayers", 4);
         numPlayers = PlayerPrefs.GetInt("NumPlayers");
         if (numPlayers < playerNumber)
         {
@@ -104,7 +102,7 @@ public class TriviaPlayer : MonoBehaviour
             txtScore.text = "Score : " + preScore;
             if (!answered && controller.canIAnswer())
             {
-				if (Input.GetButtonDown(gameCont.players[playerNumber].ABut))
+                if (Input.GetAxis("A_P" + playerNumber) > 0)
                 {
                     AudioClip ac = Resources.Load<AudioClip>("Sounds/TriviaSounds/Answer" + playerNumber);
                     GetComponent<AudioSource>().PlayOneShot(ac);
@@ -112,7 +110,7 @@ public class TriviaPlayer : MonoBehaviour
                     answered = true;
                     scoreFromQuestion = controller.amIRight('a');
                 }
-				else if (Input.GetButtonDown(gameCont.players[playerNumber].XBut))
+                else if (Input.GetAxis("X_P" + playerNumber) > 0)
                 {
                     AudioClip ac = Resources.Load<AudioClip>("Sounds/TriviaSounds/Answer" + playerNumber);
                     GetComponent<AudioSource>().PlayOneShot(ac);
@@ -120,7 +118,7 @@ public class TriviaPlayer : MonoBehaviour
                     answered = true;
                     scoreFromQuestion = controller.amIRight('x');
                 }
-				else if (Input.GetButtonDown(gameCont.players[playerNumber].BBut))
+                else if (Input.GetAxis("B_P" + playerNumber) > 0)
                 {
                     AudioClip ac = Resources.Load<AudioClip>("Sounds/TriviaSounds/Answer" + playerNumber);
                     GetComponent<AudioSource>().PlayOneShot(ac);
@@ -128,7 +126,7 @@ public class TriviaPlayer : MonoBehaviour
                     answered = true;
                     scoreFromQuestion = controller.amIRight('b');
                 }
-				else if (Input.GetButtonDown(gameCont.players[playerNumber].YBut))
+                else if (Input.GetAxis("Y_P" + playerNumber) > 0)
                 {
                     AudioClip ac = Resources.Load<AudioClip>("Sounds/TriviaSounds/Answer" + playerNumber);
                     GetComponent<AudioSource>().PlayOneShot(ac);

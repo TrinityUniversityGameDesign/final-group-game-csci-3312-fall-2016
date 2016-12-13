@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
                 PlayerPrefs.SetInt("player3_score", PlayerPrefs.GetInt("player3_score") + playerPoints[2]);
                 PlayerPrefs.SetInt("player4_score", PlayerPrefs.GetInt("player4_score") + playerPoints[3]);
                 //load next scene for game
-				Destroy(gameObject);
+                Destroy(this);
                 SceneManager.LoadScene("UsingTilesStory");
                 //Debug.Log(playerPoints[0] + " " + playerPoints[1] + " " + playerPoints[2] + " " + playerPoints[3]);
             }
