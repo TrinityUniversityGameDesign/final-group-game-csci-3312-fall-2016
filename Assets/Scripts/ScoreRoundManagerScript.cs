@@ -58,6 +58,11 @@ public class ScoreRoundManagerScript : MonoBehaviour {
         }
 	}
 
+    public int GetNumPlayersInPlay()
+    {
+        return playersInPlay.Count;
+    }
+
     private IEnumerator StartNewRound() {
         startingNewRound = true;
         float maxLogoSize = 38f;

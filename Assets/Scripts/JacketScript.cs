@@ -87,9 +87,7 @@ public class JacketScript : MonoBehaviour
 
     void ConstantDeflate()
     {
-
         if(jacketScale > startJacketScale) { jacketScale -= (Time.deltaTime); }
-        //Debug.Log(jacketScale);
     }
 
     void Inflate()
