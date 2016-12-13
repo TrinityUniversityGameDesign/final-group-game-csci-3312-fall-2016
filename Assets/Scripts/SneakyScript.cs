@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// The purpose of this script is to take the ranks earned by players in the main scene
+// and transfer those values over into the ending scene so proper action can be taken.
+
 public class SneakyScript : MonoBehaviour {
 	public SneakyScript sneak;
 
-    // Use this for initialization
     GameObject player1;
     GameObject player2;
     GameObject player3;
@@ -22,28 +24,20 @@ public class SneakyScript : MonoBehaviour {
 		} else {
 			Destroy (this);
 		}
+		player1 = GameObject.FindGameObjectWithTag("Player1");
+		player2 = GameObject.FindGameObjectWithTag("Player2");
+		player3 = GameObject.FindGameObjectWithTag("Player3");
+		player4 = GameObject.FindGameObjectWithTag("Player4");
+
 	}
 
     void Start () {
-
-        player1 = GameObject.FindGameObjectWithTag("Player1");
-        player2 = GameObject.FindGameObjectWithTag("Player2");
-        player3 = GameObject.FindGameObjectWithTag("Player3");
-        player4 = GameObject.FindGameObjectWithTag("Player4");
- 
-        if (player1 == null) {
-           // player1.GetComponent<PlayerScript>().rank = -1;
-            p1Rank = -1;
-        }
-        if (player2 == null) {
-            //player2.GetComponent<PlayerScript>().rank = -1;
-            p2Rank = -1;
-        }
-        if (player3 == null) {
+		
+		if (!player3.activeSelf) {
            //player3.GetComponent<PlayerScript>().rank = -1;
             p3Rank = -1;
         }
-        if (player4 == null) {
+		if (!player4.activeSelf) {
             //player4.GetComponent<PlayerScript>().rank = -1;
             p4Rank = -1;
         }

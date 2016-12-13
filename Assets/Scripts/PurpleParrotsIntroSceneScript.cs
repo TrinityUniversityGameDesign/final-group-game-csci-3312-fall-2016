@@ -17,6 +17,7 @@ public class PurpleParrotsIntroSceneScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+            // if player 1 presses A, move onto the main scene
 			if(Input.GetButtonDown(gameCont.player1_in.ABut))
 			{
 				SceneManager.LoadScene("Scenes/MainScene");
