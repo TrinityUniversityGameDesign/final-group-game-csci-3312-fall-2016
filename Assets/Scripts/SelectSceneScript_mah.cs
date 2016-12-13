@@ -266,7 +266,7 @@ public class SelectSceneScript_mah : MonoBehaviour {
 				player4.GetComponent<SelectPlayerControls> ().cntDown = true;
 			}
 
-			StartCoroutine (nameInput (1));
+			StartCoroutine (nameInput (10));
 		
 		}
 
