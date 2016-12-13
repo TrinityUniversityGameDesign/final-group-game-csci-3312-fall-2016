@@ -10,7 +10,6 @@ public class SelectSceneScript_mah : MonoBehaviour {
 	public Text countDownText;
 
 	public bool isKeyboard;
-    public bool isController;
 
 	public GlobalPlayerControllerScript gameCont;
 
@@ -46,6 +45,11 @@ public class SelectSceneScript_mah : MonoBehaviour {
 	public EventSystem eventSystem_p3;
 	public EventSystem eventSystem_p4;
 
+	private ColorPickerScript cps_p1;
+	private ColorPickerScript cps_p2;
+	private ColorPickerScript cps_p3;
+	private ColorPickerScript cps_p4;
+
 	public bool moveOn;
 	public bool movedOn;
 	public bool loadNew;
@@ -57,12 +61,7 @@ public class SelectSceneScript_mah : MonoBehaviour {
 		canvas = GameObject.Find ("Canvas");
 		moveOn = false;
 		movedOn = false;
-        isKeyboard = false;
-        isController = false;
-    }
-
-	// Use this for initialization
-	void Start () {
+	
 		player1 = GameObject.FindGameObjectWithTag("Player1");
 		player2 = GameObject.FindGameObjectWithTag("Player2");
 		player3 = GameObject.FindGameObjectWithTag("Player3");
@@ -85,28 +84,32 @@ public class SelectSceneScript_mah : MonoBehaviour {
 		eventSystem_p4 = GameObject.Find("EventSystemProvider").GetComponent<EventSystemProvider> ().eventSystem_p4;
 
 		player1_Sliders = GameObject.Find ("Player1Color");
-		player1_Sliders.GetComponent<ColorPickerScript> ().player = player1;
-		player1_Sliders.GetComponent<ColorPickerScript> ().redSlider = player1_Sliders.transform.Find ("RedSlider").GetComponent<Slider> ();
-		player1_Sliders.GetComponent<ColorPickerScript> ().blueSlider = player1_Sliders.transform.Find ("BlueSlider").GetComponent<Slider> ();
-		player1_Sliders.GetComponent<ColorPickerScript> ().greenSlider = player1_Sliders.transform.Find ("GreenSlider").GetComponent<Slider> ();
+		cps_p1 = player1_Sliders.GetComponent<ColorPickerScript> ();
+		cps_p1.player = player1;
+		cps_p1.redSlider = player1_Sliders.transform.Find ("RedSlider").GetComponent<Slider> ();
+		cps_p1.blueSlider = player1_Sliders.transform.Find ("BlueSlider").GetComponent<Slider> ();
+		cps_p1.greenSlider = player1_Sliders.transform.Find ("GreenSlider").GetComponent<Slider> ();
 
 		player2_Sliders = GameObject.Find ("Player2Color");
-		player2_Sliders.GetComponent<ColorPickerScript> ().player = player2;
-		player2_Sliders.GetComponent<ColorPickerScript> ().redSlider = player2_Sliders.transform.Find ("RedSlider").GetComponent<Slider> ();
-		player2_Sliders.GetComponent<ColorPickerScript> ().blueSlider = player2_Sliders.transform.Find ("BlueSlider").GetComponent<Slider> ();
-		player2_Sliders.GetComponent<ColorPickerScript> ().greenSlider = player2_Sliders.transform.Find ("GreenSlider").GetComponent<Slider> ();
+		cps_p2 = player2_Sliders.GetComponent<ColorPickerScript> ();
+		cps_p2.player = player2;
+		cps_p2.redSlider = player2_Sliders.transform.Find ("RedSlider").GetComponent<Slider> ();
+		cps_p2.blueSlider = player2_Sliders.transform.Find ("BlueSlider").GetComponent<Slider> ();
+		cps_p2.greenSlider = player2_Sliders.transform.Find ("GreenSlider").GetComponent<Slider> ();
 
 		player3_Sliders = GameObject.Find ("Player3Color");
-		player3_Sliders.GetComponent<ColorPickerScript> ().player = player3;
-		player3_Sliders.GetComponent<ColorPickerScript> ().redSlider = player3_Sliders.transform.Find ("RedSlider").GetComponent<Slider> ();
-		player3_Sliders.GetComponent<ColorPickerScript> ().blueSlider = player3_Sliders.transform.Find ("BlueSlider").GetComponent<Slider> ();
-		player3_Sliders.GetComponent<ColorPickerScript> ().greenSlider = player3_Sliders.transform.Find ("GreenSlider").GetComponent<Slider> ();
+		cps_p3 = player3_Sliders.GetComponent<ColorPickerScript> ();
+		cps_p3.player = player3;
+		cps_p3.redSlider = player3_Sliders.transform.Find ("RedSlider").GetComponent<Slider> ();
+		cps_p3.blueSlider = player3_Sliders.transform.Find ("BlueSlider").GetComponent<Slider> ();
+		cps_p3.greenSlider = player3_Sliders.transform.Find ("GreenSlider").GetComponent<Slider> ();
 
 		player4_Sliders = GameObject.Find ("Player4Color");
-		player4_Sliders.GetComponent<ColorPickerScript> ().player = player4;
-		player4_Sliders.GetComponent<ColorPickerScript> ().redSlider = player4_Sliders.transform.Find ("RedSlider").GetComponent<Slider> ();
-		player4_Sliders.GetComponent<ColorPickerScript> ().blueSlider = player4_Sliders.transform.Find ("BlueSlider").GetComponent<Slider> ();
-		player4_Sliders.GetComponent<ColorPickerScript> ().greenSlider = player4_Sliders.transform.Find ("GreenSlider").GetComponent<Slider> ();
+		cps_p4 = player4_Sliders.GetComponent<ColorPickerScript> ();
+		cps_p4.player = player4;
+		cps_p4.redSlider = player4_Sliders.transform.Find ("RedSlider").GetComponent<Slider> ();
+		cps_p4.blueSlider = player4_Sliders.transform.Find ("BlueSlider").GetComponent<Slider> ();
+		cps_p4.greenSlider = player4_Sliders.transform.Find ("GreenSlider").GetComponent<Slider> ();
 
 		activated_p1 = false;
 		activated_p2 = false;
@@ -125,13 +128,13 @@ public class SelectSceneScript_mah : MonoBehaviour {
 			if (Input.GetButtonDown ("A_P1")) {
 				gameCont.player1_in = new PlayerInput("P1");
 				isKeyboard = false;
-                isController = true;
+				Debug.Log ("Controller Used");
 				gameCont.num_players += 1;
 			}
 			if(Input.GetButtonDown("A_P1_KEYBOARD")){
 				gameCont.player1_in = new PlayerInput("P1_KEYBOARD");
 				isKeyboard = true;
-                isController = true;
+				Debug.Log ("Keyboard Used");
 				gameCont.num_players += 1;
 			}
 		}
@@ -156,7 +159,7 @@ public class SelectSceneScript_mah : MonoBehaviour {
 				}
 			}
 		}
-		else if(isController){
+		else{
 			if (gameCont.player2_in == null) {
 				if(Input.GetButtonDown("A_P2")){
 					gameCont.player2_in = new PlayerInput("P2");
@@ -296,7 +299,7 @@ public class SelectSceneScript_mah : MonoBehaviour {
             }
             if (transition_happens_only_once)
             {
-				GameObject titleMusic = GameObject.Find ("TitleMusic").gameObject;
+				GameObject titleMusic = GameObject.Find ("TitleMusic");
 				if (titleMusic != null)
 					Destroy (titleMusic);
                 //should happen after timer goes off for player names

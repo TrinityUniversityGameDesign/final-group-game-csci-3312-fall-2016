@@ -22,6 +22,12 @@ public class ColorPickerScript : MonoBehaviour {
 	public Color chc; 
 	// Use this for initialization
 	void Start () {
+		red = (int)Mathf.Floor (chc.r * 255);
+		redSlider.value = red;
+		green = (int)Mathf.Floor (chc.g * 255);
+		greenSlider.value = green;
+		blue = (int)Mathf.Floor (chc.b * 255);
+		blueSlider.value = blue;
 		alpha = 1;
 		chc.a = alpha;
 	}
