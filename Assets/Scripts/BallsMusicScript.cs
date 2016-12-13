@@ -22,10 +22,12 @@ public class BallsMusicScript : MonoBehaviour {
         if (randStage == 0)
         {
             stage = GameObject.FindGameObjectWithTag("Stage1");
-            
-            stage.SetActive(true);
-            GameObject.FindGameObjectWithTag("Stage2").SetActive(false);
-            GameObject.FindGameObjectWithTag("Stage3").SetActive(false);
+            if(!stage.activeSelf)
+                stage.SetActive(true);
+            if (GameObject.FindGameObjectWithTag("Stage2").activeSelf)
+                GameObject.FindGameObjectWithTag("Stage2").SetActive(false);
+            if (GameObject.FindGameObjectWithTag("Stage3").activeSelf)
+                GameObject.FindGameObjectWithTag("Stage3").SetActive(false);
             aSource.clip = iceSong;
             aSource.Play();
             
@@ -34,18 +36,26 @@ public class BallsMusicScript : MonoBehaviour {
         else if (randStage == 1)
         {
             stage = GameObject.FindGameObjectWithTag("Stage2");
-            stage.SetActive(true);
-            GameObject.FindGameObjectWithTag("Stage1").SetActive(false);
-            GameObject.FindGameObjectWithTag("Stage3").SetActive(false);
+            if(!stage.activeSelf)
+            {
+                stage.SetActive(true);
+            }
+            if (GameObject.FindGameObjectWithTag("Stage1").activeSelf) 
+                GameObject.FindGameObjectWithTag("Stage1").SetActive(false);
+            if(GameObject.FindGameObjectWithTag("Stage3").activeSelf)
+                GameObject.FindGameObjectWithTag("Stage3").SetActive(false);
             aSource.clip = mudSong;
             aSource.Play();
         }
         else if (randStage >= 2)
         {
             stage = GameObject.FindGameObjectWithTag("Stage3");
-            stage.SetActive(true);
-            GameObject.FindGameObjectWithTag("Stage2").SetActive(false);
-            GameObject.FindGameObjectWithTag("Stage1").SetActive(false);
+            if(!stage.activeSelf)
+                stage.SetActive(true);
+            if (GameObject.FindGameObjectWithTag("Stage2").activeSelf)
+                GameObject.FindGameObjectWithTag("Stage2").SetActive(false);
+            if (GameObject.FindGameObjectWithTag("Stage1").activeSelf)
+                GameObject.FindGameObjectWithTag("Stage1").SetActive(false);
             aSource.clip = lavaSong;
             aSource.Play();
 

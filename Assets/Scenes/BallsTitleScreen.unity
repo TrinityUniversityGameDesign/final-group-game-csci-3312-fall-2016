@@ -335,6 +335,7 @@ GameObject:
   - 4: {fileID: 635092741}
   - 212: {fileID: 635092740}
   - 114: {fileID: 635092742}
+  - 114: {fileID: 635092743}
   m_Layer: 0
   m_Name: KingOfTheMoundTitle(NoTextNoBoxes)
   m_TagString: Untagged
@@ -400,6 +401,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: Balls
+--- !u!114 &635092743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 635092739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95c7b0ffdcf06c41997c6385011cd50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameCont: {fileID: 0}
+  abutton: 0
 --- !u!1 &1614211206
 GameObject:
   m_ObjectHideFlags: 0

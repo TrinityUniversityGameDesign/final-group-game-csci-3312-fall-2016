@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 
-public class NewBehaviourScript : MonoBehaviour {
+public class BallsSceneMove : MonoBehaviour {
     public GlobalPlayerControllerScript gameCont;
     public float abutton;
 	// Use this for initialization
@@ -13,7 +13,7 @@ public class NewBehaviourScript : MonoBehaviour {
     void Awake()
     {
         gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>();
-        abutton = Input.GetAxis(gameCont.players[0].ABut);
+        //abutton = Input.GetAxis(gameCont.players[0].ABut);
     }
     // Update is called once per frame
     void Update () {
