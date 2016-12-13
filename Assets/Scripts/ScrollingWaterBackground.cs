@@ -26,7 +26,7 @@ public class ScrollingWaterBackground : MonoBehaviour {
             waterMaterialCountdownInner = waterMaterialCountdown;
         }
         else --waterMaterialCountdownInner;
-        waterMaterial.SetTextureOffset("_MainTex", new Vector2(waterMaterial.mainTextureOffset.x + 0.004f, waterMaterial.mainTextureOffset.y+y));
+        waterMaterial.SetTextureOffset("_MainTex", new Vector2(waterMaterial.mainTextureOffset.x + 0.002f, waterMaterial.mainTextureOffset.y+y));
     }
 
     public float GetY() { return y; }

@@ -22,6 +22,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 	private string dashButton;
 
 	public GameObject deathSprite;
+    public GameObject ScoreManager;
 
     private Animator animationController;
 
@@ -30,19 +31,26 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
 	public string jacketName;
 
+    public GlobalPlayerControllerScript gameCont;
+    void Awake() { gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); }
+
     // Use this for initialization
     void Start () {
 		jacket = GameObject.Find (jacketName) as GameObject;
 		jacketScript = jacket.GetComponent<JacketScript> ();
 		spawnPosition = transform.position;
 		rigid = GetComponent<Rigidbody2D> ();
-		vertAxis = "Vertical_P" + playerNum.ToString();
-		horAxis = "Horizontal_P" + playerNum.ToString();
-		dashButton = "B_P" + playerNum.ToString();
+        //Input.GetButtonDown(gameCont.playerNUM_in.ABut)
+        //string playerNum2 = "player" + playerNum.ToString() + "_in";
+        //vertAxis = "Vertical_P" + playerNum.ToString(); gameCont.players[playerNum].ABut;
+        vertAxis = gameCont.players[playerNum].vert;
+        horAxis = gameCont.players[playerNum].hor;
+        //horAxis = "Horizontal_P" + playerNum.ToString();
+		//dashButton = "B_P" + playerNum.ToString();
         animationController = gameObject.GetComponent<Animator>();
         originalSize = transform.localScale;
 		deathSprite.transform.position = dumpPosition;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -56,8 +64,17 @@ public class PlayerMovement_Jacket : MonoBehaviour {
         if(Input.GetAxisRaw(horAxis)!=0 || Input.GetAxisRaw(vertAxis) != 0) animationController.SetBool("isWalking", true);
         else animationController.SetBool("isWalking", false);
 
-        //if (Input.GetButtonDown(inflateBtnR))
-
+        /*
+        if (Input.GetButtonDown(dashButton))
+        {
+            if(canDash)
+            {
+                rigid.AddForce(new Vector2(rigid.velocity.x * dashSpeed, rigid.velocity.y * dashSpeed));
+                canDash = false;
+                StartCoroutine(ResetDash());
+            }
+        }
+        */
             /*
             //TODO : Add dashing in
             float dash = Input.GetAxis(dashButton);
@@ -68,7 +85,7 @@ public class PlayerMovement_Jacket : MonoBehaviour {
             }
             */
             //ugly, fix later
-          if ((transform.position.x < -7 || transform.position.x > 7) && !isDead) {
+            if ((transform.position.x < -7 || transform.position.x > 7) && !isDead) {
 			OnDeath ();
 		} else if ((transform.position.y < -4 || transform.position.y > 3.5)&&!isDead) {
 			OnDeath ();
@@ -90,7 +107,8 @@ public class PlayerMovement_Jacket : MonoBehaviour {
 
 	//Samuel's Functions;
 	public void OnDeath() {
-		Debug.Log ("isdead");
+		deathSprite.transform.position = transform.position;
+		StartCoroutine (despawnSkull());
 		//Destroy (gameObject);
 		isDead = true;
 		//Debug.Log("I died!");
@@ -99,17 +117,14 @@ public class PlayerMovement_Jacket : MonoBehaviour {
             //transform.lo
             transform.localScale -= new Vector3(0.0001f, 0.0001f, 0.0f);
         }*/
-		deathSprite.transform.position = transform.position;
 		transform.position = dumpPosition;
-		StartCoroutine (DespawnSkull ());
         //transform.localScale.Set(originalSize.x,originalSize.y,originalSize.z);
 	}
 
-	IEnumerator DespawnSkull() {
+	private IEnumerator despawnSkull(){
 		yield return new WaitForSeconds(2);
 		deathSprite.transform.position = dumpPosition;
 	}
-
 	public void Respawn(){
 		//teleport player back to start
 		isDead = false;

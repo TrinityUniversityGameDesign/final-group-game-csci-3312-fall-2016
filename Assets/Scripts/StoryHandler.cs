@@ -41,6 +41,9 @@ public class StoryHandler : MonoBehaviour {
         return ret;
     }
 
+	public GlobalPlayerControllerScript gameCont;
+	void Awake(){ gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); }
+
 	// Use this for initialization
 	void Start () {
         StoryGenerator gen = GameObject.Find("StoryStuff").GetComponent<StoryGenerator>();
@@ -73,7 +76,7 @@ public class StoryHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        float axis = Input.GetAxis("Start_P1");
+		float axis = Input.GetAxis(gameCont.players[1].startBut);
         if (axis > 0 && cur_sentence > story_sentences.Count)
         {
             SceneManager.LoadScene(PlayerPrefs.GetString("GameNumber" + 
