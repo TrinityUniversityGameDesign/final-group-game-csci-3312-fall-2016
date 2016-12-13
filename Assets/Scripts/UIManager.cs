@@ -21,6 +21,9 @@ public class UIManager : MonoBehaviour
 
     private Transform platform;
     private float shrinkRate = 0.1f;
+    private int numPlayers;
+    private int playerNum;
+    private string winPlayer;
 
     //used to keep only one instance of this script
     public static UIManager master;
@@ -101,6 +104,7 @@ public class UIManager : MonoBehaviour
         waitRestart = 3f;
         time = 60f;
         gameWon = true;
+        numPlayers = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>().num_players;
     }
 
     // Update is called once per frame
@@ -120,13 +124,30 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            if (playerPlacing.Count >= 3)
+            Debug.Log("Is find object getting the playerno?" + GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerMovement>().playerNo);
+            Debug.Log("Is find object getting the playerno?" + GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerMovement>().playerNo);
+
+            if (playerPlacing.Count >= numPlayers-1)
             {
                 gameWon = true;
                 winText.gameObject.SetActive(true);
                 //get the last player alive and puts them into the stack
-                int playerNum = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().playerNo;
-                string winPlayer = "Player " + playerNum;
+                //Debug.Log("UImanager PlayerNo: " + GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().playerNo);
+                for(int i = 1; i <= 4; i++)
+                {
+                    string player = "Player" + i;
+                    
+                    if(GameObject.FindGameObjectWithTag(player).GetComponent<PlayerMovement>().isActiveAndEnabled)
+                    {
+                        playerNum = GameObject.FindGameObjectWithTag(player).GetComponent<PlayerMovement>().playerNo;
+                        winPlayer = "Player " + i;
+                    }
+                    else
+                    {
+                        string p = "ok";
+                    }
+                }
+                    
 
                 //add points to player
                 playerPlacing.Push(winPlayer);

@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 2f;
     public float speedCap = 2.5f;
     public int playerNo = 1;
-    private int numPlayers = 1;
+    public int numPlayers = 1;
     public float customFriction = 0.1f;
     //private string horizontalCtrl = "Horizontal_P";
     //private string verticalCtrl = "Vertical_P";
@@ -56,27 +56,16 @@ public class PlayerMovement : MonoBehaviour
         dead = true;
     }
 
-    bool IsInsideHole(CircleCollider2D hole, CircleCollider2D player)
+    bool IsInsideHole(SpriteRenderer hole, CircleCollider2D player)
     {
-        Bounds enterableBounds = hole.bounds;
-        Bounds enteringBounds = player.bounds;
-        Vector2 center = enteringBounds.center;
-        Vector2 extents = enteringBounds.extents;
-        Vector2[] enteringVerticles = new Vector2[4];
-
-        enteringVerticles[0] = new Vector2(center.x + extents.x, center.y + extents.y);
-        enteringVerticles[1] = new Vector2(center.x - extents.x, center.y + extents.y);
-        enteringVerticles[2] = new Vector2(center.x + extents.x, center.y - extents.y);
-        enteringVerticles[3] = new Vector2(center.x - extents.x, center.y - extents.y);
-
-        foreach (Vector2 verticle in enteringVerticles)
+        Vector2 holeCenter = hole.bounds.center;
+        Vector2 playerCenter = player.bounds.center;
+        var distance = Vector3.Distance(holeCenter, playerCenter);
+        if (distance < .2)
         {
-            if (!enterableBounds.Contains(verticle))
-            {
-                return false;
-            }
+            return true;
         }
-        return true;
+        else return false;
     }
 
     //put OnTriggerEnter for the death tag here
@@ -136,10 +125,15 @@ public class PlayerMovement : MonoBehaviour
                 {
                     transform.rotation = Quaternion.LookRotation(Vector3.forward, tempVel); //Currently turns towards current velocity, will probably change to turn towards player input. Maybe smooth using lerp.
                 }
-                CircleCollider2D hole = GameObject.FindGameObjectWithTag("Hole").GetComponent<CircleCollider2D>();
-                if(IsInsideHole(this.gameObject.GetComponent< CircleCollider2D>(), hole)){
-                    dead = true;
+                SpriteRenderer hole = GameObject.FindGameObjectWithTag("Hole").GetComponent<SpriteRenderer>();
+                if (hole.gameObject.activeInHierarchy == true)
+                {
+                    if (IsInsideHole(hole, this.gameObject.GetComponent<CircleCollider2D>()))
+                    {
+                        dead = true;
+                    }
                 }
+                
             }
         }
     }
