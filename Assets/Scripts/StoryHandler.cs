@@ -78,8 +78,11 @@ public class StoryHandler : MonoBehaviour {
 		float axis = Input.GetAxis(gameCont.players[1].startBut);
         if (axis > 0 && cur_sentence > story_sentences.Count)
         {
-            SceneManager.LoadScene(PlayerPrefs.GetString("GameNumber" + 
-                                  PlayerPrefs.GetInt("StoryNumber")));
+			Debug.Log ("GN+SN: GameNumber" + PlayerPrefs.GetInt ("StoryNumber"));
+			Debug.Log ("PP(GN+SN): " + PlayerPrefs.GetString ("GameNumber" + PlayerPrefs.GetInt ("StoryNumber")));
+
+			PlayerPrefs.Save ();
+            SceneManager.LoadScene(PlayerPrefs.GetString("GameNumber" + PlayerPrefs.GetInt("StoryNumber")));
 
         } else if (axis > 0 && can_press)
         {

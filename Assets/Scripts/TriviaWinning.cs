@@ -29,6 +29,9 @@ public class TriviaWinning : MonoBehaviour
     int Low;
     string whichPlayer;
 
+	public GlobalPlayerControllerScript gameCont;
+	void Awake() { gameCont = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>(); }
+
     void Start()
     {
         Player1Score = PlayerPrefs.GetInt("Trivia Player 1");
@@ -59,7 +62,7 @@ public class TriviaWinning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Start_P1") > 0)
+		if (Input.GetButtonDown(gameCont.players[1].startBut))
         {
             SceneManager.LoadScene("scene1");
         }

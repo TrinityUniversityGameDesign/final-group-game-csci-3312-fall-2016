@@ -23,7 +23,8 @@ public class TitleScreenGenerator : MonoBehaviour
         int seed = (int)System.DateTime.Now.Ticks;
         PlayerPrefs.SetInt("RandomSeedStory", seed);
         PlayerPrefs.SetInt("StoryNumber", 0);
-        string[] games = { "TitleJacketSmackIt", "MainScene", "Balls" };
+        //string[] games = { "TitleJacketSmackIt", "MainScene", "Balls" };
+		string[] games = { "TitleJacketSmackIt", "MainScene", "UsingTilesStory" };
         int f;
         int s;
         int t;
@@ -40,16 +41,17 @@ public class TitleScreenGenerator : MonoBehaviour
         }
         // Show story part 1 before this
         PlayerPrefs.SetString("GameNumber1", games[f]);
-        //Debug.Log(PlayerPrefs.GetString("GameNumber1"));
+        Debug.Log(PlayerPrefs.GetString("GameNumber1"));
+		PlayerPrefs.SetString ("GameNumber1", "UsingTiles");
         // Show story part 2 before this
         PlayerPrefs.SetString("GameNumber2", games[s]);
-        //Debug.Log(PlayerPrefs.GetString("GameNumber2"));
+        Debug.Log(PlayerPrefs.GetString("GameNumber2"));
         // Show story part 3 before this
         PlayerPrefs.SetString("GameNumber3", games[t]);
-        //Debug.Log(PlayerPrefs.GetString("GameNumber3"));
+        Debug.Log(PlayerPrefs.GetString("GameNumber3"));
         // Show story part 4 before this, final piece
         PlayerPrefs.SetString("GameNumber4", "UsingTiles");
-        //Debug.Log(PlayerPrefs.GetString("GameNumber4"));
+        Debug.Log(PlayerPrefs.GetString("GameNumber4"));
 
         story = gen.generate_story();
         PlayerPrefs.SetString("HiddenTemple", story.title[1]);
