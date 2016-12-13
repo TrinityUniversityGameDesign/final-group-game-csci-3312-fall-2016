@@ -19,6 +19,20 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D theRigidBody;
     private string playerCol;
     private Color col;
+    
+    private AudioClip[] fallSounds;
+    public AudioClip wail1;
+    public AudioClip wail2;
+    public AudioClip wail3;
+    public AudioClip wail4;
+    public AudioClip wail5;
+    public AudioClip wail6;
+    public AudioClip wail7;
+    public AudioClip wail8;
+    public AudioClip wail9;
+
+    public AudioSource aSource;
+    private bool deathsound = true;
 
     public GlobalPlayerControllerScript gameCont;
 
@@ -30,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(numPlayers);
         Debug.Log("PlayerNo:" + playerNo);
 
+        fallSounds = new AudioClip[] {wail1, wail2, wail3, wail4, wail5, wail6, wail7, wail8, wail9};
+        
+        aSource = this.GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player" + playerNo);
         player.SetActive(true);
 
@@ -82,6 +99,13 @@ public class PlayerMovement : MonoBehaviour
         if (dead)
         {
             theRigidBody.velocity = new Vector2(0, 0);
+            int randWail = (int)(Random.value * 8);
+            if (deathsound)
+            {
+                aSource.PlayOneShot(fallSounds[randWail], 1f);
+                //yield return new WaitForSeconds(2);
+                deathsound = false;
+            }
             //shrinks player until it is almost invisible then removes the player
             if (transform.localScale.x >= 0)
                 transform.localScale -= new Vector3(0.02f, 0.02f, 0f);

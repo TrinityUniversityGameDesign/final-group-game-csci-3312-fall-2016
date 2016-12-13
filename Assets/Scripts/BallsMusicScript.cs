@@ -15,6 +15,7 @@ public class BallsMusicScript : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
+        Random rnd = new Random();
         int randStage = (int)(Random.value * 3);
         aSource = this.GetComponent<AudioSource>();
         Debug.Log("randStage: " + randStage);
