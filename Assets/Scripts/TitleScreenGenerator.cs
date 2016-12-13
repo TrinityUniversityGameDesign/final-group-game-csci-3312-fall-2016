@@ -23,8 +23,8 @@ public class TitleScreenGenerator : MonoBehaviour
         int seed = (int)System.DateTime.Now.Ticks;
         PlayerPrefs.SetInt("RandomSeedStory", seed);
         PlayerPrefs.SetInt("StoryNumber", 0);
-        //string[] games = { "TitleJacketSmackIt", "MainScene", "Balls" };
-		string[] games = { "TitleJacketSmackIt", "MainScene", "UsingTilesStory" };
+        string[] games = { "TitleJacketSmackIt", "MainScene", "Balls" };
+		//string[] games = { "TitleJacketSmackIt", "MainScene", "UsingTilesStory" };
         int f;
         int s;
         int t;
@@ -42,7 +42,7 @@ public class TitleScreenGenerator : MonoBehaviour
         // Show story part 1 before this
         PlayerPrefs.SetString("GameNumber1", games[f]);
         Debug.Log(PlayerPrefs.GetString("GameNumber1"));
-		PlayerPrefs.SetString ("GameNumber1", "UsingTiles");
+		//PlayerPrefs.SetString ("GameNumber1", "UsingTiles");
         // Show story part 2 before this
         PlayerPrefs.SetString("GameNumber2", games[s]);
         Debug.Log(PlayerPrefs.GetString("GameNumber2"));
