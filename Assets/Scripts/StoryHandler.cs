@@ -58,13 +58,14 @@ public class StoryHandler : MonoBehaviour {
         text = GameObject.Find("StoryText").GetComponent<Text>();
         story_sentences = get_sentences(story_string);
         text.text = story_sentences[cur_sentence] as string;
-        
+        Crosstales.RTVoice.Speaker.Speak(text.text, GetComponent<AudioSource>(), null, true, 1f, 1, "", 2f);
     }
 	
     void get_next_story_chunk()
     {
         cur_sentence += 1;
         text.text = story_sentences[cur_sentence] as string;
+        Crosstales.RTVoice.Speaker.Speak(text.text, GetComponent<AudioSource>(), null, true, 1f, 1, "", 2f);
     }
 
     int get_random()
@@ -77,8 +78,11 @@ public class StoryHandler : MonoBehaviour {
 		float axis = Input.GetAxis(gameCont.players[1].startBut);
         if (axis > 0 && cur_sentence > story_sentences.Count)
         {
-            SceneManager.LoadScene(PlayerPrefs.GetString("GameNumber" + 
-                                  PlayerPrefs.GetInt("StoryNumber")));
+			Debug.Log ("GN+SN: GameNumber" + PlayerPrefs.GetInt ("StoryNumber"));
+			Debug.Log ("PP(GN+SN): " + PlayerPrefs.GetString ("GameNumber" + PlayerPrefs.GetInt ("StoryNumber")));
+
+			PlayerPrefs.Save ();
+            SceneManager.LoadScene(PlayerPrefs.GetString("GameNumber" + PlayerPrefs.GetInt("StoryNumber")));
 
         } else if (axis > 0 && can_press)
         {
