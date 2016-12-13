@@ -816,7 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 680521267}
-  maxRoundNumber: 1
+  maxRoundNumber: 5
   nextScene: EndJacketSmackIt
   blueJacket: {fileID: 755986871}
   greenJacket: {fileID: 902074758}
