@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     private float waitRestart;
 
     public float time;
-    public static int rounds = 3;
+    public static int rounds = 2;
     public static bool gameWon;
 
     public static Stack<string> playerPlacing;
@@ -21,6 +21,9 @@ public class UIManager : MonoBehaviour
 
     private Transform platform;
     private float shrinkRate = 0.1f;
+    private int numPlayers;
+    private int playerNum;
+    private string winPlayer;
 
     //used to keep only one instance of this script
     public static UIManager master;
@@ -45,7 +48,13 @@ public class UIManager : MonoBehaviour
                 //also add a way to keep track of the current rounds
                 //little player icons in the corners of the screen to show score?
                 //also, destroy the script when done with everything
-                Debug.Log(playerPoints[0] + " " + playerPoints[1] + " " + playerPoints[2] + " " + playerPoints[3]);
+                PlayerPrefs.SetInt("player1_score", PlayerPrefs.GetInt("player1_score") + playerPoints[0]);
+                PlayerPrefs.SetInt("player2_score", PlayerPrefs.GetInt("player2_score") + playerPoints[1]);
+                PlayerPrefs.SetInt("player3_score", PlayerPrefs.GetInt("player3_score") + playerPoints[2]);
+                PlayerPrefs.SetInt("player4_score", PlayerPrefs.GetInt("player4_score") + playerPoints[3]);
+                //load next scene for game
+                Destroy(this);
+                //Debug.Log(playerPoints[0] + " " + playerPoints[1] + " " + playerPoints[2] + " " + playerPoints[3]);
             }
         }
     }
@@ -95,6 +104,7 @@ public class UIManager : MonoBehaviour
         waitRestart = 3f;
         time = 60f;
         gameWon = true;
+        numPlayers = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalPlayerControllerScript>().num_players;
     }
 
     // Update is called once per frame
@@ -114,17 +124,34 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            if (playerPlacing.Count >= 3)
+            //Debug.Log("Is find object getting the playerno?" + GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerMovement>().playerNo);
+            //Debug.Log("Is find object getting the playerno?" + GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerMovement>().playerNo);
+
+            if (playerPlacing.Count >= numPlayers-1)
             {
                 gameWon = true;
                 winText.gameObject.SetActive(true);
                 //get the last player alive and puts them into the stack
-                int playerNum = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().playerNo;
-                string winPlayer = "Player " + playerNum;
+                //Debug.Log("UImanager PlayerNo: " + GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().playerNo);
+                for(int i = 1; i <= 4; i++)
+                {
+                    string player = "Player" + i;
+                    
+                    if(GameObject.FindGameObjectWithTag(player) != null)
+                    {
+                        playerNum = GameObject.FindGameObjectWithTag(player).GetComponent<PlayerMovement>().playerNo;
+                        winPlayer = "Player " + i;
+                    }
+                    else
+                    {
+                        string p = "ok";
+                    }
+                }
+                    
 
                 //add points to player
                 playerPlacing.Push(winPlayer);
-                playerPoints[playerNum - 1] += playerPlacing.Count;
+                playerPoints[playerNum - 1] += 5;
 
                 winText.text = winPlayer + " wins!";
                 restart();
