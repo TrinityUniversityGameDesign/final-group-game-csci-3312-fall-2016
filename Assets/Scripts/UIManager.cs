@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public float time;
     public static int rounds = 2;
     public static bool gameWon;
+    public bool gameOver = false;
 
     public static Stack<string> playerPlacing;
     public static int[] playerPoints = new int[4];
@@ -54,6 +55,7 @@ public class UIManager : MonoBehaviour
                 PlayerPrefs.SetInt("player4_score", PlayerPrefs.GetInt("player4_score") + playerPoints[3]);
                 //load next scene for game
                 Destroy(this);
+                SceneManager.LoadScene("UsingTilesStory");
                 //Debug.Log(playerPoints[0] + " " + playerPoints[1] + " " + playerPoints[2] + " " + playerPoints[3]);
             }
         }
@@ -163,6 +165,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
+                platform = GameObject.Find("Platform").transform;
                 time -= Time.deltaTime;
                 timer.text = time.ToString("n0");
             }
