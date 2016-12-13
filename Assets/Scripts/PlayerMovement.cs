@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     //private string verticalCtrl = "Vertical_P";
     private bool dead = false;
     private Animator animationController;
+    private Animator animationController2;
     private float animSpeedMult = 1.5f; //Meant to increase the speed of the animation of the player
 
     private Quaternion originalRotation;
@@ -60,7 +61,8 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("does this happen k thanks");
         }
         theRigidBody = GetComponent<Rigidbody2D>();
-        animationController = GetComponent<Animator>();
+        animationController = transform.FindChild("TDLegs_0").GetComponent<Animator>();
+        animationController2 = transform.FindChild("TDShoulders_0").GetComponent<Animator>();
     }
 
     void Awake()
@@ -126,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 theRigidBody.velocity = new Vector3(0, 0, 0);
                 animationController.speed = 0;
+                animationController2.speed = 0;
             }
             else
             {
@@ -145,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 Vector3 tempVel = theRigidBody.velocity;
                 animationController.speed = animSpeedMult * Mathf.Abs(theRigidBody.velocity.magnitude);
+                animationController2.speed = animSpeedMult * Mathf.Abs(theRigidBody.velocity.magnitude);
                 if (theRigidBody.velocity.magnitude > 0)
                 {
                     transform.rotation = Quaternion.LookRotation(Vector3.forward, tempVel); //Currently turns towards current velocity, will probably change to turn towards player input. Maybe smooth using lerp.
